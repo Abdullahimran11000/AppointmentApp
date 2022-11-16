@@ -1,25 +1,18 @@
-
 import React from 'react';
+import {SafeAreaView} from 'react-native';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  Button,
-  useColorScheme,
-  View,
+  SafeAreaView
 } from 'react-native';
 import Socket from './src/Screens/Socket';
 import Splash from './src/Screens/Splash';
 
 const App = () => {
-  
-return (
+  return (
     <SafeAreaView>
-        <Splash />  
+      <Splash />
         <Socket />
     </SafeAreaView>
-)}
+  );
+};
 
 export default App;
