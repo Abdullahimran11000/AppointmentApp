@@ -5,7 +5,7 @@ import {AppIntroStyle} from '../assets/styles/AppIntroStyle';
 import Lottie from 'lottie-react-native';
 import SwipeButton from './SwipeButton';
 
-const AppIntro = () => {
+const AppIntro = (props) => {
   const slides = [
     {
       key: 1,
@@ -56,7 +56,7 @@ const AppIntro = () => {
               doneLabel=""
             />
           </View>
-          <SwipeButton/>
+          <SwipeButton navigation={props.navigation}/>
         </View>
       </SafeAreaView>
     </ScrollView>

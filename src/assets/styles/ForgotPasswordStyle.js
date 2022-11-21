@@ -5,9 +5,8 @@ import {
 } from 'react-native-responsive-screen';
 
 const ForgotPasswordStyle = StyleSheet.create({
-  mainView: {height: hp('100')},
-  headingView:{alignItems:'center'},
-  headingText: {fontFamily: 'Poppins-Bold', fontSize: 16, color: "black", padding:15},
+  mainView: {},
+  headingView:{alignItems:'center',justifyContent:"center"},
   animationView: {alignItems: 'center'},
   animationStyle: {width: wp('90'), height: hp('35')},
   tagText: {fontFamily: 'Poppins-SemiBold', fontSize: 16, color: "black"},

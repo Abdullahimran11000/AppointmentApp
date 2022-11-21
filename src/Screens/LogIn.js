@@ -10,94 +10,96 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const LogIn = () => {
+const LogIn = (props) => {
   return (
     <SafeAreaView>
       <ScrollView>
-      <View styles={styles.MainView}>
+        <View styles={styles.MainView}>
+          <View>
+            <Text style={styles.TextLogIn}>LogIn</Text>
+          </View>
 
-        
+          <View style={{marginTop: 50}}>
+            <View style={{margin: 15}}>
+              <Text style={styles.TextStyle}>Email</Text>
 
-        
-        <View>
-          <Text style={styles.TextLogIn}>LogIn</Text>
-        </View>
+              <TextInput
+                placeholder="enter your email"
+                keyboardType="email-address"
+                style={styles.TextFields}></TextInput>
+            </View>
 
-        <View style={{marginTop:50}}>
-        <View style={{margin:15}}>
-          <Text style={styles.TextStyle}>Email</Text>
+            <View style={{margin: 15}}>
+              <Text style={styles.TextStyle}>password</Text>
 
-          <TextInput
-            placeholder="enter your email"
-            keyboardType="email-address"
-            style={styles.TextFields}></TextInput>
-        </View>
+              <TextInput
+                placeholder="enter your password"
+                secureTextEntry
+                style={styles.TextFields}></TextInput>
 
-        <View style={{margin:15}} >
-          <Text style={styles.TextStyle}>password</Text>
+              <Icon
+                name="eye-slash"
+                style={{
+                  position: 'absolute',
+                  marginLeft: 280,
+                  margin: 20,
+                  marginVertical: 57,
+                }}></Icon>
+            </View>
+          </View>
+          <TouchableOpacity onPress={()=>props.navigation.navigate('ForgotPassword')}>
+            <Text style={styles.ForgotText}>Forgot Password?</Text>
+          </TouchableOpacity>
 
-          <TextInput
-            placeholder="enter your password"
-            secureTextEntry
-            style={styles.TextFields}></TextInput>
+          <View style={{padding: 15}}>
+            <TouchableOpacity style={styles.Touchable}>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  color: 'white',
+                  height: 35,
 
-          <Icon
-            name="eye-slash"
+                  marginTop: 10,
+                }}>
+                Sign In
+              </Text>
+            </TouchableOpacity>
+
+            <Text style={{textAlign: 'center'}}>or</Text>
+          </View>
+
+          <TouchableOpacity
             style={{
-              position: 'absolute',
-              marginLeft: 280,
-              margin:20,
-              marginVertical: 57,
-            }}></Icon>
-        </View>
-        </View>
-        <Text style={styles.ForgotText}>Forgot Password?</Text>
-
-        <View style={{padding: 15}}>
-          <TouchableOpacity style={styles.Touchable}>
-            <Text
-              style={{
-                textAlign: 'center',
-                color: 'white',
-                height: 35,
-
-                marginTop: 10,
-              }}>
-              Sign In
+              alignContent: 'center',
+              justifyContent: 'center',
+              borderRadius: 25,
+              margin: 10,
+              paddingVertical: 20,
+              paddingHorizontal: 30,
+              flexDirection: 'row',
+              backgroundColor: 'white',
+            }}>
+            <Image
+              style={{height: 20, width: 20, marginLeft: 5}}
+              source={require('../assets/Images/google.webp')}></Image>
+            <Text style={{marginLeft: 10, color: 'black', textAlign: 'center'}}>
+              Login With Google
             </Text>
           </TouchableOpacity>
 
-          <Text style={{textAlign: 'center'}}>or</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 10,
+            }}>
+            <Text>you already have an account </Text>
+            <TouchableOpacity>
+              <Text style={{color: 'black'}}>SignIn </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-
-      
-
-<TouchableOpacity
-	style={{ alignContent:'center',justifyContent:'center',borderRadius:25,margin:10, paddingVertical:20, paddingHorizontal:30, flexDirection: 'row', backgroundColor: 'white' }}>
-  	 <Image
-              style={{height: 20, width: 20, marginLeft: 5}}
-              source={require('F:/Workspace_fyp/Workspace/ApointmentApp/src/Assets/google.webp')}></Image>
-    <Text style={{ marginLeft: 10, color: 'black',textAlign:'center' }}>
-      Login With Google
-	</Text>
-</TouchableOpacity>
-
-
-
-
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop:10
-          }}>
-          <Text>you already have an account </Text>
-          <TouchableOpacity>
-            <Text style={{color: 'black'}}>SignIn </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -119,7 +121,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: 'white',
     backgroundColor: 'white',
-    
   },
 
   ForgotText: {
@@ -140,7 +141,6 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     color: 'black',
     fontWeight: '900',
-  
   },
   Touchable: {borderRadius: 23, margin: 20, backgroundColor: '#c38cde'},
 });

@@ -9,7 +9,7 @@ import {
 import Lottie from 'lottie-react-native';
 import { CongratulationStyle } from '../assets/styles/CongratulationStyle';
 
-const Congratulation = () => {
+const Congratulation = (props) => {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -30,7 +30,7 @@ const Congratulation = () => {
             </Text>
           </View>
           <View style={CongratulationStyle.headingView}>
-            <TouchableOpacity style={CongratulationStyle.touchableStyle}>
+            <TouchableOpacity style={CongratulationStyle.touchableStyle} onPress={()=>props.navigation.navigate('AppIntro')}>
               <Text style={CongratulationStyle.touchableText}>Start Now</Text>
             </TouchableOpacity>
           </View>

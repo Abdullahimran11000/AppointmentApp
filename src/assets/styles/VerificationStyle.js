@@ -6,10 +6,10 @@ import {
 import { AppColors } from '../colors/AppColor'
 
 const VerificationStyle = StyleSheet.create({
-  mainView: {height: hp('100')},
   headingView:{alignItems:'center'},
-  headingText: {fontFamily: 'Poppins-Bold', fontSize: 16, color: "black", padding:15},
-  animationView: {alignItems: 'center'},
+  headerView: {flex: 1, flexDirection: 'row',  padding:15},
+  headingText: {fontFamily: 'Poppins-Bold', fontSize: 16, color: "black"},
+  animationView: {alignItems: 'center' , marginTop: 20},
   animationStyle: {width: wp('90'), height: hp('35')},
   tagView: {alignItems: "center" , paddingTop: 25},
   tagText: {fontFamily: 'Poppins-SemiBold', fontSize: 16, color: "black"},
@@ -19,12 +19,13 @@ const VerificationStyle = StyleSheet.create({
   labelView: {width: wp('90')},
   labelText: {color: 'black',fontFamily: 'Poppins-Bold',fontSize: 14},
   inputStyle: {marginTop:5 , width:wp('90') , height: hp('7'), borderRadius:10 , backgroundColor:"#f7f7f7" , padding:10, fontFamily: 'Poppins-Light'},
-  touchableView:{position: 'relative' , alignItems: "center" , paddingBottom:30},
+  touchableView:{position: 'relative' , alignItems: "center", paddingTop: 20},
   textStyle:{color: "black" , fontFamily: "Poppins-Light" , fontSize: 12},
   touchableText1: {color: AppColors.black , fontFamily: "Poppins-Light" , fontSize: 12},
   touchableStyle: {width: wp("90") , height: hp('7'), borderRadius: 50 , backgroundColor:"#c28cde" , alignItems: 'center' , marginBottom: 30},
   touchableText: {color: "white" , fontFamily: "Poppins-Bold" , fontSize: 15 , padding: 10, textAlign: "center"},
   textView: {flex: 1 , flexDirection: 'row' , justifyContent: 'space-evenly' , padding: 10},
+  buttonView:{alignItems:'center' , marginTop:30},
   newInputs: {width: wp("16") , height: wp('16') , borderRadius:10 , backgroundColor:"#f6f5f7" , fontFamily: "Poppins-Bold" , fontSize: 25 , padding: 5 , textAlign: 'center' ,},
 });
 

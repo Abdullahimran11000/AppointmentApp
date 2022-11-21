@@ -9,15 +9,15 @@ import {
 } from 'react-native';
 import Lottie from 'lottie-react-native';
 import {VerificationStyle} from '../assets/styles/VerificationStyle';
+import BackButton from './BackButton';
 
-const Verification = () => {
+const Verification = (props) => {
   return (
     <SafeAreaView>
       <ScrollView>
         <View style={VerificationStyle.mainView}>
-          <View style={VerificationStyle.headingView}>
-            <Text style={VerificationStyle.headingText}>Verification</Text>
-          </View>
+          <BackButton onPress={()=>props.navigation.goBack()}>{'Verification'}</BackButton>
+
           <View style={VerificationStyle.animationView}>
             <Lottie
               style={VerificationStyle.animationStyle}
@@ -34,8 +34,7 @@ const Verification = () => {
               email
             </Text>
           </View>
-          <View
-            style={VerificationStyle.textView}>
+          <View style={VerificationStyle.textView}>
             <TextInput
               style={VerificationStyle.newInputs}
               maxLength={1}
@@ -59,8 +58,8 @@ const Verification = () => {
               <Text style={VerificationStyle.touchableText1}>Resend code</Text>
             </TouchableOpacity>
           </View>
-          <View style={VerificationStyle.headingView}>
-            <TouchableOpacity style={VerificationStyle.touchableStyle}>
+          <View style={VerificationStyle.buttonView}>
+            <TouchableOpacity style={VerificationStyle.touchableStyle} onPress={()=>props.navigation.navigate('RecoverPassword')}>
               <Text style={VerificationStyle.touchableText}>Verify</Text>
             </TouchableOpacity>
           </View>
