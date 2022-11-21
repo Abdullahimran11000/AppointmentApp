@@ -9,15 +9,15 @@ import {
 } from 'react-native';
 import Lottie from 'lottie-react-native';
 import {ForgotPasswordStyle} from '../assets/styles/ForgotPasswordStyle';
+import BackButton from './BackButton';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const ForgotPassword = () => {
+const ForgotPassword = (props) => {
   return (
     <SafeAreaView>
       <ScrollView>
         <View style={ForgotPasswordStyle.mainView}>
-          <View style={ForgotPasswordStyle.headingView}>
-            <Text style={ForgotPasswordStyle.headingText}>Forgot Password</Text>
-          </View>
+          <BackButton onPress={()=>props.navigation.goBack()}>{'Forgot Password'}</BackButton>
           <View style={ForgotPasswordStyle.animationView}>
             <Lottie
               style={ForgotPasswordStyle.animationStyle}
@@ -49,7 +49,7 @@ const ForgotPassword = () => {
             </TouchableOpacity>
           </View>
           <View style={ForgotPasswordStyle.headingView}>
-            <TouchableOpacity style={ForgotPasswordStyle.touchableStyle}>
+            <TouchableOpacity style={ForgotPasswordStyle.touchableStyle} onPress={()=>props.navigation.navigate('Verification')}>
               <Text style={ForgotPasswordStyle.touchableText}>Send</Text>
             </TouchableOpacity>
           </View>

@@ -10,18 +10,15 @@ import {
 import Lottie from 'lottie-react-native';
 import {RecoverPasswordStyle} from '../assets/styles/RecoverPasswordStyle';
 import Entypo from 'react-native-vector-icons/Entypo';
+import BackButton from './BackButton';
 
-const RecoverPassword = () => {
+const RecoverPassword = (props) => {
   const [eye, setEye] = useState(false);
   return (
     <SafeAreaView>
       <ScrollView>
         <View style={RecoverPasswordStyle.mainView}>
-          <View style={RecoverPasswordStyle.headingView}>
-            <Text style={RecoverPasswordStyle.headingText}>
-              Recovery Password
-            </Text>
-          </View>
+          <BackButton onPress={()=>props.navigation.goBack()}>{'Recovery Password'}</BackButton>
           <View style={RecoverPasswordStyle.animationView}>
             <Lottie
               style={RecoverPasswordStyle.animationStyle}
@@ -107,7 +104,7 @@ const RecoverPassword = () => {
             </TouchableOpacity>
           </View>
           <View style={RecoverPasswordStyle.buttonView}>
-            <TouchableOpacity style={RecoverPasswordStyle.touchableStyle}>
+            <TouchableOpacity style={RecoverPasswordStyle.touchableStyle} onPress={()=>props.navigation.navigate('Congratulation')}>
               <Text style={RecoverPasswordStyle.touchableText}>Save</Text>
             </TouchableOpacity>
           </View>
