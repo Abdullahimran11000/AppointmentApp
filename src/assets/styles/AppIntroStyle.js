@@ -13,3 +13,4 @@ const AppIntroStyle = StyleSheet.create({
 });
 
 export {AppIntroStyle};
+

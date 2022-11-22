@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+
 const ForgotPasswordStyle = StyleSheet.create({
   mainView: {},
   headingView:{alignItems:'center',justifyContent:"center"},

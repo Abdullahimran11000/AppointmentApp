@@ -5,6 +5,7 @@ import {
 } from 'react-native-responsive-screen';
 import { AppColors } from '../colors/AppColor'
 
+
 const VerificationStyle = StyleSheet.create({
   headingView:{alignItems:'center'},
   headerView: {flex: 1, flexDirection: 'row',  padding:15},
