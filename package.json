@@ -7,11 +7,18 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "patch-package"
   },
   "dependencies": {
+    "deprecated-react-native-prop-types": "^2.3.0",
+    "patch-package": "^6.5.0",
     "react": "18.1.0",
-    "react-native": "0.70.5"
+    "react-native": "0.70.5",
+    "react-native-body-highlighter": "^2.1.0",
+    "react-native-paper": "^5.0.0-rc.10",
+    "react-native-responsive-screen": "^1.4.2",
+    "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
