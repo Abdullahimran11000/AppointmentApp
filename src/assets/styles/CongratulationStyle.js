@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+
 const CongratulationStyle = StyleSheet.create({
   mainView: {height: hp('100')},
   headingView:{alignItems:'center' , marginTop: 60},

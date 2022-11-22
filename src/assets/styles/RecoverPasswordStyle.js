@@ -5,6 +5,7 @@ import {
 } from 'react-native-responsive-screen';
 import { AppColors } from '../colors/AppColor';
 
+
 const RecoverPasswordStyle = StyleSheet.create({
   mainView: {},
   headingView:{alignItems:'center'},
