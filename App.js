@@ -1,6 +1,7 @@
 import React from 'react';
 import AppIntro from './src/screens/AppIntro';
-import LogIn from './src/screens/LogIn'
+import LogIn from './src/screens/LogIn';
+import SignUp from './src/screens/SignUp'
 import RecoverPassword from './src/screens/RecoverPassword';
 import ForgotPassword from './src/screens/ForgotPassword';
 import Verification from './src/screens/Verification';
@@ -18,6 +19,7 @@ const App = () => {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="AppIntro" component={AppIntro}/>
         <Stack.Screen name="LogIn" component={LogIn}/>
+        <Stack.Screen name="SignUp" component={SignUp}/>
         <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
         <Stack.Screen name="Verification" component={Verification}/>
         <Stack.Screen name="RecoverPassword" component={RecoverPassword}/>
