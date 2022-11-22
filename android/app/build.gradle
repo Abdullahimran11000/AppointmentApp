@@ -157,7 +157,7 @@ android {
                 ndk {
                     abiFilters (*reactNativeArchitectures())
                 }
-            }
+            } 
         }
     }
 
