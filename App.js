@@ -6,6 +6,7 @@ import RecoverPassword from './src/screens/RecoverPassword';
 import ForgotPassword from './src/screens/ForgotPassword';
 import Verification from './src/screens/Verification';
 import Congratulation from './src/screens/Congratulation';
+import DoctorInfo from './src/screens/DoctorInfo';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -17,7 +18,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="AppIntro" component={AppIntro}/>
+        <Stack.Screen name="DoctorInfo" component={DoctorInfo}/>
         <Stack.Screen name="LogIn" component={LogIn}/>
         <Stack.Screen name="SignUp" component={SignUp}/>
         <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
