@@ -9,15 +9,15 @@ import {
   ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import BackButton from './BackButton';
 
 const LogIn = (props) => {
   return (
     <SafeAreaView>
       <ScrollView>
         <View styles={styles.MainView}>
-          <View>
-            <Text style={styles.TextLogIn}>LogIn</Text>
-          </View>
+        <BackButton onPress={()=> props.navigation.goBack()}>{'LogIn'}</BackButton>
+
 
           <View style={{marginTop: 50}}>
             <View style={{margin: 15}}>
@@ -81,7 +81,7 @@ const LogIn = (props) => {
             }}>
             <Image
               style={{height: 20, width: 20, marginLeft: 5}}
-              source={require('../assets/Images/google.webp')}></Image>
+              source={require('../assets/images/google.webp')}></Image>
             <Text style={{marginLeft: 10, color: 'black', textAlign: 'center'}}>
               Login With Google
             </Text>
@@ -95,7 +95,7 @@ const LogIn = (props) => {
               marginTop: 10,
             }}>
             <Text>you already have an account </Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=> props.navigation.navigate('SignUp')}>
               <Text style={{color: 'black'}}>SignIn </Text>
             </TouchableOpacity>
           </View>
