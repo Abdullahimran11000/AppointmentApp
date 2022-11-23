@@ -19,30 +19,30 @@ const SignUp = props => {
         <View>
           <BackButton onPress={()=> props.navigation.goBack()}>{'Sign Up'}</BackButton>
           <View style={{marginLeft: 30, marginTop: 30}}>
-            <Text style={{fontSize: 15, fontWeight: 'bold', color: 'black'}}>
+            <Text style={{fontSize: 15, color: 'black',fontFamily:"Poppins-SemiBold"}}>
               Fullname
             </Text>
             <TextInput
-              style={{width: 300, marginTop: 10, borderRadius: 5}}
+              style={{width: 300, marginTop: 10, borderRadius: 5,fontFamily:"Poppins-SemiBold"}}
               keyboardType="default"
               placeholder="Enter Your Name"
               backgroundColor="white"></TextInput>
           </View>
           <View style={{marginTop: 20, marginLeft: 30}}>
-            <Text style={{fontSize: 15, fontWeight: 'bold', color: 'black'}}>
+            <Text style={{fontSize: 15,  color: 'black',fontFamily:"Poppins-SemiBold"}}>
               Email
             </Text>
             <TextInput
-              style={{width: 300, marginTop: 10, borderRadius: 5}}
+              style={{width: 300, marginTop: 10, borderRadius: 5, fontFamily:"Poppins-SemiBold"}}
               keyboardType="email-address"
               selectionColor={'#c28cde'}
               placeholder="Enter your Email"
               backgroundColor="white"></TextInput>
           </View>
           <View style={{marginTop: 20, marginLeft: 30}}>
-            <Text style={{fontWeight: 'bold', color: 'black'}}>Password</Text>
+            <Text style={{ color: 'black',fontFamily:"Poppins-SemiBold"}}>Password</Text>
             <TextInput
-              style={{width: 300, marginTop: 10, borderRadius: 5}}
+              style={{width: 300, marginTop: 10, borderRadius: 5,fontFamily:"Poppins-SemiBold"}}
               keyboardType="default"
               // maxLength={10}
               secureTextEntry={true}
@@ -66,29 +66,30 @@ const SignUp = props => {
                 position: 'absolute',
                 marginHorizontal: 35,
                 marginTop: 8,
+                fontFamily:"Poppins-Regular"
               }}>
               I agree with
             </Text>
             <Text
               style={{
                 position: 'absolute',
-                marginLeft: 110,
-                marginTop: 8,
-                fontWeight: 'bold',
+                marginLeft: 118,
+                marginTop: 7.5,
                 color: 'black',
+                fontFamily:"Poppins-Bold"
               }}>
               terms
             </Text>
-            <Text style={{position: 'absolute', marginLeft: 150, marginTop: 8}}>
+            <Text style={{position: 'absolute', marginLeft: 164, marginTop: 8}}>
               and
             </Text>
             <Text
               style={{
                 position: 'absolute',
-                marginLeft: 177,
-                marginTop: 8,
-                fontWeight: 'bold',
+                marginLeft: 190,
+                marginTop: 7.5,
                 color: 'black',
+                fontFamily:"Poppins-Bold"
               }}>
               privacy
             </Text>
@@ -105,10 +106,10 @@ const SignUp = props => {
                 alignItems: 'center',
                 backgroundColor: '#c28cde',
                 width: 300,
-                padding: 10,
+                padding: 9,
                 borderRadius: 20,
               }}>
-              <Text style={{color: 'white', fontWeight: 'bold'}}>Sign Up</Text>
+              <Text style={{color: 'white',fontFamily:"Poppins-SemiBold"}}>Sign Up</Text>
             </TouchableOpacity>
             <Text style={{marginTop: 10, textAlign: 'center', marginLeft: 70}}>
               Or
@@ -123,21 +124,21 @@ const SignUp = props => {
                 width: 300,
               }}>
               <Image
-                style={{width: 20, height: 20, marginLeft: 77}}
+                style={{width: 20, height: 20, marginLeft: 70}}
                 source={require('../assets/images/google.jpg')}
               />
               <Text
-                style={{position: 'absolute', marginLeft: 115, marginTop: 10}}>
+                style={{position: 'absolute', marginLeft: 105, marginTop: 10,fontFamily:"Poppins-SemiBold"}}>
                 Sign in With this
               </Text>
             </TouchableOpacity>
           </View>
           <View style={{alignSelf: 'center', marginTop: 10, marginRight: 50}}>
-            <Text>Already have an Account?</Text>
+            <Text style={{fontFamily:"Poppins-Light"}}>Already have an Account?</Text>
             <TouchableOpacity
-              style={{position: 'absolute', marginLeft: 165}}
+              style={{position: 'absolute', marginLeft: 186}}
               onPress={() => props.navigation.goBack()}>
-              <Text style={{fontWeight: 'bold', color: 'black'}}>Log in</Text>
+              <Text style={{color: 'black',fontFamily:"Poppins-Medium"}}>Log in</Text>
             </TouchableOpacity>
           </View>
         </View>
