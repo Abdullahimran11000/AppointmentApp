@@ -1,10 +1,14 @@
 import React from 'react';
-import AppIntro from './src/Screens/AppIntro';
-import LogIn from './src/Screens/LogIn';
-import ForgotPassword from './src/Screens/ForgotPassword';
-import Verification from './src/Screens/Verification';
-import RecoverPassword from './src/Screens/RecoverPassword';
-import Congratulation from './src/Screens/Congratulation';
+
+import AppIntro from './src/screnns/AppIntro';
+import LogIn from './src/screnns/LogIn';
+import SignUp from './src/screnns/SignUp'
+import RecoverPassword from './src/screnns/RecoverPassword';
+import ForgotPassword from './src/screnns/ForgotPassword';
+import Verification from './src/screnns/Verification';
+import Congratulation from './src/screnns/Congratulation';
+import DoctorInfo from './src/screnns/DoctorInfo';
+
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -16,8 +20,9 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="AppIntro" component={AppIntro}/>
+        <Stack.Screen name="DoctorInfo" component={DoctorInfo}/>
         <Stack.Screen name="LogIn" component={LogIn}/>
+        <Stack.Screen name="SignUp" component={SignUp}/>
         <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
         <Stack.Screen name="Verification" component={Verification}/>
         <Stack.Screen name="RecoverPassword" component={RecoverPassword}/>
@@ -27,4 +32,6 @@ const App = () => {
   );
 };
 
+
 export default App;
+
