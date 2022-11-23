@@ -36,9 +36,9 @@ const DoctorHeader = props => {
             }}>
             <AntDesign
               name={fill}
-              size={25}
+              size={20}
               color={color}
-              style={{marginVertical: 6}}
+              style={{marginVertical: 8}}
             />
           </TouchableOpacity>
         </View>
