@@ -1,10 +1,10 @@
 import React from 'react';
-import AppIntro from './src/screens/AppIntro';
-import LogIn from './src/screens/LogIn'
-import RecoverPassword from './src/screens/RecoverPassword';
-import ForgotPassword from './src/screens/ForgotPassword';
-import Verification from './src/screens/Verification';
-import Congratulation from './src/screens/Congratulation';
+import AppIntro from './src/Screens/AppIntro';
+import LogIn from './src/Screens/LogIn';
+import ForgotPassword from './src/Screens/ForgotPassword';
+import Verification from './src/Screens/Verification';
+import RecoverPassword from './src/Screens/RecoverPassword';
+import Congratulation from './src/Screens/Congratulation';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
