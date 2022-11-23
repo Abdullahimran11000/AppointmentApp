@@ -110,7 +110,7 @@ const LogIn = props => {
             <Text style={{marginBottom: 3}}>Don't have an account? </Text>
             <TouchableOpacity />
             <Text style={{fontFamily: 'Poppins-SemiBold', color: 'black'}}>
-              Sign Up{' '}
+              Sign Up
             </Text>
           </View>
         </View>
