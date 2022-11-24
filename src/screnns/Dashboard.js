@@ -21,6 +21,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import DoctorBar from './DoctorBar';
+import DoctorCategories from './DoctorCategories';
 
 const Dashboard = props => {
   const [fill, setFill] = useState('hearto');
@@ -89,6 +90,15 @@ const Dashboard = props => {
             </View>
           </LinearGradient>
           <DoctorBar One={'Categories'} Two={"See all"}></DoctorBar>
+
+          <View style={{width: wp('90'), height: hp('15'), margin:15, alignSelf: 'center'}}>
+            <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
+              <DoctorCategories text={'Urology'} source={require('../assets/images/urology.png')} color={'rgba(195, 140, 222, 0.5)'}/>
+              <DoctorCategories marginLeft={10} text={'Radiology'} source={require('../assets/images/radiology.png')} color={'rgba(195, 140, 222, 0.8)'}/>
+            </View>
+          </View>
+
+
           <DoctorBar One={'Nearby Doctor'} Two={"See all"}></DoctorBar>
 
           <View style={{width: wp('35'), height: hp('50'), margin:15}}>

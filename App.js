@@ -7,7 +7,7 @@ import RecoverPassword from './src/screnns/RecoverPassword';
 import ForgotPassword from './src/screnns/ForgotPassword';
 import Verification from './src/screnns/Verification';
 import Congratulation from './src/screnns/Congratulation';
-import DoctorInfo from './src/screnns/DoctorInfo';
+import Dashboard from './src/screnns/Dashboard';
 
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -20,7 +20,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="DoctorInfo" component={DoctorInfo}/>
+        <Stack.Screen name="Dashboard" component={Dashboard}/>
         <Stack.Screen name="LogIn" component={LogIn}/>
         <Stack.Screen name="SignUp" component={SignUp}/>
         <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
