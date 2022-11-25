@@ -48,7 +48,7 @@ const MyProfile = () => {
               imageStyle={{borderRadius: 50}}
               style={styles.image}
               resizeMode="cover"
-              source={require('F:/Workspace_fyp/Workspace/ApointmentApp/src/assets/images/pexels-juliana-stein-1898555.jpg')}>
+              source={require('../assets/images/profile.jpg')}>
               <TouchableOpacity
                 style={{
                   width: 30,
