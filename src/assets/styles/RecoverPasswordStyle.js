@@ -7,7 +7,6 @@ import { AppColors } from '../colors/AppColor';
 
 
 const RecoverPasswordStyle = StyleSheet.create({
-  mainView: {},
   headingView:{alignItems:'center'},
   headingText: {fontFamily: 'Poppins-Bold', fontSize: 16, color: "black", padding:15},
   animationView: {alignItems: 'center'},

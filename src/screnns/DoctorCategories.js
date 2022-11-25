@@ -7,12 +7,12 @@ import {
 
 const DoctorCategories = (props) => {
   return (
-    <View style={{marginLeft: props.marginLeft}}>
+    <View style={{marginRight: props.marginRight, marginBottom: props.marginBottom}}>
       <View
         style={{
-          width: wp('18'),
-          height: wp('18'),
-          borderRadius: wp('5'),
+          width: props.boxWidth,
+          height: props.boxHeight,
+          borderRadius: props.boxRadius,
           backgroundColor: props.color,
           alignItems: 'center',
           justifyContent: 'center',
@@ -24,7 +24,7 @@ const DoctorCategories = (props) => {
       </View>
       <View style={{marginTop: 5}}>
         <Text
-          style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'black'}}>
+          style={{fontFamily: 'Poppins-Regular', fontSize: 11, color: 'black', textAlign:'center'}}>
           {props.text}
         </Text>
       </View>
