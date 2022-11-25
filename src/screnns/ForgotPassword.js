@@ -10,7 +10,6 @@ import {
 import Lottie from 'lottie-react-native';
 import {ForgotPasswordStyle} from '../assets/styles/ForgotPasswordStyle';
 import BackButton from './BackButton';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const ForgotPassword = (props) => {
   return (
