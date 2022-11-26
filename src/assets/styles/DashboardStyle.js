@@ -33,7 +33,7 @@ const DashboardStyle = StyleSheet.create({
     
     doctorCard: {width: wp("35"), height: wp('35'), borderRadius: wp('8'), marginTop: 10},
     doctorCont: {marginLeft:5},
-    doctorCardImage: {width: wp('30'), height: hp('20')},
+    doctorCardImage: {width: wp('31'), height: hp('20.2')},
     doctorHeaderCont: {display: 'flex', flex:1, flexDirection: 'row'},
     doctorHeaderContInnerCont: {position: 'absolute', right:-5 , marginTop: 15},
     doctorHeaderContTouchable: {width: wp('6'), height: wp('6'), borderRadius: wp('6'), backgroundColor: 'rgba(255, 255, 255, 0.5)', alignItems: 'center', justifyContent: 'center'},

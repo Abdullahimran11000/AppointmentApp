@@ -11,6 +11,9 @@ import Verification from './src/screnns/Verification';
 import Congratulation from './src/screnns/Congratulation';
 import Dashboard from './src/screnns/Dashboard';
 import DoctorDepartment from './src/screnns/DoctorDepartment';
+import DoctorCard from './src/screnns/DoctorCard';
+import DoctorNearBy from './src/screnns/DoctorNearby';
+import SearchDoctor from './src/screnns/SearchDoctor';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -23,6 +26,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         {/* <Stack.Screen name="DoctorDepartment" component={DoctorDepartment}/>
+
+        <Stack.Screen name="SearchDoctor" component={SearchDoctor}/>
         <Stack.Screen name="LogIn" component={LogIn}/>
         <Stack.Screen name="SignUp" component={SignUp}/>
         <Stack.Screen name="ForgotPassword" component={ForgotPassword}/> */}
@@ -32,7 +37,7 @@ const App = () => {
         <Stack.Screen name="RecoverPassword" component={RecoverPassword}/>
         <Stack.Screen name="Congratulation" component={Congratulation}/>
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer> 
   );
 };
 

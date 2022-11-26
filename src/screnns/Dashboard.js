@@ -10,7 +10,6 @@ import {
   TextInput,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import {DashboardStyle} from '../assets/styles/DashboardStyle';
 import {
   widthPercentageToDP as wp,
@@ -19,14 +18,11 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import DoctorBar from './DoctorBar';
 import DoctorCategories from './DoctorCategories';
+import DoctorCard from './DoctorCard';
 
 const Dashboard = props => {
-  const [fill, setFill] = useState('hearto');
-  const [color, setColor] = useState('#FFFFFF');
-
   return (
     <SafeAreaView>
       <ScrollView>
@@ -93,62 +89,21 @@ const Dashboard = props => {
 
           <View style={{width: wp('90'), height: hp('15'), margin:15, alignSelf: 'center'}}>
             <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
-              <DoctorCategories text={'Urology'} source={require('../assets/images/urology.png')} color={'rgba(195, 140, 222, 0.5)'}/>
-              <DoctorCategories marginLeft={10} text={'Radiology'} source={require('../assets/images/radiology.png')} color={'rgba(195, 140, 222, 0.8)'}/>
+              <DoctorCategories text={'Urology'} source={require('../assets/images/urology.png')} color={'rgba(195, 140, 222, 0.5)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
+              <DoctorCategories text={'Radiology'} source={require('../assets/images/radiology.png')} color={'rgba(247, 106, 106, 0.5)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
+              <DoctorCategories text={'Cardiology'} source={require('../assets/images/cardiology.png')} color={'rgba(134, 247, 194, 0.4)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
             </View>
           </View>
 
-
           <DoctorBar One={'Nearby Doctor'} Two={"See all"}></DoctorBar>
 
-          <View style={{width: wp('35'), height: hp('50'), margin:15}}>
-            <LinearGradient colors={['rgba(195, 140, 222, 0.8)', 'rgba(195, 140, 222, 0.8)', 'rgba(195, 140, 222, 0.8)']} start={{x: 0, y: 0.5}} end={{x: 1, y: 0.5}} locations={[0.1, 0.3, 0.9]} style={DashboardStyle.doctorCard}>
-              <View>
-                <View style={DashboardStyle.doctorCont}>
-                  <ImageBackground style={DashboardStyle.doctorCardImage} source={require('../assets/images/doctorsInfo.png')} resizeMode="cover">
-                    <View style={DashboardStyle.doctorHeaderCont}>
-                      <View style={DashboardStyle.doctorHeaderContInnerCont}>
-                        <TouchableOpacity style={DashboardStyle.doctorHeaderContTouchable}
-                          onPress={() => {
-                            if (fill === 'heart') {
-                              setFill('hearto');
-                              setColor('#FFFFFF');
-                            } else {
-                              setFill('heart');
-                              setColor('#f56262');
-                            }
-                          }}>
-                          <AntDesign name={fill} size={15} color={color}/>
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  </ImageBackground>
-                </View>
-              </View>
-            </LinearGradient>
-            <View style={DashboardStyle.doctorLowerContFirstHeading}>
-              <Text style={DashboardStyle.doctorLowerContFirstHeadingText}>Dr. Amanda</Text>
+          <View style={{width: wp('90')}}>
+            <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
+            <DoctorCard color={'rgba(195, 140, 222, 0.5)'} source={require('../assets/images/doctorsInfo.png')} name={'Dr. Amanda'} dept={'Dentist'} star={'4.5'} experience={'5 years'}/>
+            <DoctorCard color={'rgba(247, 106, 106, 0.4)'} source={require('../assets/images/drOmer.png')} name={'Dr. Omer'} dept={'Urology'} star={'4.0'} experience={'2 years'}/>
             </View>
-            <View>
-              <Text style={DashboardStyle.doctorLowerContSecondHeadingText}>Dentist</Text>
-            </View>
-            <View>
-              <View style={DashboardStyle.doctorLowerFlexView}>
-                <View style={DashboardStyle.doctorLowerFlexTouchableView}>
-                  <TouchableOpacity><AntDesign name='star' size={15} color="#FFD700"/></TouchableOpacity>
-                </View>
-                <View style={DashboardStyle.doctorLowerFlexTextOneView}>
-                  <Text style={DashboardStyle.doctorLowerFlexTextOne}>4.5</Text>
-                </View>
-                <View style={DashboardStyle.doctorLowerFlexIconView}>
-                  <MaterialIcons name="work" size={15} color= 'rgba(0, 0, 0, 1)'></MaterialIcons>
-                </View>
-                <View style={DashboardStyle.doctorLowerFlexTextTwoView}>
-                  <Text style={DashboardStyle.doctorLowerFlexTextTwo}>7 years</Text>
-                </View>
-              </View>
-            </View>
-          </View>  
+          </View>
+          
         </View>
       </ScrollView>
     </SafeAreaView>
