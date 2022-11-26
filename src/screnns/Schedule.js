@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import BackButton from './BackButton';
+import {shadow} from 'react-native-paper';
 const Schedule = () => {
   const [showModal, setShowModal] = useState(false);
   const [color, setColor] = useState('black');
@@ -19,10 +20,9 @@ const Schedule = () => {
     if (color === 'black' && backColor === '#E8E4E4') {
       setColor('white');
       setBackColor('#F9947F');
-    }
-    else {
-        setColor('black')
-        setBackColor('#E8E4E4')
+    } else {
+      setColor('black');
+      setBackColor('#E8E4E4');
     }
   };
   return (
@@ -97,7 +97,6 @@ const Schedule = () => {
                   marginLeft: 30,
                   padding: 3,
                   borderRadius: 20,
-                  paddingHorizontal: 20,
                   color: 'black',
                   fontFamily: 'Poppins-Regular',
                   fontSize: 12,
@@ -114,7 +113,6 @@ const Schedule = () => {
                   marginLeft: 30,
                   padding: 3,
                   borderRadius: 20,
-                  paddingHorizontal: 20,
                   marginRight: 30,
                   color: 'black',
                   fontFamily: 'Poppins-Regular',
@@ -139,7 +137,6 @@ const Schedule = () => {
                   marginLeft: 30,
                   padding: 3,
                   borderRadius: 20,
-                  paddingHorizontal: 20,
                   color: 'black',
                   fontFamily: 'Poppins-Regular',
                   fontSize: 12,
@@ -156,7 +153,6 @@ const Schedule = () => {
                   marginLeft: 30,
                   padding: 3,
                   borderRadius: 20,
-                  paddingHorizontal: 20,
                   color: 'black',
                   fontFamily: 'Poppins-Regular',
                   fontSize: 12,
@@ -173,7 +169,6 @@ const Schedule = () => {
                   marginLeft: 30,
                   padding: 3,
                   borderRadius: 20,
-                  paddingHorizontal: 20,
                   marginRight: 30,
                   color: 'black',
                   fontFamily: 'Poppins-Regular',
@@ -209,7 +204,6 @@ const Schedule = () => {
                   marginLeft: 30,
                   padding: 3,
                   borderRadius: 20,
-                  paddingHorizontal: 20,
                   textAlign: 'center',
                   color: 'black',
                   fontFamily: 'Poppins-Regular',
@@ -227,7 +221,6 @@ const Schedule = () => {
                   marginLeft: 30,
                   padding: 3,
                   borderRadius: 20,
-                  paddingHorizontal: 20,
                   textAlign: 'center',
                   color: 'black',
                   fontFamily: 'Poppins-Regular',
@@ -244,7 +237,6 @@ const Schedule = () => {
                   marginLeft: 30,
                   padding: 3,
                   borderRadius: 20,
-                  paddingHorizontal: 20,
                   marginRight: 30,
                   textAlign: 'center',
                   color: 'black',
@@ -256,17 +248,20 @@ const Schedule = () => {
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={colorHandler}
+              style={{
+                backgroundColor: backColor,
+                width: 100,
+                marginLeft: 15,
+                padding: 3,
+                marginTop: 10,
+                borderRadius: 20,
+              }}>
               <Text
                 style={{
-                  backgroundColor: '#E8E4E4',
-                  width: 100,
-                  marginLeft: 15,
-                  padding: 3,
-                  marginTop: 10,
-                  borderRadius: 20,
                   textAlign: 'center',
-                  color: 'black',
+                  color: color,
                   fontFamily: 'Poppins-Regular',
                   fontSize: 12,
                 }}>
@@ -294,7 +289,11 @@ const Schedule = () => {
               </Text>
             </TouchableOpacity>
           </View>
-          <Modal visible={showModal} transparent>
+          <Modal
+            visible={showModal}
+            transparent
+            animationType="slide"
+            onRequestClose={() => setShowModal(!showModal)}>
             <View
               style={{
                 width: 340,
@@ -303,38 +302,44 @@ const Schedule = () => {
                 marginVertical: 70,
                 borderRadius: 30,
                 alignItems: 'center',
-                backgroundColor:"white"
+                backgroundColor: 'white',
+                borderWidth: 1,
+                justifyContent: 'center',
               }}>
               <Lottie
                 source={require('../assets/animations/bookApp.json')}
                 style={{width: 200, height: 200}}
                 autoPlay
               />
-              <View style={{width:150,}}>
-                <Text style={{fontFamily:"Poppins-Bold"}}>Your Appointment has been Created</Text>
-              </View>
-              <View style={{width:250,padding:20}}>
-                <Text style={{fontFamily:"Poppins-Light",fontSize:12}}>
-                    Your appointment with Dr. Mazhar Salahudiin moak was made on wednesday,March 22 at 16:02 pm
+              <View style={{width: 150}}>
+                <Text style={{fontFamily: 'Poppins-Bold'}}>
+                  Your Appointment has been Created
                 </Text>
               </View>
-              <View style={{padding: 10, alignItems: 'center', marginVertical: 10}}>
-                <TouchableOpacity 
-                style={{
-                backgroundColor: 'red',
-                padding: 10,
-                width: 220,
-                borderRadius: 30,
-                backgroundColor: '#c28cde',
-              }}>
-                <Text
-                style={{
-                  textAlign: 'center',
-                  color: 'white',
-                  fontFamily: 'Poppins-SemiBold',
-                }}>
-                Done
-              </Text>
+              <View style={{width: 250, padding: 20}}>
+                <Text style={{fontFamily: 'Poppins-Light', fontSize: 12}}>
+                  Your appointment with Dr. Mazhar Salahudiin moak was made on
+                  wednesday,March 22 at 16:02 pm
+                </Text>
+              </View>
+              <View
+                style={{padding: 10, alignItems: 'center', marginVertical: 10}}>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: 'red',
+                    padding: 10,
+                    width: 220,
+                    borderRadius: 30,
+                    backgroundColor: '#c28cde',
+                  }}>
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      color: 'white',
+                      fontFamily: 'Poppins-SemiBold',
+                    }}>
+                    Done
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
