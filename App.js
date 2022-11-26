@@ -3,6 +3,8 @@ import React from 'react';
 import AppIntro from './src/screnns/AppIntro';
 import LogIn from './src/screnns/LogIn';
 import SignUp from './src/screnns/SignUp'
+import Schedule from './src/screnns/Schedule';
+import Maps from './src/screnns/Maps';
 import RecoverPassword from './src/screnns/RecoverPassword';
 import ForgotPassword from './src/screnns/ForgotPassword';
 import Verification from './src/screnns/Verification';
@@ -23,10 +25,14 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        {/* <Stack.Screen name="DoctorDepartment" component={DoctorDepartment}/>
+
         <Stack.Screen name="SearchDoctor" component={SearchDoctor}/>
         <Stack.Screen name="LogIn" component={LogIn}/>
         <Stack.Screen name="SignUp" component={SignUp}/>
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword}/> */}
+        <Stack.Screen name='Dashboard' component={Dashboard}/>
+        <Stack.Screen name="Schedule" component={Schedule}/>
         <Stack.Screen name="Verification" component={Verification}/>
         <Stack.Screen name="RecoverPassword" component={RecoverPassword}/>
         <Stack.Screen name="Congratulation" component={Congratulation}/>
