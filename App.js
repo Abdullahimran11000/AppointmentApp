@@ -31,7 +31,7 @@ const App = () => {
         <Stack.Screen name="RecoverPassword" component={RecoverPassword}/>
         <Stack.Screen name="Congratulation" component={Congratulation}/>
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer> 
   );
 };
 
