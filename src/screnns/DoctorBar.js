@@ -23,7 +23,7 @@ const DoctorBar = (props) => {
         </Text>
       </View>
       <View style={{position: 'absolute', right: 0}}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={props.onPress}>
           <Text
             style={{fontFamily: 'Poppins-Light', color: 'rgba(0, 0, 0, 0.6)'}}>
             {props.Two}

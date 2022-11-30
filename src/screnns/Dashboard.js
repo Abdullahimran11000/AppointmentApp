@@ -85,7 +85,7 @@ const Dashboard = props => {
               </View>
             </View>
           </LinearGradient>
-          <DoctorBar One={'Categories'} Two={"See all"}></DoctorBar>
+          <DoctorBar One={'Categories'} Two={"See Maps"} onPress={()=>props.navigation.navigate("Maps")}></DoctorBar>
 
           <View style={{width: wp('90'), height: hp('15'), margin:15, alignSelf: 'center'}}>
             <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
@@ -95,7 +95,7 @@ const Dashboard = props => {
             </View>
           </View>
 
-          <DoctorBar One={'Nearby Doctor'} Two={"See all"}></DoctorBar>
+          <DoctorBar One={'Nearby Doctor'} Two={"Back"} onPress={()=>props.navigation.navigate('AppIntro')}></DoctorBar>
 
           <View style={{width: wp('90')}}>
             <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>

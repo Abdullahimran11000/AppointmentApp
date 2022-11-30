@@ -14,6 +14,7 @@ import DoctorDepartment from './src/screnns/DoctorDepartment';
 import DoctorCard from './src/screnns/DoctorCard';
 import DoctorNearBy from './src/screnns/DoctorNearby';
 import SearchDoctor from './src/screnns/SearchDoctor';
+import MyProfile from './src/screnns/MyProfile';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -25,17 +26,16 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="DoctorDepartment" component={DoctorDepartment}/>
-
-        <Stack.Screen name="SearchDoctor" component={SearchDoctor}/>
+        <Stack.Screen name="AppIntro" component={AppIntro}/>
         <Stack.Screen name="LogIn" component={LogIn}/>
         <Stack.Screen name="SignUp" component={SignUp}/>
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword}/> */}
-        <Stack.Screen name='Dashboard' component={Dashboard}/>
-        <Stack.Screen name="Schedule" component={Schedule}/>
-        <Stack.Screen name="Verification" component={Verification}/>
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
         <Stack.Screen name="RecoverPassword" component={RecoverPassword}/>
+        <Stack.Screen name="Verification" component={Verification}/>
         <Stack.Screen name="Congratulation" component={Congratulation}/>
+        <Stack.Screen name="Dashboard" component={Dashboard}/>
+        <Stack.Screen name="Maps" component={Maps}/>
+        <Stack.Screen name="Schedule" component={Schedule}/>
       </Stack.Navigator>
     </NavigationContainer> 
   );

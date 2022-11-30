@@ -41,7 +41,7 @@ const DoctorCard = (props) => {
                           setColor('#f56262');
                         }
                       }}>
-                      <AntDesign name={fill} size={15} color={color} />
+                      <AntDesign name={fill} size={12} color={color} />
                     </TouchableOpacity>
                   </View>
                 </View>
