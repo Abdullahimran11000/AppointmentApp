@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
 import Lottie from 'lottie-react-native';
+import  Modal  from 'react-native-modal';
 import {
   SafeAreaView,
   View,
   TextInput,
+  StyleSheet,
   Text,
   TouchableOpacity,
   ScrollView,
-  Modal,
 } from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import BackButton from './BackButton';
-import {shadow} from 'react-native-paper';
-const Schedule = () => {
+import { SlideInUp } from 'react-native-reanimated';
+import { transparent } from 'react-native-paper/lib/typescript/styles/colors';
+const Schedule = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [color, setColor] = useState('black');
   const [backColor, setBackColor] = useState('#E8E4E4');
@@ -29,7 +31,7 @@ const Schedule = () => {
     <SafeAreaView>
       <ScrollView>
         <View style={{backgroundColor: 'white'}}>
-          <BackButton />
+          <BackButton onPress={()=>props.navigation.goBack()}/>
           <View
             style={{
               width: 290,
@@ -89,14 +91,13 @@ const Schedule = () => {
                 08:00 am
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity style={{backgroundColor: '#E8E4E4',
+                width: 100,
+                marginLeft: 30,
+                borderRadius: 20,
+                justifyContent: 'center',}}>
               <Text
                 style={{
-                  backgroundColor: '#E8E4E4',
-                  width: 100,
-                  marginLeft: 30,
-                  padding: 3,
-                  borderRadius: 20,
                   color: 'black',
                   fontFamily: 'Poppins-Regular',
                   fontSize: 12,
@@ -291,20 +292,20 @@ const Schedule = () => {
           </View>
           <Modal
             visible={showModal}
-            transparent
-            animationType="slide"
-            onRequestClose={() => setShowModal(!showModal)}>
+            transparent={true}
+            backdropOpacity={"0.2"}        
+            onBackdropPress={()=>setShowModal(false)}
+            >
             <View
               style={{
-                width: 340,
+                width: 300,
                 height: 500,
                 margin: 10,
                 marginVertical: 70,
                 borderRadius: 30,
                 alignItems: 'center',
                 backgroundColor: 'white',
-                borderWidth: 1,
-                justifyContent: 'center',
+                borderWidth: 1
               }}>
               <Lottie
                 source={require('../assets/animations/bookApp.json')}
@@ -325,6 +326,7 @@ const Schedule = () => {
               <View
                 style={{padding: 10, alignItems: 'center', marginVertical: 10}}>
                 <TouchableOpacity
+                  onPress={() => setShowModal(false)}
                   style={{
                     backgroundColor: 'red',
                     padding: 10,
@@ -351,3 +353,7 @@ const Schedule = () => {
 };
 
 export default Schedule;
+
+// const style = StyleSheet.create({
+//   modalcontainer: {}
+// })

@@ -12,12 +12,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import BackButton from './BackButton';
-
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 const SignUp = props => {
   return (
     <ScrollView>
       <SafeAreaView>
-        <View>
+        <View style={{width: wp('100'),height: hp('100')}}>
           <BackButton onPress={() => props.navigation.goBack()}>
             {'Sign Up'}
           </BackButton>
