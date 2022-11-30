@@ -8,7 +8,7 @@ const DoctorHeaderStyle = StyleSheet.create({
     headerView: {display: 'flex',flex: 1, flexDirection: 'row',marginTop: 15, justifyContent: 'center'},
     iconView: {position: 'absolute', left: 0},
     iconViews: {position: 'absolute', right: 0},
-    touchableView: {width: wp('10') , height:wp('10') , backgroundColor: '#ebe6e6', borderRadius: 20, alignItems: 'center'},
+    touchableView: {width: wp('8') , height:wp('8') , backgroundColor: 'rgba(255, 255, 255, 0.3)', borderRadius: wp('8'), alignItems: 'center', justifyContent: 'center'},
     headingText: {fontFamily: 'Poppins-Bold', fontSize: 16, color: "black"},
 })
 export {DoctorHeaderStyle}
