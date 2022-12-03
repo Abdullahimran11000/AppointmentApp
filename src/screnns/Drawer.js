@@ -6,16 +6,50 @@ import {
   View,
   Animated,
   Image,
+  FlatList,
 } from 'react-native';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-
+import {ScrollView} from 'react-native-gesture-handler';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import Dashboard from './Dashboard';
 const Drawer = props => {
   const [showMenu, setShowMenu] = useState(false);
+  const [openDrawer , setOpenDrawer] = useState(false)
   const moveRight = useRef(new Animated.Value(1)).current;
   const scaling = useRef(new Animated.Value(0)).current;
 
+  const animatedFun = () => {
+    Animated.timing(scaling, {
+      toValue: showMenu ? 1 : 0.8,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(moveRight, {
+      toValue: showMenu ? 0 : 220,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+    setShowMenu(!showMenu);
+    setOpenDrawer(true)
+  };
+
+  const data = [
+    {image: require('../assets/images/user.png'), title: 'My Profile'},
+    {image: require('../assets/images/history.png'), title: 'History'},
+    {
+      image: require('../assets/images/notification.png'),
+      title: 'Notification',
+    },
+    {image: require('../assets/images/trolley.png'), title: 'Health Shop'},
+    {image: require('../assets/images/settings.png'), title: 'Setting'},
+  ];
+
   return (
-    <View style={{flex: 1, backgroundColor: '#c28cde'}}>
+    <Animated.View style={{flex: 1, backgroundColor: '#c28cde'}}>
+     
+
       <View style={{flex: 1, backgroundColor: '#c28cde'}}>
         <TouchableOpacity
           style={{
@@ -23,14 +57,92 @@ const Drawer = props => {
             height: wp('16'),
             borderRadius: wp('8'),
             backgroundColor: 'black',
-            marginLeft: wp('3'),
-            marginTop: wp('20'),
-          }}>
+            marginLeft: wp('5'),
+            marginTop: wp('15'),
+          }}
+          onPress={animatedFun}>
           <Image
             style={{width: wp('16'), height: wp('16'), borderRadius: wp('8')}}
             source={require('../assets/images/profile.jpg')}></Image>
         </TouchableOpacity>
-        <Text style={{marginLeft: wp('3'), marginTop: wp('2'), fontFamily: "Poppins-Bold", fontSize: 16,}}>Dara Khawar</Text>
+        <Text
+          style={{
+            marginLeft: wp('5'),
+            marginTop: wp('2'),
+            fontFamily: 'Poppins-Bold',
+            fontSize: 18,
+            color: 'white',
+          }}>
+          Dara Amanda
+        </Text>
+        <Text
+          style={{
+            marginLeft: wp('5'),
+            fontFamily: 'Poppins-Light',
+            fontSize: 13,
+            color: 'white',
+          }}>
+          CEO BTS
+        </Text>
+
+        <View style={{position: 'absolute', marginTop: wp('65')}}>
+          <FlatList
+            data={data}
+            renderItem={({item}) => (
+              <View
+                style={{
+                  marginLeft: wp('5'),
+                }}>
+                <View
+                  style={{
+                    width: wp('60'),
+                    marginBottom: wp('8'),
+                    flexDirection: 'row',
+                  }}>
+                  <Image
+                    source={item.image}
+                    style={{width: wp('6'), height: hp('3')}}></Image>
+                  <TouchableOpacity style={{width: wp('50')}}>
+                    <Text
+                      style={{
+                        marginLeft: wp('5'),
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 13,
+                        color: 'white',
+                      }}>
+                      {item.title}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}></FlatList>
+        </View>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            flexDirection: 'row',
+            marginLeft: wp('5'),
+            marginBottom: wp('15'),
+          }}>
+          <Image
+            style={{width: wp('7'), height: hp('3.8')}}
+            source={require('../assets/images/logout.png')}></Image>
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate('LogIn');
+            }}>
+            <Text
+              style={{
+                marginLeft: wp('5'),
+                fontFamily: 'Poppins-Medium',
+                fontSize: 13,
+                color: 'white',
+              }}>
+              Log out
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <Animated.View
@@ -43,8 +155,9 @@ const Drawer = props => {
           bottom: 0,
           top: 0,
           transform: [{scale: 0.68}, {translateX: 205}],
-          borderRadius: showMenu ? wp('20') : 0,
+          borderRadius: showMenu ? wp('10') : 0,
         }}></Animated.View>
+
       <Animated.View
         style={{
           flex: 1,
@@ -54,10 +167,10 @@ const Drawer = props => {
           right: 0,
           bottom: 0,
           top: 0,
-          transform: [{scale: scaling}, {translateX: moveRight}],
-          borderRadius: showMenu ? wp('20') : 0,
+          transform: showMenu ? [{scale: scaling}, {translateX: moveRight}] : [{translateX: 0}],
+          borderRadius: showMenu ? wp('10') : 0,
         }}>
-        <View style={{flexDirection: 'row', margin: 10}}>
+        {/* <View style={{flexDirection: 'row', margin: 10}}>
           <TouchableOpacity
             style={{
               width: wp('8'),
@@ -65,22 +178,11 @@ const Drawer = props => {
               borderRadius: wp('4'),
               backgroundColor: 'black',
             }}
-            onPress={() => {
-              Animated.timing(scaling, {
-                toValue: showMenu ? 1 : 0.8,
-                duration: 200,
-                useNativeDriver: true,
-              }).start();
-              Animated.timing(moveRight, {
-                toValue: showMenu ? 0 : 220,
-                duration: 200,
-                useNativeDriver: true,
-              }).start();
-              setShowMenu(!showMenu);
-            }}></TouchableOpacity>
-        </View>
+            onPress={animatedFun}></TouchableOpacity>
+        </View> */}
+        <Dashboard onPress={animatedFun}></Dashboard>
       </Animated.View>
-    </View>
+    </Animated.View>
   );
 };
 

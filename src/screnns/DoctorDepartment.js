@@ -86,7 +86,7 @@ const DoctorDepartment = props => {
   return (
     <SafeAreaView>
       <View>
-        <BackButton>{'Categories'}</BackButton>
+        <BackButton onPress={()=>props.navigation.goBack()}>{'Categories'}</BackButton>
         <View style={{marginTop: 30, width: wp('90'), alignSelf: 'center'}}>
           <FlatList
             data={data}

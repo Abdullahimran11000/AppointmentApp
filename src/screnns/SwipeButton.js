@@ -3,7 +3,7 @@ import {SafeAreaView, View} from 'react-native';
 import Swiper from 'rn-swipe-button';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
-const SwipeButton = (props) => {
+const SwipeButton = props => {
   return (
     <SafeAreaView>
       <View style={{alignSelf: 'center'}}>
@@ -11,7 +11,7 @@ const SwipeButton = (props) => {
           disabled={false}
           width={wp('85')}
           enableRightToLeftSwipe={true}
-          onSwipeSuccess={() => props.navigation.navigate('LogIn') }
+          onSwipeSuccess={() => props.navigation.navigate('LogIn')}
           title="swipe to start"
           titleStyles={{
             fontFamily: 'Poppins-Light',
@@ -24,10 +24,7 @@ const SwipeButton = (props) => {
           railFillBackgroundColor="#b88acf"
           railFillBorderColor="#b88acf"
           thumbIconBackgroundColor="white"
-          thumbIconBorderColor="white"
-          onSwipeFail={() => {
-            console.log('Fuck');
-          }}></Swiper>
+          thumbIconBorderColor="white"></Swiper>
       </View>
     </SafeAreaView>
   );

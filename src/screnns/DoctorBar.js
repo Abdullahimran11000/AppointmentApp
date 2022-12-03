@@ -35,3 +35,4 @@ const DoctorBar = (props) => {
 };
 
 export default DoctorBar;
+
