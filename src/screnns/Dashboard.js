@@ -5,9 +5,9 @@ import {
   Text,
   View,
   Image,
-  ImageBackground,
   TouchableOpacity,
   TextInput,
+  Animated
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {DashboardStyle} from '../assets/styles/DashboardStyle';
@@ -15,6 +15,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
@@ -23,15 +24,16 @@ import DoctorCategories from './DoctorCategories';
 import DoctorCard from './DoctorCard';
 
 const Dashboard = props => {
+  const navigation = useNavigation();
   return (
-    <SafeAreaView>
+    <SafeAreaView style={props.style}>
       <ScrollView>
         <View>
           <View style={DashboardStyle.headCont}>
             <View style={DashboardStyle.headContInnerCont}>
-              <View style={DashboardStyle.headContImageCont}>
+              <TouchableOpacity style={DashboardStyle.headContImageCont} onPress={props.onPress}>
                 <Image style={DashboardStyle.headContImageStyle} source={require('../assets/images/selfieOne.jpg')} resizeMode='cover'></Image> 
-              </View>
+              </TouchableOpacity>
               <View style={DashboardStyle.headContMiddleCont}>
                 <View style={DashboardStyle.middleInnerFirstCont}>
                   <Text style={DashboardStyle.middleInnerContFirstHeading}>Hello Dara</Text>
@@ -85,7 +87,7 @@ const Dashboard = props => {
               </View>
             </View>
           </LinearGradient>
-          <DoctorBar One={'Categories'} Two={"See Maps"} onPress={()=>props.navigation.navigate("Maps")}></DoctorBar>
+          <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('DoctorDepartment')}></DoctorBar>
 
           <View style={{width: wp('90'), height: hp('15'), margin:15, alignSelf: 'center'}}>
             <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
@@ -95,7 +97,7 @@ const Dashboard = props => {
             </View>
           </View>
 
-          <DoctorBar One={'Nearby Doctor'} Two={"Back"} onPress={()=>props.navigation.navigate('AppIntro')}></DoctorBar>
+          <DoctorBar One={'Nearby Doctor'} Two={"See all"} onPress={()=> navigation.navigate('DoctorNearby')}></DoctorBar>
 
           <View style={{width: wp('90')}}>
             <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>

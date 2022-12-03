@@ -5,6 +5,7 @@ import {
   View,
   Text,
   ImageBackground,
+  TouchableOpacity
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -16,7 +17,7 @@ import DoctorHeader from './DoctorHeader';
 import Fontisto from "react-native-vector-icons/Fontisto"
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MapView from 'react-native-maps';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
 const DoctorInfo = () => {
   return (
     <SafeAreaView>
@@ -45,10 +46,12 @@ const DoctorInfo = () => {
                   <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(0, 0, 0, 1)'}}>Patients</Text>
                   <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(195, 140, 222, 0.7)'}}>550+</Text>
                 </View>
+
                 <View style={{alignItems: 'center', justifyContent: 'center', width: wp('27'), height: wp('20'), borderRadius: wp('8'), marginRight: wp('4.5')}}>
                   <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(0, 0, 0, 1)'}}>Experience</Text>
                   <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(195, 140, 222, 0.7)'}}>4 Years+</Text>
                 </View>
+
                 <View style={{alignItems: 'center', justifyContent: 'center', width: wp('27'), height: wp('20'), borderRadius: wp('8'), marginRight: wp('4.5')}}>
                   <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(0, 0, 0, 1)'}}>Rate</Text>
                   <View style={{display: 'flex', flexDirection: 'row'}}>
@@ -56,6 +59,7 @@ const DoctorInfo = () => {
                     <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(195, 140, 222, 0.7)', marginLeft: 5}}>4.5</Text>
                   </View>
                 </View>
+
               </View>
 
               <View style={{width: wp('90'), alignSelf: 'center', marginTop: 10}}>
@@ -67,17 +71,14 @@ const DoctorInfo = () => {
                 <Text style={{fontFamily: 'Poppins-Bold', fontSize: 16, color: 'rgba(0, 0, 0, 1)'}}>Location</Text>
               </View>
 
-              <View style={{width: wp('90'), height: hp('35') , alignSelf: 'center', marginTop: 10, borderRadius: wp('10'), overflow: 'hidden', marginBottom: 20}}>
+              <View style={{width: wp('90'), height: hp('30') , alignSelf: 'center', marginTop: 10, borderRadius: wp('10'), overflow: 'hidden', marginBottom: 20}}>
                 <MapView style={styles.map} initialRegion={{latitude: 32.162353, longitude: 74.201791, latitudeDelta: 0.0922, longitudeDelta: 0.0421}}></MapView>
-                
-                <View style={{width: wp('90'), display: "flex", flexDirection: 'column',flex: 5}}>
-                  <View style={{flex: 2, justifyContent: 'flex-end'}}>
-                    <TouchableOpacity style={{width: wp('90'), height: hp('9'), backgroundColor: 'rgba(208, 162, 232, 1)', borderRadius: wp('15'), alignItems: 'center', justifyContent: 'center'}}>
-                      <Text style={{fontFamily: "Poppins-Bold", fontSize: 15, color: 'white'}}>Make an Appointment</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
+              </View>
 
+              <View style={{alignSelf: 'center', marginBottom: wp('10')}}>
+                <TouchableOpacity style={{width: wp('90'), height: hp('8'), backgroundColor: 'rgba(208, 162, 232, 1)', borderRadius: wp('15'), alignItems: 'center', justifyContent: 'center'}} omPress={()=>console.log("heillo")}>
+                  <Text style={{fontFamily: "Poppins-Bold", fontSize: 15, color: 'white'}}>Make an Appointment</Text>
+                </TouchableOpacity>
               </View>
             </View>
           </View>

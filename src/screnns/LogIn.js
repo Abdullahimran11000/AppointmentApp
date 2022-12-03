@@ -60,7 +60,7 @@ const LogIn = props => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <TouchableOpacity style={styles.Touchable}>
+            <TouchableOpacity style={styles.Touchable} onPress={()=>{props.navigation.navigate('Drawer')}}>
               <Text
                 style={{
                   textAlign: 'center',

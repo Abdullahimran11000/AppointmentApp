@@ -18,7 +18,6 @@ const DoctorHeader = props => {
               name="chevron-back-sharp"
               size={18}
               color="#3d3b3b"
-              style={{marginVertical: 3}}
             />
           </TouchableOpacity>
         </View>
