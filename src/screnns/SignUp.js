@@ -57,13 +57,13 @@ const SignUp = props => {
               color={'black'}
             />
           </View>
-          <View style={{marginLeft: 28, marginTop: 20}}>
+          <View style={{marginLeft: wp(6), marginTop: hp(3)}}>
             <Checkbox status="checked" />
             <Text
               style={{
                 position: 'absolute',
-                marginHorizontal: 35,
-                marginTop: 8,
+                marginHorizontal: wp(9.5),
+                marginTop: hp(1.2),
                 fontFamily: 'Poppins-Regular',
               }}>
               I agree with
@@ -71,21 +71,21 @@ const SignUp = props => {
             <Text
               style={{
                 position: 'absolute',
-                marginLeft: 118,
-                marginTop: 7.5,
+                marginLeft: wp(32.5),
+                marginTop: hp(1),
                 color: 'black',
                 fontFamily: 'Poppins-Bold',
               }}>
               terms
             </Text>
-            <Text style={{position: 'absolute', marginLeft: 164, marginTop: 8}}>
+            <Text style={{position: 'absolute', marginLeft: wp(45.5), marginTop: hp(1.2)}}>
               and
             </Text>
             <Text
               style={{
                 position: 'absolute',
-                marginLeft: 190,
-                marginTop: 7.5,
+                marginLeft: wp(53),
+                marginTop: hp(1),
                 color: 'black',
                 fontFamily: 'Poppins-Bold',
               }}>
@@ -98,11 +98,11 @@ const SignUp = props => {
                 Sign Up
               </Text>
             </TouchableOpacity>
-            <Text style={{marginTop: 10, textAlign: 'center', marginLeft: 70}}>
+            <Text style={{marginTop: hp(1), textAlign: 'center', marginLeft: hp(10)}}>
               Or
             </Text>
           </View>
-          <View style={{marginLeft: 30, marginTop: 10}}>
+          <View style={{marginLeft: wp(8.5), marginTop: hp(1)}}>
             <TouchableOpacity style={styles.SignInButton}>
               <Image
                 style={styles.image}
@@ -111,12 +111,12 @@ const SignUp = props => {
               <Text style={styles.SignInText}>Sign in With this</Text>
             </TouchableOpacity>
           </View>
-          <View style={{alignSelf: 'center', marginTop: 10, marginRight: 50}}>
+          <View style={{alignSelf: 'center', marginTop: hp(2), marginRight: wp(10)}}>
             <Text style={{fontFamily: 'Poppins-Light'}}>
               Already have an Account?
             </Text>
             <TouchableOpacity
-              style={{position: 'absolute', marginLeft: 186}}
+              style={{position: 'absolute', marginLeft: wp(52)}}
               onPress={() => props.navigation.goBack()}>
               <Text style={{color: 'black', fontFamily: 'Poppins-Medium'}}>
                 Log in
@@ -134,7 +134,7 @@ export default SignUp;
 const styles = StyleSheet.create({
   inputs: {
     width: 300,
-    marginTop: 10,
+    marginTop: hp(1),
     borderRadius: 5,
     fontFamily: 'Poppins-SemiBold',
   },
@@ -144,24 +144,24 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-SemiBold',
   },
   views: {
-    marginLeft: 30,
-    marginTop: 30,
+    marginLeft: wp(8.5),
+    marginTop: hp(5),
   },
   icon: {
     position: 'absolute',
-    marginVertical: 46,
-    marginLeft: 270,
+    marginVertical: hp(7.5),
+    marginLeft: wp(75),
   },
   viewSignUpbutton: {
-    width: 230,
+    width: wp(64),
     alignSelf: 'center',
-    marginTop: 30,
-    marginRight: 70,
+    marginTop: hp(3),
+    marginRight: wp(19),
   },
   SignUpbutton: {
     alignItems: 'center',
     backgroundColor: '#c28cde',
-    width: 300,
+    width: wp(83),
     padding: 9,
     borderRadius: 20,
   },
@@ -169,17 +169,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 10,
     borderRadius: 20,
-    width: 300,
+    width: wp(83),
   },
   image: {
-    width: 20,
-    height: 20,
-    marginLeft: 70,
+    width: wp(5),
+    height: hp(3),
+    marginLeft: wp(20),
   },
   SignInText: {
     position: 'absolute',
-    marginLeft: 105,
-    marginTop: 10,
+    marginLeft: wp(30),
+    marginTop: hp(1.5),
     fontFamily: 'Poppins-SemiBold',
   },
 });
