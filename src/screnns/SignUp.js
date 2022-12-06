@@ -20,7 +20,7 @@ const SignUp = props => {
   return (
     <ScrollView>
       <SafeAreaView>
-        <View style={{width: wp('100'),height: hp('100')}}>
+        <View style={{width: wp('100'),height: hp('100'), alignSelf: 'center'}}>
           <BackButton onPress={() => props.navigation.goBack()}>
             {'Sign Up'}
           </BackButton>
