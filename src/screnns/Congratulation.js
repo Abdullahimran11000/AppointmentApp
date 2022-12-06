@@ -13,7 +13,7 @@ const Congratulation = (props) => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View style={CongratulationStyle.mainView}>
+        <View>
           <View style={CongratulationStyle.animationView}>
             <Lottie
               style={CongratulationStyle.animationStyle}

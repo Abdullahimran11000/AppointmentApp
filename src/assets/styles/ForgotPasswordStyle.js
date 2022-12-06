@@ -3,24 +3,24 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { AppColor } from '../colors/AppColor';
 
 
 const ForgotPasswordStyle = StyleSheet.create({
-  mainView: {},
   headingView:{alignItems:'center',justifyContent:"center"},
   animationView: {alignItems: 'center'},
   animationStyle: {width: wp('90'), height: hp('35')},
-  tagText: {fontFamily: 'Poppins-SemiBold', fontSize: 16, color: "black"},
-  paraView: {alignItems: 'center', padding: 12},
-  paraText: {color: 'black',fontFamily: 'Poppins-Light',fontSize: 14,textAlign: 'center'},
-  inputView: {marginTop: 18, alignItems: "center"},
+  tagText: {fontFamily: 'Poppins-SemiBold', fontSize: wp('4.5'), color: AppColor.black},
+  paraView: {alignItems: 'center', padding: wp('3')},
+  paraText: {color: AppColor.black,fontFamily: 'Poppins-Light',fontSize: wp('4'),textAlign: 'center'},
+  inputView: {marginTop: wp('6'), alignItems: "center"},
   labelView: {width:wp('91')},
-  labelText: {color: 'black',fontFamily: 'Poppins-Bold',fontSize: 14},
-  inputStyle: {marginTop:5 , width:wp('90') , height: hp('7'), borderRadius:10 , backgroundColor:"#f7f7f7" , padding:10, fontFamily: 'Poppins-Light'},
-  touchableView:{position: 'relative' , alignItems: "center" , padding: 25},
-  touchableText1: {color: "ed586e" , fontFamily: "Poppins-Light" , fontSize: 12},
-  touchableStyle: {width: wp("90") , height: hp('7'), borderRadius: 50 , backgroundColor:"#c28cde" , alignItems: 'center' },
-  touchableText: {color: "white" , fontFamily: "Poppins-Bold" , fontSize: 15 , padding: 10}
+  labelText: {color: AppColor.black, fontFamily: 'Poppins-Bold',fontSize: wp('3.8')},
+  inputStyle: {marginTop:5 , width:wp('90') , height: hp('7'), borderRadius:wp('3') , backgroundColor: AppColor.white , padding:wp('3'), fontFamily: 'Poppins-Light'},
+  touchableView:{position: 'relative' , alignItems: "center" , marginTop: wp('12')},
+  touchableText1: {color: AppColor.red, fontFamily: "Poppins-Light" , fontSize: wp('3.5')},
+  touchableStyle: {marginTop: wp('10'), width: wp("90") , height: hp('7'), borderRadius: wp('10') , backgroundColor: AppColor.primary , alignItems: 'center', justifyContent: 'center' },
+  touchableText: {color: AppColor.white , fontFamily: "Poppins-Bold" , fontSize: wp('4')}
 });
 
 export {ForgotPasswordStyle};

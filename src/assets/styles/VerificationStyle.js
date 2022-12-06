@@ -3,31 +3,26 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { AppColors } from '../colors/AppColor'
+import App from '../../../App';
+import { AppColor } from '../colors/AppColor'
 
 
 const VerificationStyle = StyleSheet.create({
   headingView:{alignItems:'center'},
-  headerView: {flex: 1, flexDirection: 'row',  padding:15},
-  headingText: {fontFamily: 'Poppins-Bold', fontSize: 16, color: "black"},
-  animationView: {alignItems: 'center' , marginTop: 20},
+  animationView: {alignItems: 'center' , marginTop: wp("6")},
   animationStyle: {width: wp('90'), height: hp('35')},
-  tagView: {alignItems: "center" , paddingTop: 25},
-  tagText: {fontFamily: 'Poppins-SemiBold', fontSize: 16, color: "black"},
-  paraView: {alignItems: 'center', padding: 12},
-  paraText: {color: 'black',fontFamily: 'Poppins-Light',fontSize: 14,textAlign: 'center'},
-  inputView: {padding:16, alignItems: "center"},
-  labelView: {width: wp('90')},
-  labelText: {color: 'black',fontFamily: 'Poppins-Bold',fontSize: 14},
-  inputStyle: {marginTop:5 , width:wp('90') , height: hp('7'), borderRadius:10 , backgroundColor:"#f7f7f7" , padding:10, fontFamily: 'Poppins-Light'},
-  touchableView:{position: 'relative' , alignItems: "center", paddingTop: 20},
-  textStyle:{color: "black" , fontFamily: "Poppins-Light" , fontSize: 12},
-  touchableText1: {color: AppColors.black , fontFamily: "Poppins-Light" , fontSize: 12},
-  touchableStyle: {width: wp("90") , height: hp('7'), borderRadius: 50 , backgroundColor:"#c28cde" , alignItems: 'center' , marginBottom: 30},
-  touchableText: {color: "white" , fontFamily: "Poppins-Bold" , fontSize: 15 , padding: 10, textAlign: "center"},
-  textView: {flex: 1 , flexDirection: 'row' , justifyContent: 'space-evenly' , padding: 10},
-  buttonView:{alignItems:'center' , marginTop:30},
-  newInputs: {width: wp("16") , height: wp('16') , borderRadius:10 , backgroundColor:"#f6f5f7" , fontFamily: "Poppins-Bold" , fontSize: 25 , padding: 5 , textAlign: 'center' ,},
+  tagView: {alignItems: "center" , marginTop: wp('8')},
+  tagText: {fontFamily: 'Poppins-SemiBold', fontSize: wp('4.5'), color: AppColor.black},
+  paraView: {alignItems: 'center', padding: wp('4')},
+  paraText: {color: AppColor.black, fontFamily: 'Poppins-Light',fontSize: wp('4'),textAlign: 'center'},
+  touchableView:{position: 'relative' , alignItems: "center"},
+  textStyle:{color: AppColor.black , fontFamily: "Poppins-Light" , fontSize: wp('3.5'), marginTop: wp('8')},
+  touchableText1: {color: AppColor.red, fontFamily: "Poppins-Light" , fontSize: wp('3.5'), marginTop: wp('2')},
+  touchableStyle: {width: wp("90") , height: hp('7'), borderRadius: wp('10') , backgroundColor: AppColor.primary , alignItems: 'center', justifyContent: 'center'},
+  touchableText: {color: AppColor.white , fontFamily: "Poppins-Bold" , fontSize: wp('4.2'), textAlign: "center"},
+  textView: {flex: 1 , flexDirection: 'row' , justifyContent: 'space-evenly' , padding: wp('3')},
+  buttonView:{alignItems:'center' , marginTop: wp('6'), marginBottom: wp('5')},
+  newInputs: {width: wp("16") , height: wp('16') , borderRadius: wp('5') , backgroundColor: AppColor.white , fontFamily: "Poppins-Bold" , fontSize: wp('7') , padding: wp('1') , textAlign: 'center'},
 });
 
 export {VerificationStyle};

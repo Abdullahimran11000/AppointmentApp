@@ -5,7 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {DoctorHeaderStyle} from '../assets/styles/DoctorHeaderStyle';
 const DoctorHeader = props => {
   const [fill, setFill] = useState('hearto');
-  const [color, setColor] = useState('#f56262');
+  const [color, setColor] = useState('white');
 
   return (
     <SafeAreaView>
