@@ -17,6 +17,7 @@ import SearchDoctor from './src/screnns/SearchDoctor';
 import MyProfile from './src/screnns/MyProfile';
 import Drawer from './src/screnns/Drawer';
 import DoctorInfo from './src/screnns/DoctorInfo';
+import Message from './src/screnns/Message';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -35,12 +36,12 @@ const App = () => {
         <Stack.Screen name="RecoverPassword" component={RecoverPassword}/>
         <Stack.Screen name="Verification" component={Verification}/>
         <Stack.Screen name="Congratulation" component={Congratulation}/>
-        <Stack.Screen name="Dashboard" component={Dashboard}/>
+        <Stack.Screen name="Drawer" component={Drawer}/>
         <Stack.Screen name="DoctorDepartment" component={DoctorDepartment}/>
         <Stack.Screen name="Maps" component={Maps}/>
         <Stack.Screen name="Schedule" component={Schedule}/>
         <Stack.Screen name="DoctorNearby" component={DoctorNearby}/>
-        <Stack.Screen name="Drawer" component={Drawer}/>
+        <Stack.Screen name="DoctorInfo" component={DoctorInfo}/>
         
       </Stack.Navigator>
     </NavigationContainer> 

@@ -7,9 +7,14 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
 import {VerificationStyle} from '../assets/styles/VerificationStyle';
 import BackButton from './BackButton';
+import { AppColor } from '../assets/colors/AppColor';
 
 const Verification = (props) => {
   return (
@@ -35,10 +40,12 @@ const Verification = (props) => {
             </Text>
           </View>
           <View style={VerificationStyle.textView}>
-            <TextInput
-              style={VerificationStyle.newInputs}
-              maxLength={1}
-              keyboardType={'numeric'}></TextInput>
+            <View>
+              <TextInput
+                style={VerificationStyle.newInputs}
+                maxLength={1}
+                keyboardType={'numeric'}/>
+            </View>
             <TextInput
               style={VerificationStyle.newInputs}
               maxLength={1}

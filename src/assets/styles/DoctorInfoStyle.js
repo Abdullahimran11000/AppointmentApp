@@ -1,9 +1,9 @@
 import {StyleSheet} from 'react-native';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
-import {AppColors} from '../colors/AppColor';
+import {AppColor} from '../colors/AppColor';
 
 const DoctorInfoStyle = StyleSheet.create({
-  mainView: {backgroundColor: AppColors.primary},
+  mainView: {backgroundColor: AppColor.primary},
 });
 
 export {DoctorInfoStyle};

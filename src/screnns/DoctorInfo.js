@@ -17,46 +17,49 @@ import DoctorHeader from './DoctorHeader';
 import Fontisto from "react-native-vector-icons/Fontisto"
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MapView from 'react-native-maps';
+import { useNavigation } from '@react-navigation/native';
 
-const DoctorInfo = () => {
+const DoctorInfo = (props) => {
+  const navigation = useNavigation()
+  const {item} = props.route.params;
   return (
     <SafeAreaView>
       <ScrollView>
-        <View style={DoctorInfoStyle.mainView}>
+        <View style={{backgroundColor: item.color}}>
           <View style={{display: 'flex', flex: 10}}>
             <ImageBackground
               style={{flex: 3.5, width: wp('90'), height: wp('90'), alignSelf: 'center'}}
-              source={require('../assets/images/doctorsInfo.png')}
+              source={item.source}
               resizeMode="cover">
-              <DoctorHeader/>
+              <DoctorHeader onPress={()=> navigation.goBack()}/>
             </ImageBackground>
             
             <View style={{marginTop: -15, flex:5, backgroundColor: "white", borderTopLeftRadius: wp('15'), borderTopRightRadius: wp('15')}}>
               <View style={{width: wp('90'), alignSelf: 'center', marginTop: wp('10')}}>
-                <Text style={{fontFamily: 'Poppins-Bold', fontSize: 18, color: 'rgba(0, 0, 0, 1)'}}>Dr. Amanda Khawar</Text>
-                <Text style={{fontFamily: 'Poppins-Light', fontSize: 15, color: 'rgba(0, 0, 0, 0.7)'}}>Radiology Specialist</Text>
+                <Text style={{fontFamily: 'Poppins-Bold', fontSize: 18, color: 'rgba(0, 0, 0, 1)'}}>{item.name}</Text>
+                <Text style={{fontFamily: 'Poppins-Light', fontSize: 15, color: 'rgba(0, 0, 0, 0.7)'}}>{item.dept} Speciallist</Text>
                 <View style={{display: 'flex', flexDirection: 'row', marginTop: 5}}>
-                  <Fontisto name={"map-marker-alt"} size={15} color='rgba(195, 140, 222, 0.7)' />
-                  <Text style={{marginLeft: 5, fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(195, 140, 222, 0.7)'}}>750-B Satellite Town</Text>
+                  <Fontisto name={"map-marker-alt"} size={15} color={item.color} />
+                  <Text style={{marginLeft: 5, fontFamily: 'Poppins-Light', fontSize: 13, color: item.color}}>750-B Satellite Town</Text>
                 </View>
               </View>
 
               <View style={{display: 'flex', width: wp('90'), alignSelf: 'center',  flexDirection: 'row', marginTop: 10}}>
                 <View style={{alignItems: 'center', justifyContent: 'center', width: wp('27'), height: wp('20'), borderRadius: wp('8'), marginRight: wp('4.5')}}>
                   <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(0, 0, 0, 1)'}}>Patients</Text>
-                  <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(195, 140, 222, 0.7)'}}>550+</Text>
+                  <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: item.color}}>550+</Text>
                 </View>
 
                 <View style={{alignItems: 'center', justifyContent: 'center', width: wp('27'), height: wp('20'), borderRadius: wp('8'), marginRight: wp('4.5')}}>
                   <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(0, 0, 0, 1)'}}>Experience</Text>
-                  <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(195, 140, 222, 0.7)'}}>4 Years+</Text>
+                  <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: item.color}}>{item.experience}+</Text>
                 </View>
 
                 <View style={{alignItems: 'center', justifyContent: 'center', width: wp('27'), height: wp('20'), borderRadius: wp('8'), marginRight: wp('4.5')}}>
                   <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(0, 0, 0, 1)'}}>Rate</Text>
                   <View style={{display: 'flex', flexDirection: 'row'}}>
                     <AntDesign name="star" size={15} color="#FFD700"/>
-                    <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: 'rgba(195, 140, 222, 0.7)', marginLeft: 5}}>4.5</Text>
+                    <Text style={{fontFamily: 'Poppins-Light', fontSize: 13, color: item.color, marginLeft: 5}}>{item.star}</Text>
                   </View>
                 </View>
 
@@ -76,7 +79,7 @@ const DoctorInfo = () => {
               </View>
 
               <View style={{alignSelf: 'center', marginBottom: wp('10')}}>
-                <TouchableOpacity style={{width: wp('90'), height: hp('8'), backgroundColor: 'rgba(208, 162, 232, 1)', borderRadius: wp('15'), alignItems: 'center', justifyContent: 'center'}} omPress={()=>console.log("heillo")}>
+                <TouchableOpacity style={{width: wp('90'), height: hp('8'), backgroundColor: item.color, borderRadius: wp('15'), alignItems: 'center', justifyContent: 'center'}} omPress={()=>console.log("heillo")}>
                   <Text style={{fontFamily: "Poppins-Bold", fontSize: 15, color: 'white'}}>Make an Appointment</Text>
                 </TouchableOpacity>
               </View>

@@ -22,9 +22,25 @@ import Feather from 'react-native-vector-icons/Feather'
 import DoctorBar from './DoctorBar';
 import DoctorCategories from './DoctorCategories';
 import DoctorCard from './DoctorCard';
+import { AppColor } from '../assets/colors/AppColor';
+import { FlatList } from 'react-native-gesture-handler';
 
 const Dashboard = props => {
   const navigation = useNavigation();
+  const data= [
+    {name: 'Dr. Amanda', dept: 'Dentist', star: "4.5", experience: '5 years', color: 'rgba(195, 140, 222, 0.5)', source: require('../assets/images/doctorsInfo.png')},
+    {name: 'Dr. Omer', dept: 'Urology', star: "4.0", experience: '7 years', color: 'rgba(247, 106, 106, 0.4)', source: require('../assets/images/drOmer.png')},
+    {name: 'Dr. Asnan', dept: 'Dentist', star: "3.5", experience: '10 years', color: 'rgba(195, 140, 222, 1)', source: require('../assets/images/doctorsInfo.png')},
+    {name: 'Dr. Gough', dept: 'Dentist', star: "2.5", experience: '15 years', color: 'rgba(195, 140, 222, 0.1)', source: require('../assets/images/doctorsInfo.png')},
+    {name: 'Dr. Abdullah', dept: 'Urology', star: "4.5", experience: '2 years', color: 'rgba(247, 106, 106, 0.4)', source: require('../assets/images/doctorsInfo.png')},
+  ]
+
+  const renderItem = ({item}) =>{
+    return (
+      <DoctorCard color={item.color} source={item.source} name={item.name} dept={item.dept} star={item.star} experience={item.experience} backColor={item.color} onPress={()=>{navigation.navigate("DoctorInfo" , {item: item})}}/>
+    )
+  }
+
   return (
     <SafeAreaView style={props.style}>
       <ScrollView>
@@ -54,15 +70,15 @@ const Dashboard = props => {
             <View style={DashboardStyle.searchInnerCont}>
               <View style={DashboardStyle.searchIconOneCont}>
                 <View style={DashboardStyle.seacrhIconOneInnerCont}>
-                  <Feather name='search' size={20} color='rgba(0, 0, 0, 0.4)'></Feather>
+                  <Feather name='search' size={20} color={AppColor.blackOpacity4}></Feather>
                 </View>
               </View>
               <View style={DashboardStyle.searchTextInputCont}>
-                <TextInput placeholder='Search Doctor' maxLength={20} style={{fontFamily: 'Poppins-Medium', fontSize: 15, color: 'rgba(0, 0, 0, 0.4)', marginBottom: -5}}></TextInput>
+                <TextInput placeholder='Search Doctor' maxLength={20} style={{fontFamily: 'Poppins-Medium', fontSize: wp('4'), color: AppColor.blackOpacity4, marginBottom: wp('-0.9')}}></TextInput>
               </View>
               <View style={DashboardStyle.searchIconTwoCont}>
                 <TouchableOpacity style={DashboardStyle.searchIconTwoTouchable}>
-                  <SimpleLineIcons name='equalizer' color='rgba(0, 0, 0, 0.7)' size={15}></SimpleLineIcons>
+                  <SimpleLineIcons name='equalizer' color= {AppColor.blackOpacity7} size={15}></SimpleLineIcons>
                 </TouchableOpacity>
               </View>
             </View>
@@ -87,9 +103,10 @@ const Dashboard = props => {
               </View>
             </View>
           </LinearGradient>
+          
           <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('DoctorDepartment')}></DoctorBar>
 
-          <View style={{width: wp('90'), height: hp('15'), margin:15, alignSelf: 'center'}}>
+          <View style={{width: wp('90'), height: hp('15'), margin: wp('4.5'), alignSelf: 'center'}}>
             <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
               <DoctorCategories text={'Urology'} source={require('../assets/images/urology.png')} color={'rgba(195, 140, 222, 0.5)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
               <DoctorCategories text={'Radiology'} source={require('../assets/images/radiology.png')} color={'rgba(247, 106, 106, 0.5)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
@@ -99,11 +116,15 @@ const Dashboard = props => {
 
           <DoctorBar One={'Nearby Doctor'} Two={"See all"} onPress={()=> navigation.navigate('DoctorNearby')}></DoctorBar>
 
-          <View style={{width: wp('90')}}>
-            <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
-            <DoctorCard color={'rgba(195, 140, 222, 0.5)'} source={require('../assets/images/doctorsInfo.png')} name={'Dr. Amanda'} dept={'Dentist'} star={'4.5'} experience={'5 years'}/>
+          
+          {/* <View style={{display: 'flex', flex: 1, flexDirection: 'row', width: wp('90'), alignSelf: 'center'}}>
+            <DoctorCard color={'rgba(195, 140, 222, 0.5)'} source={require('../assets/images/doctorsInfo.png')} name={'Dr. Amanda'} dept={'Dentist'} star={'4.5'} experience={'5 years'} onPress={()=> navigation.navigate('DoctorInfo')}/>
             <DoctorCard color={'rgba(247, 106, 106, 0.4)'} source={require('../assets/images/drOmer.png')} name={'Dr. Omer'} dept={'Urology'} star={'4.0'} experience={'2 years'}/>
-            </View>
+          </View> */}
+
+          <View style={{marginLeft: wp("4.5")}}>
+            <FlatList data={data} renderItem={renderItem} horizontal={true}>
+            </FlatList>
           </View>
           
         </View>
