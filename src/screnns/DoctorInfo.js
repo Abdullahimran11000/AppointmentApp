@@ -22,6 +22,44 @@ import { useNavigation } from '@react-navigation/native';
 const DoctorInfo = (props) => {
   const navigation = useNavigation()
   const {item} = props.route.params;
+  const mapStyle= [
+    {
+      "featureType": "administrative.country",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "featureType": "road.arterial",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#cb95e6"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#c28cde"
+        }
+      ]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#cda6e0"
+        }
+      ]
+    },
+  ]
   return (
     <SafeAreaView>
       <ScrollView>
@@ -75,11 +113,11 @@ const DoctorInfo = (props) => {
               </View>
 
               <View style={{width: wp('90'), height: hp('30') , alignSelf: 'center', marginTop: 10, borderRadius: wp('10'), overflow: 'hidden', marginBottom: 20}}>
-                <MapView style={styles.map} initialRegion={{latitude: 32.162353, longitude: 74.201791, latitudeDelta: 0.0922, longitudeDelta: 0.0421}}></MapView>
+                <MapView style={styles.map} customMapStyle={mapStyle} initialRegion={{latitude: 32.163611, longitude: 74.190833, latitudeDelta: 0.0922, longitudeDelta: 0.0421}}></MapView>
               </View>
 
               <View style={{alignSelf: 'center', marginBottom: wp('10')}}>
-                <TouchableOpacity style={{width: wp('90'), height: hp('8'), backgroundColor: item.color, borderRadius: wp('15'), alignItems: 'center', justifyContent: 'center'}} omPress={()=>console.log("heillo")}>
+                <TouchableOpacity style={{width: wp('90'), height: hp('8'), backgroundColor: item.color, borderRadius: wp('15'), alignItems: 'center', justifyContent: 'center'}} onPress={()=>navigation.navigate('Maps')}>
                   <Text style={{fontFamily: "Poppins-Bold", fontSize: 15, color: 'white'}}>Make an Appointment</Text>
                 </TouchableOpacity>
               </View>

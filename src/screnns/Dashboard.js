@@ -115,13 +115,7 @@ const Dashboard = props => {
           </View>
 
           <DoctorBar One={'Nearby Doctor'} Two={"See all"} onPress={()=> navigation.navigate('DoctorNearby')}></DoctorBar>
-
           
-          {/* <View style={{display: 'flex', flex: 1, flexDirection: 'row', width: wp('90'), alignSelf: 'center'}}>
-            <DoctorCard color={'rgba(195, 140, 222, 0.5)'} source={require('../assets/images/doctorsInfo.png')} name={'Dr. Amanda'} dept={'Dentist'} star={'4.5'} experience={'5 years'} onPress={()=> navigation.navigate('DoctorInfo')}/>
-            <DoctorCard color={'rgba(247, 106, 106, 0.4)'} source={require('../assets/images/drOmer.png')} name={'Dr. Omer'} dept={'Urology'} star={'4.0'} experience={'2 years'}/>
-          </View> */}
-
           <View style={{marginLeft: wp("4.5")}}>
             <FlatList data={data} renderItem={renderItem} horizontal={true}>
             </FlatList>
