@@ -40,34 +40,16 @@ const Schedule = props => {
       style={{flex: 1, backgroundColor: 'black', height: hp('100')}}>
       <ScrollView>
         <View style={{backgroundColor: 'white'}}>
-          <BackButton onPress={() => props.navigation.goBack()} />
-          <View
-            style={{
-              width: wp(70),
-              position: 'absolute',
-              // marginLeft: wp(11),
-              marginTop: hp(2),
-alignItems:'center',
-              // backgroundColor:'red'
-            }}>
-            <Text
-              style={{
-                fontFamily: 'Poppins-SemiBold',
-                color: 'black',
-                fontSize: 18,
-                marginLeft: wp(27),
-              }}>
-              Schedule
-            </Text>
-          </View>
-          <View style={{marginTop: hp(1), height: hp(50), borderRadius: 50}}>
+          <BackButton onPress={() => props.navigation.goBack()}>Schedule</BackButton>
+          
+          <View style={{width: wp(100), marginTop: hp(1), height: hp(50), alignSelf: 'center'}}>
             <Calendar
               style={{borderRadius: 40}}
               enableSwipeMonths={true}
               theme={{indicatorColor: 'red'}}
             />
           </View>
-          <View>
+          <View style={{width: wp(100), alignSelf: 'center'}}>
             <Text
               style={{
                 fontFamily: 'Poppins-Bold',
@@ -84,6 +66,8 @@ alignItems:'center',
               flexDirection: 'row',
               justifyContent: 'space-evenly',
               marginTop: hp(2),
+              width: wp(100),
+              alignSelf: 'center'
             }}>
             <TouchableOpacity
               onPress={colorHandler}
@@ -108,6 +92,8 @@ alignItems:'center',
               flexDirection: 'row',
               justifyContent: 'space-evenly',
               marginTop: 10,
+              width: wp(100),
+              alignSelf: 'center'
             }}>
             <TouchableOpacity
               style={{
@@ -146,7 +132,9 @@ alignItems:'center',
               style={{
                 fontFamily: 'Poppins-Bold',
                 color: 'black',
-                marginLeft: wp(5),
+                width: wp(100),
+                marginLeft: wp('10'),
+                alignSelf: 'center',
                 marginTop: 15,
               }}>
               Appointment Details
@@ -157,6 +145,8 @@ alignItems:'center',
               flexDirection: 'row',
               justifyContent: 'space-evenly',
               marginTop: 10,
+              width: wp(100),
+              alignSelf: 'center'
             }}>
             <TouchableOpacity style={style.buttonsOfAppointmentDetails}>
               <Text style={style.buttonsTextRow3}>Hospital</Text>
@@ -176,7 +166,8 @@ alignItems:'center',
               <Text style={style.buttonsTextRow3}>Call</Text>
             </TouchableOpacity>
           </View>
-          <View>
+          <View style={{width: wp(100),
+              alignSelf: 'center'}}>
             <TouchableOpacity
               onPress={colorHandler}
               style={{
@@ -185,7 +176,7 @@ alignItems:'center',
                 marginLeft: wp(4.5),
                 padding: 3,
                 borderRadius: 20,
-                marginTop: hp(2)
+                marginTop: hp(2),
                 // marginRight: wp(8.5),
               }}>
               <Text style={style.buttonsTextRow3}>Video Call</Text>
