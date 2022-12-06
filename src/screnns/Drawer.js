@@ -13,6 +13,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { AppColor } from '../assets/colors/AppColor';
 import Dashboard from './Dashboard';
 const Drawer = props => {
   const [showMenu, setShowMenu] = useState(false);
@@ -161,7 +162,7 @@ const Drawer = props => {
       <Animated.View
         style={{
           flex: 1,
-          backgroundColor: '#ffffff',
+          backgroundColor: AppColor.whiteOpacity,
           position: 'absolute',
           left: 0,
           right: 0,
@@ -170,16 +171,6 @@ const Drawer = props => {
           transform: showMenu ? [{scale: scaling}, {translateX: moveRight}] : [{translateX: 0}],
           borderRadius: showMenu ? wp('10') : 0,
         }}>
-        {/* <View style={{flexDirection: 'row', margin: 10}}>
-          <TouchableOpacity
-            style={{
-              width: wp('8'),
-              height: wp('8'),
-              borderRadius: wp('4'),
-              backgroundColor: 'black',
-            }}
-            onPress={animatedFun}></TouchableOpacity>
-        </View> */}
         <Dashboard onPress={animatedFun}></Dashboard>
       </Animated.View>
     </Animated.View>

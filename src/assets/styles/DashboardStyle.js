@@ -40,16 +40,10 @@ const DashboardStyle = StyleSheet.create({
     doctorLowerContFirstHeadingText: {fontFamily: 'Poppins-Bold', fontSize: wp('3.7'), color: AppColor.black},
     doctorLowerContSecondHeadingText: {fontFamily: 'Poppins-Light', fontSize: wp('3.3'), color: AppColor.blackOpacity5},
 
-    doctorLowerFlexView: {display: 'flex', flex: 1, flexDirection: 'row', marginTop: wp('2')},
+    doctorLowerFlexView: {display: 'flex', flex: 1, flexDirection: 'row', marginTop: wp('-4')},
     doctorLowerFlexViewInnerView: {display: 'flex' , flex: 1, flexDirection: "row"},
-    doctorLowerFlexTouchableView: {position: 'absolute', top: wp('2')},
-    doctorLowerFlexTextOneView: {position: 'absolute', left: 20, top: wp('2')},
-    doctorLowerFlexTextOne: {fontFamily: 'Poppins-Bold', fontSize: 13, color: AppColor.black, marginLeft: wp('1')},
-    doctorLowerFlexIconView: {position: 'absolute', right: 50, top: 4},
-    doctorLowerFlexTextTwoView: {position: 'absolute', right: 0, top: 4},
-    doctorLowerFlexTextTwo: {fontFamily: 'Poppins-Bold', fontSize: 12, color: AppColor.black, marginLeft: wp('1')}
-
-    
+    doctorLowerFlexTextOne: {fontFamily: 'Poppins-Bold', fontSize: wp('3'), color: AppColor.black, marginLeft: wp('1')},
+    doctorLowerFlexTextTwo: {fontFamily: 'Poppins-Bold', fontSize: wp('3'), color: AppColor.black, marginLeft: wp('1')}
 
 });
 

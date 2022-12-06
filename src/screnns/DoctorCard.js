@@ -75,7 +75,7 @@ const DoctorCard = props => {
           <View style={DashboardStyle.doctorLowerFlexView}>
             <View style={DashboardStyle.doctorLowerFlexViewInnerView}>
               <TouchableOpacity>
-                <AntDesign name="star" size={wp('4')} color="#FFD700" />
+                <AntDesign name="star" size={wp('4')} color="#FFD700"/>
               </TouchableOpacity>
               <Text style={DashboardStyle.doctorLowerFlexTextOne}>
                 {props.star}
