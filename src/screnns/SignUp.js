@@ -98,7 +98,7 @@ const SignUp = props => {
                 Sign Up
               </Text>
             </TouchableOpacity>
-            <Text style={{marginTop: hp(1), textAlign: 'center', marginLeft: hp(10)}}>
+            <Text style={{marginTop: hp(1), textAlign: 'center', marginLeft: wp(20)}}>
               Or
             </Text>
           </View>
@@ -133,7 +133,7 @@ export default SignUp;
 
 const styles = StyleSheet.create({
   inputs: {
-    width: 300,
+    width: wp(84),
     marginTop: hp(1),
     borderRadius: 5,
     fontFamily: 'Poppins-SemiBold',
