@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, {useRef, useState} from 'react';
 import {
   SafeAreaView,
@@ -16,6 +17,7 @@ import {
 import { AppColor } from '../assets/colors/AppColor';
 import Dashboard from './Dashboard';
 const Drawer = props => {
+  const navigation = useNavigation();
   const [showMenu, setShowMenu] = useState(false);
   const [openDrawer , setOpenDrawer] = useState(false)
   const moveRight = useRef(new Animated.Value(1)).current;
@@ -103,7 +105,7 @@ const Drawer = props => {
                   <Image
                     source={item.image}
                     style={{width: wp('6'), height: hp('3')}}></Image>
-                  <TouchableOpacity style={{width: wp('50')}}>
+                  <TouchableOpacity style={{width: wp('50')}} onPress={()=> navigation.navigate('MyProfile')}>
                     <Text
                       style={{
                         marginLeft: wp('5'),
