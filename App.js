@@ -21,6 +21,7 @@ import Message from './src/screnns/Message';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import DoctorSpecialist from './src/screnns/DoctorSpecialist';
 
 
 const App = () => {
@@ -43,7 +44,6 @@ const App = () => {
         <Stack.Screen name="Schedule" component={Schedule}/>
         <Stack.Screen name="DoctorNearby" component={DoctorNearby}/>
         <Stack.Screen name="DoctorInfo" component={DoctorInfo}/>
-        
       </Stack.Navigator>
     </NavigationContainer> 
   );

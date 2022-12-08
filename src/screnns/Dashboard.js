@@ -1,45 +1,19 @@
 import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  TextInput,
-  Animated
-} from 'react-native';
+import {  SafeAreaView,  ScrollView,  Text,  View,  Image,  TouchableOpacity,  TextInput,} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {DashboardStyle} from '../assets/styles/DashboardStyle';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import {  widthPercentageToDP as wp,  heightPercentageToDP as hp,} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
 import DoctorBar from './DoctorBar';
-import DoctorCategories from './DoctorCategories';
-import DoctorCard from './DoctorCard';
 import { AppColor } from '../assets/colors/AppColor';
-import { FlatList } from 'react-native-gesture-handler';
+import CategoriesFlatList from './CategoriesFlatList';
+import DoctorsFlatList from './DoctorsFlatList';
 
 const Dashboard = props => {
   const navigation = useNavigation();
-  const data= [
-    {name: 'Dr. Amanda', dept: 'Dentist', star: "4.5", experience: '5 years', color: 'rgba(195, 140, 222, 0.5)', source: require('../assets/images/doctorsInfo.png')},
-    {name: 'Dr. Omer', dept: 'Urology', star: "4.0", experience: '7 years', color: 'rgba(247, 106, 106, 0.4)', source: require('../assets/images/drOmer.png')},
-    {name: 'Dr. Asnan', dept: 'Dentist', star: "3.5", experience: '10 years', color: 'rgba(195, 140, 222, 1)', source: require('../assets/images/doctorsInfo.png')},
-    {name: 'Dr. Gough', dept: 'Dentist', star: "2.5", experience: '15 years', color: 'rgba(195, 140, 222, 0.1)', source: require('../assets/images/doctorsInfo.png')},
-    {name: 'Dr. Abdullah', dept: 'Urology', star: "4.5", experience: '2 years', color: 'rgba(247, 106, 106, 0.4)', source: require('../assets/images/doctorsInfo.png')},
-  ]
-
-  const renderItem = ({item}) =>{
-    return (
-      <DoctorCard color={item.color} source={item.source} name={item.name} dept={item.dept} star={item.star} experience={item.experience} backColor={item.color} onPress={()=>{navigation.navigate("DoctorInfo" , {item: item})}}/>
-    )
-  }
 
   return (
     <SafeAreaView style={props.style}>
@@ -106,19 +80,14 @@ const Dashboard = props => {
           
           <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('DoctorDepartment')}></DoctorBar>
 
-          <View style={{width: wp('90'), height: hp('15'), margin: wp('4.5'), alignSelf: 'center'}}>
-            <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
-              <DoctorCategories text={'Urology'} source={require('../assets/images/urology.png')} color={'rgba(195, 140, 222, 0.5)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
-              <DoctorCategories text={'Radiology'} source={require('../assets/images/radiology.png')} color={'rgba(247, 106, 106, 0.5)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
-              <DoctorCategories text={'Cardiology'} source={require('../assets/images/cardiology.png')} color={'rgba(134, 247, 194, 0.4)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
-            </View>
+          <View style={{width: wp('100'), height: hp('22')}}>
+            <CategoriesFlatList outerWidth={wp('20')} outerHeight={hp('17')} outerRadius={wp('7')} outerMargin={wp('5')} alignItems={'center'} justifyContent={'center'} innerWidth={wp('21')} innerHeight={wp('21')} innerRadius={wp('7')} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('7')} horizontal={true}></CategoriesFlatList>
           </View>
 
           <DoctorBar One={'Nearby Doctor'} Two={"See all"} onPress={()=> navigation.navigate('DoctorNearby')}></DoctorBar>
           
           <View style={{marginLeft: wp("4.5")}}>
-            <FlatList data={data} renderItem={renderItem} horizontal={true}>
-            </FlatList>
+            <DoctorsFlatList horizontal={true}/>
           </View>
           
         </View>
