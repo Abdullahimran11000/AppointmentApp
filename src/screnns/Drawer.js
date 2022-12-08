@@ -16,6 +16,13 @@ import {
 } from 'react-native-responsive-screen';
 import { AppColor } from '../assets/colors/AppColor';
 import Dashboard from './Dashboard';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+
 const Drawer = props => {
   const navigation = useNavigation();
   const [showMenu, setShowMenu] = useState(false);
@@ -39,14 +46,11 @@ const Drawer = props => {
   };
 
   const data = [
-    {image: require('../assets/images/user.png'), title: 'My Profile'},
-    {image: require('../assets/images/history.png'), title: 'History'},
-    {
-      image: require('../assets/images/notification.png'),
-      title: 'Notification',
-    },
-    {image: require('../assets/images/trolley.png'), title: 'Health Shop'},
-    {image: require('../assets/images/settings.png'), title: 'Setting'},
+    {image: require('../assets/images/user.png'), title: 'My Profile', iconName: 'user-o', provider: FontAwesome},
+    {image: require('../assets/images/history.png'), title: 'History', iconName: 'clock', provider: Fontisto},
+    {image: require('../assets/images/notification.png'), title: 'Notification', iconName: 'notifications-outline', provider: Ionicons},
+    {image: require('../assets/images/trolley.png'), title: 'Health Shop', iconName: 'cart-outline', provider: MaterialCommunityIcons},
+    {image: require('../assets/images/settings.png'), title: 'Setting', iconName: 'setting', provider: AntDesign},
   ];
 
   return (
@@ -73,8 +77,8 @@ const Drawer = props => {
             marginLeft: wp('5'),
             marginTop: wp('2'),
             fontFamily: 'Poppins-Bold',
-            fontSize: 18,
-            color: 'white',
+            fontSize: wp('5'),
+            color: AppColor.white,
           }}>
           Dara Amanda
         </Text>
@@ -82,8 +86,8 @@ const Drawer = props => {
           style={{
             marginLeft: wp('5'),
             fontFamily: 'Poppins-Light',
-            fontSize: 13,
-            color: 'white',
+            fontSize: wp('3.5'),
+            color: AppColor.white,
           }}>
           CEO BTS
         </Text>
@@ -102,15 +106,13 @@ const Drawer = props => {
                     marginBottom: wp('8'),
                     flexDirection: 'row',
                   }}>
-                  <Image
-                    source={item.image}
-                    style={{width: wp('6'), height: hp('3')}}></Image>
+                    <item.provider name={item.iconName} size={wp('5')} color={AppColor.white}/>
                   <TouchableOpacity style={{width: wp('50')}} onPress={()=> navigation.navigate('MyProfile')}>
                     <Text
                       style={{
-                        marginLeft: wp('5'),
+                        marginLeft: wp('3'),
                         fontFamily: 'Poppins-Medium',
-                        fontSize: 13,
+                        fontSize: wp('3.7'),
                         color: 'white',
                       }}>
                       {item.title}
@@ -128,19 +130,17 @@ const Drawer = props => {
             marginLeft: wp('5'),
             marginBottom: wp('15'),
           }}>
-          <Image
-            style={{width: wp('7'), height: hp('3.8')}}
-            source={require('../assets/images/logout.png')}></Image>
+          <MaterialIcons name="logout" size={wp("5")} color={AppColor.white}/>
           <TouchableOpacity
             onPress={() => {
               props.navigation.navigate('LogIn');
             }}>
             <Text
               style={{
-                marginLeft: wp('5'),
+                marginLeft: wp('3'),
                 fontFamily: 'Poppins-Medium',
-                fontSize: 13,
-                color: 'white',
+                fontSize: wp('3.7'),
+                color: AppColor.white,
               }}>
               Log out
             </Text>

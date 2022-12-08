@@ -117,7 +117,7 @@ const DoctorInfo = (props) => {
               </View>
 
               <View style={{alignSelf: 'center', marginBottom: wp('10')}}>
-                <TouchableOpacity style={{width: wp('90'), height: hp('8'), backgroundColor: item.color, borderRadius: wp('15'), alignItems: 'center', justifyContent: 'center'}} onPress={()=>navigation.navigate('Maps')}>
+                <TouchableOpacity style={{width: wp('90'), height: hp('8'), backgroundColor: item.color, borderRadius: wp('15'), alignItems: 'center', justifyContent: 'center'}} onPress={()=>navigation.navigate('Schedule')}>
                   <Text style={{fontFamily: "Poppins-Bold", fontSize: wp('4.3'), color: 'white'}}>Make an Appointment</Text>
                 </TouchableOpacity>
               </View>
