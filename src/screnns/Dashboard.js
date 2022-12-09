@@ -78,10 +78,10 @@ const Dashboard = props => {
             </View>
           </LinearGradient>
           
-          <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('DoctorDepartment')}></DoctorBar>
+          <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('DoctorSpecialist')}></DoctorBar>
 
           <View style={{width: wp('100'), height: hp('22')}}>
-            <CategoriesFlatList outerWidth={wp('20')} outerHeight={hp('17')} outerRadius={wp('7')} outerMargin={wp('5')} alignItems={'center'} justifyContent={'center'} innerWidth={wp('21')} innerHeight={wp('21')} innerRadius={wp('7')} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('7')} horizontal={true}></CategoriesFlatList>
+            <CategoriesFlatList outerWidth={wp('20')} outerHeight={hp('17')} outerRadius={wp('7')} outerMargin={wp('5')} alignItems={'center'} justifyContent={'center'} innerWidth={wp('21')} innerHeight={wp('21')} innerRadius={wp('7')} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('7')} textWidth={wp('24')} horizontal={true}></CategoriesFlatList>
           </View>
 
           <DoctorBar One={'Nearby Doctor'} Two={"See all"} onPress={()=> navigation.navigate('DoctorNearby')}></DoctorBar>

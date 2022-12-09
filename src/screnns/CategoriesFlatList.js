@@ -58,7 +58,7 @@ const CategoriesFlatList = props => {
       color: 'rgba(195, 140, 222, 0.8)',
     },
   ];
-  
+
   const renderItem = ({item}) => (
     <DoctorCategories
       outerWidth={props.outerWidth}
@@ -78,7 +78,8 @@ const CategoriesFlatList = props => {
       boxHeight={props.boxHeight}
       boxRadius={props.boxRadius}
       marginRight={props.marginRight}
-      marginBottom={props.marginBottom}></DoctorCategories>
+      marginBottom={props.marginBottom}
+      textWidth={props.textWidth}></DoctorCategories>
   );
 
   return (

@@ -12,7 +12,7 @@ import CategoriesFlatList from './CategoriesFlatList';
 const DoctorSpecialist = props => {
   return (
     <SafeAreaView>
-      <BackButton>Doctor Specialist</BackButton>
+      <BackButton onPress={()=>props.navigation.goBack()}>Doctor Specialist</BackButton>
       <CategoriesFlatList
         outerWidth={wp('20')}
         outerHeight={hp('22')}
@@ -26,6 +26,7 @@ const DoctorSpecialist = props => {
         boxWidth={wp('23')}
         boxHeight={wp('23')}
         boxRadius={wp('7')}
+        textWidth={wp('25')}
         horizontal={true}
         ></CategoriesFlatList>
     </SafeAreaView>

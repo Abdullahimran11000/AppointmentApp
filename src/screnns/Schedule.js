@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Lottie from 'lottie-react-native';
-import Modal from 'react-native-modal';
+import Modal from "react-native-modal"
+
 import {
   SafeAreaView,
   View,

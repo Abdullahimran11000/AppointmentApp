@@ -29,6 +29,7 @@ const DoctorDepartment = props => {
             boxWidth={wp('21')}
             boxHeight={wp('21')}
             boxRadius={wp('7')}
+            textWidth={wp('24')}
             numColumns={3}></CategoriesFlatList>
         </View>
       </View>
