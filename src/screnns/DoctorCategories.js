@@ -31,9 +31,9 @@ const DoctorCategories = (props) => {
           </View>
         </View>
       </View>  
-      <View style={{marginTop: wp('2')}}>
+      <View style={{width: props.textWidth, marginTop: wp('2')}}>
         <Text
-          style={{fontFamily: 'Poppins-Regular', fontSize: wp('3'), color: AppColor.black, textAlignVertical:'center'}}>
+          style={{fontFamily: 'Poppins-Regular', fontSize: wp('3'), color: AppColor.black, textAlign:'center'}}>
           {props.deptName}
         </Text>
       </View>

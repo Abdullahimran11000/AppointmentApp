@@ -39,11 +39,12 @@ const App = () => {
         <Stack.Screen name="Congratulation" component={Congratulation}/>
         <Stack.Screen name="Drawer" component={Drawer}/>
         <Stack.Screen name="MyProfile" component={MyProfile}/>
-        <Stack.Screen name="DoctorDepartment" component={DoctorDepartment}/>
+        <Stack.Screen name="DoctorSpecialist" component={DoctorSpecialist}/>
         <Stack.Screen name="Maps" component={Maps}/>
         <Stack.Screen name="Schedule" component={Schedule}/>
         <Stack.Screen name="DoctorNearby" component={DoctorNearby}/>
         <Stack.Screen name="DoctorInfo" component={DoctorInfo}/>
+        
       </Stack.Navigator>
     </NavigationContainer> 
   );
