@@ -14,7 +14,7 @@ import {TextInput} from 'react-native';
 import {Card, Paragraph, Title} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import {MapsStyle} from '../assets/styles/MapsStyle';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -35,19 +35,11 @@ const Maps = props => {
 
         <View
           style={{width: wp('100'), height: hp('100'), alignSelf: 'center'}}>
-          <View style={{flex: 2, alignSelf: 'center'}}>
-            <View style={styles.SearchBar}>
+          <View style={MapsStyle.firstView}>
+            <View style={MapsStyle.SearchBar}>
               <TouchableOpacity
                 onPress={() => props.navigation.goBack()}
-                style={{
-                  width: wp('10'),
-                  height: wp('10'),
-                  borderRadius: wp('9'),
-                  backgroundColor: 'rgba(0,0,0,0.07)',
-                  marginLeft: wp('2'),
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
+                style={MapsStyle.backbutton}>
                 <Ionicons name="chevron-back-sharp" size={20} />
               </TouchableOpacity>
               <Icon
@@ -57,44 +49,18 @@ const Maps = props => {
                 size={16}
               />
               <TextInput
-                style={{
-                  fontFamily: 'Poppins-Regular',
-                  width: wp('40'),
-                  marginLeft: wp('1'),
-                  fontSize: 14,
-                  
-                }}
+                style={MapsStyle.textinput}
                 placeholder="Search Address"
                 fontFamily={'Poppins-SemiBold'}></TextInput>
             </View>
           </View>
-
-          <View
-            style={{
-              flex: 8,
-              width: wp(100),
-              height: hp(100),
-              alignSelf: 'center',
-            }}></View>
-
-          <View
-            style={{
-              flex: 4,
-              alignItems: 'center',
-              width: wp(100),
-              height: hp(100),
-            }}>
-            <Card mode="contained" style={styles.footer}>
-              <View style={{marginTop: hp(1), marginLeft: wp(3)}}>
+          <View style={MapsStyle.middleView}></View>
+          <View style={MapsStyle.lastView}>
+            <Card mode="contained" style={MapsStyle.footer}>
+              <View style={MapsStyle.cardView}>
                 <Card.Cover
                   source={require('../assets/images/gujranwala.jpg')}
-                  style={{
-                    marginTop: hp(0.3),
-                    // position: 'absolute',
-                    width: wp(28),
-                    height: hp(17.3),
-                    borderRadius: 15,
-                  }}
+                  style={MapsStyle.cardcover}
                 />
                 <Card.Title
                   style={{marginLeft: wp(27), position: 'absolute'}}
@@ -122,23 +88,8 @@ const Maps = props => {
                       &nbsp;(1560 reviews) {'\n'} Hospital
                     </Text>
                   </Paragraph>
-                  <TouchableOpacity
-                    style={{
-                      marginTop: hp(13),
-                      position: 'absolute',
-                      marginLeft: wp(30),
-                      backgroundColor: '#F6ECF4',
-                      padding: 6,
-                      borderRadius: 10,
-                      width: wp(20),
-                    }}>
-                    <Text
-                      style={{
-                        color: '#EEEEEE ',
-                        fontSize: 11,
-                        fontFamily: 'Poppins-SemiBold',
-                        marginLeft: hp(3),
-                      }}>
+                  <TouchableOpacity style={MapsStyle.cardInnerButtonStyle}>
+                    <Text style={MapsStyle.cardInnerButtonTextStyle}>
                       500m
                     </Text>
                     <Icon
@@ -152,18 +103,9 @@ const Maps = props => {
                     />
                   </TouchableOpacity>
                 </Card.Content>
-
                 <TouchableOpacity
                   onPress={() => props.navigation.navigate('Schedule')}
-                  style={{
-                    position: 'absolute',
-                    width: wp(10),
-                    marginTop: hp(13),
-                    marginLeft: wp(54),
-                    backgroundColor: '#c28cde',
-                    padding: 9.2,
-                    borderRadius: 10,
-                  }}>
+                  style={MapsStyle.iconStyle}>
                   <Icon
                     name="chevron-right"
                     size={12}
@@ -186,20 +128,5 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     flex: 1,
     height: Dimensions.get('window').height,
-  },
-  SearchBar: {
-    display: 'flex',
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    width: wp(80),
-    height: hp(7),
-    margin: hp(2.5),
-    alignItems: 'center',
-    borderRadius: 30,
-  },
-  footer: {
-    width: wp(80),
-    height: hp(20),
-    borderRadius: 20,
   },
 });

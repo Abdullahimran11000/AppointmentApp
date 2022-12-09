@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Lottie from 'lottie-react-native';
 import Modal from "react-native-modal"
+
 import {
   SafeAreaView,
   View,
@@ -16,12 +17,12 @@ import {
 } from 'react-native-responsive-screen';
 import {Calendar} from 'react-native-calendars';
 import BackButton from './BackButton';
-import {SlideInUp} from 'react-native-reanimated';
 import {
   black,
   transparent,
   white,
 } from 'react-native-paper/lib/typescript/styles/colors';
+import { ScheduleStyle } from '../assets/styles/ScheduleStyle';
 const Schedule = props => {
   const [showModal, setShowModal] = useState(false);
   const [color, setColor] = useState('black');
@@ -41,8 +42,7 @@ const Schedule = props => {
       <ScrollView>
         <View style={{backgroundColor: 'white'}}>
           <BackButton onPress={() => props.navigation.goBack()}>Schedule</BackButton>
-          
-          <View style={{width: wp(100), marginTop: hp(1), height: hp(50), alignSelf: 'center'}}>
+          <View style={ScheduleStyle.calenderView}>
             <Calendar
               style={{borderRadius: 40}}
               enableSwipeMonths={true}
@@ -51,24 +51,12 @@ const Schedule = props => {
           </View>
           <View style={{width: wp(100), alignSelf: 'center'}}>
             <Text
-              style={{
-                fontFamily: 'Poppins-Bold',
-                color: 'black',
-                fontSize: 14,
-                marginLeft: wp(5),
-                marginTop: hp(5),
-              }}>
+              style={ScheduleStyle.headingFirst}>
               Available Time
             </Text>
           </View>
           <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              marginTop: hp(2),
-              width: wp(100),
-              alignSelf: 'center'
-            }}>
+            style={ScheduleStyle.viewFirst}>
             <TouchableOpacity
               onPress={colorHandler}
               style={{
@@ -78,13 +66,13 @@ const Schedule = props => {
                 borderRadius: 20,
                 justifyContent: 'center',
               }}>
-              <Text style={style.buttonsTextRow1}>08:00 am</Text>
+              <Text style={ScheduleStyle.buttonsTextRow1}>08:00 am</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={style.buttons}>
-              <Text style={style.buttonsTextRow1}>10:00 am</Text>
+            <TouchableOpacity style={ScheduleStyle.buttons}>
+              <Text style={ScheduleStyle.buttonsTextRow1}>10:00 am</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={style.buttonWithMarginRight}>
-              <Text style={style.buttonsTextRow1}>14:00 pm</Text>
+            <TouchableOpacity style={ScheduleStyle.buttonWithMarginRight}>
+              <Text style={ScheduleStyle.buttonsTextRow1}>14:00 pm</Text>
             </TouchableOpacity>
           </View>
           <View
@@ -103,7 +91,7 @@ const Schedule = props => {
                 padding: 3,
                 borderRadius: 20,
               }}>
-              <Text style={style.buttonsTextRow2}>16:00 pm</Text>
+              <Text style={ScheduleStyle.buttonsTextRow2}>16:00 pm</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -113,7 +101,7 @@ const Schedule = props => {
                 padding: 3,
                 borderRadius: 20,
               }}>
-              <Text style={style.buttonsTextRow2}>18:00 pm</Text>
+              <Text style={ScheduleStyle.buttonsTextRow2}>18:00 pm</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -124,21 +112,11 @@ const Schedule = props => {
                 borderRadius: 20,
                 marginRight: wp(8.5),
               }}>
-              <Text style={style.buttonsTextRow2}>20:00 pm</Text>
+              <Text style={ScheduleStyle.buttonsTextRow2}>20:00 pm</Text>
             </TouchableOpacity>
           </View>
           <View>
-            <Text
-              style={{
-                fontFamily: 'Poppins-Bold',
-                color: 'black',
-                width: wp(100),
-                marginLeft: wp('10'),
-                alignSelf: 'center',
-                marginTop: 15,
-              }}>
-              Appointment Details
-            </Text>
+            <Text style={ScheduleStyle.headingsecond}>Appointment Details</Text>
           </View>
           <View
             style={{
@@ -148,11 +126,11 @@ const Schedule = props => {
               width: wp(100),
               alignSelf: 'center'
             }}>
-            <TouchableOpacity style={style.buttonsOfAppointmentDetails}>
-              <Text style={style.buttonsTextRow3}>Hospital</Text>
+            <TouchableOpacity style={ScheduleStyle.buttonsOfAppointmentDetails}>
+              <Text style={ScheduleStyle.buttonsTextRow3}>Hospital</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={style.buttonsOfAppointmentDetails}>
-              <Text style={style.buttonsTextRow3}>Chat</Text>
+            <TouchableOpacity style={ScheduleStyle.buttonsOfAppointmentDetails}>
+              <Text style={ScheduleStyle.buttonsTextRow3}>Chat</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -163,7 +141,7 @@ const Schedule = props => {
                 borderRadius: 20,
                 marginRight: wp(8.5),
               }}>
-              <Text style={style.buttonsTextRow3}>Call</Text>
+              <Text style={ScheduleStyle.buttonsTextRow3}>Call</Text>
             </TouchableOpacity>
           </View>
           <View style={{width: wp(100),
@@ -179,7 +157,7 @@ const Schedule = props => {
                 marginTop: hp(2),
                 // marginRight: wp(8.5),
               }}>
-              <Text style={style.buttonsTextRow3}>Video Call</Text>
+              <Text style={ScheduleStyle.buttonsTextRow3}>Video Call</Text>
             </TouchableOpacity>
           </View>
           <View style={{padding: 10, alignItems: 'center', marginVertical: 10}}>
@@ -207,14 +185,14 @@ const Schedule = props => {
         </View>
 
         {showModal ? (
-          <View style={style.modalContainer}>
+          <View style={ScheduleStyle.modalContainer}>
             <Modal
               visible={showModal}
               transparent={true}
               onBackdropPress={() => setShowModal(false)}>
-              <View style={style.modal}>
+              <View style={ScheduleStyle.modal}>
                 <Lottie
-                  source={require('../assets/animations/bookApp.json')}
+                  source={require('../assets/animations/schedule.json')}
                   style={{width: wp(30), height: hp(30)}}
                   autoPlay
                 />
@@ -273,64 +251,3 @@ const Schedule = props => {
 
 export default Schedule;
 
-const style = StyleSheet.create({
-  buttons: {
-    backgroundColor: '#E8E4E4',
-    width: wp(27.5),
-    marginLeft: wp(8),
-    padding: 3,
-    borderRadius: 20,
-    justifyContent: 'center',
-  },
-  buttonsTextRow1: {
-    color: 'black',
-    fontFamily: 'Poppins-Regular',
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  buttonsTextRow2: {
-    color: 'black',
-    fontFamily: 'Poppins-Regular',
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  buttonsTextRow3: {
-    color: 'black',
-    fontFamily: 'Poppins-Regular',
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  buttonWithMarginRight: {
-    backgroundColor: '#E8E4E4',
-    width: wp(27.5),
-    marginLeft: wp(8),
-    padding: 3,
-    borderRadius: 20,
-    marginRight: wp(8),
-  },
-  buttonsOfAppointmentDetails: {
-    backgroundColor: '#E8E4E4',
-    width: wp(27.5),
-    marginLeft: wp(8.5),
-    padding: 3,
-    borderRadius: 20,
-  },
-  modal: {
-    width: wp(90),
-    height: hp(80),
-    overflow: 'hidden',
-    borderRadius: wp('10'),
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-  },
-  modalContainer: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-  },
-});
