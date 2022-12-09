@@ -3,19 +3,18 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { AppColor } from '../colors/AppColor';
 
 
 const CongratulationStyle = StyleSheet.create({
-  mainView: {height: hp('100')},
-  headingView:{alignItems:'center' , marginTop: 60},
-  animationView: {alignItems: 'center' , marginTop: 50},
+  headingView:{alignItems:'center' , marginTop: wp('10')},
+  animationView: {alignItems: 'center' , marginTop: wp('15')},
   animationStyle: {width: wp('90'), height: hp('35')},
-  tagText: {fontFamily: 'Poppins-SemiBold', fontSize: 16, color: "black"},
-  paraView: {alignItems: 'center', padding: 12},
-  paraText: {color: 'black',fontFamily: 'Poppins-Light',fontSize: 14,textAlign: 'center'},
-  touchableView:{position: 'relative' , alignItems: "center" , padding: 25},
-  touchableStyle: {width: wp("90") , height: hp('7'), borderRadius: 50 , backgroundColor:"#c28cde" , alignItems: 'center' },
-  touchableText: {color: "white" , fontFamily: "Poppins-Bold" , fontSize: 15 , padding: 10}
+  tagText: {fontFamily: 'Poppins-SemiBold', fontSize: wp('4.5'), color: AppColor.black},
+  paraView: {alignItems: 'center', width: wp('80'), alignSelf: 'center', marginTop: wp('5')},
+  paraText: {color: AppColor.black, fontFamily: 'Poppins-Light',fontSize: wp('3.8'),textAlign: 'center'},
+  touchableStyle: {width: wp("90") , height: hp('7'), borderRadius: wp('10') , backgroundColor: AppColor.primary , alignItems: 'center', justifyContent: 'center' },
+  touchableText: {color: AppColor.white , fontFamily: "Poppins-Bold" , fontSize: wp('4')}
 });
 
 export {CongratulationStyle};

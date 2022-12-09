@@ -13,7 +13,7 @@ const Congratulation = (props) => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View style={CongratulationStyle.mainView}>
+        <View>
           <View style={CongratulationStyle.animationView}>
             <Lottie
               style={CongratulationStyle.animationStyle}
@@ -30,7 +30,7 @@ const Congratulation = (props) => {
             </Text>
           </View>
           <View style={CongratulationStyle.headingView}>
-            <TouchableOpacity style={CongratulationStyle.touchableStyle} onPress={()=>props.navigation.navigate('AppIntro')}>
+            <TouchableOpacity style={CongratulationStyle.touchableStyle} onPress={()=>props.navigation.navigate('Drawer')}>
               <Text style={CongratulationStyle.touchableText}>Start Now</Text>
             </TouchableOpacity>
           </View>

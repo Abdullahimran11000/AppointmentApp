@@ -15,8 +15,9 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import RadioButtonRN from 'radio-buttons-react-native';
+import BackButton from './BackButton';
 
-const MyProfile = () => {
+const MyProfile = (props) => {
   const data = [
     {
       label: 'Male',
@@ -30,14 +31,7 @@ const MyProfile = () => {
     <SafeAreaView>
       <ScrollView>
         <View>
-          <View
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginTop: 30,
-            }}>
-            <Text style={styles.profileText}>My Profile</Text>
-          </View>
+          <BackButton onPress={()=>props.navigation.goBack()}>My Profile</BackButton>
           <View
             style={{
               justifyContent: 'center',

@@ -1,37 +1,29 @@
 import React, {useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-  Image,
-  ImageBackground,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import {  SafeAreaView,  ScrollView,  Text,  View,  Image,  TouchableOpacity,  TextInput,} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {DashboardStyle} from '../assets/styles/DashboardStyle';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import {  widthPercentageToDP as wp,  heightPercentageToDP as hp,} from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
 import DoctorBar from './DoctorBar';
-import DoctorCategories from './DoctorCategories';
-import DoctorCard from './DoctorCard';
+import { AppColor } from '../assets/colors/AppColor';
+import CategoriesFlatList from './CategoriesFlatList';
+import DoctorsFlatList from './DoctorsFlatList';
 
 const Dashboard = props => {
+  const navigation = useNavigation();
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={props.style}>
       <ScrollView>
         <View>
           <View style={DashboardStyle.headCont}>
             <View style={DashboardStyle.headContInnerCont}>
-              <View style={DashboardStyle.headContImageCont}>
+              <TouchableOpacity style={DashboardStyle.headContImageCont} onPress={props.onPress}>
                 <Image style={DashboardStyle.headContImageStyle} source={require('../assets/images/selfieOne.jpg')} resizeMode='cover'></Image> 
-              </View>
+              </TouchableOpacity>
               <View style={DashboardStyle.headContMiddleCont}>
                 <View style={DashboardStyle.middleInnerFirstCont}>
                   <Text style={DashboardStyle.middleInnerContFirstHeading}>Hello Dara</Text>
@@ -52,15 +44,15 @@ const Dashboard = props => {
             <View style={DashboardStyle.searchInnerCont}>
               <View style={DashboardStyle.searchIconOneCont}>
                 <View style={DashboardStyle.seacrhIconOneInnerCont}>
-                  <Feather name='search' size={20} color='rgba(0, 0, 0, 0.4)'></Feather>
+                  <Feather name='search' size={20} color={AppColor.blackOpacity4}></Feather>
                 </View>
               </View>
               <View style={DashboardStyle.searchTextInputCont}>
-                <TextInput placeholder='Search Doctor' maxLength={20} style={{fontFamily: 'Poppins-Medium', fontSize: 15, color: 'rgba(0, 0, 0, 0.4)', marginBottom: -5}}></TextInput>
+                <TextInput placeholder='Search Doctor' maxLength={20} style={{fontFamily: 'Poppins-Medium', fontSize: wp('4'), color: AppColor.blackOpacity4, marginBottom: wp('-0.9')}}></TextInput>
               </View>
               <View style={DashboardStyle.searchIconTwoCont}>
                 <TouchableOpacity style={DashboardStyle.searchIconTwoTouchable}>
-                  <SimpleLineIcons name='equalizer' color='rgba(0, 0, 0, 0.7)' size={15}></SimpleLineIcons>
+                  <SimpleLineIcons name='equalizer' color= {AppColor.blackOpacity7} size={15}></SimpleLineIcons>
                 </TouchableOpacity>
               </View>
             </View>
@@ -85,23 +77,17 @@ const Dashboard = props => {
               </View>
             </View>
           </LinearGradient>
-          <DoctorBar One={'Categories'} Two={"See all"}></DoctorBar>
+          
+          <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('DoctorSpecialist')}></DoctorBar>
 
-          <View style={{width: wp('90'), height: hp('15'), margin:15, alignSelf: 'center'}}>
-            <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
-              <DoctorCategories text={'Urology'} source={require('../assets/images/urology.png')} color={'rgba(195, 140, 222, 0.5)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
-              <DoctorCategories text={'Radiology'} source={require('../assets/images/radiology.png')} color={'rgba(247, 106, 106, 0.5)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
-              <DoctorCategories text={'Cardiology'} source={require('../assets/images/cardiology.png')} color={'rgba(134, 247, 194, 0.4)'} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('5')} marginRight={wp('5')} marginBottom={wp('4')}/>
-            </View>
+          <View style={{width: wp('100'), height: hp('22')}}>
+            <CategoriesFlatList outerWidth={wp('20')} outerHeight={hp('17')} outerRadius={wp('7')} outerMargin={wp('5')} alignItems={'center'} justifyContent={'center'} innerWidth={wp('21')} innerHeight={wp('21')} innerRadius={wp('7')} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('7')} textWidth={wp('24')} horizontal={true}></CategoriesFlatList>
           </View>
 
-          <DoctorBar One={'Nearby Doctor'} Two={"See all"}></DoctorBar>
-
-          <View style={{width: wp('90')}}>
-            <View style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
-            <DoctorCard color={'rgba(195, 140, 222, 0.5)'} source={require('../assets/images/doctorsInfo.png')} name={'Dr. Amanda'} dept={'Dentist'} star={'4.5'} experience={'5 years'}/>
-            <DoctorCard color={'rgba(247, 106, 106, 0.4)'} source={require('../assets/images/drOmer.png')} name={'Dr. Omer'} dept={'Urology'} star={'4.0'} experience={'2 years'}/>
-            </View>
+          <DoctorBar One={'Nearby Doctor'} Two={"See all"} onPress={()=> navigation.navigate('DoctorNearby')}></DoctorBar>
+          
+          <View style={{marginLeft: wp("4.5")}}>
+            <DoctorsFlatList horizontal={true}/>
           </View>
           
         </View>

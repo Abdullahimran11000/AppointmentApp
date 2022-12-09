@@ -60,7 +60,7 @@ const LogIn = props => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <TouchableOpacity style={styles.Touchable}>
+            <TouchableOpacity style={styles.Touchable} onPress={()=>{props.navigation.navigate('Drawer')}}>
               <Text
                 style={{
                   textAlign: 'center',
@@ -108,10 +108,11 @@ const LogIn = props => {
               marginTop: 10,
             }}>
             <Text style={{marginBottom: 3}}>Don't have an account? </Text>
-            <TouchableOpacity />
-            <Text style={{fontFamily: 'Poppins-SemiBold', color: 'black'}}>
-              Sign Up
-            </Text>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('SignUp')}>
+              <Text style={{fontFamily: 'Poppins-SemiBold', color: 'black'}}>
+                Sign Up
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>

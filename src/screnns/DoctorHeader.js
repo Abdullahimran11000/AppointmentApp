@@ -5,7 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {DoctorHeaderStyle} from '../assets/styles/DoctorHeaderStyle';
 const DoctorHeader = props => {
   const [fill, setFill] = useState('hearto');
-  const [color, setColor] = useState('#f56262');
+  const [color, setColor] = useState('white');
 
   return (
     <SafeAreaView>
@@ -16,9 +16,8 @@ const DoctorHeader = props => {
             onPress={props.onPress}>
             <Ionicons
               name="chevron-back-sharp"
-              size={25}
+              size={18}
               color="#3d3b3b"
-              style={{marginVertical: 3}}
             />
           </TouchableOpacity>
         </View>
@@ -28,7 +27,7 @@ const DoctorHeader = props => {
             onPress={() => {
               if (fill === 'heart') {
                 setFill('hearto');
-                setColor('#665f5f');
+                setColor('white');
               } else {
                 setFill('heart');
                 setColor('#f56262');
@@ -36,7 +35,7 @@ const DoctorHeader = props => {
             }}>
             <AntDesign
               name={fill}
-              size={20}
+              size={13}
               color={color}
               style={{marginVertical: 8}}
             />
