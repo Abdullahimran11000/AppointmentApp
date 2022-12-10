@@ -4,6 +4,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import { DashboardStyle } from '../assets/styles/DashboardStyle';
 import Feather from 'react-native-vector-icons/Feather'
 import DoctorCard from './DoctorCard';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 
 const SearchDoctor = props => {
@@ -42,7 +43,7 @@ const SearchDoctor = props => {
           </View>
         </View>
         
-        <View style={{marginTop: 20}}>
+        <View style={{position: 'absolute', marginTop: widthPercentageToDP(20), marginLeft: widthPercentageToDP(5)}}>
          <DoctorCard color={'rgba(195, 140, 222, 0.5)'} source={require('../assets/images/doctorsInfo.png')} name={'Dr. Amanda'} dept={'Dentist'} star={'4.5'} experience={'5 years'}/>
         </View>
 

@@ -11,6 +11,8 @@ import DoctorBar from './DoctorBar';
 import { AppColor } from '../assets/colors/AppColor';
 import CategoriesFlatList from './CategoriesFlatList';
 import DoctorsFlatList from './DoctorsFlatList';
+import Animated from 'react-native-reanimated';
+import App from '../../App';
 
 const Dashboard = props => {
   const navigation = useNavigation();
@@ -18,7 +20,7 @@ const Dashboard = props => {
   return (
     <SafeAreaView style={props.style}>
       <ScrollView>
-        <View>
+        <Animated.View>
           <View style={DashboardStyle.headCont}>
             <View style={DashboardStyle.headContInnerCont}>
               <TouchableOpacity style={DashboardStyle.headContImageCont} onPress={props.onPress}>
@@ -71,6 +73,7 @@ const Dashboard = props => {
                     Protect your family from virus before it's too late
                   </Text>
                 </View>
+                <TouchableOpacity style={{marginTop: wp('8'), width: wp('22'), height: wp('8'), borderRadius: wp('5'), backgroundColor: 'rgba(195, 140, 222, 0.8)', alignItems: 'center', justifyContent: 'center'}} onPress={()=> navigation.navigate('Maps')}><Text style={{fontFamily: "Poppins-Bold", fontSize: wp('3'), color: AppColor.white}}>Discover</Text></TouchableOpacity>
               </View>
               <View>
                 <Image style={DashboardStyle.dashContImage} source={require('../assets/images/doctorsInfo.png')} resizeMode="cover"></Image>
@@ -78,7 +81,7 @@ const Dashboard = props => {
             </View>
           </LinearGradient>
           
-          <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('DoctorSpecialist')}></DoctorBar>
+          <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('SearchDoctor')}></DoctorBar>
 
           <View style={{width: wp('100'), height: hp('22')}}>
             <CategoriesFlatList outerWidth={wp('20')} outerHeight={hp('17')} outerRadius={wp('7')} outerMargin={wp('5')} alignItems={'center'} justifyContent={'center'} innerWidth={wp('21')} innerHeight={wp('21')} innerRadius={wp('7')} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('7')} textWidth={wp('24')} horizontal={true}></CategoriesFlatList>
@@ -90,7 +93,7 @@ const Dashboard = props => {
             <DoctorsFlatList horizontal={true}/>
           </View>
           
-        </View>
+        </Animated.View>
       </ScrollView>
     </SafeAreaView>
   );

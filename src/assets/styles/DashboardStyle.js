@@ -25,11 +25,11 @@ const DashboardStyle = StyleSheet.create({
     
     dashCard: {width: wp("90"), height: hp('25'), borderRadius: wp('8'), alignSelf: 'center', marginTop: wp('6')},
     leftCont: {display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'},
-    leftContInnerCont: {left: wp('7.5')},
+    leftContInnerCont: {left: wp('7.5'), marginTop: wp('0')},
     leftContFirstHeading: {width: wp('50')},
     leftContFirstHeadingText: {fontFamily: 'Poppins-Bold', color: 'white', fontSize: wp('4.5')},
-    leftContSecondHeading: {width: wp('40'), marginTop: wp('2.6')},
-    leftContSecondHeadingText: {fontFamily: 'Poppins-SemiBold', color: AppColor.white, fontSize: wp('3.7'), textAlignVertical: 'center'},
+    leftContSecondHeading: {width: wp('40'), marginTop: wp('2')},
+    leftContSecondHeadingText: {fontFamily: 'Poppins-SemiBold', color: AppColor.white, fontSize: wp('3'), textAlignVertical: 'center'},
     dashContImage: {width: wp('40'), height: hp('25')},
     
     doctorCardImage: {width: wp('31'), height: wp('36')},

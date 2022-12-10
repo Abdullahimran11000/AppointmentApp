@@ -44,7 +44,9 @@ const App = () => {
         <Stack.Screen name="Schedule" component={Schedule}/>
         <Stack.Screen name="DoctorNearby" component={DoctorNearby}/>
         <Stack.Screen name="DoctorInfo" component={DoctorInfo}/>
-        
+        <Stack.Screen name="DoctorDepartment" component={DoctorDepartment}/>  
+        <Stack.Screen name="SearchDoctor" component={SearchDoctor}/>  
+              
       </Stack.Navigator>
     </NavigationContainer> 
   );

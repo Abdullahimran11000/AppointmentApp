@@ -198,7 +198,7 @@ const Schedule = props => {
                 />
                 <View style={{width: wp('50')}}>
                   <Text
-                    style={{fontFamily: 'Poppins-Bold', textAlign: 'center'}}>
+                    style={{fontFamily: 'Poppins-Bold', textAlign: 'center', color: 'black'}}>
                     Your appointment has been created
                   </Text>
                 </View>
@@ -208,6 +208,7 @@ const Schedule = props => {
                       fontFamily: 'Poppins-Light',
                       fontSize: 12,
                       textAlign: 'center',
+                      color: 'black'
                     }}>
                     Your appointment with Dr. Mazhar Salahudiin moak was made on
                     wednesday,March 22 at 16:02 pm
