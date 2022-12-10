@@ -16,6 +16,7 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import { color } from 'react-native-reanimated';
 const SignUp = props => {
   return (
     <ScrollView>
@@ -58,13 +59,14 @@ const SignUp = props => {
             />
           </View>
           <View style={{marginLeft: wp(6), marginTop: hp(3)}}>
-            <Checkbox status="checked" />
+            <Checkbox status="checked" color='#c28cde'/>
             <Text
               style={{
                 position: 'absolute',
                 marginHorizontal: wp(9.5),
                 marginTop: hp(1.2),
                 fontFamily: 'Poppins-Regular',
+                color:'black'
               }}>
               I agree with
             </Text>
@@ -78,7 +80,7 @@ const SignUp = props => {
               }}>
               terms
             </Text>
-            <Text style={{position: 'absolute', marginLeft: wp(45.5), marginTop: hp(1.2)}}>
+            <Text style={{position: 'absolute', marginLeft: wp(45.5), marginTop: hp(1.2),color:'black'}}>
               and
             </Text>
             <Text

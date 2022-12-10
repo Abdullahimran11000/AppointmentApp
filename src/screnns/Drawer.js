@@ -5,11 +5,9 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Animated,
   Image,
   FlatList,
 } from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -22,42 +20,54 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import Animated,{ useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+
 
 const Drawer = props => {
   const navigation = useNavigation();
-  const [showMenu, setShowMenu] = useState(false);
-  const [openDrawer , setOpenDrawer] = useState(false)
-  const moveRight = useRef(new Animated.Value(1)).current;
-  const scaling = useRef(new Animated.Value(0)).current;
 
-  const animatedFun = () => {
-    Animated.timing(scaling, {
-      toValue: showMenu ? 1 : 0.8,
-      duration: 100,
-      useNativeDriver: true,
-    }).start();
-    Animated.timing(moveRight, {
-      toValue: showMenu ? 0 : 220,
-      duration: 100,
-      useNativeDriver: true,
-    }).start();
-    setShowMenu(!showMenu);
-    setOpenDrawer(true)
-  };
+  const moveRight = useSharedValue(wp("0"));
+  const scaling = useSharedValue(1);
+  const moveRight1 = useSharedValue(wp('100'));
+  const scaling1 = useSharedValue(1);
+
+  const [showMenu, setShowMenu] = useState(false);  
+  const smallView = useAnimatedStyle(()=>{
+    return {
+      transform: [{scale: scaling1.value = 0.68},{translateX: moveRight1.value = 205}]
+    }
+  })
+
+  const largeView = useAnimatedStyle(()=>{
+    return {
+      transform: [{scale: scaling.value},{translateX: moveRight.value}]
+    }
+  })
+
+  const pressHandler =()=>{
+    if(scaling.value === 1){
+      moveRight.value = withTiming(220 , {duration:700})
+      scaling.value = withTiming(0.8, {duration:700})
+      setShowMenu(true)
+    }else{
+      moveRight.value = withSpring(0 , {stiffness:150})
+      scaling.value = withSpring(1, {stiffness:150})
+      setShowMenu(false)
+    }
+  }
 
   const data = [
-    {image: require('../assets/images/user.png'), title: 'My Profile', iconName: 'user-o', provider: FontAwesome},
-    {image: require('../assets/images/history.png'), title: 'History', iconName: 'clock', provider: Fontisto},
-    {image: require('../assets/images/notification.png'), title: 'Notification', iconName: 'notifications-outline', provider: Ionicons},
-    {image: require('../assets/images/trolley.png'), title: 'Health Shop', iconName: 'cart-outline', provider: MaterialCommunityIcons},
-    {image: require('../assets/images/settings.png'), title: 'Setting', iconName: 'setting', provider: AntDesign},
+    {title: 'My Profile', iconName: 'user-o', provider: FontAwesome},
+    {title: 'History', iconName: 'clock', provider: Fontisto},
+    {title: 'Notification', iconName: 'notifications-outline', provider: Ionicons},
+    {title: 'Health Shop', iconName: 'cart-outline', provider: MaterialCommunityIcons},
+    {title: 'Setting', iconName: 'setting', provider: AntDesign},
   ];
 
   return (
     <Animated.View style={{flex: 1, backgroundColor: '#c28cde'}}>
      
-
-      <View style={{flex: 1, backgroundColor: '#c28cde'}}>
+      <Animated.View style={{flex: 1, backgroundColor: '#c28cde'}}>
         <TouchableOpacity
           style={{
             width: wp('16'),
@@ -67,7 +77,7 @@ const Drawer = props => {
             marginLeft: wp('5'),
             marginTop: wp('15'),
           }}
-          onPress={animatedFun}>
+          onPress={pressHandler}>
           <Image
             style={{width: wp('16'), height: wp('16'), borderRadius: wp('8')}}
             source={require('../assets/images/profile.jpg')}></Image>
@@ -146,10 +156,10 @@ const Drawer = props => {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </Animated.View>
 
       <Animated.View
-        style={{
+        style={[{
           flex: 1,
           backgroundColor: 'rgba(255,255,255,0.3)',
           position: 'absolute',
@@ -157,12 +167,12 @@ const Drawer = props => {
           right: 0,
           bottom: 0,
           top: 0,
-          transform: [{scale: 0.68}, {translateX: 205}],
           borderRadius: showMenu ? wp('10') : 0,
-        }}></Animated.View>
+        }, smallView]}></Animated.View>
+        
 
       <Animated.View
-        style={{
+        style={[{
           flex: 1,
           backgroundColor: AppColor.whiteOpacity,
           position: 'absolute',
@@ -170,10 +180,9 @@ const Drawer = props => {
           right: 0,
           bottom: 0,
           top: 0,
-          transform: showMenu ? [{scale: scaling}, {translateX: moveRight}] : [{translateX: 0}],
           borderRadius: showMenu ? wp('10') : 0,
-        }}>
-        <Dashboard onPress={animatedFun}></Dashboard>
+        } , largeView]}>
+        <Dashboard onPress={pressHandler}></Dashboard>
       </Animated.View>
     </Animated.View>
   );

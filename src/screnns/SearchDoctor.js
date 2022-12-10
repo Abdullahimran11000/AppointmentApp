@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import {
   SafeAreaView,
@@ -5,7 +6,6 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
-
 } from 'react-native';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -178,17 +178,11 @@ const SearchDoctor = props => {
             </View>
           </View>
         </View>
-
-        <View style={{marginTop: 20}}>
-          <DoctorCard
-            color={'rgba(195, 140, 222, 0.5)'}
-            source={require('../assets/images/doctorsInfo.png')}
-            name={'Dr. Amanda'}
-            dept={'Dentist'}
-            star={'4.5'}
-            experience={'5 years'}
-          />
+       
+        <View style={{position: 'absolute', marginTop: widthPercentageToDP(20), marginLeft: widthPercentageToDP(5)}}>
+         <DoctorCard color={'rgba(195, 140, 222, 0.5)'} source={require('../assets/images/doctorsInfo.png')} name={'Dr. Amanda'} dept={'Dentist'} star={'4.5'} experience={'5 years'}/>
         </View>
+        
       </View>
     </SafeAreaView>
   );

@@ -30,7 +30,7 @@ const Congratulation = (props) => {
             </Text>
           </View>
           <View style={CongratulationStyle.headingView}>
-            <TouchableOpacity style={CongratulationStyle.touchableStyle} onPress={()=>props.navigation.navigate('Drawer')}>
+            <TouchableOpacity style={CongratulationStyle.touchableStyle} onPress={()=>props.navigation.navigate('LogIn')}>
               <Text style={CongratulationStyle.touchableText}>Start Now</Text>
             </TouchableOpacity>
           </View>
