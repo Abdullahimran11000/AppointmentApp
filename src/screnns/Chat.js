@@ -38,15 +38,20 @@ const Chat = props => {
               source={require('../assets/images/profile.jpg')}
             />
             <Text style={ChatStyle.nameText}>Dr.Adam Jordan</Text>
+
             <Text style={ChatStyle.status}>Online</Text>
             <View style={ChatStyle.headerInnerViewIcons}>
+              <TouchableOpacity>
               <Ionicons size={23} name="videocam" color={AppColor.primary} />
+              </TouchableOpacity>
+              <TouchableOpacity>
               <Ionicons
-                size={23}
+                size={20}
                 name="call"
                 color={AppColor.primary}
                 style={{left: wp(3)}}
               />
+              </TouchableOpacity>
             </View>
           </View>
           <View style={ChatStyle.messageContainerView}>
@@ -59,24 +64,24 @@ const Chat = props => {
               </View>
               <View>
                 <Text style={ChatStyle.subHeadingTextOne}>09:30 am</Text>
-                <FontAwesome5
+                {/* <FontAwesome5
                   name="check-double"
-                  color={AppColor.blackOpacity5}
+                  color={'skyblue'}
                   style={{left: wp(71), top: hp(2.6)}}
-                />
+                /> */}
               </View>
               <Image
                 style={ChatStyle.messageImage1}
                 source={require('../assets/images/profile.jpg')}
               />
             </View>
-            <View style={{bottom: hp(5)}}>
+            <View style={{bottom: hp(3)}}>
               <View style={ChatStyle.messageTwoView}>
                 <Text style={ChatStyle.textLeft}>
                   Morning. Can I help you ?
                 </Text>
               </View>
-              <View style={{left: wp(15)}}>
+              <View>
                 <Text style={ChatStyle.subHeadingTextTwo}>09:31 am</Text>
               </View>
               <Image
@@ -84,7 +89,7 @@ const Chat = props => {
                 source={require('../assets/images/selfie.jpg')}
               />
             </View>
-            <View style={{bottom: hp(7)}}>
+            <View style={{bottom: hp(5)}}>
               <View style={ChatStyle.messageThreeView}>
                 <Text style={ChatStyle.textRight2}>
                   I'd like a advice on problem i am having
@@ -98,18 +103,18 @@ const Chat = props => {
               </View>
               <View>
                 <Text style={ChatStyle.subHeadingTextThree}>09:33 am</Text>
-                <FontAwesome5
+                {/* <FontAwesome5
                   name="check-double"
-                  color={AppColor.blackOpacity5}
+                  color={'skyblue'}
                   style={{left: wp(71), top: hp(2.6)}}
-                />
+                /> */}
               </View>
               <Image
                 style={ChatStyle.messageImage3}
                 source={require('../assets/images/profile.jpg')}
               />
             </View>
-            <View style={{bottom: hp(10)}}>
+            <View style={{bottom: hp(8)}}>
               <View style={ChatStyle.messageFourView}>
                 <Text style={ChatStyle.textLeft4}>Jordan is typing...</Text>
               </View>
