@@ -20,8 +20,8 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import RadioButtonRN from 'radio-buttons-react-native';
-import { AppColors } from '../assets/colors/AppColor';
-
+import { AppColor } from '../assets/colors/AppColor';
+import BackButton from './BackButton';
 const SearchDoctor = props => {
   const data = [
     {key: '1', value: '5-10 years'},
@@ -54,6 +54,7 @@ const SearchDoctor = props => {
   return (
     <SafeAreaView>
       <View>
+        <BackButton onPress={()=> props.navigation.goBack()}></BackButton>
         <View style={DashboardStyle.searchCont}>
           <View style={DashboardStyle.searchInnerCont}>
             <View style={DashboardStyle.searchIconOneCont}>
@@ -81,7 +82,7 @@ const SearchDoctor = props => {
                   <View
                     style={{width: wp('80'), marginHorizontal: 15,marginTop:-50}}>
                     <TouchableOpacity style={{alignSelf:"flex-end"}} onPress={()=>{toggleModal()}}>
-                        <FontAwesome name="close" size={24} color={AppColors.primary} />
+                        <FontAwesome name="close" size={24} color={AppColor.primary} />
                     </TouchableOpacity>
                     <Text style={[styles.Text,{marginTop:30}]}>Experience</Text>
                     <SelectList
@@ -179,7 +180,7 @@ const SearchDoctor = props => {
           </View>
         </View>
        
-        <View style={{position: 'absolute', marginTop: widthPercentageToDP(20), marginLeft: widthPercentageToDP(5)}}>
+        <View style={{position: 'absolute', marginTop: wp(30), marginLeft: wp(5)}}>
          <DoctorCard color={'rgba(195, 140, 222, 0.5)'} source={require('../assets/images/doctorsInfo.png')} name={'Dr. Amanda'} dept={'Dentist'} star={'4.5'} experience={'5 years'}/>
         </View>
         
