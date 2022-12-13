@@ -99,7 +99,7 @@ const Message = props => {
   };
   return (
     <SafeAreaView>
-      <BackButton>Messages</BackButton>
+      <BackButton onPress={()=>props.navigation.goBack()}>Messages</BackButton>
       <View style={{marginTop: wp('5')}}>
         <FlatList
           data={data}

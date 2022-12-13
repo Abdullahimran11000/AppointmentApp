@@ -93,7 +93,7 @@ const MyAppointment = (props) => {
             }}>
             <Image
               style={AppointmentStyle.doctorImage}
-              source={require('F:/Workspace_fyp/Workspace/ApointmentApp/src/assets/images/drOmer.png')}></Image>
+              source={require('../assets/images/drOmer.png')}></Image>
           </View>
 
           <View
@@ -140,7 +140,7 @@ const MyAppointment = (props) => {
             }}>
             <Image
               style={AppointmentStyle.doctorImage}
-              source={require('F:/Workspace_fyp/Workspace/ApointmentApp/src/assets/images/doctorsInfo.png')}></Image>
+              source={require('../assets/images/doctorsInfo.png')}></Image>
           </View>
 
           <View
@@ -216,7 +216,7 @@ const MyAppointment = (props) => {
             }}>
             <Image
               style={AppointmentStyle.thirdDoctorImage}
-              source={require('F:/Workspace_fyp/Workspace/ApointmentApp/src/assets/images/thirddoctor.png')}></Image>
+              source={require('../assets/images/thirddoctor.png')}></Image>
           </View>
 
           <View
