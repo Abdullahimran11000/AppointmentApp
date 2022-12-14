@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
 import { widthPercentageToDP as wp  , heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { AppColor } from '../colors/AppColor';
 
 const ScheduleStyle = StyleSheet.create({
 
-    calenderView: {width: wp(100), marginTop: hp(1), height: hp(50), alignSelf: 'center'},
+    calenderView: {width: wp(100), marginTop: hp(1), height: hp(42), alignSelf: 'center',},
     headingFirst: {fontFamily: 'Poppins-Bold',color: 'black',fontSize: 14,marginLeft: wp(5),marginTop: hp(5)},
     headingsecond: {fontFamily: 'Poppins-Bold',color: 'black',width: wp(100),marginLeft: wp('10'),alignSelf: 'center',marginTop: 15,},
     viewFirst: {flexDirection: 'row',justifyContent: 'space-evenly',marginTop: hp(2),width: wp(100),alignSelf: 'center'},
