@@ -15,9 +15,17 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {Calendar} from 'react-native-calendars';
-import BackButton from '../ScrennHeader/BackButton';
-import { ScheduleStyle } from '../../assets/styles/ScheduleStyle';
+import CalendarPicker from 'react-native-calendar-picker';
+import BackButton from './BackButton';
+import {
+  black,
+  green100,
+  transparent,
+  white,
+} from 'react-native-paper/lib/typescript/styles/colors';
+import { ScheduleStyle } from '../assets/styles/ScheduleStyle';
+import { AppColor } from '../assets/colors/AppColor';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const Schedule = props => {
   const [showModal, setShowModal] = useState(false);
@@ -32,6 +40,7 @@ const Schedule = props => {
       setBackColor('#E8E4E4');
     }
   };
+
   return (
     <SafeAreaView
       style={{flex: 1, backgroundColor: 'black', height: hp('100')}}>
@@ -39,10 +48,44 @@ const Schedule = props => {
         <View style={{backgroundColor: 'white'}}>
           <BackButton onPress={() => props.navigation.goBack()}>Schedule</BackButton>
           <View style={ScheduleStyle.calenderView}>
-            <Calendar
-              style={{borderRadius: 40}}
-              enableSwipeMonths={true}
-              theme={{indicatorColor: 'red'}}
+            <CalendarPicker dayShape='circle'
+            selectedDayTextColor='white'
+            textStyle={
+              {
+                fontFamily:'Poppins-Light'
+              }
+            }
+            customDatesStyles={
+              {
+                fontFamily:'Poppins-Medium'
+              }
+            }
+            selectedDayColor={'#c8a7f2'}
+            showDayStragglers={true}
+            scrollable={true}
+            monthTitleStyle={
+              {
+                fontFamily:'Poppins-SemiBold',
+                fontSize:17
+              }
+            }
+            yearTitleStyle={
+              {
+                fontFamily:'Poppins-SemiBold'
+              }
+            }
+            nextTitle={<Icon name='forward' size={20}/>}
+            nextTitleStyle={
+              style={
+                color:AppColor.railBorderColor
+              }
+            }
+            previousTitle={<Icon name='banckward' size={20}/>}
+            previousTitleStyle={
+              style={
+                color:AppColor.railBorderColor
+              }
+            }
             />
           </View>
           <View style={{width: wp(100), alignSelf: 'center'}}>
