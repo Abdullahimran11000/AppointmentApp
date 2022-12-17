@@ -14,7 +14,7 @@ import {TextInput} from 'react-native';
 import {Card, Paragraph} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {MapsStyle} from '../../assets/styles/MapsStyle';
+import {MapsStyle} from '../../assets/styles/DashboardStyle/MapsStyle';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,

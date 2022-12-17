@@ -10,18 +10,18 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {DashboardStyle} from '../../assets/styles/DashboardStyle';
+import {DashboardStyle} from '../../assets/styles/DashboardStyle/DashboardStyle';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {AppColor} from '../../assets/colors/AppColor';
 
-const DoctorCard = props => {
+const DoctorCard = ({colors, source, name, dept, star, experience, backColor, onPress, marginRight}) => {
   const [fill, setFill] = useState('hearto');
   const [color, setColor] = useState('#FFFFFF');
   return (
     <SafeAreaView>
-      <View style={{width: wp('37'), height: hp('40'), alignSelf: 'center', marginRight: wp('5')}}>
+      <View style={{width: wp('37'), height: hp('40'), alignSelf: 'center', marginRight: marginRight}}>
         <View style={{width: wp('36'), height: hp('37'), marginTop: wp('4.5')}}>
           <View
             style={{
@@ -29,13 +29,13 @@ const DoctorCard = props => {
               height: wp('36'),
               borderRadius: wp('8'),
               marginTop: wp('3'),
-              backgroundColor: props.color,
+              backgroundColor: colors,
             }}>
             <View>
               <View style={DashboardStyle.doctorCont}>
                 <ImageBackground
                   style={DashboardStyle.doctorCardImage}
-                  source={props.source}
+                  source={source}
                   resizeMode="cover">
                   <View style={DashboardStyle.doctorHeaderCont}>
                     <View style={DashboardStyle.doctorHeaderContInnerCont}>
@@ -60,14 +60,14 @@ const DoctorCard = props => {
           </View>
           <View style={DashboardStyle.doctorLowerContFirstHeading}>
             <Text style={DashboardStyle.doctorLowerContFirstHeadingText}>
-              {props.name}
+              {name}
             </Text>
           </View>
           <View style={{display: 'flex', flex: 1, flexDirection: 'row', width: wp('30')}}>
             <Text style={DashboardStyle.doctorLowerContSecondHeadingText}>
-              {props.dept}
+              {dept}
             </Text>
-            <TouchableOpacity style={{position: 'absolute', right: 0, width: wp('6'), height: wp('6'), borderRadius: wp('6'), backgroundColor: props.backColor, justifyContent: 'center', alignItems: 'center'}} onPress={props.onPress}>
+            <TouchableOpacity style={{position: 'absolute', right: 0, width: wp('6'), height: wp('6'), borderRadius: wp('6'), backgroundColor: backColor, justifyContent: 'center', alignItems: 'center'}} onPress={onPress}>
               <AntDesign name={"right"} size={wp('4')} color={AppColor.white} style={{marginLeft: wp('0.5')}}/>
             </TouchableOpacity>
           </View>
@@ -78,7 +78,7 @@ const DoctorCard = props => {
                 <AntDesign name="star" size={wp('4')} color="#FFD700"/>
               </TouchableOpacity>
               <Text style={DashboardStyle.doctorLowerFlexTextOne}>
-                {props.star}
+                {star}
               </Text>
             </View>
 
@@ -89,7 +89,7 @@ const DoctorCard = props => {
                   size={wp('4')}
                   color={AppColor.black}></MaterialIcons>
                 <Text style={DashboardStyle.doctorLowerFlexTextTwo}>
-                  {props.experience}
+                  {experience}
                 </Text>
               </View>
             </View>

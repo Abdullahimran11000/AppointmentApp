@@ -12,13 +12,14 @@ import Congratulation from './src/screnns/AuthScreen/Congratulation';
 import DoctorDepartment from './src/screnns/Dashboard/DoctorDepartment';
 import DoctorNearby from './src/screnns/Dashboard/DoctorNearby';
 import SearchDoctor from './src/screnns/Dashboard/SearchDoctor';
-import MyProfile from './src/screnns/AnimatedDrawer/Drawer';
 import Drawer from './src/screnns/AnimatedDrawer/Drawer';
 import DoctorInfo from './src/screnns/Dashboard/DoctorInfo';
-import Message from './src/screnns/AnimatedDrawer/Drawer';
 import DoctorSpecialist from './src/screnns/Dashboard/DoctorSpecialist';
-import MyAppointment from './src/screnns/AnimatedDrawer/Drawer';
-import Notifications from './src/screnns/AnimatedDrawer/Drawer';
+import MyProfile from './src/screnns/AnimatedDrawer/MyProfile';
+import MyAppointment from './src/screnns/AnimatedDrawer/MyAppointment';
+import Message from './src/screnns/AnimatedDrawer/Message';
+import Notifications from './src/screnns/AnimatedDrawer/Notifications';
+
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';

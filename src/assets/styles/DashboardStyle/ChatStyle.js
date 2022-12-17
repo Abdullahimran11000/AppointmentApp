@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
-import { AppColor } from '../colors/AppColor';
+import { AppColor } from '../../colors/AppColor';
 
 const ChatStyle = StyleSheet.create({
     SearchBar: {display: 'flex',flexDirection: 'row',backgroundColor: 'white',width: wp(14),height: hp(7),margin: hp(2.5),alignItems: 'center',borderRadius: 30,left: wp(2),top: hp(2)},

@@ -13,7 +13,7 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {AppColor} from '../../assets/colors/AppColor';
-import {NotificationStyle} from '../../assets/styles/NotificationStyle';
+import {NotificationStyle} from '../../assets/styles/AnimatedDrawerStyle/NotificationStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Notifications = props => {
