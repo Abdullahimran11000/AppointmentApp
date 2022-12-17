@@ -8,14 +8,12 @@ import {
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {AppColor} from '../../assets/colors/AppColor';
 import Dashboard from '../Dashboard/Dashboard';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Animated, {
@@ -60,22 +58,6 @@ const Drawer = () => {
       setShowMenu(false);
     }
   };
-
-  const data = [
-    {title: 'My Profile', iconName: 'user-o', provider: FontAwesome},
-    {title: 'History', iconName: 'clock', provider: Fontisto},
-    {
-      title: 'Notification',
-      iconName: 'notifications-outline',
-      provider: Ionicons,
-    },
-    {
-      title: 'Health Shop',
-      iconName: 'cart-outline',
-      provider: MaterialCommunityIcons,
-    },
-    {title: 'Setting', iconName: 'setting', provider: AntDesign},
-  ];
 
   return (
     <Animated.View style={{flex: 1, backgroundColor: '#c28cde'}}>
@@ -286,7 +268,7 @@ const Drawer = () => {
           <MaterialIcons name="logout" size={wp('5')} color={AppColor.white} />
           <TouchableOpacity
             onPress={() => {
-              props.navigation.navigate('LogIn');
+              navigation.navigate('LogIn');
             }}>
             <Text
               style={{

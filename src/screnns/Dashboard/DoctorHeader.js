@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {SafeAreaView, View, TouchableOpacity, Text} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {DoctorHeaderStyle} from '../../assets/styles/DoctorHeaderStyle';
+import {DoctorHeaderStyle} from '../../assets/styles/DashboardStyle/DoctorHeaderStyle';
 
 const DoctorHeader = props => {
   const [fill, setFill] = useState('hearto');

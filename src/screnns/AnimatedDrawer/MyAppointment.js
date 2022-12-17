@@ -1,4 +1,4 @@
-import react, {useState} from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   Text,
@@ -12,7 +12,7 @@ import {
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {AppointmentStyle} from '../../assets/styles/AppointmentStyle';
+import {AppointmentStyle} from '../../assets/styles/AnimatedDrawerStyle/AppointmentStyle';
 import moment from 'moment-timezone';
 import {
   widthPercentageToDP as wp,
@@ -89,7 +89,7 @@ const MyAppointment = (props) => {
             }}>
             <Image
               style={AppointmentStyle.doctorImage}
-              source={require('../assets/images/drOmer.png')}></Image>
+              source={require('../../assets/images/drOmer.png')}></Image>
           </View>
 
           <View
@@ -136,7 +136,7 @@ const MyAppointment = (props) => {
             }}>
             <Image
               style={AppointmentStyle.doctorImage}
-              source={require('../assets/images/doctorsInfo.png')}></Image>
+              source={require('../../assets/images/doctorsInfo.png')}></Image>
           </View>
 
           <View
@@ -212,7 +212,7 @@ const MyAppointment = (props) => {
             }}>
             <Image
               style={AppointmentStyle.thirdDoctorImage}
-              source={require('../assets/images/thirddoctor.png')}></Image>
+              source={require('../../assets/images/thirddoctor.png')}></Image>
           </View>
 
           <View
