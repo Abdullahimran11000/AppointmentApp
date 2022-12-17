@@ -26,7 +26,10 @@ const AppointmentStyle = StyleSheet.create({
     borderRadius: 20,
     width: wp(28),
     height: hp(5),
-    backgroundColor: 'rgba(207, 66, 195,0.4)',
+    backgroundColor:"white"
+  },
+  activeButton: {
+    color: '#ff0000' // red
   },
   buttonText: {
     textAlign: 'center',
