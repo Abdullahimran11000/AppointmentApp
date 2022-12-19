@@ -16,20 +16,8 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import CalendarPicker from 'react-native-calendar-picker';
-
-import BackButton from '../ScrennHeader/BackButton';
-import {
-  black,
-  green100,
-  transparent,
-  white,
-} from 'react-native-paper/lib/typescript/styles/colors';
-
-import { ScheduleStyle } from '../assets/styles/ScheduleStyle';
-import BackButton from '../ScrennHeader/BackButton';
-import { AppColor } from '../assets/colors/AppColor';
-
 import { ScheduleStyle } from '../../assets/styles/DashboardStyle/ScheduleStyle';
+import BackButton from '../ScrennHeader/BackButton';
 import { AppColor } from '../../assets/colors/AppColor';
 import Icon from 'react-native-vector-icons/AntDesign';
 
