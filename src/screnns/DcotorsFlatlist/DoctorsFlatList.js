@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, View, FlatList} from 'react-native';
 import DoctorCard from './DoctorCard';
-const DoctorsFlatList = props => {
+const DoctorsFlatList = ({horizontal, numColumns, marginRight}) => {
   
   const navigation = useNavigation()  
   const data= [
@@ -15,15 +15,13 @@ const DoctorsFlatList = props => {
 
   const renderItem = ({item}) =>{
     return (
-      <DoctorCard color={item.color} source={item.source} name={item.name} dept={item.dept} star={item.star} experience={item.experience} backColor={item.color} onPress={()=>{navigation.navigate("DoctorInfo" , {item: item})}}/>
+      <DoctorCard colors={item.color} source={item.source} name={item.name} dept={item.dept} star={item.star} marginRight={marginRight} experience={item.experience} backColor={item.color} onPress={()=>{navigation.navigate("DoctorInfo" , {item: item})}}/>
     )
   }
 
   return (
     <SafeAreaView>
-      <View>
-        <FlatList data={data} renderItem={renderItem} horizontal={props.horizontal} showsHorizontalScrollIndicator={false} numColumns={props.numColoumns} />
-      </View>
+      <FlatList data={data} renderItem={renderItem} horizontal={horizontal} showsHorizontalScrollIndicator={false} numColumns={numColumns} />
     </SafeAreaView>
   );
 };

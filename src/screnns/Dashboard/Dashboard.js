@@ -1,7 +1,7 @@
 import React from 'react';
 import {  SafeAreaView,  ScrollView,  Text,  View,  Image,  TouchableOpacity,  TextInput,} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {DashboardStyle} from '../../assets/styles/DashboardStyle';
+import {DashboardStyle} from '../../assets/styles/DashboardStyle/DashboardStyle';
 import {  widthPercentageToDP as wp,  heightPercentageToDP as hp,} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -86,10 +86,10 @@ const Dashboard = props => {
             <CategoriesFlatList outerWidth={wp('20')} outerHeight={hp('17')} outerRadius={wp('7')} outerMargin={wp('5')} alignItems={'center'} justifyContent={'center'} innerWidth={wp('21')} innerHeight={wp('21')} innerRadius={wp('7')} boxWidth={wp('18')} boxHeight={wp('18')} boxRadius={wp('7')} textWidth={wp('24')} horizontal={true}></CategoriesFlatList>
           </View>
 
-          <DoctorBar One={'Nearby Doctor'} Two={"See all"} onPress={()=> navigation.navigate('DoctorNearby')}></DoctorBar>
+          <DoctorBar One={'Nearby Doctor'} Two={"See all"} onPress={()=> navigation.navigate('SearchDoctor')}></DoctorBar>
           
           <View style={{marginLeft: wp("4.5")}}>
-            <DoctorsFlatList horizontal={true}/>
+            <DoctorsFlatList horizontal={true} marginRight={wp('5')}/>
           </View>
           
         </Animated.View>

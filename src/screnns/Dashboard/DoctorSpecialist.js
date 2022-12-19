@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, TouchableOpacity, View} from 'react-native';
-import {DoctorSpecialistStyle} from '../../assets/styles/DoctorSpecialistStyle';
+import {DoctorSpecialistStyle} from '../../assets/styles/DashboardStyle/DoctorSpecialistStyle';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,

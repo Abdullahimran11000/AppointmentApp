@@ -42,7 +42,7 @@ const MyProfile = (props) => {
               imageStyle={{borderRadius: 50}}
               style={styles.image}
               resizeMode="cover"
-              source={require('../assets/images/profile.jpg')}>
+              source={require('../../assets/images/profile.jpg')}>
               <TouchableOpacity
                 style={{
                   width: 30,

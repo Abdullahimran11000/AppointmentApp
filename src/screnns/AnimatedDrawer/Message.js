@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import BackButton from '../ScrennHeader/BackButton';
 import Swipeable from 'react-native-swipeable';
-import {MessageStyle} from '../../assets/styles/MessageStyle';
+import {MessageStyle} from '../../assets/styles/AnimatedDrawerStyle/MessageStyle';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -20,35 +20,35 @@ const Message = props => {
   const data = [
     {
       id: 1,
-      source: require('../assets/images/selfieOne.jpg'),
+      source: require('../../assets/images/selfieOne.jpg'),
       from: 'Dr. Amanda',
       message: 'Hello doc! i want to consult',
       time: '5m ago',
     },
     {
       id: 2,
-      source: require('../assets/images/selfieOne.jpg'),
+      source: require('../../assets/images/selfieOne.jpg'),
       from: 'Dr. Khawar',
       message: 'Hello doc! i want to consult',
       time: '10m ago',
     },
     {
       id: 3,
-      source: require('../assets/images/selfieOne.jpg'),
+      source: require('../../assets/images/selfieOne.jpg'),
       from: 'Dr. Aletta',
       message: 'Hello doc! i want to consult',
       time: '10m ago',
     },
     {
       id: 4,
-      source: require('../assets/images/selfieOne.jpg'),
+      source: require('../../assets/images/selfieOne.jpg'),
       from: 'Dr. Miranda',
       message: 'Hello doc! i want to consult',
       time: '15m ago',
     },
     {
       id: 5,
-      source: require('../assets/images/selfieOne.jpg'),
+      source: require('../../assets/images/selfieOne.jpg'),
       from: 'Dr. Pasha',
       message: 'Hello doc! i want to consult',
       time: '25m ago',

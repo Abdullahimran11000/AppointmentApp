@@ -11,7 +11,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {DoctorInfoStyle} from '../../assets/styles/DoctorInfoStyle';
+import {DoctorInfoStyle} from '../../assets/styles/DashboardStyle/DoctorInfoStyle';
 import {StyleSheet} from 'react-native';
 import DoctorHeader from "./DoctorHeader"
 import Fontisto from "react-native-vector-icons/Fontisto"
