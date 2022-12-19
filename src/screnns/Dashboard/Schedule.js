@@ -16,6 +16,7 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import CalendarPicker from 'react-native-calendar-picker';
+
 import BackButton from '../ScrennHeader/BackButton';
 import {
   black,
@@ -23,6 +24,11 @@ import {
   transparent,
   white,
 } from 'react-native-paper/lib/typescript/styles/colors';
+
+import { ScheduleStyle } from '../assets/styles/ScheduleStyle';
+import BackButton from '../ScrennHeader/BackButton';
+import { AppColor } from '../assets/colors/AppColor';
+
 import { ScheduleStyle } from '../../assets/styles/DashboardStyle/ScheduleStyle';
 import { AppColor } from '../../assets/colors/AppColor';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -48,8 +54,7 @@ const Schedule = props => {
         <View style={{backgroundColor: 'white'}}>
           <BackButton onPress={() => props.navigation.goBack()}>Schedule</BackButton>
           <View style={ScheduleStyle.calenderView}>
-            <CalendarPicker dayShape='circle'
-            selectedDayTextColor='white'
+            <CalendarPicker dayShape='circle' selectedDayTextColor='white'
             textStyle={
               {
                 fontFamily:'Poppins-Light'
@@ -60,10 +65,7 @@ const Schedule = props => {
                 fontFamily:'Poppins-Medium'
               }
             }
-            selectedDayColor={'#c8a7f2'}
-            showDayStragglers={true}
-            scrollable={true}
-            monthTitleStyle={
+            selectedDayColor={'#c8a7f2'} showDayStragglers={true}  scrollable={true}  monthTitleStyle={
               {
                 fontFamily:'Poppins-SemiBold',
                 fontSize:17
@@ -98,13 +100,7 @@ const Schedule = props => {
             style={ScheduleStyle.viewFirst}>
             <TouchableOpacity
               onPress={colorHandler}
-              style={{
-                backgroundColor: backColor,
-                width: wp(27.5),
-                marginLeft: wp(8),
-                borderRadius: 20,
-                justifyContent: 'center',
-              }}>
+              style={ScheduleStyle.firstButton}>
               <Text style={ScheduleStyle.buttonsTextRow1}>08:00 am</Text>
             </TouchableOpacity>
             <TouchableOpacity style={ScheduleStyle.buttons}>
@@ -115,42 +111,17 @@ const Schedule = props => {
             </TouchableOpacity>
           </View>
           <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              marginTop: 10,
-              width: wp(100),
-              alignSelf: 'center'
-            }}>
+            style={ScheduleStyle.row2MainView}>
             <TouchableOpacity
-              style={{
-                backgroundColor: '#E8E4E4',
-                width: wp(27.5),
-                marginLeft: wp(8.5),
-                padding: 3,
-                borderRadius: 20,
-              }}>
+              style={ScheduleStyle.row2ButtonStyle}>
               <Text style={ScheduleStyle.buttonsTextRow2}>16:00 pm</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{
-                backgroundColor: '#E8E4E4',
-                width: wp(27.5),
-                marginLeft: wp(8.5),
-                padding: 3,
-                borderRadius: 20,
-              }}>
+              style={ScheduleStyle.row2ButtonStyle}>
               <Text style={ScheduleStyle.buttonsTextRow2}>18:00 pm</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{
-                backgroundColor: '#E8E4E4',
-                width: wp(27.5),
-                marginLeft: wp(8.5),
-                padding: 3,
-                borderRadius: 20,
-                marginRight: wp(8.5),
-              }}>
+              style={ScheduleStyle.row2Button3Style}>
               <Text style={ScheduleStyle.buttonsTextRow2}>20:00 pm</Text>
             </TouchableOpacity>
           </View>
