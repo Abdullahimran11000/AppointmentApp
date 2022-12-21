@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {
   View,
@@ -15,10 +15,12 @@ import {Card, Paragraph} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {MapsStyle} from '../../assets/styles/DashboardStyle/MapsStyle';
+import {Neomorph} from 'react-native-neomorph-shadows';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import {AppColor} from '../../assets/colors/AppColor';
 
 const Maps = props => {
   return (
@@ -89,31 +91,59 @@ const Maps = props => {
                       &nbsp;(1560 reviews) {'\n'} Hospital
                     </Text>
                   </Paragraph>
-                  <TouchableOpacity style={MapsStyle.cardInnerButtonStyle}>
-                    <Text style={MapsStyle.cardInnerButtonTextStyle}>
-                      500m
-                    </Text>
+                  <Neomorph
+                    style={{
+                      marginTop: hp(13),
+                      position: 'absolute',
+                      marginLeft: wp(30),
+                      backgroundColor: '#E8E4E4',
+                      height: hp(4),
+                      borderRadius: 10,
+                      width: wp(20),
+                      shadowRadius: '4',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}>
+                    <TouchableOpacity>
+                      <Text style={MapsStyle.cardInnerButtonTextStyle}>
+                        500m
+                      </Text>
+                      <Icon
+                        name="location-arrow"
+                        color={AppColor.primary}
+                        size={10}
+                        style={{
+                          position: 'absolute',
+                          marginLeft: wp(0),
+                          marginTop: hp(0.5),
+                        }}
+                      />
+                    </TouchableOpacity>
+                  </Neomorph>
+                </Card.Content>
+                <Neomorph
+                  style={{
+                    position: 'absolute',
+                    width: wp(8),
+                    marginTop: hp(13),
+                    marginLeft: wp(54),
+                    backgroundColor: '#c28cde',
+                    height: hp(4),
+                    borderRadius: 10,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    shadowRadius: '4',
+                  }}>
+                  <TouchableOpacity
+                    onPress={() => props.navigation.navigate('Schedule')}>
                     <Icon
-                      name="location-arrow"
-                      size={10}
-                      style={{
-                        position: 'absolute',
-                        marginLeft: wp(3),
-                        marginTop: hp(1.3),
-                      }}
+                      name="chevron-right"
+                      size={12}
+                      color={'white'}
+                      style={{alignSelf: 'center'}}
                     />
                   </TouchableOpacity>
-                </Card.Content>
-                <TouchableOpacity
-                  onPress={() => props.navigation.navigate('Schedule')}
-                  style={MapsStyle.iconStyle}>
-                  <Icon
-                    name="chevron-right"
-                    size={12}
-                    color={'white'}
-                    style={{alignSelf: 'center'}}
-                  />
-                </TouchableOpacity>
+                </Neomorph>
               </View>
             </Card>
           </View>
