@@ -7,6 +7,7 @@ import {
 import {AppColor} from '../../assets/colors/AppColor';
 import Octicons from 'react-native-vector-icons/Octicons';
 import AppContext from '../../assets/context/AppContext';
+import {Neomorph} from 'react-native-neomorph-shadows';
 
 const DoctorCategories = ({
   outerWidth,
@@ -29,7 +30,6 @@ const DoctorCategories = ({
 }) => {
   const {idOfSelectedCategoryDot, storeIdOfSelectedCategoryDot} =
     useContext(AppContext);
-  // const [showDot, setShowDot] = useState(false);
 
   return (
     <TouchableOpacity
@@ -43,11 +43,13 @@ const DoctorCategories = ({
         alignItems: alignItems,
         justifyContent: justifyContent,
       }}
-      onPress={() => storeIdOfSelectedCategoryDot(item.id)}>
+      onPress={() => {storeIdOfSelectedCategoryDot(item.id)}}>
       {idOfSelectedCategoryDot == item.id ? (
         <Octicons name="dot-fill" size={wp('5')} color={AppColor.primary} />
-      ) : <View style={{width: wp('5'), height: wp('5')}}></View>}
-      <View
+      ) : (
+        <View style={{width: wp('5'), height: wp('5')}}></View>
+      )}
+      <Neomorph
         style={{
           width: innerWidth,
           height: innerHeight,
@@ -55,25 +57,26 @@ const DoctorCategories = ({
           backgroundColor: backgroundColor,
           alignItems: alignItems,
           justifyContent: justifyContent,
+          shadowRadius: 4,
         }}>
-        <View>
-          <View
-            style={{
-              width: boxWidth,
-              height: boxHeight,
-              borderRadius: boxRadius,
-              backgroundColor: item.color,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <Image
-              style={{width: wp('10'), height: wp('10')}}
-              source={item.source}
-              resizeMode="cover"
-            />
-          </View>
-        </View>
-      </View>
+        <Neomorph
+          inner={idOfSelectedCategoryDot==item.id ? true : false}
+          style={{
+            width: boxWidth,
+            height: boxHeight,
+            borderRadius: boxRadius,
+            backgroundColor: item.color,
+            alignItems: 'center',
+            justifyContent: 'center',
+            shadowRadius: 4,
+          }}>
+          <Image
+            style={{width: wp('10'), height: wp('10')}}
+            source={item.source}
+            resizeMode="cover"
+          />
+        </Neomorph>
+      </Neomorph>
       <View style={{width: textWidth, marginTop: wp('2')}}>
         <Text
           style={{

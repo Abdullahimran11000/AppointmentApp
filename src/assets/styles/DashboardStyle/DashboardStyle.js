@@ -14,14 +14,19 @@ const DashboardStyle = StyleSheet.create({
     middleInnerSecondCont: {marginTop:wp('-1.4')},
     middleInnerContSecondHeading: {fontFamily: 'Poppins-Medium', fontSize:wp('3.3'), color: 'rgba(0, 0, 0, 0.4)'},
     headContLastCont: {position: 'absolute', right: wp('2.5'), top: wp('4.5')},
-   
+    notificationButton: {width: wp('10'), height: wp('10'), shadowRadius: 4, borderRadius: wp('12'), backgroundColor: AppColor.whiteShade, alignItems: 'center', justifyContent: 'center'},
+
     searchCont: {width: wp('90'), height: hp('8'), borderRadius: wp('8'), marginTop: wp('5'), marginLeft: wp('4.5'), marginRight: wp('4.5'), alignSelf: 'center'},
     searchInnerCont: {display: 'flex', flex: 1, flexDirection: 'row',alignItems: 'center', justifyContent: 'center'},
     seacrhIconOneInnerCont: {width: wp('8'), height: hp('6'), position: 'absolute', marginLeft: wp('3.5'), justifyContent: 'center'},
     searchTextInputCont: {width: wp('50'), height: hp('6'), justifyContent: 'center', alignItems: 'center', marginLeft: wp('12')},
     searchIconTwoCont: {position: 'absolute' , right: wp('2.5')},
     searchIconTwoTouchable: {width: wp('9'), height: wp('9'), borderRadius: wp('9'), backgroundColor: AppColor.white, alignItems: 'center', justifyContent: 'center'},
-    
+    searchNeoView: {marginLeft: wp("-25"), width:wp('65') , height:hp('6'), borderRadius: wp('6'), shadowRadius: 4, backgroundColor: AppColor.whiteShade},
+    searchTextInput: {width: wp('50') , fontFamily: 'Poppins-Medium', fontSize: wp('4'), color: AppColor.blackOpacity4, marginBottom: wp('-1.5')},
+    filterButton: {width: wp('10'), height: wp('10'), shadowRadius: 4, borderRadius: wp('12'), backgroundColor: AppColor.whiteShade, alignItems: 'center', justifyContent: 'center'},
+
+    neoCard: {width: wp('90'), height: hp('25'), borderRadius: wp('8'), shadowRadius: 4, backgroundColor: AppColor.whiteShade , margin: wp('4')},
     dashCard: {width: wp("90"), height: hp('25'), borderRadius: wp('8'), alignSelf: 'center', marginTop: wp('0')},
     leftCont: {display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'},
     leftContInnerCont: {left: wp('7.5'), marginTop: wp('0')},
@@ -30,6 +35,11 @@ const DashboardStyle = StyleSheet.create({
     leftContSecondHeading: {width: wp('40'), marginTop: wp('2')},
     leftContSecondHeadingText: {fontFamily: 'Poppins-SemiBold', color: AppColor.white, fontSize: wp('3'), textAlignVertical: 'center'},
     dashContImage: {width: wp('40'), height: hp('25')},
+    neoDiscoverButton: {marginTop: wp('8'), width: wp('22'), height: wp('8'), borderRadius: wp('5'), shadowRadius: 4, backgroundColor: 'rgba(195, 140, 222, 0.8)', justifyContent: 'center', alignItems: 'center'},
+    discoverButtonText: {fontFamily: "Poppins-Bold", fontSize: wp('3'), color: AppColor.white},
+
+    categoriesView: {width: wp('100'), height: hp('22')},
+    doctorsView: {marginLeft: wp("4.5")},
     
     doctorCardImage: {width: wp('31'), height: wp('36')},
     doctorHeaderCont: {display: 'flex', flex:1, flexDirection: 'row'},

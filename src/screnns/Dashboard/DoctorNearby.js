@@ -6,8 +6,17 @@ import DoctorCard from '../DcotorsFlatlist/DoctorCard';
 const DoctorNearby = props => {
   return (
     <SafeAreaView>
-      <BackButton onPress={()=> props.navigation.goBack()}>{'Nearby Doctor'}</BackButton>
-      <DoctorCard color={'rgba(247, 106, 106, 0.4)'} source={require('../../assets/images/drOmer.png')} name={'Dr. Omer'} dept={'Urology'} star={'4.0'} experience={'2 years'}/>
+      <BackButton onPress={() => {props.navigation.goBack()}}>
+        {'Nearby Doctor'}
+      </BackButton>
+      <DoctorCard
+        color={'rgba(247, 106, 106, 0.4)'}
+        source={require('../../assets/images/drOmer.png')}
+        name={'Dr. Omer'}
+        dept={'Urology'}
+        star={'4.0'}
+        experience={'2 years'}
+      />
     </SafeAreaView>
   );
 };

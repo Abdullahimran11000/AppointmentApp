@@ -16,7 +16,8 @@ const NeoTextInput = ({
   styles,
   marginBottom,
   value,
-  onChangeText
+  onChangeText,
+  children
 }) => {
   return (
     <View
@@ -44,6 +45,7 @@ const NeoTextInput = ({
           secureTextEntry={secureTextEntry}
           onChangeText={onChangeText}
         />
+        {children}
       </Neomorph>
     </View>
   );

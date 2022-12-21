@@ -12,7 +12,7 @@ import {
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import {VideoCallingStyle} from '../assets/styles/VideoCallingStyle';
-import BackButton from './BackButton';
+import BackButton from './ScrennHeader/BackButton';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 const VideoCalling = props => {

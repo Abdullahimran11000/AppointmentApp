@@ -1,16 +1,10 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-} from 'react-native';
-import {
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
+import {Text, TouchableOpacity, View, Image} from 'react-native';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {AppColor} from '../../assets/colors/AppColor';
 import Dashboard from '../Dashboard/Dashboard';
+import {DrawerStyle} from '../../assets/styles/AnimatedDrawerStyle/DrawerStyle';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -63,253 +57,108 @@ const Drawer = () => {
     <Animated.View style={{flex: 1, backgroundColor: '#c28cde'}}>
       <Animated.View style={{flex: 1, backgroundColor: '#c28cde'}}>
         <TouchableOpacity
-          style={{
-            width: wp('16'),
-            height: wp('16'),
-            borderRadius: wp('8'),
-            backgroundColor: 'black',
-            marginLeft: wp('5'),
-            marginTop: wp('15'),
-          }}
+          style={DrawerStyle.baseViewProfilePic}
           onPress={pressHandler}>
           <Image
-            style={{width: wp('16'), height: wp('16'), borderRadius: wp('8')}}
+            style={DrawerStyle.imageStyle}
             source={require('../../assets/images/profile.jpg')}></Image>
         </TouchableOpacity>
-        <Text
-          style={{
-            marginLeft: wp('5'),
-            marginTop: wp('2'),
-            fontFamily: 'Poppins-Bold',
-            fontSize: wp('5'),
-            color: AppColor.white,
-          }}>
-          Dara Amanda
-        </Text>
-        <Text
-          style={{
-            marginLeft: wp('5'),
-            fontFamily: 'Poppins-Light',
-            fontSize: wp('3.5'),
-            color: AppColor.white,
-          }}>
-          CEO BTS
-        </Text>
+        <Text style={DrawerStyle.nameText}>Dara Amanda</Text>
+        <Text style={DrawerStyle.designationText}>CEO BTS</Text>
 
-        <View
-          style={{
-            marginTop: wp('15'),
-            marginLeft: wp('5'),
-          }}>
-          <View
-            style={{
-              width: wp('60'),
-              marginBottom: wp('8'),
-              flexDirection: 'row',
-            }}>
+        <View style={DrawerStyle.menuView}>
+          <View style={DrawerStyle.menuItemView}>
             <FontAwesome
-              name={"user-o"}
+              name={'user-o'}
               size={wp('5')}
               color={AppColor.white}
             />
             <TouchableOpacity
-              style={{width: wp('50')}}
+              style={DrawerStyle.touchableView}
               onPress={() => navigation.navigate('MyProfile')}>
-              <Text
-                style={{
-                  marginLeft: wp('3'),
-                  fontFamily: 'Poppins-Medium',
-                  fontSize: wp('3.7'),
-                  color: 'white',
-                }}>
-                My Profile
-              </Text>
+              <Text style={DrawerStyle.menuItemText}>My Profile</Text>
             </TouchableOpacity>
           </View>
         </View>
 
-        <View
-          style={{
-            marginTop: wp("-2"),
-            marginLeft: wp('5'),
-          }}>
-          <View
-            style={{
-              width: wp('60'),
-              marginBottom: wp('8'),
-              flexDirection: 'row',
-            }}>
+        <View style={DrawerStyle.menuView2}>
+          <View style={DrawerStyle.menuItemView}>
             <MaterialCommunityIcons
-              name={"calendar"}
+              name={'calendar'}
               size={wp('5')}
               color={AppColor.white}
             />
             <TouchableOpacity
-              style={{width: wp('50')}}
+              style={DrawerStyle.touchableView}
               onPress={() => navigation.navigate('MyAppointment')}>
-              <Text
-                style={{
-                  marginLeft: wp('2.7'),
-                  fontFamily: 'Poppins-Medium',
-                  fontSize: wp('3.7'),
-                  color: 'white',
-                }}>
-                Appointment
-              </Text>
+              <Text style={DrawerStyle.menuItemText}>Appointment</Text>
             </TouchableOpacity>
           </View>
         </View>
 
-        <View
-          style={{
-            marginTop: wp("-2"),
-            marginLeft: wp('5'),
-          }}>
-          <View
-            style={{
-              width: wp('60'),
-              marginBottom: wp('8'),
-              flexDirection: 'row',
-            }}>
+        <View style={DrawerStyle.menuView2}>
+          <View style={DrawerStyle.menuItemView}>
             <Ionicons
-              name={"notifications-outline"}
+              name={'notifications-outline'}
               size={wp('5')}
               color={AppColor.white}
             />
             <TouchableOpacity
-              style={{width: wp('50')}}
+              style={DrawerStyle.touchableView}
               onPress={() => navigation.navigate('Notifications')}>
-              <Text
-                style={{
-                  marginLeft: wp('3'),
-                  fontFamily: 'Poppins-Medium',
-                  fontSize: wp('3.7'),
-                  color: 'white',
-                }}>
-                Notification
-              </Text>
+              <Text style={DrawerStyle.menuItemText}>Notification</Text>
             </TouchableOpacity>
           </View>
         </View>
 
-        <View
-          style={{
-            marginTop: wp("-2"),
-            marginLeft: wp('5'),
-          }}>
-          <View
-            style={{
-              width: wp('60'),
-              marginBottom: wp('8'),
-              flexDirection: 'row',
-            }}>
+        <View style={DrawerStyle.menuView2}>
+          <View style={DrawerStyle.menuItemView}>
             <MaterialIcons
-              name={"message"}
+              name={'message'}
               size={wp('5')}
               color={AppColor.white}
             />
             <TouchableOpacity
-              style={{width: wp('50')}}
+              style={DrawerStyle.touchableView}
               onPress={() => navigation.navigate('Message')}>
-              <Text
-                style={{
-                  marginLeft: wp('3'),
-                  fontFamily: 'Poppins-Medium',
-                  fontSize: wp('3.7'),
-                  color: 'white',
-                }}>
-                Message
-              </Text>
+              <Text style={DrawerStyle.menuItemText}>Message</Text>
             </TouchableOpacity>
           </View>
         </View>
 
-        <View
-          style={{
-            marginTop: wp("-2"),
-            marginLeft: wp('5'),
-          }}>
-          <View
-            style={{
-              width: wp('60'),
-              marginBottom: wp('8'),
-              flexDirection: 'row',
-            }}>
-            <AntDesign
-              name={"setting"}
-              size={wp('5')}
-              color={AppColor.white}
-            />
+        <View style={DrawerStyle.menuView2}>
+          <View style={DrawerStyle.menuItemView}>
+            <AntDesign name={'setting'} size={wp('5')} color={AppColor.white} />
             <TouchableOpacity
-              style={{width: wp('50')}}
+              style={DrawerStyle.touchableView}
               onPress={() => navigation.navigate('MyProfile')}>
-              <Text
-                style={{
-                  marginLeft: wp('3'),
-                  fontFamily: 'Poppins-Medium',
-                  fontSize: wp('3.7'),
-                  color: 'white',
-                }}>
-                Setting
-              </Text>
+              <Text style={DrawerStyle.menuItemText}>Setting</Text>
             </TouchableOpacity>
           </View>
         </View>
 
-        
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            flexDirection: 'row',
-            marginLeft: wp('5'),
-            marginBottom: wp('15'),
-          }}>
+        <View style={DrawerStyle.logOutView}>
           <MaterialIcons name="logout" size={wp('5')} color={AppColor.white} />
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('LogIn');
             }}>
-            <Text
-              style={{
-                marginLeft: wp('3'),
-                fontFamily: 'Poppins-Medium',
-                fontSize: wp('3.7'),
-                color: AppColor.white,
-              }}>
-              Log out
-            </Text>
+            <Text style={DrawerStyle.menuItemText}>Log out</Text>
           </TouchableOpacity>
         </View>
       </Animated.View>
 
       <Animated.View
         style={[
-          {
-            flex: 1,
-            backgroundColor: 'rgba(255,255,255,0.3)',
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            top: 0,
-            borderRadius: showMenu ? wp('10') : 0,
-          },
+          DrawerStyle.smallAnimatedView,
+          {borderRadius: showMenu ? wp('10') : 0},
           smallView,
         ]}></Animated.View>
 
       <Animated.View
         style={[
-          {
-            flex: 1,
-            backgroundColor: AppColor.whiteShade,
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            top: 0,
-            borderRadius: showMenu ? wp('10') : 0,
-          },
+          DrawerStyle.largeAnimatedView,
+          {borderRadius: showMenu ? wp('10') : 0},
           largeView,
         ]}>
         <Dashboard onPress={pressHandler}></Dashboard>

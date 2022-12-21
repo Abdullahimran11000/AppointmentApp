@@ -1,21 +1,23 @@
 import React from 'react';
-import {SafeAreaView, View, ScrollView, FlatList} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import BackButton from '../ScrennHeader/BackButton';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import CategoriesFlatList from '../CategoriesFlatlist/CategoriesFlatList';
+import {DoctorDepartmentStyle} from '../../assets/styles/DashboardStyle/DoctorDepartmentStyle';
+import {useNavigation} from '@react-navigation/core';
 
-const DoctorDepartment = props => {
+const DoctorDepartment = () => {
+  const navigation = useNavigation();
   return (
-    <SafeAreaView>
+    <SafeAreaView style={DoctorDepartmentStyle.mainView}>
       <View>
-        <BackButton onPress={() => props.navigation.goBack()}>
+        <BackButton onPress={() =>{navigation.goBack()}}>
           {'Categories'}
         </BackButton>
-        <View
-          style={{marginTop: wp('4'), width: wp('90'), alignSelf: 'center'}}>
+        <View style={DoctorDepartmentStyle.flatListView}>
           <CategoriesFlatList
             outerWidth={wp('20')}
             outerHeight={hp('13')}

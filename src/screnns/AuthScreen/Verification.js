@@ -15,14 +15,16 @@ import Lottie from 'lottie-react-native';
 import {VerificationStyle} from '../../assets/styles/AuthStyle/VerificationStyle';
 import BackButton from '../ScrennHeader/BackButton';
 import NeoButton from '../../components/NeoMorphButton/NeoButton';
-import { AppColor } from '../../assets/colors/AppColor';
+import {AppColor} from '../../assets/colors/AppColor';
 
-const Verification = (props) => {
+const Verification = props => {
   return (
-    <SafeAreaView  style={VerificationStyle.mainView}>
+    <SafeAreaView style={VerificationStyle.mainView}>
       <ScrollView>
         <View>
-          <BackButton onPress={()=>props.navigation.goBack()}>{'Verification'}</BackButton>
+          <BackButton onPress={() => props.navigation.goBack()}>
+            {'Verification'}
+          </BackButton>
 
           <View style={VerificationStyle.animationView}>
             <Lottie
@@ -45,7 +47,8 @@ const Verification = (props) => {
               <TextInput
                 style={VerificationStyle.newInputs}
                 maxLength={1}
-                keyboardType={'numeric'}/>
+                keyboardType={'numeric'}
+              />
             </View>
             <TextInput
               style={VerificationStyle.newInputs}
@@ -67,8 +70,14 @@ const Verification = (props) => {
             </TouchableOpacity>
           </View>
           <View style={VerificationStyle.buttonView}>
-            <TouchableOpacity onPress={()=>props.navigation.navigate('RecoverPassword')}>
-              <NeoButton darkShadowColor={AppColor.black} width= {wp("90")} backgroundColor={AppColor.primary} height={hp('7')} borderRadius= {wp('10')}  marginBottom= {wp('5')}>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('RecoverPassword')}>
+              <NeoButton
+                width={wp('90')}
+                backgroundColor={AppColor.primary}
+                height={hp('7')}
+                borderRadius={wp('10')}
+                marginBottom={wp('5')}>
                 <Text style={VerificationStyle.touchableText}>Verify</Text>
               </NeoButton>
             </TouchableOpacity>

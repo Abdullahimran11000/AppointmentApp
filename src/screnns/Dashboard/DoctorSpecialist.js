@@ -1,17 +1,20 @@
 import React from 'react';
 import {SafeAreaView, TouchableOpacity, View} from 'react-native';
-import {DoctorSpecialistStyle} from '../../assets/styles/DashboardStyle/DoctorSpecialistStyle';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import BackButton from '../ScrennHeader/BackButton';
 import CategoriesFlatList from '../CategoriesFlatlist/CategoriesFlatList';
+import { useNavigation } from '@react-navigation/core';
+import { AppColor } from '../../assets/colors/AppColor';
+import { CongratulationStyle } from '../../assets/styles/AuthStyle/CongratulationStyle';
 
-const DoctorSpecialist = props => {
+const DoctorSpecialist = () => {
+  const navigation = useNavigation()
   return (
-    <SafeAreaView>
-      <BackButton onPress={()=>props.navigation.goBack()}>Doctor Specialist</BackButton>
+    <SafeAreaView style={CongratulationStyle.mainView}>
+      <BackButton onPress={()=>{navigation.goBack()}}>Doctor Specialist</BackButton>
       <CategoriesFlatList
         outerWidth={wp('20')}
         outerHeight={hp('22')}
@@ -27,7 +30,7 @@ const DoctorSpecialist = props => {
         boxRadius={wp('7')}
         textWidth={wp('25')}
         horizontal={true}
-        ></CategoriesFlatList>
+        />
     </SafeAreaView>
   );
 };
