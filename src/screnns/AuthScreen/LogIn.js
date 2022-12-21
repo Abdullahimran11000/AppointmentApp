@@ -5,15 +5,21 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  TextInput,
   ScrollView,
 } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {AppColor} from '../../assets/colors/AppColor';
 import BackButton from '../ScrennHeader/BackButton';
+import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
 
 const LogIn = props => {
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
       <ScrollView>
         <View styles={styles.MainView}>
           <BackButton onPress={() => props.navigation.goBack()}>
@@ -24,19 +30,22 @@ const LogIn = props => {
             <View style={{margin: 5}}>
               <Text style={styles.TextStyle}>Email address </Text>
 
-              <TextInput
-                placeholder="enter your email"
-                keyboardType="email-address"
-                style={styles.TextFields}></TextInput>
+              <NeoTextInput
+                width={wp('90')}
+                marginBottom={wp('5')}
+                placeholder={'Enter your email'}
+                keyboardType={'email-address'}
+              />
             </View>
 
             <View style={{margin: 5}}>
               <Text style={styles.TextStyle}>Password</Text>
-
-              <TextInput
-                placeholder="enter your password"
-                secureTextEntry
-                style={styles.TextFields}></TextInput>
+              <NeoTextInput
+                width={wp('90')}
+                marginBottom={wp('5')}
+                placeholder={'Enter your password'}
+                secureTextEntry={true}
+              />
 
               <Icon
                 name="eye-slash"
@@ -60,7 +69,11 @@ const LogIn = props => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <TouchableOpacity style={styles.Touchable} onPress={()=>{props.navigation.navigate('Drawer')}}>
+            <TouchableOpacity
+              style={styles.Touchable}
+              onPress={() => {
+                props.navigation.navigate('Drawer');
+              }}>
               <Text
                 style={{
                   textAlign: 'center',
@@ -108,7 +121,8 @@ const LogIn = props => {
               marginTop: 10,
             }}>
             <Text style={{marginBottom: 3}}>Don't have an account? </Text>
-            <TouchableOpacity onPress={()=>props.navigation.navigate('SignUp')}>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('SignUp')}>
               <Text style={{fontFamily: 'Poppins-SemiBold', color: 'black'}}>
                 Sign Up
               </Text>

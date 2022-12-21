@@ -7,6 +7,7 @@ import { AppColor } from '../../colors/AppColor';
 
 
 const CongratulationStyle = StyleSheet.create({
+  mainView: {backgroundColor: AppColor.whiteShade, height: hp('100')},
   headingView:{alignItems:'center' , marginTop: wp('10')},
   animationView: {alignItems: 'center' , marginTop: wp('15')},
   animationStyle: {width: wp('90'), height: hp('35')},
