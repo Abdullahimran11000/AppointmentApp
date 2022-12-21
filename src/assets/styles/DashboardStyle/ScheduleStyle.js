@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import { widthPercentageToDP as wp  , heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { AppColor } from '../../colors/AppColor';
 
 const ScheduleStyle = StyleSheet.create({
 
@@ -14,11 +15,11 @@ const ScheduleStyle = StyleSheet.create({
     buttonsTextRow3: {color: 'black',fontFamily: 'Poppins-Regular',fontSize: 12,textAlign: 'center',},
     buttonWithMarginRight: {backgroundColor: '#E8E4E4',width: wp(27.5),marginLeft: wp(8),padding: 3,borderRadius: 20,marginRight: wp(8),},
     buttonsOfAppointmentDetails: {backgroundColor: '#E8E4E4',width: wp(27.5),marginLeft: wp(8.5),padding: 3,borderRadius: 20,},
-    row2MainView: {flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10, width: wp(100), alignSelf: 'center'},
+    row2MainView: {flexDirection: 'row', justifyContent: 'space-evenly', marginTop: hp(2.5), width: wp(100), alignSelf: 'center'},
     row2ButtonStyle: {backgroundColor: '#E8E4E4', width: wp(27.5), marginLeft: wp(8.5), padding: 3, borderRadius: 20,
       },
     row2Button3Style:{backgroundColor: '#E8E4E4',width: wp(27.5),marginLeft: wp(8.5),padding: 3,borderRadius: 20,marginRight: wp(8.5),},
-    modal: {width: wp(90),height: hp(80),overflow: 'hidden',borderRadius: wp('10'),alignItems: 'center',justifyContent: 'center',backgroundColor: 'white',},
+    modal: {width: wp(90),height: hp(80),overflow: 'hidden',borderRadius: wp('10'),alignItems: 'center',justifyContent: 'center',backgroundColor: AppColor.whiteShade,},
     modalContainer: {flex: 1,backgroundColor: 'rgba(0,0,0,0.7)',position: 'absolute',top: 0,right: 0,bottom: 0,left: 0,},
 })
 

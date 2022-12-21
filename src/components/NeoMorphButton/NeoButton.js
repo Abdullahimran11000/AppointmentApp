@@ -5,6 +5,7 @@ import {Neomorph} from 'react-native-neomorph-shadows';
 const NeoButton = ({
   marginBottom,
   marginTop,
+  marginLeft,
   width,
   height,
   backgroundColor,
@@ -22,6 +23,7 @@ const NeoButton = ({
       style={{
         marginTop: marginTop,
         marginBottom: marginBottom,
+        marginLeft:marginLeft,
         width: width,
         height: height,
         borderRadius: borderRadius,
