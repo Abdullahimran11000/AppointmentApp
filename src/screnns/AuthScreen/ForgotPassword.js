@@ -22,8 +22,8 @@ import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
 const ForgotPassword = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={ForgotPasswordStyle.safeView}>
-      <ScrollView>
+    <ScrollView>
+      <SafeAreaView style={ForgotPasswordStyle.safeView}>
         <View style={ForgotPasswordStyle.mainView}>
           <BackButton onPress={() => navigation.goBack()}>
             {'Forgot Password'}
@@ -75,9 +75,9 @@ const ForgotPassword = () => {
               </NeoButton>
             </TouchableOpacity>
           </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+        </View>  
+     </SafeAreaView>
+    </ScrollView>
   );
 };
 

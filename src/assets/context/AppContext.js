@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const AppContext = React.createContext();
 
 export const AppProvider = ({children}) => {
-  const [idOfSelectedCategoryDot, setIdOfSelectedCategoryDot] = useState(1);
+  const [idOfSelectedCategoryDot, setIdOfSelectedCategoryDot] = useState(3);
 
   const storeIdOfSelectedCategoryDot = val => {
     setIdOfSelectedCategoryDot(val);

@@ -16,9 +16,12 @@ import {
 } from 'react-native-responsive-screen';
 import RadioButtonRN from 'radio-buttons-react-native';
 import BackButton from '../ScrennHeader/BackButton';
-import TextInputCustom from '../../components/CustomTextInput/TextInputCustom';
+import { AppColor } from '../../assets/colors/AppColor';
+import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
+import { useNavigation } from '@react-navigation/native';
 
-const MyProfile = props => {
+const MyProfile = () => {
+  const navigation = useNavigation()
   const data = [
     {
       label: 'Male',
@@ -29,10 +32,10 @@ const MyProfile = props => {
   ];
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.mainView}>
       <ScrollView>
         <View>
-          <BackButton onPress={() => props.navigation.goBack()}>
+          <BackButton onPress={() =>{navigation.goBack()}}>
             My Profile
           </BackButton>
           <View
@@ -65,7 +68,9 @@ const MyProfile = props => {
           <View style={styles.inputViews}>
             <Text style={styles.nameText}>Full Name</Text>
 
-            <TextInputCustom
+            <NeoTextInput
+              width= {wp('90')}
+              marginBottom={hp('3')}
               placeholder={'Enter your name'}
               keyboardType={'default'}
             />
@@ -73,7 +78,9 @@ const MyProfile = props => {
           <View style={styles.inputViews}>
             <Text style={styles.nameText}>Date of Birth</Text>
 
-            <TextInputCustom
+            <NeoTextInput
+              width= {wp('90')}
+              marginBottom={hp('1')}
               placeholder={'Enter your birth'}
               keyboardType={'numeric'}
             />
@@ -82,7 +89,7 @@ const MyProfile = props => {
           <View style={{marginLeft: 30, marginTop: 15}}>
             <Text style={styles.textGendr}>Gendre</Text>
           </View>
-          <View style={{width: wp('83'), alignSelf: 'center'}}>
+          <View style={{width: wp('83'), alignSelf: 'center', marginBottom: hp('2')}}>
             <RadioButtonRN
               deactiveColor="rgba(0,0,0,0.6)"
               boxActiveBgColor="white"
@@ -107,7 +114,9 @@ const MyProfile = props => {
           <View style={styles.inputViews}>
             <Text style={styles.nameText}>Email</Text>
 
-            <TextInputCustom
+            <NeoTextInput
+              marginBottom={wp('3')}
+              width= {hp('90')}
               keyboardType={'email-address'}
               placeholder={'Enter your email'}
             />
@@ -116,7 +125,9 @@ const MyProfile = props => {
           <View style={styles.inputViews}>
             <Text style={styles.nameText}>Mobile Number</Text>
 
-            <TextInputCustom
+            <NeoTextInput
+              width= {wp('90')}
+              marginBottom={wp('3')}
               styles={{marginBottom: wp('3')}}
               keyboardType={'number-pad'}
               placeholder={'enter your number'}
@@ -163,4 +174,9 @@ const styles = StyleSheet.create({
     width: wp('90'),
     alignSelf: 'center'
   },
+  
+  mainView: {
+    backgroundColor: AppColor.whiteShade,
+    height: hp('100')
+  }
 });

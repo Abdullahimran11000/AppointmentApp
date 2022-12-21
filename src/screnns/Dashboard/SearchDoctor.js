@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import {
   SafeAreaView,
@@ -12,7 +11,6 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {DashboardStyle} from '../../assets/styles/DashboardStyle/DashboardStyle';
 import Feather from 'react-native-vector-icons/Feather';
 import Modal from 'react-native-modal';
-import DoctorCard from '../DcotorsFlatlist/DoctorCard';
 import DoctorsFlatList from '../DcotorsFlatlist/DoctorsFlatList';
 import {StyleSheet} from 'react-native';
 import {SelectList} from 'react-native-dropdown-select-list';
@@ -21,9 +19,11 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import RadioButtonRN from 'radio-buttons-react-native';
-import { AppColor } from '../../assets/colors/AppColor';
+import {AppColor} from '../../assets/colors/AppColor';
 import BackButton from '../ScrennHeader/BackButton';
-import { ScrollView } from 'react-native-virtualized-view';
+import {ScrollView} from 'react-native-virtualized-view';
+import {Neomorph} from 'react-native-neomorph-shadows';
+import {SearchDoctorStyle} from '../../assets/styles/DashboardStyle/SearchDoctorStyle';
 
 const SearchDoctor = props => {
   const data = [
@@ -55,52 +55,84 @@ const SearchDoctor = props => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: AppColor.whiteShade}}>
       <ScrollView>
         <View>
-          <BackButton onPress={()=> props.navigation.goBack()}></BackButton>
+          <BackButton
+            onPress={() => {
+              props.navigation.goBack();
+            }}></BackButton>
           <View style={DashboardStyle.searchCont}>
             <View style={DashboardStyle.searchInnerCont}>
-              <View style={DashboardStyle.searchIconOneCont}>
+              <Neomorph
+                inner
+                lightShadowColor={AppColor.white}
+                style={SearchDoctorStyle.neoMorphView}>
                 <View style={DashboardStyle.seacrhIconOneInnerCont}>
                   <Feather
                     name="search"
-                    size={20}
-                    color="rgba(0, 0, 0, 0.4)"></Feather>
+                    size={wp('6')}
+                    color={AppColor.blackOpacity4}
+                  />
                 </View>
-              </View>
-              <View style={DashboardStyle.searchTextInputCont}>
-                <TextInput
-                  placeholder="Search Doctor"
-                  maxLength={20}
-                  style={{
-                    fontFamily: 'Poppins-Medium',
-                    fontSize: 15,
-                    color: 'rgba(0, 0, 0, 0.4)',
-                    marginBottom: -5,
-                  }}></TextInput>
+                <View style={DashboardStyle.searchTextInputCont}>
+                  <TextInput
+                    placeholder="Search Doctor"
+                    maxLength={20}
+                    style={SearchDoctorStyle.searchTextInput}
+                  />
+                </View>
+              </Neomorph>
+              <View style={DashboardStyle.searchIconTwoCont}>
+                <TouchableOpacity onPress={toggleModal}>
+                  <Neomorph style={DashboardStyle.filterButton}>
+                    <SimpleLineIcons
+                      name="equalizer"
+                      color={AppColor.black}
+                      size={wp('4')}></SimpleLineIcons>
+                  </Neomorph>
+                </TouchableOpacity>
               </View>
               <View style={DashboardStyle.searchIconTwoCont}>
                 <View>
-                  <Modal isVisible={modalVisible} style={{borderRadius:30,overflow:"hidden", backgroundColor:"white",width:wp('90')}}>
+                  <Modal
+                    isVisible={modalVisible}
+                    style={{
+                      borderRadius: 30,
+                      overflow: 'hidden',
+                      backgroundColor: 'white',
+                      width: wp('90'),
+                    }}>
                     <View
-                      style={{width: wp('80'), marginHorizontal: 15,marginTop:-50}}>
-                      <TouchableOpacity style={{alignSelf:"flex-end"}} onPress={()=>{toggleModal()}}>
-                          <FontAwesome name="close" size={24} color={AppColor.primary} />
+                      style={{
+                        width: wp('80'),
+                        marginHorizontal: 15,
+                        marginTop: -50,
+                      }}>
+                      <TouchableOpacity
+                        style={{alignSelf: 'flex-end'}}
+                        onPress={() => {
+                          toggleModal();
+                        }}>
+                        <FontAwesome
+                          name="close"
+                          size={24}
+                          color={AppColor.primary}
+                        />
                       </TouchableOpacity>
-                      <Text style={[styles.Text,{marginTop:30}]}>Experience</Text>
+                      <Text style={[styles.Text, {marginTop: 30}]}>
+                        Experience
+                      </Text>
                       <SelectList
-                      fontFamily='Poppins-Regular'
+                        fontFamily="Poppins-Regular"
                         boxStyles={{
                           borderRadius: 15,
                           borderColor: 'white',
                           backgroundColor: 'white',
-                          
                         }}
                         dropdownStyles={{borderColor: 'white'}}
                         placeholder="experience"
                         data={data}
-                        
                       />
                     </View>
 
@@ -120,7 +152,7 @@ const SearchDoctor = props => {
                       style={{width: 290, marginHorizontal: 15, marginTop: 15}}>
                       <Text style={styles.Text}>Concultation Price</Text>
                       <SelectList
-                        fontFamily='Poppins-Regular'
+                        fontFamily="Poppins-Regular"
                         boxStyles={{
                           borderRadius: 15,
                           borderColor: 'white',
@@ -170,23 +202,16 @@ const SearchDoctor = props => {
                     </View>
                   </Modal>
                 </View>
-
-                <TouchableOpacity
-                  style={DashboardStyle.searchIconTwoTouchable}
-                  onPress={() => {
-                    toggleModal();
-                  }}>
-                  <SimpleLineIcons
-                    name="equalizer"
-                    color="rgba(0, 0, 0, 0.7)"
-                    size={15}></SimpleLineIcons>
-                </TouchableOpacity>
               </View>
             </View>
           </View>
         </View>
         <View style={{width: wp('90'), alignSelf: 'center'}}>
-          <DoctorsFlatList horizontal={false} numColumns={2} marginRight={wp('16')}/>
+          <DoctorsFlatList
+            horizontal={false}
+            numColumns={2}
+            marginRight={wp('16')}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -19,6 +19,7 @@ import MyProfile from './src/screnns/AnimatedDrawer/MyProfile';
 import MyAppointment from './src/screnns/AnimatedDrawer/MyAppointment';
 import Message from './src/screnns/AnimatedDrawer/Message';
 import Notifications from './src/screnns/AnimatedDrawer/Notifications';
+import VideoCalling from './src/screnns/VideoCalling';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -50,6 +51,7 @@ const App = () => {
           <Stack.Screen name="MyAppointment" component={MyAppointment} />
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="Message" component={Message} />
+          <Stack.Screen name="VideoCalling" component={VideoCalling} />
         </Stack.Navigator>
       </AppProvider>
     </NavigationContainer>
