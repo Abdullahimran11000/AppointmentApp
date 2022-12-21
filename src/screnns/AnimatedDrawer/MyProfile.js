@@ -17,7 +17,6 @@ import {
 import RadioButtonRN from 'radio-buttons-react-native';
 import BackButton from '../ScrennHeader/BackButton';
 import TextInputCustom from '../../components/CustomTextInput/TextInputCustom';
-import {style} from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 
 const MyProfile = props => {
   const data = [
