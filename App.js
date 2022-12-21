@@ -4,7 +4,7 @@ import AppIntro from './src/screnns/AuthScreen/AppIntro';
 import LogIn from './src/screnns/AuthScreen/LogIn';
 import SignUp from './src/screnns/AuthScreen/SignUp';
 import Schedule from './src/screnns/Dashboard/Schedule';
-import Maps from './src/screnns/Dashboard/Maps'
+import Maps from './src/screnns/Dashboard/Maps';
 import RecoverPassword from './src/screnns/AuthScreen/RecoverPassword';
 import ForgotPassword from './src/screnns/AuthScreen/ForgotPassword';
 import Verification from './src/screnns/AuthScreen/Verification';
@@ -19,7 +19,6 @@ import MyProfile from './src/screnns/AnimatedDrawer/MyProfile';
 import MyAppointment from './src/screnns/AnimatedDrawer/MyAppointment';
 import Message from './src/screnns/AnimatedDrawer/Message';
 import Notifications from './src/screnns/AnimatedDrawer/Notifications';
-
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';

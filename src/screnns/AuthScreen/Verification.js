@@ -7,15 +7,21 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
 import {VerificationStyle} from '../../assets/styles/AuthStyle/VerificationStyle';
 import BackButton from '../ScrennHeader/BackButton';
+import NeoButton from '../../components/NeoMorphButton/NeoButton';
+import { AppColor } from '../../assets/colors/AppColor';
 
 const Verification = (props) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView  style={VerificationStyle.mainView}>
       <ScrollView>
-        <View style={VerificationStyle.mainView}>
+        <View>
           <BackButton onPress={()=>props.navigation.goBack()}>{'Verification'}</BackButton>
 
           <View style={VerificationStyle.animationView}>
@@ -61,8 +67,10 @@ const Verification = (props) => {
             </TouchableOpacity>
           </View>
           <View style={VerificationStyle.buttonView}>
-            <TouchableOpacity style={VerificationStyle.touchableStyle} onPress={()=>props.navigation.navigate('RecoverPassword')}>
-              <Text style={VerificationStyle.touchableText}>Verify</Text>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('RecoverPassword')}>
+              <NeoButton darkShadowColor={AppColor.black} width= {wp("90")} backgroundColor={AppColor.primary} height={hp('7')} borderRadius= {wp('10')}  marginBottom= {wp('5')}>
+                <Text style={VerificationStyle.touchableText}>Verify</Text>
+              </NeoButton>
             </TouchableOpacity>
           </View>
         </View>

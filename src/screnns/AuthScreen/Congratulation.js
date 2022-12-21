@@ -6,12 +6,20 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
 import { CongratulationStyle } from '../../assets/styles/AuthStyle/CongratulationStyle';
+import { AppColor } from '../../assets/colors/AppColor';
+import NeoButton from '../../components/NeoMorphButton/NeoButton';
+import { useNavigation } from '@react-navigation/native';
 
-const Congratulation = (props) => {
+const Congratulation = () => {
+  const navigation = useNavigation()
   return (
-    <SafeAreaView>
+    <SafeAreaView style={CongratulationStyle.mainView}>
       <ScrollView>
         <View>
           <View style={CongratulationStyle.animationView}>
@@ -30,8 +38,10 @@ const Congratulation = (props) => {
             </Text>
           </View>
           <View style={CongratulationStyle.headingView}>
-            <TouchableOpacity style={CongratulationStyle.touchableStyle} onPress={()=>props.navigation.navigate('LogIn')}>
-              <Text style={CongratulationStyle.touchableText}>Start Now</Text>
+            <TouchableOpacity onPress={()=>navigation.navigate('LogIn')}>
+              <NeoButton darkShadowColor={AppColor.black} width= {wp("90")} backgroundColor={AppColor.primary} height={hp('7')} borderRadius= {wp('10')}  marginBottom= {wp('3')}>
+               <Text style={CongratulationStyle.touchableText}>Start Now</Text>
+              </NeoButton>
             </TouchableOpacity>
           </View>
         </View>

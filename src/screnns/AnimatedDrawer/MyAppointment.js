@@ -21,7 +21,9 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-// import BackButton from './BackButton';
+
+
+
 import {useNavigation} from '@react-navigation/native';
 import {keyExtractor} from 'react-native/Libraries/Lists/VirtualizeUtils';
 import {style} from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
@@ -111,7 +113,7 @@ const MyAppointment = props => {
         }}>
         <Image
           style={AppointmentStyle.doctorImage}
-          source={require('F:/Workspace_fyp/Workspace/ApointmentApp/src/assets/images/doctorsInfo.png')}></Image>
+          source={require('../../assets/images/doctorsInfo.png')}></Image>
       </View>
 
       <View
@@ -211,88 +213,6 @@ const MyAppointment = props => {
     </View>
   );
 
-  // const renderItem1 = ({item}) => (
-  //   <View
-  //     style={{
-  //       width: wp(95),
-  //       height: showButton ? hp(33) : hp(25),
-  //       margin: 10,
-  //       marginTop: 2,
-  //       borderRadius: 30,
-  //       backgroundColor: 'rgba(0,0,0,0.02)',
-  //     }}>
-  //     <View
-  //       style={{
-  //         borderRadius: widthPercentageToDP('10'),
-
-  //         width: widthPercentageToDP('20'),
-  //         height: widthPercentageToDP('20'),
-  //         marginLeft: 20,
-  //         marginTop: 20,
-  //         alignItems: 'center',
-  //         justifyContent: 'center',
-  //       }}>
-  //       <Image
-  //         style={AppointmentStyle.doctorImage}
-  //         source={require('F:/Workspace_fyp/Workspace/ApointmentApp/src/assets/images/doctorsInfo.png')}></Image>
-  //     </View>
-
-  //     <View
-  //       style={{
-  //         marginHorizontal: widthPercentageToDP(28),
-  //         marginVertical: widthPercentageToDP(-17),
-  //         marginLeft: widthPercentageToDP(30),
-  //       }}>
-  //       <View style={{position: 'absolute', right: widthPercentageToDP('-20')}}>
-  //         <TouchableOpacity
-  //           style={{
-  //             justifyContent: 'center',
-  //             alignItems: 'center',
-  //             width: widthPercentageToDP('6'),
-  //             height: widthPercentageToDP('6'),
-  //             borderRadius: widthPercentageToDP('6'),
-  //             backgroundColor: 'rgba(0,0,0,0.1)',
-  //           }}
-  //           onPress={() => setShowButton(!showButton)}>
-  //           <Icon name="angle-down" size={15}></Icon>
-  //         </TouchableOpacity>
-  //       </View>
-  //       <Text style={AppointmentStyle.doctorText}>{item.name}</Text>
-
-  //       <View>
-  //         <Text>{item.deptName}</Text>
-  //       </View>
-  //     </View>
-
-  //     <View style={AppointmentStyle.secondFooterView}>
-  //       <Icon size={12} name="calendar"></Icon>
-  //       <Text style={AppointmentStyle.secondDoctorText}>{item.date}</Text>
-
-  //       <Icon size={12} name="clock-o"></Icon>
-  //       <Text style={AppointmentStyle.secondDoctorText}>{item.time}</Text>
-
-  //       <Icon size={12} name="wechat"></Icon>
-  //       <Text style={AppointmentStyle.secondDoctorText}>
-  //         {item.appDestination}
-  //       </Text>
-  //     </View>
-  //     {showButton ? console.log('Wake up!') : console.log('I am on sleep mode')}
-  //     {showButton ? (
-  //       <View style={AppointmentStyle.footerOpcaityView}>
-  //         <TouchableOpacity style={AppointmentStyle.footerOpacityButton}>
-  //           <Text style={AppointmentStyle.footerButtonText}>cancel</Text>
-  //         </TouchableOpacity>
-  //         <TouchableOpacity
-  //           style={AppointmentStyle.footerOpacityButton}
-  //           onPress={() => {}}>
-  //           <Text style={AppointmentStyle.footerButtonText}>Reshcedule</Text>
-  //         </TouchableOpacity>
-  //       </View>
-  //     ) : (
-  //       ''
-  //     )}
-  //   </View>
-  // );
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>

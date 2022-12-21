@@ -13,11 +13,12 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {ChatStyle} from '../../assets/styles/ChatStyle';
+import {ChatStyle} from '../../assets/styles/DashboardStyle/ChatStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {AppColor} from '../../assets/colors/AppColor';
+import { Neomorph } from 'react-native-neomorph-shadows';
 
 const Chat = props => {
   return (
@@ -34,23 +35,25 @@ const Chat = props => {
           <View style={ChatStyle.headerView}>
             <Image
               style={ChatStyle.image}
-              source={require('../assets/images/profile.jpg')}
+              source={require('../../assets/images/profile.jpg')}
             />
             <Text style={ChatStyle.nameText}>Dr.Adam Jordan</Text>
-
             <Text style={ChatStyle.status}>Online</Text>
             <View style={ChatStyle.headerInnerViewIcons}>
+              <Neomorph lightShadowColor='rgba(255,255,255,0.1)' style={{width: wp(8.5),height: hp(4.5),backgroundColor:'rgba(252, 250, 250)',justifyContent:'center',alignItems:'center',borderRadius:20,shadowRadius:4}}>
               <TouchableOpacity>
-              <Ionicons size={23} name="videocam" color={AppColor.primary} />
+              <Ionicons size={18} name="videocam" color={AppColor.primary} />
               </TouchableOpacity>
+              </Neomorph>
+              <Neomorph style={{left: wp(2),width: wp(8.5),height: hp(4.5),backgroundColor:'rgba(252, 250, 250)',justifyContent:'center',alignItems:'center',borderRadius:20,shadowRadius:4}}>
               <TouchableOpacity>
               <Ionicons
-                size={20}
+                size={18}
                 name="call"
                 color={AppColor.primary}
-                style={{left: wp(3)}}
               />
               </TouchableOpacity>
+              </Neomorph>
             </View>
           </View>
           <View style={ChatStyle.messageContainerView}>
@@ -63,15 +66,10 @@ const Chat = props => {
               </View>
               <View>
                 <Text style={ChatStyle.subHeadingTextOne}>09:30 am</Text>
-                {/* <FontAwesome5
-                  name="check-double"
-                  color={'skyblue'}
-                  style={{left: wp(71), top: hp(2.6)}}
-                /> */}
               </View>
               <Image
                 style={ChatStyle.messageImage1}
-                source={require('../assets/images/profile.jpg')}
+                source={require('../../assets/images/profile.jpg')}
               />
             </View>
             <View style={{bottom: hp(3)}}>
@@ -85,7 +83,7 @@ const Chat = props => {
               </View>
               <Image
                 style={ChatStyle.messageImage2}
-                source={require('../assets/images/selfie.jpg')}
+                source={require('../../assets/images/selfie.jpg')}
               />
             </View>
             <View style={{bottom: hp(5)}}>
@@ -102,15 +100,10 @@ const Chat = props => {
               </View>
               <View>
                 <Text style={ChatStyle.subHeadingTextThree}>09:33 am</Text>
-                {/* <FontAwesome5
-                  name="check-double"
-                  color={'skyblue'}
-                  style={{left: wp(71), top: hp(2.6)}}
-                /> */}
               </View>
               <Image
                 style={ChatStyle.messageImage3}
-                source={require('../assets/images/profile.jpg')}
+                source={require('../../assets/images/profile.jpg')}
               />
             </View>
             <View style={{bottom: hp(8)}}>
@@ -119,7 +112,7 @@ const Chat = props => {
               </View>
               <Image
                 style={ChatStyle.messageImage4}
-                source={require('../assets/images/selfie.jpg')}
+                source={require('../../assets/images/selfie.jpg')}
               />
             </View>
           </View>

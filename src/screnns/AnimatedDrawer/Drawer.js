@@ -302,7 +302,7 @@ const Drawer = () => {
         style={[
           {
             flex: 1,
-            backgroundColor: AppColor.whiteOpacity,
+            backgroundColor: AppColor.whiteShade,
             position: 'absolute',
             left: 0,
             right: 0,

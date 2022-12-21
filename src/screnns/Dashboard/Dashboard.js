@@ -12,12 +12,13 @@ import { AppColor } from '../../assets/colors/AppColor';
 import CategoriesFlatList from '../CategoriesFlatlist/CategoriesFlatList';
 import DoctorsFlatList from '../DcotorsFlatlist/DoctorsFlatList'
 import Animated from 'react-native-reanimated';
+import {Neomorph} from 'react-native-neomorph-shadows'
 
 const Dashboard = props => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={props.style}>
+    <SafeAreaView style={{flex: 1, backgroundColor: AppColor.whiteShade}}>
       <ScrollView>
         <Animated.View>
           <View style={DashboardStyle.headCont}>
@@ -35,7 +36,9 @@ const Dashboard = props => {
               </View>
               <View style={DashboardStyle.headContLastCont}>
                 <TouchableOpacity>
-                  <Ionicons name='notifications-outline' color="black" size={22}></Ionicons>
+                  <Neomorph lightShadowColor={AppColor.white}  style={{width: wp('10'), height: wp('10'), shadowRadius: 4, borderRadius: wp('12'), backgroundColor: AppColor.whiteShade, alignItems: 'center', justifyContent: 'center'}}>
+                    <Ionicons name='notifications-outline' color="black" size={wp('6')}></Ionicons>
+                  </Neomorph>
                 </TouchableOpacity>
               </View>
             </View>
@@ -43,42 +46,51 @@ const Dashboard = props => {
 
           <View style={DashboardStyle.searchCont}>
             <View style={DashboardStyle.searchInnerCont}>
-              <View style={DashboardStyle.searchIconOneCont}>
+              <Neomorph inner lightShadowColor={AppColor.white} style={{marginLeft: wp("-25"), width:wp('65') , height:hp('6'), borderRadius: wp('6'), shadowRadius: 4, backgroundColor: AppColor.whiteShade,}}>
                 <View style={DashboardStyle.seacrhIconOneInnerCont}>
-                  <Feather name='search' size={20} color={AppColor.blackOpacity4}></Feather>
+                  <Feather name='search' size={wp('6')} color={AppColor.blackOpacity4}></Feather>
                 </View>
-              </View>
-              <View style={DashboardStyle.searchTextInputCont}>
-                <TextInput placeholder='Search Doctor' maxLength={20} style={{fontFamily: 'Poppins-Medium', fontSize: wp('4'), color: AppColor.blackOpacity4, marginBottom: wp('-0.9')}}></TextInput>
-              </View>
+                <View style={DashboardStyle.searchTextInputCont}>
+                  <TextInput placeholder='Search Doctor' maxLength={20} style={{width: wp('50') , fontFamily: 'Poppins-Medium', fontSize: wp('4'), color: AppColor.blackOpacity4, marginBottom: wp('-1.5')}}></TextInput>
+                </View>
+              </Neomorph>
               <View style={DashboardStyle.searchIconTwoCont}>
-                <TouchableOpacity style={DashboardStyle.searchIconTwoTouchable}>
-                  <SimpleLineIcons name='equalizer' color= {AppColor.blackOpacity7} size={15}></SimpleLineIcons>
+                <TouchableOpacity>
+                  <Neomorph  lightShadowColor={AppColor.white}  style={{width: wp('10'), height: wp('10'), shadowRadius: 4, borderRadius: wp('12'), backgroundColor: AppColor.whiteShade, alignItems: 'center', justifyContent: 'center'}}>
+                    <SimpleLineIcons name='equalizer' color= {AppColor.black} size={wp('4')}></SimpleLineIcons>
+                  </Neomorph>
                 </TouchableOpacity>
               </View>
             </View>
           </View>
           
-          <LinearGradient style={DashboardStyle.dashCard} colors={['rgba(195, 140, 222, 0.4)', 'rgba(195, 140, 222, 0.6)', 'rgba(195, 140, 222,1)']} start={{x: 0, y: 0.5}} end={{x: 1, y: 0.5}} locations={[0.1, 0.3, 0.9]}>
-            <View style={DashboardStyle.leftCont}>
-              <View style={DashboardStyle.leftContInnerCont}>
-                <View style={DashboardStyle.leftContFirstHeading}>
-                  <Text style={DashboardStyle.leftContFirstHeadingText}>
-                    Healthy or expensive
-                  </Text>
+          <Neomorph darkShadowColor={AppColor.black} style={{width: wp('90'), height: hp('25'), borderRadius: wp('8'), shadowRadius: 4, backgroundColor: AppColor.whiteShade , margin: wp('4')}}>
+            <LinearGradient style={DashboardStyle.dashCard} colors={['rgba(195, 140, 222, 0.4)', 'rgba(195, 140, 222, 0.6)', 'rgba(195, 140, 222,1)']} start={{x: 0, y: 0.5}} end={{x: 1, y: 0.5}} locations={[0.1, 0.3, 0.9]}>
+              <View style={DashboardStyle.leftCont}>
+                <View style={DashboardStyle.leftContInnerCont}>
+                  <View style={DashboardStyle.leftContFirstHeading}>
+                    <Text style={DashboardStyle.leftContFirstHeadingText}>
+                      Healthy or expensive
+                    </Text>
+                  </View>
+                  <View style={DashboardStyle.leftContSecondHeading}>
+                    <Text style={DashboardStyle.leftContSecondHeadingText}>
+                      Protect your family from virus before it's too late
+                    </Text>
+                  </View>
+                  <TouchableOpacity  onPress={()=> navigation.navigate('Maps')}>
+                    <Neomorph lightShadowColor={AppColor.whiteShade} darkShadowColor={AppColor.blackOpacity4} style={{marginTop: wp('8'), width: wp('22'), height: wp('8'), borderRadius: wp('5'), shadowRadius: 4, backgroundColor: 'rgba(195, 140, 222, 0.8)', justifyContent: 'center', alignItems: 'center'}}>
+                      <Text style={{fontFamily: "Poppins-Bold", fontSize: wp('3'), color: AppColor.white}}>Discover</Text>
+                    </Neomorph>
+                  </TouchableOpacity>
                 </View>
-                <View style={DashboardStyle.leftContSecondHeading}>
-                  <Text style={DashboardStyle.leftContSecondHeadingText}>
-                    Protect your family from virus before it's too late
-                  </Text>
+                <View>
+                  <Image style={DashboardStyle.dashContImage} source={require('../../assets/images/doctorsInfo.png')} resizeMode="cover"></Image>
                 </View>
-                <TouchableOpacity style={{marginTop: wp('8'), width: wp('22'), height: wp('8'), borderRadius: wp('5'), backgroundColor: 'rgba(195, 140, 222, 0.8)', alignItems: 'center', justifyContent: 'center'}} onPress={()=> navigation.navigate('Maps')}><Text style={{fontFamily: "Poppins-Bold", fontSize: wp('3'), color: AppColor.white}}>Discover</Text></TouchableOpacity>
               </View>
-              <View>
-                <Image style={DashboardStyle.dashContImage} source={require('../../assets/images/doctorsInfo.png')} resizeMode="cover"></Image>
-              </View>
-            </View>
-          </LinearGradient>
+            </LinearGradient>
+          </Neomorph>
+          
           
           <DoctorBar One={'Categories'} Two={"See all"} onPress={()=>navigation.navigate('DoctorDepartment')}></DoctorBar>
 
