@@ -21,7 +21,6 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import BackButton from './BackButton';
 import {useNavigation} from '@react-navigation/native';
 import {keyExtractor} from 'react-native/Libraries/Lists/VirtualizeUtils';
 import {style} from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
@@ -111,7 +110,7 @@ const MyAppointment = props => {
         }}>
         <Image
           style={AppointmentStyle.doctorImage}
-          source={require('F:/Workspace_fyp/Workspace/ApointmentApp/src/assets/images/doctorsInfo.png')}></Image>
+          source={require('../../assets/images/doctorsInfo.png')}></Image>
       </View>
 
       <View
