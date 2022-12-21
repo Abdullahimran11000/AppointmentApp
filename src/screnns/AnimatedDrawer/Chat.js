@@ -18,11 +18,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {AppColor} from '../../assets/colors/AppColor';
-import { Neomorph } from 'react-native-neomorph-shadows';
+import {Neomorph} from 'react-native-neomorph-shadows';
 
 const Chat = props => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:AppColor.whiteShade}}>
       <ScrollView>
         <View style={{width: wp(100), height: hp(100), alignSelf: 'center'}}>
           <View style={ChatStyle.SearchBar}>
@@ -40,19 +40,42 @@ const Chat = props => {
             <Text style={ChatStyle.nameText}>Dr.Adam Jordan</Text>
             <Text style={ChatStyle.status}>Online</Text>
             <View style={ChatStyle.headerInnerViewIcons}>
-              <Neomorph lightShadowColor='rgba(255,255,255,0.1)' style={{width: wp(8.5),height: hp(4.5),backgroundColor:'rgba(252, 250, 250)',justifyContent:'center',alignItems:'center',borderRadius:20,shadowRadius:4}}>
-              <TouchableOpacity>
-              <Ionicons size={18} name="videocam" color={AppColor.primary} />
-              </TouchableOpacity>
+              <Neomorph
+                lightShadowColor="rgba(255,255,255,0.2)"
+                // lightShadowColor={AppColor.black}
+                style={{
+                  left: wp(3),
+                  width: wp(10),
+                  height: hp(5),
+                  backgroundColor: AppColor.whiteShade,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 20,
+                  shadowRadius: 4,
+                }}>
+                <TouchableOpacity>
+                  <Ionicons
+                    size={18}
+                    name="videocam"
+                    color={AppColor.primary}
+                  />
+                </TouchableOpacity>
               </Neomorph>
-              <Neomorph style={{left: wp(2),width: wp(8.5),height: hp(4.5),backgroundColor:'rgba(252, 250, 250)',justifyContent:'center',alignItems:'center',borderRadius:20,shadowRadius:4}}>
-              <TouchableOpacity>
-              <Ionicons
-                size={18}
-                name="call"
-                color={AppColor.primary}
-              />
-              </TouchableOpacity>
+              <Neomorph
+                lightShadowColor='rgba(255,255,255,0.1)'
+                style={{
+                  left: wp(4),
+                  width: wp(10),
+                  height: hp(5),
+                  backgroundColor: AppColor.whiteShade,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 20,
+                  shadowRadius: 4,
+                }}>
+                <TouchableOpacity>
+                  <Ionicons size={18} name="call" color={AppColor.primary} />
+                </TouchableOpacity>
               </Neomorph>
             </View>
           </View>
@@ -117,11 +140,13 @@ const Chat = props => {
             </View>
           </View>
           <View style={ChatStyle.sendMessageContainerView}>
+            <Neomorph inner style={{width: wp(90),backgroundColor:AppColor.white,alignSelf:"center",borderRadius:50,shadowRadius:4}}>
             <TextInput
               textAlign="center"
               fontFamily={'Poppins-Regular'}
               placeholder="Write your Message"
             />
+            </Neomorph>
             <TouchableOpacity style={ChatStyle.sendMessageTouchableOpacityView}>
               <View style={ChatStyle.sendMessageIconView}>
                 <Icon
