@@ -3,6 +3,7 @@ import { progressiveRenderingEnabled } from "deprecated-react-native-prop-types/
 const AppColor = {
   primary: '#c28cde',
   black: "rgba(0,0,0,1)",
+  whiteShade: '#eef3fa',
   white: 'rgba(255,255,255,1)',
   railBorderColor: "rgba(227, 191, 245, 1)",
   railFillColor: "rgba(184, 138, 207, 1)",

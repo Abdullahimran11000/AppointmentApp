@@ -16,8 +16,10 @@ import {
 } from 'react-native-responsive-screen';
 import RadioButtonRN from 'radio-buttons-react-native';
 import BackButton from '../ScrennHeader/BackButton';
+import TextInputCustom from '../../components/CustomTextInput/TextInputCustom';
+import {style} from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 
-const MyProfile = (props) => {
+const MyProfile = props => {
   const data = [
     {
       label: 'Male',
@@ -31,7 +33,9 @@ const MyProfile = (props) => {
     <SafeAreaView>
       <ScrollView>
         <View>
-          <BackButton onPress={()=>props.navigation.goBack()}>My Profile</BackButton>
+          <BackButton onPress={() => props.navigation.goBack()}>
+            My Profile
+          </BackButton>
           <View
             style={{
               justifyContent: 'center',
@@ -59,21 +63,21 @@ const MyProfile = (props) => {
             </ImageBackground>
           </View>
 
-          <View style={{marginLeft: 30}}>
+          <View style={styles.inputViews}>
             <Text style={styles.nameText}>Full Name</Text>
+
+            <TextInputCustom
+              placeholder={'Enter your name'}
+              keyboardType={'default'}
+            />
           </View>
-          <View style={{marginLeft: 30, marginTop: 5}}>
-            <TextInput
-              style={styles.textFields}
-              placeholder="enter your name"></TextInput>
-          </View>
-          <View style={{marginLeft: 30, marginTop: 10}}>
+          <View style={styles.inputViews}>
             <Text style={styles.nameText}>Date of Birth</Text>
-          </View>
-          <View style={{marginLeft: 30, marginTop: 5}}>
-            <TextInput
-              style={styles.textFields}
-              placeholder="enter your birth"></TextInput>
+
+            <TextInputCustom
+              placeholder={'Enter your birth'}
+              keyboardType={'numeric'}
+            />
           </View>
 
           <View style={{marginLeft: 30, marginTop: 15}}>
@@ -101,25 +105,23 @@ const MyProfile = (props) => {
             />
           </View>
 
-          <View style={{marginLeft: 30, marginTop: 15}}>
+          <View style={styles.inputViews}>
             <Text style={styles.nameText}>Email</Text>
+
+            <TextInputCustom
+              keyboardType={'email-address'}
+              placeholder={'Enter your email'}
+            />
           </View>
 
-          <View style={{marginLeft: 30}}>
-            <TextInput
-              style={styles.textFields}
-              keyboardType="email-address"
-              placeholder="enter your email"></TextInput>
-          </View>
-
-          <View style={{marginLeft: 30, marginTop: 20}}>
+          <View style={styles.inputViews}>
             <Text style={styles.nameText}>Mobile Number</Text>
-          </View>
-          <View style={{marginLeft: 30, marginBottom: 30}}>
-            <TextInput
-              style={styles.textFields}
-              keyboardType="number-pad"
-              placeholder="enter your number"></TextInput>
+
+            <TextInputCustom
+              styles={{marginBottom: wp('3')}}
+              keyboardType={'number-pad'}
+              placeholder={'enter your number'}
+            />
           </View>
         </View>
       </ScrollView>
@@ -156,5 +158,10 @@ const styles = StyleSheet.create({
   textGendr: {
     fontFamily: 'Poppins-Bold',
     color: 'black',
+  },
+
+  inputViews: {
+    width: wp('90'),
+    alignSelf: 'center'
   },
 });

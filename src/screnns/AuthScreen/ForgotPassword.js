@@ -8,15 +8,27 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Lottie from 'lottie-react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import {ForgotPasswordStyle} from '../../assets/styles/AuthStyle/ForgotPasswordStyle';
 import BackButton from '../ScrennHeader/BackButton';
+import {AppColor} from '../../assets/colors/AppColor';
+import {useNavigation} from '@react-navigation/native';
+import NeoButton from '../../components/NeoMorphButton/NeoButton';
+import TextInputCustom from '../../components/CustomTextInput/TextInputCustom';
+import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
 
-const ForgotPassword = (props) => {
+const ForgotPassword = () => {
+  const navigation = useNavigation();
   return (
-    <SafeAreaView>
+    <SafeAreaView style={ForgotPasswordStyle.safeView}>
       <ScrollView>
         <View style={ForgotPasswordStyle.mainView}>
-          <BackButton onPress={()=>props.navigation.goBack()}>{'Forgot Password'}</BackButton>
+          <BackButton onPress={() => navigation.goBack()}>
+            {'Forgot Password'}
+          </BackButton>
           <View style={ForgotPasswordStyle.animationView}>
             <Lottie
               style={ForgotPasswordStyle.animationStyle}
@@ -36,9 +48,11 @@ const ForgotPassword = (props) => {
             <View style={ForgotPasswordStyle.labelView}>
               <Text style={ForgotPasswordStyle.labelText}>Email Address</Text>
             </View>
-            <TextInput
-              style={ForgotPasswordStyle.inputStyle}
-              placeholder="Example@gmail.com"></TextInput>
+            <NeoTextInput
+              width={wp('90')}
+              keyboardType={'email-address'}
+              placeholder={'Example@gmail.com'}
+            />
           </View>
           <View style={ForgotPasswordStyle.touchableView}>
             <TouchableOpacity>
@@ -48,8 +62,18 @@ const ForgotPassword = (props) => {
             </TouchableOpacity>
           </View>
           <View style={ForgotPasswordStyle.headingView}>
-            <TouchableOpacity style={ForgotPasswordStyle.touchableStyle} onPress={()=>props.navigation.navigate('Verification')}>
-              <Text style={ForgotPasswordStyle.touchableText}>Send</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Verification')}>
+              <NeoButton
+                darkShadowColor={AppColor.black}
+                marginTop={wp('10')}
+                width={wp('90')}
+                backgroundColor={AppColor.primary}
+                height={hp('7')}
+                borderRadius={wp('10')}
+                marginBottom={wp('10')}>
+                <Text style={ForgotPasswordStyle.touchableText}>Send</Text>
+              </NeoButton>
             </TouchableOpacity>
           </View>
         </View>
