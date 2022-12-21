@@ -21,12 +21,12 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import BackButton from './BackButton';
+// import BackButton from './BackButton';
 import {useNavigation} from '@react-navigation/native';
 import {keyExtractor} from 'react-native/Libraries/Lists/VirtualizeUtils';
 import {style} from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 import {ForgotPasswordStyle} from '../assets/styles/ForgotPasswordStyle';
-import BackButton from '../ScrennHeader/BackButton';
+
 
 const MyAppointment = props => {
   const [showButton, setShowButton] = useState(false);
@@ -297,9 +297,9 @@ const MyAppointment = props => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <ScrollView>
-        <BackButton onPress={() => props.navigation.goBack()}>
+        {/* <BackButton onPress={() => props.navigation.goBack()}>
           My Appointment
-        </BackButton>
+        </BackButton> */}
 
         <View style={AppointmentStyle.opcaityView}>
           <TouchableOpacity
