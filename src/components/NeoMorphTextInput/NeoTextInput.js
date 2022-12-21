@@ -24,6 +24,7 @@ const NeoTextInput = ({
         width: wp('90'),
         height: hp('7'),
         alignSelf: 'center',
+        borderRadius: wp('3'),
         marginBottom: marginBottom,
       }}>
       <Neomorph

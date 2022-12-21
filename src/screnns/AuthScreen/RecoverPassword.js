@@ -17,7 +17,6 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import BackButton from '../ScrennHeader/BackButton';
 import NeoButton from '../../components/NeoMorphButton/NeoButton';
 import {AppColor} from '../../assets/colors/AppColor';
-import TextInputCustom from '../../components/CustomTextInput/TextInputCustom';
 import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
 import AppContext from '../../assets/context/AppContext';
 import { Neomorph } from 'react-native-neomorph-shadows';
@@ -52,17 +51,14 @@ const RecoverPassword = props => {
             <View style={RecoverPasswordStyle.labelView}>
               <Text style={RecoverPasswordStyle.labelText}>New Password</Text>
             </View>
-            <View style={{width: wp('90'), height: hp('7'), alignSelf: 'center',}}>
-              <Neomorph style={{width: wp('90'), height: hp('7'), borderRadius: wp('3'), shadowRadius: 4, backgroundColor: AppColor.whiteShade}}></Neomorph>
-            </View>
             
-            {/* <NeoTextInput
-              width={wp('70')}
+            <NeoTextInput
+              width={wp('90')}
               marginBottom={wp('3')}
               placeholder={'Enter your password'}
               secureTextEntry={!eye}
               keyboardType={'ascii-capable'}
-            /> */}
+            />
             {/* <View style={RecoverPasswordStyle.inputStyleView}>
               
               <TouchableOpacity
