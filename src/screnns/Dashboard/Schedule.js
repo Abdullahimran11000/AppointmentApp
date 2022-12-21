@@ -20,6 +20,7 @@ import {ScheduleStyle} from '../../assets/styles/DashboardStyle/ScheduleStyle';
 import BackButton from '../ScrennHeader/BackButton';
 import {AppColor} from '../../assets/colors/AppColor';
 import Icon from 'react-native-vector-icons/AntDesign';
+import NeoButton from '../../components/NeoMorphButton/NeoButton';
 
 const Schedule = props => {
   const [showModal, setShowModal] = useState(false);
@@ -82,95 +83,75 @@ const Schedule = props => {
           </View>
           <View style={ScheduleStyle.viewFirst}>
             <TouchableOpacity onPress={colorHandler}>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  height: hp('4'),
-                  width: wp(27.5),
-                  marginLeft: wp(8),
-                  borderRadius: 20,
-                  justifyContent: 'center',
-                  shadowRadius: '3',
-                }}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={20}
+                justifyContent={'center'}
+                marginLeft={wp('8')}>
                 <Text style={ScheduleStyle.buttonsTextRow1}>08:00 am</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  height: hp('4'),
-                  width: wp(27.5),
-                  marginLeft: wp(8),
-                  borderRadius: 20,
-                  justifyContent: 'center',
-                  shadowRadius: '3',
-                }}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={20}
+                justifyContent={'center'}
+                marginLeft={wp('8')}>
                 <Text style={ScheduleStyle.buttonsTextRow1}>10:00 am</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  height: hp('4'),
-                  width: wp(27.5),
-                  marginRight: wp(8),
-                  marginLeft: wp(8),
-                  borderRadius: 20,
-                  justifyContent: 'center',
-                  shadowRadius: '3',
-                }}>
+            <TouchableOpacity style={{marginRight: wp(8)}}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={20}
+                justifyContent={'center'}
+                marginLeft={wp('8')}>
                 <Text style={ScheduleStyle.buttonsTextRow1}>14:00 pm</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
           </View>
           <View style={ScheduleStyle.row2MainView}>
             <TouchableOpacity>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  width: wp(27.5),
-                  marginLeft: wp(8.5),
-                  height: hp(4),
-                  borderRadius: 20,
-                  shadowRadius: '3',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={wp(20)}
+                justifyContent={'center'}
+                alignItems={'center'}
+                marginLeft={wp(8.5)}>
                 <Text style={ScheduleStyle.buttonsTextRow2}>16:00 pm</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  width: wp(27.5),
-                  marginLeft: wp(8.5),
-                  height: hp(4),
-                  borderRadius: 20,
-                  shadowRadius: '3',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={wp(20)}
+                justifyContent={'center'}
+                alignItems={'center'}
+                marginLeft={wp(8.5)}>
                 <Text style={ScheduleStyle.buttonsTextRow2}>18:00 pm</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  width: wp(27.5),
-                  marginLeft: wp(8.5),
-                  height: hp(4),
-                  borderRadius: 20,
-                  marginRight: wp(8.5),
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  shadowRadius: '3',
-                }}>
+            <TouchableOpacity style={{marginRight: wp(8)}}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={wp(20)}
+                justifyContent={'center'}
+                alignItems={'center'}
+                marginLeft={wp(9)}>
                 <Text style={ScheduleStyle.buttonsTextRow2}>20:00 pm</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
           </View>
           <View>
@@ -180,77 +161,62 @@ const Schedule = props => {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-evenly',
-              marginTop: 10,
+              top: hp(2),
               width: wp(100),
               alignSelf: 'center',
             }}>
             <TouchableOpacity>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  width: wp(27.5),
-                  marginLeft: wp(8.5),
-                  height: hp(4),
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 20,
-                  shadowRadius: '3',
-                }}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={wp(20)}
+                justifyContent={'center'}
+                alignItems={'center'}
+                marginLeft={wp(8.5)}>
                 <Text style={ScheduleStyle.buttonsTextRow3}>Hospital</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  width: wp(27.5),
-                  marginLeft: wp(8.5),
-                  height: hp(4),
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  padding: 3,
-                  borderRadius: 20,
-                  shadowRadius: '3',
-                }}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={wp(20)}
+                justifyContent={'center'}
+                alignItems={'center'}
+                marginLeft={wp(8.5)}>
                 <Text style={ScheduleStyle.buttonsTextRow3}>Chat</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  width: wp(27.5),
-                  marginLeft: wp(8.5),
-                  height: hp(4),
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  padding: 3,
-                  borderRadius: 20,
-                  marginRight: wp(8.5),
-                  shadowRadius: '3',
-                }}>
+            <TouchableOpacity style={{marginRight: wp(8)}}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={wp(20)}
+                justifyContent={'center'}
+                alignItems={'center'}
+                marginLeft={wp(8.5)}>
                 <Text style={ScheduleStyle.buttonsTextRow3}>Call</Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
           </View>
-          <View style={{width: wp(100), alignSelf: 'center'}}>
-            <TouchableOpacity onPress={colorHandler}>
-              <Neomorph
-                style={{
-                  backgroundColor: '#E8E4E4',
-                  width: wp(27.5),
-                  marginLeft: wp(4.5),
-                  height: hp(4),
-                  borderRadius: 20,
-                  marginTop: hp(2),
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 20,
-                  marginRight: wp(8.5),
-                  shadowRadius: '3',
-                }}>
-                <Text style={ScheduleStyle.buttonsTextRow3}>Video Call</Text>
-              </Neomorph>
+          <View
+            style={{width: wp(100), alignSelf: 'center', marginTop: hp(4.5)}}>
+            <TouchableOpacity
+              onPress={colorHandler}
+              style={{marginRight: wp(8)}}>
+              <NeoButton
+                width={wp('27.5')}
+                height={hp('4')}
+                backgroundColor={'#E8E4E4'}
+                borderRadius={wp(20)}
+                justifyContent={'center'}
+                alignItems={'center'}
+                marginLeft={wp(4.5)}>
+                <Text style={ScheduleStyle.buttonsTextRow3}>Call</Text>
+              </NeoButton>
             </TouchableOpacity>
           </View>
           <View style={{alignItems: 'center', top: hp(5), height: hp(15)}}>
@@ -258,16 +224,11 @@ const Schedule = props => {
               onPress={() => {
                 setShowModal(true);
               }}>
-              <Neomorph
-                style={{
-                  width: wp(90),
-                  height: hp('7'),
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 30,
-                  backgroundColor: AppColor.primary,
-                  shadowRadius: 4,
-                }}>
+              <NeoButton
+                width={wp('90')}
+                height={hp('7')}
+                borderRadius={wp('10')}
+                backgroundColor={AppColor.primary}>
                 <Text
                   style={{
                     textAlign: 'center',
@@ -276,7 +237,7 @@ const Schedule = props => {
                   }}>
                   Book Appointment
                 </Text>
-              </Neomorph>
+              </NeoButton>
             </TouchableOpacity>
           </View>
         </View>
@@ -287,17 +248,47 @@ const Schedule = props => {
               transparent={true}
               onBackdropPress={() => setShowModal(false)}>
               <View style={ScheduleStyle.modal}>
-                <Lottie
-                  source={require('../../assets/animations/schedule.json')}
-                  style={{width: wp(30), height: hp(30)}}
-                  autoPlay
-                />
+                <Neomorph
+                  // inner
+                  style={{
+                    width: wp('55'),
+                    height: wp('55'),
+                    borderRadius:wp('55'),
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: AppColor.whiteShade,
+                    shadowRadius: 5,
+                  }}>
+                  <Neomorph
+                    inner
+                    style={{
+                      width: wp('45'),
+                      height: wp('45'),
+                      borderRadius:wp('45'),
+                      backgroundColor: AppColor.whiteShade,
+                      shadowRadius: 5,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Lottie
+                      source={require('../../assets/animations/schedule.json')}
+                      style={{
+                        width: wp(60),
+                        height: wp(60),
+                        // borderRadius: wp('50'),
+                      }}
+                      autoPlay
+                      // backgroundColor={AppColor.red}
+                    />
+                   </Neomorph>
+                </Neomorph>
                 <View style={{width: wp('50')}}>
                   <Text
                     style={{
                       fontFamily: 'Poppins-Bold',
                       textAlign: 'center',
                       color: 'black',
+                      marginTop: hp(4),
                     }}>
                     Your appointment has been created
                   </Text>
@@ -321,16 +312,13 @@ const Schedule = props => {
                     marginVertical: hp(3),
                   }}>
                   <TouchableOpacity onPress={() => setShowModal(false)}>
-                    <Neomorph
-                      style={{
-                        height: hp(6.5),
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        shadowRadius: '4',
-                        width: wp(70),
-                        borderRadius: 30,
-                        backgroundColor: '#c28cde',
-                      }}>
+                    <NeoButton
+                      width={wp(70)}
+                      height={hp(6.5)}
+                      backgroundColor={'#c28cde'}
+                      borderRadius={30}
+                      justifyContent={'center'}
+                      alignItems={'center'}>
                       <Text
                         style={{
                           textAlign: 'center',
@@ -339,7 +327,7 @@ const Schedule = props => {
                         }}>
                         Done
                       </Text>
-                    </Neomorph>
+                    </NeoButton>
                   </TouchableOpacity>
                 </View>
               </View>
