@@ -16,19 +16,15 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {AppointmentStyle} from '../../assets/styles/AnimatedDrawerStyle/AppointmentStyle';
 import moment from 'moment-timezone';
 
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-
-
 import {useNavigation} from '@react-navigation/native';
 import {keyExtractor} from 'react-native/Libraries/Lists/VirtualizeUtils';
 import {style} from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 import {ForgotPasswordStyle} from '../assets/styles/ForgotPasswordStyle';
-
 
 const MyAppointment = props => {
   const [showButton, setShowButton] = useState(false);
@@ -212,7 +208,6 @@ const MyAppointment = props => {
       </View>
     </View>
   );
-
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
@@ -429,10 +424,10 @@ const MyAppointment = props => {
           ''
         )}
         <View>
-        <Image
-              style={AppointmentStyle.thirdDoctorImage}
-              source={require('../../assets/images/thirddoctor.png')}></Image>
-          </View>
+          <Image
+            style={AppointmentStyle.thirdDoctorImage}
+            source={require('../../assets/images/thirddoctor.png')}></Image>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
