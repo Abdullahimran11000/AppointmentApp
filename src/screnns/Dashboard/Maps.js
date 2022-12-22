@@ -49,6 +49,8 @@ const Maps = props => {
            </View>
         <View style={MapsStyle.middleView}></View>
           <View style={MapsStyle.lastView}>
+            {/* <Neomorph style={{width: wp(85),height: hp(23),borderRadius: 20,backgroundColor:AppColor.whiteShade,justifyContent:'center',alignItems:'center',shadowRadius:4}}> */}
+            <Neomorph inner style={{width: wp(84),height: hp(23),borderRadius: 20,backgroundColor:AppColor.whiteShade,justifyContent:'center',alignItems:'center',shadowRadius:20}}>
             <Card mode="contained" style={MapsStyle.cardMainView}>
               <View style={MapsStyle.cardView}>
                 <Card.Cover source={require('../../assets/images/gujranwala.jpg')} style={MapsStyle.cardcover}/>
@@ -75,6 +77,8 @@ const Maps = props => {
                           </Neomorph>
               </View>
             </Card>
+            </Neomorph>
+            {/* </Neomorph> */}
           </View>
         </View>
       </ScrollView>

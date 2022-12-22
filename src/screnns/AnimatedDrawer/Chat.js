@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  FlatList,
 } from 'react-native';
 import {
   heightPercentageToDP as hp,
@@ -19,8 +20,31 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {AppColor} from '../../assets/colors/AppColor';
 import {Neomorph} from 'react-native-neomorph-shadows';
+import RightChatCard from '../../components/Chats/RightChatCard';
+import LeftChatCard from '../../components/Chats/LeftChatCard';
 
 const Chat = props => {
+  const [allChats, setAllChats] = useState([ 
+    {
+      id: 1,
+      //   source: require('../assets/images/selfieOne.jpg'),
+
+      message: 'Hello doc! i want to consult',
+      time: '09:40 am',
+      sender_id: 1,
+      sender_type: 'customer',
+    },
+    {
+      id: 1,
+      //   source: require('../assets/images/selfieOne.jpg'),
+
+      message: 'Hello doc! i want to consult',
+      time: '09:50 am',
+      sender_id: 2,
+      sender_type: 'serviceProvider',
+    }
+  ])
+
   return (
     <SafeAreaView style={{backgroundColor:AppColor.whiteShade}}>
       <ScrollView>
@@ -83,61 +107,17 @@ const Chat = props => {
             <View style={{alignSelf: 'center', top: hp(1)}}>
               <Text style={{fontFamily: 'Poppins-SemiBold'}}>Today</Text>
             </View>
-            <View>
-              <View style={ChatStyle.messageOneView}>
-                <Text style={ChatStyle.textRight}>Hello Doc. Good Morning</Text>
-              </View>
-              <View>
-                <Text style={ChatStyle.subHeadingTextOne}>09:30 am</Text>
-              </View>
-              <Image
-                style={ChatStyle.messageImage1}
-                source={require('../../assets/images/profile.jpg')}
-              />
-            </View>
-            <View style={{bottom: hp(3)}}>
-              <View style={ChatStyle.messageTwoView}>
-                <Text style={ChatStyle.textLeft}>
-                  Morning. Can I help you ?
-                </Text>
-              </View>
-              <View>
-                <Text style={ChatStyle.subHeadingTextTwo}>09:31 am</Text>
-              </View>
-              <Image
-                style={ChatStyle.messageImage2}
-                source={require('../../assets/images/selfie.jpg')}
-              />
-            </View>
-            <View style={{bottom: hp(5)}}>
-              <View style={ChatStyle.messageThreeView}>
-                <Text style={ChatStyle.textRight2}>
-                  I'd like a advice on problem i am having
-                </Text>
-              </View>
-              <View style={ChatStyle.textRight2Paragraph}>
-                <Text style={ChatStyle.textRight2ParagraphStyle}>
-                  So for the past week i've pain in my lower back & its been
-                  getting worse day by day, do i have symptomes of Inook?
-                </Text>
-              </View>
-              <View>
-                <Text style={ChatStyle.subHeadingTextThree}>09:33 am</Text>
-              </View>
-              <Image
-                style={ChatStyle.messageImage3}
-                source={require('../../assets/images/profile.jpg')}
-              />
-            </View>
-            <View style={{bottom: hp(8)}}>
-              <View style={ChatStyle.messageFourView}>
-                <Text style={ChatStyle.textLeft4}>Jordan is typing...</Text>
-              </View>
-              <Image
-                style={ChatStyle.messageImage4}
-                source={require('../../assets/images/selfie.jpg')}
-              />
-            </View>
+            <FlatList 
+            data = {allChats}
+            renderItem={({item}) => {
+                if (item.sender_id == 1) {
+                  return <RightChatCard item={item}/>
+                } else {
+                  return <LeftChatCard item={item}/>
+                }
+            }}
+            />
+           
           </View>
           <View style={ChatStyle.sendMessageContainerView}>
             <Neomorph inner style={{width: wp(90),backgroundColor:AppColor.white,alignSelf:"center",borderRadius:50,shadowRadius:4}}>
