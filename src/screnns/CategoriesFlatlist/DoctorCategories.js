@@ -8,6 +8,7 @@ import {AppColor} from '../../assets/colors/AppColor';
 import Octicons from 'react-native-vector-icons/Octicons';
 import AppContext from '../../assets/context/AppContext';
 import {Neomorph} from 'react-native-neomorph-shadows';
+import {useNavigation} from '@react-navigation/native';
 
 const DoctorCategories = ({
   outerWidth,
@@ -27,10 +28,13 @@ const DoctorCategories = ({
   textWidth,
   marginRight,
   marginBottom,
+  onPress,
 }) => {
   const {idOfSelectedCategoryDot, storeIdOfSelectedCategoryDot} =
     useContext(AppContext);
-
+  const {categoriesModalOpen, storeCategoriesModalOpen} =
+    useContext(AppContext);
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={{
@@ -43,12 +47,20 @@ const DoctorCategories = ({
         alignItems: alignItems,
         justifyContent: justifyContent,
       }}
-      onPress={() => {storeIdOfSelectedCategoryDot(item.id)}}>
-      {idOfSelectedCategoryDot == item.id ? (
+      onPress={() => {
+        if (innerWidth === wp('21')) {
+          storeIdOfSelectedCategoryDot(item.id);
+          storeCategoriesModalOpen(true);
+        } else {
+          storeIdOfSelectedCategoryDot(item.id);
+          navigation.navigate('DoctorSpecialist');
+        }
+      }}>
+      {/* {idOfSelectedCategoryDot == item.id ? (
         <Octicons name="dot-fill" size={wp('5')} color={AppColor.primary} />
       ) : (
         <View style={{width: wp('5'), height: wp('5')}}></View>
-      )}
+      )} */}
       <Neomorph
         style={{
           width: innerWidth,
@@ -60,7 +72,7 @@ const DoctorCategories = ({
           shadowRadius: 4,
         }}>
         <Neomorph
-          inner={idOfSelectedCategoryDot==item.id ? true : false}
+          inner={idOfSelectedCategoryDot == item.id ? true : false}
           style={{
             width: boxWidth,
             height: boxHeight,

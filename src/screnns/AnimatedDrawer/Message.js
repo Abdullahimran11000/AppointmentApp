@@ -12,11 +12,12 @@ import Swipeable from 'react-native-swipeable';
 import {MessageStyle} from '../../assets/styles/AnimatedDrawerStyle/MessageStyle';
 import {
   widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
 
-const Message = props => {
+const Message = () => {
+  const navigation = useNavigation()
   const data = [
     {
       id: 1,
@@ -99,7 +100,7 @@ const Message = props => {
   };
   return (
     <SafeAreaView>
-      <BackButton onPress={()=>props.navigation.goBack()}>Messages</BackButton>
+      <BackButton onPress={()=>{navigation.goBack()}}>Messages</BackButton>
       <View style={{marginTop: wp('5')}}>
         <FlatList
           data={data}

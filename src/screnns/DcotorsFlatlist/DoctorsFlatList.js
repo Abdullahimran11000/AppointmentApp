@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {SafeAreaView, View, FlatList} from 'react-native';
+import {SafeAreaView,FlatList} from 'react-native';
 import DoctorCard from './DoctorCard';
 const DoctorsFlatList = ({horizontal, numColumns, marginRight}) => {
   

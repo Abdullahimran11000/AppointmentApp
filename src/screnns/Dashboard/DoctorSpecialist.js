@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -7,31 +7,42 @@ import {
 import BackButton from '../ScrennHeader/BackButton';
 import CategoriesFlatList from '../CategoriesFlatlist/CategoriesFlatList';
 import { useNavigation } from '@react-navigation/core';
-import { AppColor } from '../../assets/colors/AppColor';
 import { CongratulationStyle } from '../../assets/styles/AuthStyle/CongratulationStyle';
+import DoctorsFlatList from '../DcotorsFlatlist/DoctorsFlatList';
+import {ScrollView} from 'react-native-virtualized-view';
+
 
 const DoctorSpecialist = () => {
   const navigation = useNavigation()
   return (
-    <SafeAreaView style={CongratulationStyle.mainView}>
-      <BackButton onPress={()=>{navigation.goBack()}}>Doctor Specialist</BackButton>
-      <CategoriesFlatList
-        outerWidth={wp('20')}
-        outerHeight={hp('22')}
-        outerRadius={wp('7')}
-        outerMargin={wp('5')}
-        alignItems={'center'}
-        justifyContent={'center'}
-        innerWidth={wp('25')}
-        innerHeight={wp('25')}
-        innerRadius={wp('8')}
-        boxWidth={wp('23')}
-        boxHeight={wp('23')}
-        boxRadius={wp('7')}
-        textWidth={wp('25')}
-        horizontal={true}
-        />
-    </SafeAreaView>
+    <ScrollView>
+      <SafeAreaView style={CongratulationStyle.mainView}>
+        <BackButton onPress={()=>{navigation.goBack()}}>Doctor Specialist</BackButton>
+        <CategoriesFlatList
+          outerWidth={wp('20')}
+          outerHeight={hp('22')}
+          outerRadius={wp('7')}
+          outerMargin={wp('5')}
+          alignItems={'center'}
+          justifyContent={'center'}
+          innerWidth={wp('25')}
+          innerHeight={wp('25')}
+          innerRadius={wp('8')}
+          boxWidth={wp('23')}
+          boxHeight={wp('23')}
+          boxRadius={wp('7')}
+          textWidth={wp('25')}
+          horizontal={true}
+          />
+          <View style={{width: wp('90'), alignSelf: 'center'}}>
+            <DoctorsFlatList
+              horizontal={false}
+              numColumns={2}
+              marginRight={wp('16')}
+            />
+          </View>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 
