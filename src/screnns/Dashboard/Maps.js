@@ -37,48 +37,93 @@ const Maps = props => {
         />
         <View style={MapsStyle.mainView}>
           <View style={MapsStyle.firstView}>
-            {/* <Neomorph style={{width: wp("85"), height: hp("9"),backgroundColor:AppColor.whiteShade,justifyContent:'center',alignItems:'center', shadowRadius:4, borderRadius: wp('10'), marginTop:wp('4')}}> */}
-              <Neomorph style={MapsStyle.innerFirstView}>
-                <TouchableOpacity onPress={() => props.navigation.goBack()} style={MapsStyle.backbutton}>
-                  <Ionicons name="chevron-back-sharp" size={20} />
-                    </TouchableOpacity>
-                      <Icon style={MapsStyle.iconStyle} name="search" color={'grey'} size={16}/>
-                        <TextInput style={MapsStyle.textinput} placeholder="Search Address" fontFamily={'Poppins-SemiBold'}></TextInput>
-              </Neomorph>
-             {/* </Neomorph> */}
-           </View>
-        <View style={MapsStyle.middleView}></View>
-          <View style={MapsStyle.lastView}>
-            {/* <Neomorph style={{width: wp(85),height: hp(23),borderRadius: 20,backgroundColor:AppColor.whiteShade,justifyContent:'center',alignItems:'center',shadowRadius:4}}> */}
-            <Neomorph inner style={{width: wp(84),height: hp(23),borderRadius: 20,backgroundColor:AppColor.whiteShade,justifyContent:'center',alignItems:'center',shadowRadius:20}}>
-            <Card mode="contained" style={MapsStyle.cardMainView}>
-              <View style={MapsStyle.cardView}>
-                <Card.Cover source={require('../../assets/images/gujranwala.jpg')} style={MapsStyle.cardcover}/>
-                  <Card.Title style={MapsStyle.cardTitleStyle} title="Dr. Rana Hamad"
-                    titleStyle={{fontFamily: 'Poppins-SemiBold', fontSize: 15}}/>
-                      <Card.Content style={MapsStyle.cardContent}>
-                        <Paragraph style={MapsStyle.cardParagraph}>
-                          <AntDesign name="star" size={15} color="#FFD700" />
-                            <Text style={{fontFamily: 'Poppins-SemiBold'}}>4.5</Text>
-                              <Text style={{fontSize: 11,fontFamily: 'Poppins-Regular',color: 'rgba(0,0,0,0.3)'}}>&nbsp;(1560 reviews) {'\n'} Hospital</Text>
-                        </Paragraph>
-                          <Neomorph style={MapsStyle.innerLastViewFirstButton}>
-                            <TouchableOpacity>
-                              <Text style={MapsStyle.cardInnerButtonTextStyle}>500m</Text>
-                                <Icon name="location-arrow" color={AppColor.primary} size={10}
-                                  style={{ position: 'absolute', marginLeft: wp(1), marginTop: hp(0.5)}}/>
-                            </TouchableOpacity>
-                          </Neomorph>
-                      </Card.Content>
-                          <Neomorph style={MapsStyle.innerLastViewSecondButton}>
-                            <TouchableOpacity onPress={() => props.navigation.navigate('Schedule')}>
-                                <Icon name="chevron-right" size={12} color={'white'} style={{alignSelf: 'center'}}/>
-                            </TouchableOpacity>
-                          </Neomorph>
-              </View>
-            </Card>
+            <Neomorph style={MapsStyle.innerFirstView}>
+              <TouchableOpacity
+                onPress={() => props.navigation.goBack()}
+                style={MapsStyle.backbutton}>
+                <Ionicons name="chevron-back-sharp" size={20} />
+              </TouchableOpacity>
+              <Icon
+                style={MapsStyle.iconStyle}
+                name="search"
+                color={'grey'}
+                size={16}
+              />
+              <TextInput
+                style={MapsStyle.textinput}
+                placeholder="Search Address"
+                fontFamily={'Poppins-SemiBold'}></TextInput>
             </Neomorph>
-            {/* </Neomorph> */}
+          </View>
+          <View style={MapsStyle.middleView}></View>
+          <View style={MapsStyle.lastView}>
+            <Neomorph
+              inner
+              style={{
+                width: wp(84),
+                height: hp(23),
+                borderRadius: 20,
+                backgroundColor: AppColor.whiteShade,
+                justifyContent: 'center',
+                alignItems: 'center',
+                shadowRadius: 20,
+              }}>
+              <Card mode="contained" style={MapsStyle.cardMainView}>
+                <View style={MapsStyle.cardView}>
+                  <Card.Cover
+                    source={require('../../assets/images/gujranwala.jpg')}
+                    style={MapsStyle.cardcover}
+                  />
+                  <Card.Title
+                    style={MapsStyle.cardTitleStyle}
+                    title="Dr. Rana Hamad"
+                    titleStyle={{fontFamily: 'Poppins-SemiBold', fontSize: 15}}
+                  />
+                  <Card.Content style={MapsStyle.cardContent}>
+                    <Paragraph style={MapsStyle.cardParagraph}>
+                      <AntDesign name="star" size={15} color="#FFD700" />
+                      <Text style={{fontFamily: 'Poppins-SemiBold'}}>4.5</Text>
+                      <Text
+                        style={{
+                          fontSize: 11,
+                          fontFamily: 'Poppins-Regular',
+                          color: 'rgba(0,0,0,0.3)',
+                        }}>
+                        &nbsp;(1560 reviews) {'\n'} Hospital
+                      </Text>
+                    </Paragraph>
+                    <Neomorph style={MapsStyle.innerLastViewFirstButton}>
+                      <TouchableOpacity>
+                        <Text style={MapsStyle.cardInnerButtonTextStyle}>
+                          500m
+                        </Text>
+                        <Icon
+                          name="location-arrow"
+                          color={AppColor.primary}
+                          size={10}
+                          style={{
+                            position: 'absolute',
+                            marginLeft: wp(1),
+                            marginTop: hp(0.5),
+                          }}
+                        />
+                      </TouchableOpacity>
+                    </Neomorph>
+                  </Card.Content>
+                  <Neomorph style={MapsStyle.innerLastViewSecondButton}>
+                    <TouchableOpacity
+                      onPress={() => props.navigation.navigate('Schedule')}>
+                      <Icon
+                        name="chevron-right"
+                        size={12}
+                        color={'white'}
+                        style={{alignSelf: 'center'}}
+                      />
+                    </TouchableOpacity>
+                  </Neomorph>
+                </View>
+              </Card>
+            </Neomorph>
           </View>
         </View>
       </ScrollView>

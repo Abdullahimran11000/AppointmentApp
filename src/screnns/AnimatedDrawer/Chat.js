@@ -4,10 +4,10 @@ import {
   Text,
   SafeAreaView,
   TextInput,
-  StyleSheet,
+
   TouchableOpacity,
   Image,
-  ScrollView,
+
   FlatList,
 } from 'react-native';
 import {
@@ -17,11 +17,11 @@ import {
 import {ChatStyle} from '../../assets/styles/DashboardStyle/ChatStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {AppColor} from '../../assets/colors/AppColor';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import RightChatCard from '../../components/Chats/RightChatCard';
 import LeftChatCard from '../../components/Chats/LeftChatCard';
+import { ScrollView } from 'react-native-virtualized-view';
 
 const Chat = props => {
   const [allChats, setAllChats] = useState([ 
@@ -33,12 +33,12 @@ const Chat = props => {
       sender_type: 'customer',
     },
     {
-      id: 1,
-      message: 'Hello doc! i want to consult',
+      id: 2,
+      message: 'Yes! How can i help you',
       time: '09:50 am',
       sender_id: 2,
       sender_type: 'serviceProvider',
-    }
+    },
   ])
 
   return (
@@ -98,3 +98,4 @@ const Chat = props => {
 };
 
 export default Chat;
+

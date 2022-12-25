@@ -31,7 +31,7 @@ const ChatStyle = StyleSheet.create({
     image: {width:wp (15) , height: hp(8),borderRadius:30,left: wp(20)},
     messageOneView: {left: wp(25),top:hp(4.5),borderTopLeftRadius:15,borderTopRightRadius:15,borderBottomLeftRadius:15,backgroundColor:AppColor.primary,width: wp(50),height:hp(6),justifyContent:"center"},
     messageImage1:{width:wp (10) , height: hp(5),borderRadius:30,left: wp(77)},
-    textRight: {textAlign:"center",color:AppColor.black,fontFamily:'Poppins-Regular',fontSize:12,top: hp(1.5)},
+    textRight: {color:AppColor.black,fontFamily:'Poppins-Regular',fontSize:12,top: hp(1.5)},
     subHeadingTextOne: {left:wp(37),top:hp(3),fontFamily:'Poppins-Regular',fontSize:10},
     messageTwoView: {left:wp(15),top:hp(4.5),borderTopLeftRadius:15,borderTopRightRadius:15,borderBottomRightRadius:15,backgroundColor:AppColor.white,width: wp(50),height:hp(6),justifyContent:"center"},
     textLeft: {top: hp(1.5),color:AppColor.black,fontFamily:'Poppins-Regular',fontSize:12},

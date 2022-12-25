@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Checkbox} from 'react-native-paper';
 import {SafeAreaView,View,Text,TextInput,Image,ScrollView,StyleSheet,TouchableOpacity,} from 'react-native';
-import BackButton from '../ScrennHeader/BackButton';
+import BackButton from '../../components/ScrennHeader/BackButton';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import NeoButton from '../../components/NeoMorphButton/NeoButton';
 import {AppColor} from '../../assets/colors/AppColor';
@@ -48,7 +48,7 @@ const SignUp = props => {
           <View style={SignUpStyle.buttonTwoView}>
             <TouchableOpacity>
               <NeoButton lightShadowColor={AppColor.white} darkShadowColor={AppColor.black} marginTop={wp('4')} width={wp('83')}height={hp('6')} borderRadius={wp('15')} backgroundColor={AppColor.whiteShade}>
-                <Image style={SignUpStyle.image} source={require('../../assets/images/google.jpg')}/>
+                <Image style={SignUpStyle.image} source={require('../../assets/images/googles.jpg')}/>
                 <View style={SignUpStyle.SignInButton}>
                   <Text style={SignUpStyle.SignInText}>Sign in With this</Text>
                 </View>

@@ -5,8 +5,6 @@ import {Neomorph} from 'react-native-neomorph-shadows';
 import {
   SafeAreaView,
   View,
-  TextInput,
-  StyleSheet,
   Text,
   TouchableOpacity,
   ScrollView,
@@ -17,7 +15,7 @@ import {
 } from 'react-native-responsive-screen';
 import CalendarPicker from 'react-native-calendar-picker';
 import {ScheduleStyle} from '../../assets/styles/DashboardStyle/ScheduleStyle';
-import BackButton from '../ScrennHeader/BackButton';
+import BackButton from '../../components/ScrennHeader/BackButton';
 import {AppColor} from '../../assets/colors/AppColor';
 import Icon from 'react-native-vector-icons/AntDesign';
 import NeoButton from '../../components/NeoMorphButton/NeoButton';
@@ -39,7 +37,7 @@ const Schedule = props => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'black', height: hp('100')}}>
       <ScrollView>
-        <View style={{backgroundColor: 'white'}}>
+        <View style={{backgroundColor: AppColor.whiteShade}}>
           <BackButton onPress={() => props.navigation.goBack()}>
             Schedule
           </BackButton>
@@ -135,7 +133,7 @@ const Schedule = props => {
             <Modal visible={showModal} transparent={true} onBackdropPress={() => setShowModal(false)}>
               <View style={ScheduleStyle.modal}>
                 <Neomorph style={ScheduleStyle.lottyView}>
-                  <Neomorph inner style={lottyViewInner}>
+                  <Neomorph inner style={ScheduleStyle.lottyViewInner}>
                     <Lottie source={require('../../assets/animations/schedule.json')}
                       style={{ width: wp(60), height: wp(60),}}
                       autoPlay/>
