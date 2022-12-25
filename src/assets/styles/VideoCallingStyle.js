@@ -68,11 +68,11 @@ const VideoCallingStyle = StyleSheet.create({
   footerView: {
     width: wp(100),
     height: hp(15),
-    
+
     marginTop: wp(10),
     justifyContent: 'space-evenly',
-    flexDirection:'row',alignItems:'center'
-   
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
   buttonView: {
