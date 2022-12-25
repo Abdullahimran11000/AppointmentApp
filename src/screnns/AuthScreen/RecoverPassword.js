@@ -14,7 +14,7 @@ import {
 import Lottie from 'lottie-react-native';
 import {RecoverPasswordStyle} from '../../assets/styles/AuthStyle/RecoverPasswordStyle';
 import Entypo from 'react-native-vector-icons/Entypo';
-import BackButton from '../ScrennHeader/BackButton';
+import BackButton from '../../components/ScrennHeader/BackButton';
 import NeoButton from '../../components/NeoMorphButton/NeoButton';
 import {AppColor} from '../../assets/colors/AppColor';
 import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';

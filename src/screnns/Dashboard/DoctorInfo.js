@@ -13,7 +13,7 @@ import {
 } from 'react-native-responsive-screen';
 import {DoctorInfoStyle} from '../../assets/styles/DashboardStyle/DoctorInfoStyle';
 import {StyleSheet} from 'react-native';
-import DoctorHeader from './DoctorHeader';
+import DoctorHeader from '../../components/DoctorCardHeader/DoctorHeader';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MapView from 'react-native-maps';

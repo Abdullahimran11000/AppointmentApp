@@ -12,10 +12,14 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {VideoCallingStyle} from '../assets/styles/VideoCallingStyle';
+
 import BackButton from './ScrennHeader/BackButton';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 import {AppColor} from '../assets/colors/AppColor';
+
+import BackButton from '../components/ScrennHeader/BackButton';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 const VideoCalling = props => {
   return (
