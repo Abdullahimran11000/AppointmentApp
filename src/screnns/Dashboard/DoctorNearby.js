@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import BackButton from '../ScrennHeader/BackButton';
-import DoctorCard from '../DcotorsFlatlist/DoctorCard';
+import BackButton from '../../components/ScrennHeader/BackButton';
+import DoctorCard from '../../components/DcotorsFlatlist/DoctorCard';
 
 const DoctorNearby = props => {
   return (

@@ -26,14 +26,21 @@ const AppointmentStyle = StyleSheet.create({
     borderRadius: 20,
     width: wp(28),
     height: hp(5),
-    backgroundColor:"white"
+    backgroundColor:"white",
+    shadowRadius: 4
+  },
+  opacityTouchableButton: {
+    borderRadius: 20,
+    width: wp(28),
+    height: hp(5),
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   activeButton: {
     color: '#ff0000' // red
   },
   buttonText: {
-    textAlign: 'center',
-    marginVertical: 5,
+    fontSize: wp('3.5'),
     fontFamily: 'Poppins-Medium',
     color: 'black',
   },

@@ -18,16 +18,16 @@ import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import DoctorBar from './DoctorBar';
+import DoctorBar from '../../components/Bar/DoctorBar';
 import {AppColor} from '../../assets/colors/AppColor';
-import CategoriesFlatList from '../CategoriesFlatlist/CategoriesFlatList';
-import DoctorsFlatList from '../DcotorsFlatlist/DoctorsFlatList';
+import CategoriesFlatList from '../../components/CategoriesFlatlist/CategoriesFlatList';
+import DoctorsFlatList from '../../components/DcotorsFlatlist/DoctorsFlatList';
 import Animated from 'react-native-reanimated';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import Modal from 'react-native-modal';
 import { DoctorDepartmentStyle } from '../../assets/styles/DashboardStyle/DoctorDepartmentStyle';
 import AppContext from '../../assets/context/AppContext';
-import BackButton from '../ScrennHeader/BackButton';
+import BackButton from '../../components/ScrennHeader/BackButton';
 const Dashboard = props => {
   const navigation = useNavigation();
   const {idOfSelectedCategoryDot, storeIdOfSelectedCategoryDot} =

@@ -21,7 +21,7 @@ import {AppColor} from '../../assets/colors/AppColor';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import { AppointmentStyle } from '../../assets/styles/AnimatedDrawerStyle/AppointmentStyle';
 
-const CompleteAppointmentCard = ({item}) => {
+const CompleteAppointmentCard = ({item, onPress}) => {
   const [showButton, setShowButton] = useState(false);
   return (
     <View
@@ -84,19 +84,19 @@ const CompleteAppointmentCard = ({item}) => {
         <Text style={AppointmentStyle.secondDoctorText}>{item.time}</Text>
 
         <Icon size={12} name="wechat"></Icon>
-        <Text style={AppointmentStyle.secondDoctorText}>
-          {item.appDestination}
-        </Text>
+        <TouchableOpacity onPress={onPress}>
+          <Text style={AppointmentStyle.secondDoctorText}>
+            {item.appDestination}
+          </Text>
+        </TouchableOpacity>
       </View>
-      {showButton ? console.log('Wake up!') : console.log('I am on sleep mode')}
       {showButton ? (
         <View style={AppointmentStyle.footerOpcaityView}>
           <TouchableOpacity style={AppointmentStyle.footerOpacityButton}>
             <Text style={AppointmentStyle.footerButtonText}>cancel</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={AppointmentStyle.footerOpacityButton}
-            onPress={() => {}}>
+            style={AppointmentStyle.footerOpacityButton}>
             <Text style={AppointmentStyle.footerButtonText}>Reshcedule</Text>
           </TouchableOpacity>
         </View>

@@ -4,11 +4,11 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import BackButton from '../ScrennHeader/BackButton';
-import CategoriesFlatList from '../CategoriesFlatlist/CategoriesFlatList';
+import BackButton from '../../components/ScrennHeader/BackButton';
+import CategoriesFlatList from '../../components/CategoriesFlatlist/CategoriesFlatList';
 import { useNavigation } from '@react-navigation/core';
 import { CongratulationStyle } from '../../assets/styles/AuthStyle/CongratulationStyle';
-import DoctorsFlatList from '../DcotorsFlatlist/DoctorsFlatList';
+import DoctorsFlatList from '../../components/DcotorsFlatlist/DoctorsFlatList';
 import {ScrollView} from 'react-native-virtualized-view';
 
 

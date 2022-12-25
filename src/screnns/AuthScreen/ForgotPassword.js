@@ -13,7 +13,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {ForgotPasswordStyle} from '../../assets/styles/AuthStyle/ForgotPasswordStyle';
-import BackButton from '../ScrennHeader/BackButton';
+import BackButton from '../../components/ScrennHeader/BackButton';
 import {AppColor} from '../../assets/colors/AppColor';
 import {useNavigation} from '@react-navigation/native';
 import NeoButton from '../../components/NeoMorphButton/NeoButton';
