@@ -44,12 +44,12 @@ const VideoCalling = () => {
         </Text>
       </View>
 
-      <Lottie
-        style={{width: wp('50'), height: hp('50')}}
-        autoPlay
-        loop
-        source={'../assets/animations/pulse.json'}></Lottie>
-      <View style={VideoCallingStyle.imageView}>
+      <View style={VideoCallingStyle.LottieView}>
+        <Lottie
+          style={{width: wp('50'), height: hp('50'), alignSelf: 'center'}}
+          autoPlay
+          source={require('../assets/animations/pulse.json')}></Lottie>
+
         <Image
           style={VideoCallingStyle.imageStyle}
           source={require('../assets/images/doctorsInfo.png')}
