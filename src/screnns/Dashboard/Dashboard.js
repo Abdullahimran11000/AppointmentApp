@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -18,15 +18,22 @@ import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import DoctorBar from './DoctorBar';
+import DoctorBar from '../../components/Bar/DoctorBar';
 import {AppColor} from '../../assets/colors/AppColor';
-import CategoriesFlatList from '../CategoriesFlatlist/CategoriesFlatList';
-import DoctorsFlatList from '../DcotorsFlatlist/DoctorsFlatList';
+import CategoriesFlatList from '../../components/CategoriesFlatlist/CategoriesFlatList';
+import DoctorsFlatList from '../../components/DcotorsFlatlist/DoctorsFlatList';
 import Animated from 'react-native-reanimated';
 import {Neomorph} from 'react-native-neomorph-shadows';
-
+import Modal from 'react-native-modal';
+import { DoctorDepartmentStyle } from '../../assets/styles/DashboardStyle/DoctorDepartmentStyle';
+import AppContext from '../../assets/context/AppContext';
+import BackButton from '../../components/ScrennHeader/BackButton';
 const Dashboard = props => {
   const navigation = useNavigation();
+  const {idOfSelectedCategoryDot, storeIdOfSelectedCategoryDot} =
+    useContext(AppContext);
+  const {categoriesModalOpen, storeCategoriesModalOpen} =
+    useContext(AppContext);
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: AppColor.whiteShade}}>
@@ -154,7 +161,7 @@ const Dashboard = props => {
             One={'Categories'}
             Two={'See all'}
             onPress={() => {
-              navigation.navigate('DoctorDepartment');
+              navigation.navigate('DoctorSpecialist');
             }}
           />
 
@@ -173,8 +180,7 @@ const Dashboard = props => {
               boxHeight={wp('18')}
               boxRadius={wp('7')}
               textWidth={wp('24')}
-              horizontal={true}
-            />
+              horizontal={true}/>
           </View>
 
           <DoctorBar
@@ -188,6 +194,34 @@ const Dashboard = props => {
           <View style={DashboardStyle.doctorsView}>
             <DoctorsFlatList horizontal={true} marginRight={wp('5')} />
           </View>
+
+          <Modal isVisible={categoriesModalOpen}>
+            <SafeAreaView style={DoctorDepartmentStyle.mainView}>
+              <View>
+               <BackButton onPress={() =>{storeCategoriesModalOpen(false)}}>
+                 {'Categories'}
+                </BackButton>
+                <View style={DoctorDepartmentStyle.flatListView}>
+                  <CategoriesFlatList
+                    outerWidth={wp('20')}
+                    outerHeight={hp('13')}
+                    outerRadius={wp('7')}
+                    outerMargin={wp('5.5')}
+                    alignItems={'center'}
+                    justifyContent={'center'}
+                    innerWidth={wp('24')}
+                    innerHeight={wp('24')}
+                    innerRadius={wp('8')}
+                    boxWidth={wp('21')}
+                    boxHeight={wp('21')}
+                    boxRadius={wp('7')}
+                    textWidth={wp('24')}
+                    marginBottom={wp('10')}
+                    numColumns={3}/>
+                </View>
+              </View>
+            </SafeAreaView>
+          </Modal>
         </ScrollView>
       </Animated.View>
     </SafeAreaView>

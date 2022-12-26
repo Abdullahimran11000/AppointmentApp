@@ -4,38 +4,27 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image,
-  ScrollView,
   FlatList,
 } from 'react-native';
-import {
-  heightPercentageToDP,
-  widthPercentageToDP,
-} from 'react-native-responsive-screen';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
 import {AppointmentStyle} from '../../assets/styles/AnimatedDrawerStyle/AppointmentStyle';
-import moment from 'moment-timezone';
-
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
-
-import {useNavigation} from '@react-navigation/native';
-import {keyExtractor} from 'react-native/Libraries/Lists/VirtualizeUtils';
-import {style} from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
-import {ForgotPasswordStyle} from '../assets/styles/ForgotPasswordStyle';
 import CompleteAppointmentCard from '../../components/Appointments/CompleteAppointmentCard';
 import UpcomingAppointmentCard from '../../components/Appointments/UpcomingAppointment';
 import CancelledAppointmentCard from '../../components/Appointments/Cancelled';
+import BackButton from '../../components/ScrennHeader/BackButton';
+import {ScrollView} from 'react-native-virtualized-view';
+import {useNavigation} from '@react-navigation/native';
+import {AppColor} from '../../assets/colors/AppColor';
+import {Neomorph} from 'react-native-neomorph-shadows';
 
-const MyAppointment = props => {
-  const [completeButton, setCompeletButton] = useState(false);
+const MyAppointment = () => {
+  const navigation = useNavigation();
+  const [completeButton, setCompeletButton] = useState(true);
   const [upcomingButton, setUpcomingButton] = useState(false);
   const [cancellButton, setCancellButton] = useState(false);
 
   const [showCompletedAppointments, setShowCompletedAppointments] =
-    useState(false);
+    useState(true);
 
   const [showUpcomingAppointments, setShowUpcomingAppointments] =
     useState(false);
@@ -125,90 +114,122 @@ const MyAppointment = props => {
   ];
 
   const renderItemCompeletedAppointments = ({item}) => (
-    <CompleteAppointmentCard item={item} />
+    <CompleteAppointmentCard
+      item={item}
+      onPress={() => {
+        if (item.appDestination === 'Chat') {
+          navigation.navigate('Chat');
+        } else if (item.appDestination === 'Video') {
+          navigation.navigate('VideoCalling');
+        }
+      }}
+    />
   );
 
   const renderItemUpcomingAppointments = ({item}) => (
-    <UpcomingAppointmentCard item={item} />
+    <UpcomingAppointmentCard
+      item={item}
+      onPress={() => {
+        if (item.appDestination === 'Chat') {
+          navigation.navigate('Chat');
+        } else if (item.appDestination === 'Video') {
+          navigation.navigate('VideoCalling');
+        }
+      }}
+    />
   );
 
   const renderItemCancelledAppointments = ({item}) => (
-    <CancelledAppointmentCard item={item} />
+    <CancelledAppointmentCard
+      item={item}
+      onPress={() => {
+        if (item.appDestination === 'Chat') {
+          navigation.navigate('Chat');
+        } else if (item.appDestination === 'Video') {
+          navigation.navigate('VideoCalling');
+        }
+      }}
+    />
   );
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: AppColor.whiteShade}}>
       <ScrollView>
-        {/* <BackButton onPress={() => props.navigation.goBack()}>
+        <BackButton onPress={() => navigation.goBack()}>
           My Appointment
-        </BackButton> */}
-
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{fontFamily: 'Poppins-Bold', color: 'black'}}>
-            My Appointment
-          </Text>
-        </View>
-
+        </BackButton>
         <View style={AppointmentStyle.opcaityView}>
-          <TouchableOpacity
+          <Neomorph
+            inner={completeButton}
             style={[
               AppointmentStyle.opacityButton,
               {
                 backgroundColor: completeButton
-                  ? 'rgba(207, 66, 195,0.4)'
-                  : 'white',
+                  ? 'rgba(207, 66, 195, 0.2)'
+                  : AppColor.whiteShade,
               },
-            ]}
-            onPress={() => {
-              setCompeletButton(true);
-              setShowCompletedAppointments(true);
-              setShowUpcomingAppointments(false);
-              setShowCancelledAppointments(false);
-              setUpcomingButton(false);
-              setCancellButton(false);
-            }}>
-            <Text style={AppointmentStyle.buttonText}>Completed</Text>
-          </TouchableOpacity>
+            ]}>
+            <TouchableOpacity
+              style={AppointmentStyle.opacityTouchableButton}
+              onPress={() => {
+                setCompeletButton(true);
+                setShowCompletedAppointments(true);
+                setShowUpcomingAppointments(false);
+                setShowCancelledAppointments(false);
+                setUpcomingButton(false);
+                setCancellButton(false);
+              }}>
+              <Text style={AppointmentStyle.buttonText}>Completed</Text>
+            </TouchableOpacity>
+          </Neomorph>
 
-          <TouchableOpacity
+          <Neomorph
+            inner={upcomingButton}
             style={[
               AppointmentStyle.opacityButton,
               {
                 backgroundColor: upcomingButton
-                  ? 'rgba(207, 66, 195,0.4)'
-                  : 'white',
+                  ? 'rgba(207, 66, 195,0.2)'
+                  : AppColor.whiteShade,
               },
-            ]}
-            onPress={() => {
-              setUpcomingButton(true);
-              setShowUpcomingAppointments(true);
-              setShowCompletedAppointments(false);
-              setShowCancelledAppointments(false);
-              setCompeletButton(false);
-              setCancellButton(false);
-            }}>
-            <Text style={AppointmentStyle.buttonText}>Upcoming</Text>
-          </TouchableOpacity>
+            ]}>
+            <TouchableOpacity
+              style={AppointmentStyle.opacityTouchableButton}
+              onPress={() => {
+                setUpcomingButton(true);
+                setShowUpcomingAppointments(true);
+                setShowCompletedAppointments(false);
+                setShowCancelledAppointments(false);
+                setCompeletButton(false);
+                setCancellButton(false);
+              }}>
+              <Text style={AppointmentStyle.buttonText}>Upcoming</Text>
+            </TouchableOpacity>
+          </Neomorph>
 
-          <TouchableOpacity
+          <Neomorph
+            inner={cancellButton}
             style={[
               AppointmentStyle.opacityButton,
               {
                 backgroundColor: cancellButton
-                  ? 'rgba(207, 66, 195,0.4)'
-                  : 'white',
+                  ? 'rgba(207, 66, 195,0.2)'
+                  : AppColor.whiteShade,
               },
-            ]}
-            onPress={() => {
-              setCancellButton(true);
-              setShowCancelledAppointments(true);
-              setUpcomingButton(false);
-              setShowUpcomingAppointments(false);
-              setShowCompletedAppointments(false);
-              setCompeletButton(false);
-            }}>
-            <Text style={AppointmentStyle.buttonText}>Cancelled</Text>
-          </TouchableOpacity>
+            ]}>
+            <TouchableOpacity
+              style={AppointmentStyle.opacityTouchableButton}
+              onPress={() => {
+                setCancellButton(true);
+                setShowCancelledAppointments(true);
+                setUpcomingButton(false);
+                setShowUpcomingAppointments(false);
+                setShowCompletedAppointments(false);
+                setCompeletButton(false);
+              }}>
+              <Text style={AppointmentStyle.buttonText}>Cancelled</Text>
+            </TouchableOpacity>
+          </Neomorph>
         </View>
 
         {showCompletedAppointments ? (

@@ -13,7 +13,7 @@ import {
 } from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
 import {VerificationStyle} from '../../assets/styles/AuthStyle/VerificationStyle';
-import BackButton from '../ScrennHeader/BackButton';
+import BackButton from '../../components/ScrennHeader/BackButton';
 import NeoButton from '../../components/NeoMorphButton/NeoButton';
 import {AppColor} from '../../assets/colors/AppColor';
 

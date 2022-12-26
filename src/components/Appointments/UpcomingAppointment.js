@@ -1,27 +1,15 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {ChatStyle} from '../../assets/styles/DashboardStyle/ChatStyle';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {AppColor} from '../../assets/colors/AppColor';
-import {Neomorph} from 'react-native-neomorph-shadows';
+
 import {AppointmentStyle} from '../../assets/styles/AnimatedDrawerStyle/AppointmentStyle';
 
-const UpcomingAppointmentCard = ({item}) => {
+const UpcomingAppointmentCard = ({item, onPress}) => {
   const [showButton, setShowButton] = useState(false);
   return (
     <View
@@ -84,11 +72,12 @@ const UpcomingAppointmentCard = ({item}) => {
         <Text style={AppointmentStyle.secondDoctorText}>{item.time}</Text>
 
         <Icon size={12} name="wechat"></Icon>
-        <Text style={AppointmentStyle.secondDoctorText}>
-          {item.appDestination}
-        </Text>
+        <TouchableOpacity onPress={onPress}>
+          <Text style={AppointmentStyle.secondDoctorText}>
+            {item.appDestination}
+          </Text>
+        </TouchableOpacity>
       </View>
-      {showButton ? console.log('Wake up!') : console.log('I am on sleep mode')}
       {showButton ? (
         <View style={AppointmentStyle.footerOpcaityView}>
           <TouchableOpacity style={AppointmentStyle.footerOpacityButton}>

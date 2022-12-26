@@ -13,8 +13,9 @@ import {
 } from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AppColor} from '../../assets/colors/AppColor';
-import BackButton from '../ScrennHeader/BackButton';
+import BackButton from '../../components/ScrennHeader/BackButton';
 import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
+
 import NeoButton from '../../components/NeoMorphButton/NeoButton';
 import {LoginStyle} from '../../assets/styles/AuthStyle/LoginStyle';
 

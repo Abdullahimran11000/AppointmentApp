@@ -3,7 +3,7 @@ import { widthPercentageToDP as wp  , heightPercentageToDP as hp} from 'react-na
 import { AppColor } from '../../colors/AppColor';
 
 const DoctorDepartmentStyle = StyleSheet.create({
-    mainView: {backgroundColor: AppColor.whiteShade, height: hp('100')},
+    mainView: {backgroundColor: AppColor.whiteShade, height: hp('100'), width: wp('100'), position: 'absolute', top: wp('-4.9'), bottom: 0, left: wp("-5"), right:0},
     flatListView: {marginTop: wp('4'), width: wp('100'), justifyContent: 'center', alignItems: "center"}
 
 });
