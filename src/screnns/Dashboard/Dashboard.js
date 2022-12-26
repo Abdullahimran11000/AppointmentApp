@@ -132,7 +132,7 @@ const Dashboard = props => {
                     Protect your family from virus before it's too late
                   </Text>
                 </View>
-                <TouchableOpacity onPress={() => navigation.navigate('Maps')}>
+                {/* <TouchableOpacity onPress={() => navigation.navigate('Maps')}>
                   <Neomorph
                     lightShadowColor={AppColor.whiteShade}
                     darkShadowColor={AppColor.blackOpacity4}
@@ -141,7 +141,7 @@ const Dashboard = props => {
                       Discover
                     </Text>
                   </Neomorph>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
               <View>
                 <Image

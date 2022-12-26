@@ -88,7 +88,7 @@ const LogIn = props => {
               <TouchableOpacity style={LoginStyle.TouchableGoogle}>
                 <Image
                   style={LoginStyle.GoogleImage}
-                  source={require('../../assets/images/googles.jpg')}
+                  source={require('../../assets/images/monoGoogle.jpg')}
                 />
                 <Text style={LoginStyle.GoogleText}>Login With Google</Text>
               </TouchableOpacity>
