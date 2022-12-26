@@ -19,7 +19,7 @@ import {AppColor} from '../assets/colors/AppColor';
 import BackButton from '../components/ScrennHeader/BackButton';
 import {useNavigation} from '@react-navigation/native';
 import AppContext from '../assets/context/AppContext';
-import Lottie from 'lottie-react-native'
+import Lottie from 'lottie-react-native';
 
 const VideoCalling = () => {
   const navigation = useNavigation();
@@ -44,7 +44,11 @@ const VideoCalling = () => {
         </Text>
       </View>
 
-      <Lottie style={{width: wp('50'), height: hp('50')}} autoPlay loop></Lottie>
+      <Lottie
+        style={{width: wp('50'), height: hp('50')}}
+        autoPlay
+        loop
+        source={'../assets/animations/pulse.json'}></Lottie>
       <View style={VideoCallingStyle.imageView}>
         <Image
           style={VideoCallingStyle.imageStyle}
