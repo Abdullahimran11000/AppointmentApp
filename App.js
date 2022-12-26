@@ -50,8 +50,8 @@ const App = () => {
           <Stack.Screen name="MyAppointment" component={MyAppointment} />
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="Message" component={Message} />
+          <Stack.Screen name="Chat" component={Chat}/>
           <Stack.Screen name="VideoCalling" component={VideoCalling} />
-          <Stack.Screen name="Chat" component={Chat} />
 
         </Stack.Navigator>
       </AppProvider>

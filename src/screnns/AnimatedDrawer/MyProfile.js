@@ -124,7 +124,7 @@ const MyProfile = () => {
 
             <NeoTextInput
               marginBottom={wp('3')}
-              width={hp('90')}
+              width={wp('90')}
               keyboardType={'email-address'}
               placeholder={'Enter your email'}
             />
@@ -138,7 +138,7 @@ const MyProfile = () => {
               marginBottom={wp('3')}
               styles={{marginBottom: wp('3')}}
               keyboardType={'number-pad'}
-              placeholder={'enter your number'}
+              placeholder={'Enter your number'}
             />
           </View>
         </View>

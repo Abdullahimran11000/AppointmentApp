@@ -16,6 +16,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
+import NeoButton from '../../components/NeoMorphButton/NeoButton';
 
 const Drawer = () => {
   const navigation = useNavigation();
@@ -54,14 +55,16 @@ const Drawer = () => {
   };
 
   return (
-    <Animated.View style={{flex: 1, backgroundColor: '#c28cde'}}>
-      <Animated.View style={{flex: 1, backgroundColor: '#c28cde'}}>
+    <Animated.View style={{flex: 1, backgroundColor: AppColor.primary}}>
+      <Animated.View style={{flex: 1, backgroundColor: AppColor.primary}}>
         <TouchableOpacity
           style={DrawerStyle.baseViewProfilePic}
           onPress={pressHandler}>
+          <NeoButton width={wp('16')} height={wp('16')} borderRadius={wp('8')} backgroundColor={AppColor.whiteShade} lightShadowColor={AppColor.primary}>  
           <Image
             style={DrawerStyle.imageStyle}
             source={require('../../assets/images/profile.jpg')}></Image>
+          </NeoButton>
         </TouchableOpacity>
         <Text style={DrawerStyle.nameText}>Dara Amanda</Text>
         <Text style={DrawerStyle.designationText}>CEO BTS</Text>

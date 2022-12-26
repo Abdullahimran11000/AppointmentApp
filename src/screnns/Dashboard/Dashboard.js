@@ -1,7 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   Text,
   View,
   Image,
@@ -25,206 +24,208 @@ import DoctorsFlatList from '../../components/DcotorsFlatlist/DoctorsFlatList';
 import Animated from 'react-native-reanimated';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import Modal from 'react-native-modal';
-import { DoctorDepartmentStyle } from '../../assets/styles/DashboardStyle/DoctorDepartmentStyle';
+import {ScrollView} from 'react-native-virtualized-view';
+import {DoctorDepartmentStyle} from '../../assets/styles/DashboardStyle/DoctorDepartmentStyle';
 import AppContext from '../../assets/context/AppContext';
 import BackButton from '../../components/ScrennHeader/BackButton';
 const Dashboard = props => {
   const navigation = useNavigation();
-  const {idOfSelectedCategoryDot, storeIdOfSelectedCategoryDot} =
-    useContext(AppContext);
   const {categoriesModalOpen, storeCategoriesModalOpen} =
     useContext(AppContext);
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: AppColor.whiteShade}}>
-      <Animated.View>
-        <ScrollView>
-          <View style={DashboardStyle.headCont}>
-            <View style={DashboardStyle.headContInnerCont}>
-              <TouchableOpacity
-                style={DashboardStyle.headContImageCont}
-                onPress={props.onPress}>
-                <Image
-                  style={DashboardStyle.headContImageStyle}
-                  source={require('../../assets/images/selfieOne.jpg')}
-                  resizeMode="cover"></Image>
+    <ScrollView>
+      <SafeAreaView>
+        <View style={DashboardStyle.headCont}>
+          <View style={DashboardStyle.headContInnerCont}>
+            <TouchableOpacity
+              style={DashboardStyle.headContImageCont}
+              onPress={props.onPress}>
+              <Image
+                style={DashboardStyle.headContImageStyle}
+                source={require('../../assets/images/selfieOne.jpg')}
+                resizeMode="cover"></Image>
+            </TouchableOpacity>
+            <View style={DashboardStyle.headContMiddleCont}>
+              <View style={DashboardStyle.middleInnerFirstCont}>
+                <Text style={DashboardStyle.middleInnerContFirstHeading}>
+                  Hello Dara
+                </Text>
+              </View>
+              <View style={DashboardStyle.middleInnerSecondCont}>
+                <Text style={DashboardStyle.middleInnerContSecondHeading}>
+                  How can you today?
+                </Text>
+              </View>
+            </View>
+            <View style={DashboardStyle.headContLastCont}>
+              <TouchableOpacity>
+                <Neomorph
+                  lightShadowColor={AppColor.white}
+                  style={DashboardStyle.notificationButton}>
+                  <Ionicons
+                    name="notifications-outline"
+                    color="black"
+                    size={wp('6')}></Ionicons>
+                </Neomorph>
               </TouchableOpacity>
-              <View style={DashboardStyle.headContMiddleCont}>
-                <View style={DashboardStyle.middleInnerFirstCont}>
-                  <Text style={DashboardStyle.middleInnerContFirstHeading}>
-                    Hello Dara
-                  </Text>
-                </View>
-                <View style={DashboardStyle.middleInnerSecondCont}>
-                  <Text style={DashboardStyle.middleInnerContSecondHeading}>
-                    How can you today?
-                  </Text>
-                </View>
+            </View>
+          </View>
+        </View>
+
+        <View style={DashboardStyle.searchCont}>
+          <View style={DashboardStyle.searchInnerCont}>
+            <Neomorph
+              inner
+              lightShadowColor={AppColor.white}
+              style={DashboardStyle.searchNeoView}>
+              <View style={DashboardStyle.seacrhIconOneInnerCont}>
+                <Feather
+                  name="search"
+                  size={wp('6')}
+                  color={AppColor.blackOpacity4}></Feather>
               </View>
-              <View style={DashboardStyle.headContLastCont}>
-                <TouchableOpacity>
+              <View style={DashboardStyle.searchTextInputCont}>
+                <TextInput
+                  placeholder="Search Doctor"
+                  maxLength={20}
+                  style={DashboardStyle.searchTextInput}></TextInput>
+              </View>
+            </Neomorph>
+            <View style={DashboardStyle.searchIconTwoCont}>
+              <TouchableOpacity>
+                <Neomorph
+                  lightShadowColor={AppColor.white}
+                  style={DashboardStyle.filterButton}>
+                  <SimpleLineIcons
+                    name="equalizer"
+                    color={AppColor.black}
+                    size={wp('4')}></SimpleLineIcons>
+                </Neomorph>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+
+        <Neomorph
+          darkShadowColor={AppColor.black}
+          style={DashboardStyle.neoCard}>
+          <LinearGradient
+            style={DashboardStyle.dashCard}
+            colors={[
+              'rgba(195, 140, 222, 0.4)',
+              'rgba(195, 140, 222, 0.6)',
+              'rgba(195, 140, 222,1)',
+            ]}
+            start={{x: 0, y: 0.5}}
+            end={{x: 1, y: 0.5}}
+            locations={[0.1, 0.3, 0.9]}>
+            <View style={DashboardStyle.leftCont}>
+              <View style={DashboardStyle.leftContInnerCont}>
+                <View style={DashboardStyle.leftContFirstHeading}>
+                  <Text style={DashboardStyle.leftContFirstHeadingText}>
+                    Healthy or expensive
+                  </Text>
+                </View>
+                <View style={DashboardStyle.leftContSecondHeading}>
+                  <Text style={DashboardStyle.leftContSecondHeadingText}>
+                    Protect your family from virus before it's too late
+                  </Text>
+                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('Maps')}>
                   <Neomorph
-                    lightShadowColor={AppColor.white}
-                    style={DashboardStyle.notificationButton}>
-                    <Ionicons
-                      name="notifications-outline"
-                      color="black"
-                      size={wp('6')}></Ionicons>
+                    lightShadowColor={AppColor.whiteShade}
+                    darkShadowColor={AppColor.blackOpacity4}
+                    style={DashboardStyle.neoDiscoverButton}>
+                    <Text style={DashboardStyle.discoverButtonText}>
+                      Discover
+                    </Text>
                   </Neomorph>
                 </TouchableOpacity>
               </View>
-            </View>
-          </View>
-
-          <View style={DashboardStyle.searchCont}>
-            <View style={DashboardStyle.searchInnerCont}>
-              <Neomorph
-                inner
-                lightShadowColor={AppColor.white}
-                style={DashboardStyle.searchNeoView}>
-                <View style={DashboardStyle.seacrhIconOneInnerCont}>
-                  <Feather
-                    name="search"
-                    size={wp('6')}
-                    color={AppColor.blackOpacity4}></Feather>
-                </View>
-                <View style={DashboardStyle.searchTextInputCont}>
-                  <TextInput
-                    placeholder="Search Doctor"
-                    maxLength={20}
-                    style={DashboardStyle.searchTextInput}></TextInput>
-                </View>
-              </Neomorph>
-              <View style={DashboardStyle.searchIconTwoCont}>
-                <TouchableOpacity>
-                  <Neomorph
-                    lightShadowColor={AppColor.white}
-                    style={DashboardStyle.filterButton}>
-                    <SimpleLineIcons
-                      name="equalizer"
-                      color={AppColor.black}
-                      size={wp('4')}></SimpleLineIcons>
-                  </Neomorph>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-
-          <Neomorph
-            darkShadowColor={AppColor.black}
-            style={DashboardStyle.neoCard}>
-            <LinearGradient
-              style={DashboardStyle.dashCard}
-              colors={[
-                'rgba(195, 140, 222, 0.4)',
-                'rgba(195, 140, 222, 0.6)',
-                'rgba(195, 140, 222,1)',
-              ]}
-              start={{x: 0, y: 0.5}}
-              end={{x: 1, y: 0.5}}
-              locations={[0.1, 0.3, 0.9]}>
-              <View style={DashboardStyle.leftCont}>
-                <View style={DashboardStyle.leftContInnerCont}>
-                  <View style={DashboardStyle.leftContFirstHeading}>
-                    <Text style={DashboardStyle.leftContFirstHeadingText}>
-                      Healthy or expensive
-                    </Text>
-                  </View>
-                  <View style={DashboardStyle.leftContSecondHeading}>
-                    <Text style={DashboardStyle.leftContSecondHeadingText}>
-                      Protect your family from virus before it's too late
-                    </Text>
-                  </View>
-                  <TouchableOpacity onPress={() => navigation.navigate('Maps')}>
-                    <Neomorph
-                      lightShadowColor={AppColor.whiteShade}
-                      darkShadowColor={AppColor.blackOpacity4}
-                      style={DashboardStyle.neoDiscoverButton}>
-                      <Text style={DashboardStyle.discoverButtonText}>
-                        Discover
-                      </Text>
-                    </Neomorph>
-                  </TouchableOpacity>
-                </View>
-                <View>
-                  <Image
-                    style={DashboardStyle.dashContImage}
-                    source={require('../../assets/images/doctorsInfo.png')}
-                    resizeMode="cover"
-                  />
-                </View>
-              </View>
-            </LinearGradient>
-          </Neomorph>
-
-          <DoctorBar
-            One={'Categories'}
-            Two={'See all'}
-            onPress={() => {
-              navigation.navigate('DoctorSpecialist');
-            }}
-          />
-
-          <View style={DashboardStyle.categoriesView}>
-            <CategoriesFlatList
-              outerWidth={wp('20')}
-              outerHeight={hp('17')}
-              outerRadius={wp('7')}
-              outerMargin={wp('5')}
-              alignItems={'center'}
-              justifyContent={'center'}
-              innerWidth={wp('21')}
-              innerHeight={wp('21')}
-              innerRadius={wp('7')}
-              boxWidth={wp('18')}
-              boxHeight={wp('18')}
-              boxRadius={wp('7')}
-              textWidth={wp('24')}
-              horizontal={true}/>
-          </View>
-
-          <DoctorBar
-            One={'Nearby Doctor'}
-            Two={'See all'}
-            onPress={() => {
-              navigation.navigate('SearchDoctor');
-            }}
-          />
-
-          <View style={DashboardStyle.doctorsView}>
-            <DoctorsFlatList horizontal={true} marginRight={wp('5')} />
-          </View>
-
-          <Modal isVisible={categoriesModalOpen}>
-            <SafeAreaView style={DoctorDepartmentStyle.mainView}>
               <View>
-               <BackButton onPress={() =>{storeCategoriesModalOpen(false)}}>
-                 {'Categories'}
-                </BackButton>
-                <View style={DoctorDepartmentStyle.flatListView}>
-                  <CategoriesFlatList
-                    outerWidth={wp('20')}
-                    outerHeight={hp('13')}
-                    outerRadius={wp('7')}
-                    outerMargin={wp('5.5')}
-                    alignItems={'center'}
-                    justifyContent={'center'}
-                    innerWidth={wp('24')}
-                    innerHeight={wp('24')}
-                    innerRadius={wp('8')}
-                    boxWidth={wp('21')}
-                    boxHeight={wp('21')}
-                    boxRadius={wp('7')}
-                    textWidth={wp('24')}
-                    marginBottom={wp('10')}
-                    numColumns={3}/>
-                </View>
+                <Image
+                  style={DashboardStyle.dashContImage}
+                  source={require('../../assets/images/doctorsInfo.png')}
+                  resizeMode="cover"
+                />
               </View>
-            </SafeAreaView>
-          </Modal>
-        </ScrollView>
-      </Animated.View>
-    </SafeAreaView>
+            </View>
+          </LinearGradient>
+        </Neomorph>
+
+        <DoctorBar
+          One={'Categories'}
+          Two={'See all'}
+          onPress={() => {
+            navigation.navigate('DoctorSpecialist');
+          }}
+        />
+
+        <View style={DashboardStyle.categoriesView}>
+          <CategoriesFlatList
+            outerWidth={wp('20')}
+            outerHeight={hp('17')}
+            outerRadius={wp('7')}
+            outerMargin={wp('5')}
+            alignItems={'center'}
+            justifyContent={'center'}
+            innerWidth={wp('21')}
+            innerHeight={wp('21')}
+            innerRadius={wp('7')}
+            boxWidth={wp('18')}
+            boxHeight={wp('18')}
+            boxRadius={wp('7')}
+            textWidth={wp('24')}
+            horizontal={true}
+          />
+        </View>
+
+        <DoctorBar
+          One={'Nearby Doctor'}
+          Two={'See all'}
+          onPress={() => {
+            navigation.navigate('SearchDoctor');
+          }}
+        />
+
+        <View style={DashboardStyle.doctorsView}>
+          <DoctorsFlatList horizontal={true} marginRight={wp('5')} />
+        </View>
+
+        <Modal isVisible={categoriesModalOpen}>
+          <SafeAreaView style={DoctorDepartmentStyle.mainView}>
+            <View>
+              <BackButton
+                onPress={() => {
+                  storeCategoriesModalOpen(false);
+                }}>
+                {'Categories'}
+              </BackButton>
+              <View style={DoctorDepartmentStyle.flatListView}>
+                <CategoriesFlatList
+                  outerWidth={wp('20')}
+                  outerHeight={hp('13')}
+                  outerRadius={wp('7')}
+                  outerMargin={wp('5.5')}
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  innerWidth={wp('24')}
+                  innerHeight={wp('24')}
+                  innerRadius={wp('8')}
+                  boxWidth={wp('21')}
+                  boxHeight={wp('21')}
+                  boxRadius={wp('7')}
+                  textWidth={wp('24')}
+                  marginBottom={wp('10')}
+                  numColumns={3}
+                />
+              </View>
+            </View>
+          </SafeAreaView>
+        </Modal>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 

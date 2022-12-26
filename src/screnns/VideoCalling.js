@@ -1,3 +1,4 @@
+import React, {useContext, useState} from 'react';
 import {
   SafeAreaView,
   Text,
@@ -6,26 +7,35 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {VideoCallingStyle} from '../assets/styles/VideoCallingStyle';
-
-import BackButton from './ScrennHeader/BackButton';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 import {AppColor} from '../assets/colors/AppColor';
-
 import BackButton from '../components/ScrennHeader/BackButton';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import {useNavigation} from '@react-navigation/native';
+import AppContext from '../assets/context/AppContext';
+import Lottie from 'lottie-react-native'
 
-const VideoCalling = props => {
+const VideoCalling = () => {
+  const navigation = useNavigation();
+  const [openMic, setOpenMic] = useState(false);
+  const {openCam, storeOpenCam} = useContext(AppContext);
+  const {callStatus} = useContext(AppContext);
+  let display;
+  if (callStatus === 'Audio') {
+    display = 'none';
+  } else {
+    display = 'flex';
+  }
   return (
     <SafeAreaView
       style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
-      <BackButton onPress={() => props.navigation.goBack()}></BackButton>
+      <BackButton onPress={() => navigation.goBack()}></BackButton>
 
       <View style={VideoCallingStyle.nameTimeView}>
         <Text style={VideoCallingStyle.text}>Dr.Elisbeth</Text>
@@ -33,21 +43,14 @@ const VideoCalling = props => {
           10:33pm
         </Text>
       </View>
-      
-      <View style={VideoCallingStyle.firstCircleView}>
-      
-        <View style={VideoCallingStyle.secondCircleView}>
-          <View style={VideoCallingStyle.thirdCircleView}>
-            <View style={VideoCallingStyle.imageView}>
-              <Image
-                style={VideoCallingStyle.imageStyle}
-                source={require('../assets/images/doctorsInfo.png')}
-              />
-            </View>
-          </View>
-        </View>
-        </View>
-       
+
+      <Lottie style={{width: wp('50'), height: hp('50')}} autoPlay loop></Lottie>
+      <View style={VideoCallingStyle.imageView}>
+        <Image
+          style={VideoCallingStyle.imageStyle}
+          source={require('../assets/images/doctorsInfo.png')}
+        />
+      </View>
 
       <View style={VideoCallingStyle.footerView}>
         <View style={VideoCallingStyle.buttonView}>
@@ -56,11 +59,23 @@ const VideoCalling = props => {
             height={hp('9')}
             backgroundColor={AppColor.whiteShade}
             borderRadius={wp('25')}>
-            <TouchableOpacity>
-              <Icon
-                style={{color: AppColor.black}}
-                name="microphone-slash"
-                size={22}></Icon>
+            <TouchableOpacity
+              onPress={() => {
+                setOpenMic(!openMic);
+              }}>
+              {!openMic ? (
+                <FontAwesome
+                  style={{color: AppColor.black}}
+                  name={'microphone-slash'}
+                  size={wp('7')}
+                />
+              ) : (
+                <FontAwesome
+                  style={{color: AppColor.black}}
+                  name={'microphone'}
+                  size={wp('7')}
+                />
+              )}
             </TouchableOpacity>
           </NeoButton>
         </View>
@@ -71,27 +86,42 @@ const VideoCalling = props => {
             height={hp('9')}
             backgroundColor={AppColor.whiteShade}
             borderRadius={wp('25')}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}>
               <MaterialIcon
                 style={{color: AppColor.red}}
                 name="call-end"
-                size={29}
+                size={wp('9')}
               />
             </TouchableOpacity>
           </NeoButton>
         </View>
 
-        <View style={VideoCallingStyle.buttonView}>
+        <View style={[VideoCallingStyle.buttonView, {display: display}]}>
           <NeoButton
             width={wp('17')}
             height={hp('9')}
             backgroundColor={AppColor.whiteShade}
             borderRadius={wp('25')}>
-            <TouchableOpacity>
-              <Icon
-                style={{color: AppColor.black}}
-                name="video-camera"
-                size={22}></Icon>
+            <TouchableOpacity
+              onPress={() => {
+                storeOpenCam(!openCam);
+              }}>
+              {openCam ? (
+                <FontAwesome
+                  style={{color: AppColor.black}}
+                  name="video-camera"
+                  size={wp('7')}
+                />
+              ) : (
+                <MaterialIcon
+                  style={{color: AppColor.black}}
+                  name="videocam-off"
+                  size={wp('9')}
+                />
+              )}
             </TouchableOpacity>
           </NeoButton>
         </View>

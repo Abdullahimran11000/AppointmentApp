@@ -62,7 +62,7 @@ const LogIn = props => {
           <View style={LoginStyle.MainLoginButtonView}>
             <NeoButton
               width={wp('87 ')}
-              height={hp('6')}
+              height={hp('7')}
               backgroundColor={AppColor.primary}
               borderRadius={wp('10')}>
               <TouchableOpacity
@@ -88,7 +88,7 @@ const LogIn = props => {
               <TouchableOpacity style={LoginStyle.TouchableGoogle}>
                 <Image
                   style={LoginStyle.GoogleImage}
-                  source={require('../../assets/images/google.jpg')}
+                  source={require('../../assets/images/googles.jpg')}
                 />
                 <Text style={LoginStyle.GoogleText}>Login With Google</Text>
               </TouchableOpacity>
