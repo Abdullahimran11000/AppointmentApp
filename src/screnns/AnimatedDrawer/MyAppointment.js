@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   SafeAreaView,
   Text,
@@ -16,9 +16,11 @@ import {ScrollView} from 'react-native-virtualized-view';
 import {useNavigation} from '@react-navigation/native';
 import {AppColor} from '../../assets/colors/AppColor';
 import {Neomorph} from 'react-native-neomorph-shadows';
+import AppContext from '../../assets/context/AppContext';
 
 const MyAppointment = () => {
   const navigation = useNavigation();
+  const {storeCallStatus} = useContext(AppContext);
   const [completeButton, setCompeletButton] = useState(true);
   const [upcomingButton, setUpcomingButton] = useState(false);
   const [cancellButton, setCancellButton] = useState(false);
@@ -121,6 +123,7 @@ const MyAppointment = () => {
           navigation.navigate('Chat');
         } else if (item.appDestination === 'Video') {
           navigation.navigate('VideoCalling');
+          storeCallStatus('Video');
         }
       }}
     />
@@ -134,6 +137,7 @@ const MyAppointment = () => {
           navigation.navigate('Chat');
         } else if (item.appDestination === 'Video') {
           navigation.navigate('VideoCalling');
+          storeCallStatus('Video');
         }
       }}
     />
@@ -147,6 +151,7 @@ const MyAppointment = () => {
           navigation.navigate('Chat');
         } else if (item.appDestination === 'Video') {
           navigation.navigate('VideoCalling');
+          storeCallStatus('Video');
         }
       }}
     />

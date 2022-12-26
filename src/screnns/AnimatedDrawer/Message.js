@@ -1,26 +1,14 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, View, FlatList} from 'react-native';
 import BackButton from '../../components/ScrennHeader/BackButton';
-import Swipeable from 'react-native-swipeable';
 import {MessageStyle} from '../../assets/styles/AnimatedDrawerStyle/MessageStyle';
-import {
-  heightPercentageToDP,
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
-import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
-import {Neomorph} from 'react-native-neomorph-shadows';
+import MessageList from '../../components/Message/MessageList';
 
 const Message = () => {
   const navigation = useNavigation();
-  const data = [
+  const [messageData, setMessageData] = useState([
     {
       id: 1,
       source: require('../../assets/images/selfieOne.jpg'),
@@ -63,58 +51,15 @@ const Message = () => {
       message: 'Hello doc! i want to consult',
       time: '25m ago',
     },
-  ];
+  ]);
 
-  const rightButtons = [
-    <TouchableOpacity>
-      <Neomorph style={MessageStyle.rightButtonsViews}>
-        <MaterialIcons
-          name="delete-outline"
-          size={wp('8')}
-          style={MessageStyle.rightButtonIcons}
-        />
-      </Neomorph>
-    </TouchableOpacity>,
-  ];
+  const delHandler = (id) =>{
+    const filteredMessages = messageData.filter(item => item.id !== id);
+    setMessageData(filteredMessages)
+  }
 
   const renderItem = ({item}) => {
-    return (
-      <Swipeable rightButtons={rightButtons} useNativeDriver={true}>
-        <View style={MessageStyle.cardView}>
-          <Neomorph style={MessageStyle.headCont}>
-            <View style={MessageStyle.headContInnerCont}>
-              <TouchableOpacity style={MessageStyle.headContImageCont}>
-                <Image
-                  style={MessageStyle.headContImageStyle}
-                  source={item.source}
-                  resizeMode="cover"
-                />
-              </TouchableOpacity>
-              <View style={MessageStyle.headContMiddleCont}>
-                <View style={MessageStyle.middleInnerFirstCont}>
-                  <Text style={MessageStyle.middleInnerContFirstHeading}>
-                    {item.from}
-                  </Text>
-                </View>
-                <View style={MessageStyle.middleInnerSecondCont}>
-                  <Text
-                    style={MessageStyle.middleInnerContSecondHeading}
-                    numberOfLines={1}
-                    ellipsizeMode="tail">
-                    {item.message}
-                  </Text>
-                </View>
-              </View>
-              <View style={MessageStyle.headContLastCont}>
-                <Text style={MessageStyle.headContLastContText}>
-                  {item.time}
-                </Text>
-              </View>
-            </View>
-          </Neomorph>
-        </View>
-      </Swipeable>
-    );
+    return <MessageList item={item} onPress={()=>{delHandler(item.id)}}/>;
   };
   return (
     <SafeAreaView style={MessageStyle.mainView}>
@@ -126,7 +71,7 @@ const Message = () => {
       </BackButton>
       <View style={{marginTop: wp('5')}}>
         <FlatList
-          data={data}
+          data={messageData}
           renderItem={renderItem}
           keyExtractor={item => item.id}
         />
