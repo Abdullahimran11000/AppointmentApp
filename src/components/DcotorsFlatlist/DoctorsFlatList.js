@@ -1,17 +1,20 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {SafeAreaView,FlatList} from 'react-native';
+import AppContext from '../../assets/context/AppContext';
 import DoctorCard from './DoctorCard';
-const DoctorsFlatList = ({horizontal, numColumns, marginRight}) => {
-  
+const DoctorsFlatList = ({horizontal, numColumns, marginRight, filterFuction}) => {
   const navigation = useNavigation()  
+  const {selectedCategoryResult} = useContext(AppContext)
   const [doctorInfo, setDoctorInfo]= useState([
     {name: 'Dr. Amanda', dept: 'Dentist', star: "4.5", experience: '5 years', color: 'rgba(195, 140, 222, 0.5)', source: require('../../assets/images/doctorsInfo.png')},
     {name: 'Dr. Omer', dept: 'Urology', star: "4.0", experience: '7 years', color: 'rgba(247, 106, 106, 0.4)', source: require('../../assets/images/drOmer.png')},
-    {name: 'Dr. Asnan', dept: 'Dentist', star: "3.5", experience: '10 years', color: 'rgba(195, 140, 222, 1)', source: require('../../assets/images/doctorsInfo.png')},
-    {name: 'Dr. Gough', dept: 'Dentist', star: "2.5", experience: '15 years', color: 'rgba(195, 140, 222, 0.1)', source: require('../../assets/images/doctorsInfo.png')},
-    {name: 'Dr. Abdullah', dept: 'Urology', star: "4.5", experience: '2 years', color: 'rgba(247, 106, 106, 0.4)', source: require('../../assets/images/doctorsInfo.png')},
+    {name: 'Dr. Asnan', dept: 'Cardiology', star: "3.5", experience: '10 years', color: 'rgba(195, 140, 222, 1)', source: require('../../assets/images/doctorsInfo.png')},
+    {name: 'Dr. Gough', dept: 'Cardiology', star: "2.5", experience: '15 years', color: 'rgba(195, 140, 222, 0.1)', source: require('../../assets/images/doctorsInfo.png')},
+    {name: 'Dr. Abdullah', dept: 'Gynacology', star: "4.5", experience: '2 years', color: 'rgba(247, 106, 106, 0.4)', source: require('../../assets/images/doctorsInfo.png')},
   ])
+
+  const filteredArray = doctorInfo.filter(item => item.dept === selectedCategoryResult);
 
   const renderItem = ({item}) =>{
     return (
@@ -21,7 +24,7 @@ const DoctorsFlatList = ({horizontal, numColumns, marginRight}) => {
 
   return (
     <SafeAreaView>
-      <FlatList data={doctorInfo} renderItem={renderItem} horizontal={horizontal} showsHorizontalScrollIndicator={false} numColumns={numColumns} />
+      <FlatList data={filteredArray} renderItem={renderItem} horizontal={horizontal} showsHorizontalScrollIndicator={false} numColumns={numColumns} />
     </SafeAreaView>
   );
 };

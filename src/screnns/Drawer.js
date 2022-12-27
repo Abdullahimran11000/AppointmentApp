@@ -2,9 +2,9 @@ import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {Text, TouchableOpacity, View, Image} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {AppColor} from '../../assets/colors/AppColor';
-import Dashboard from '../Dashboard/Dashboard';
-import {DrawerStyle} from '../../assets/styles/AnimatedDrawerStyle/DrawerStyle';
+import {AppColor} from '../assets/colors/AppColor';
+import Dashboard from './Dashboard';
+import {DrawerStyle} from '../assets/styles/AnimatedDrawerStyle/DrawerStyle';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -16,7 +16,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import NeoButton from '../../components/NeoMorphButton/NeoButton';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
 
 const Drawer = () => {
   const navigation = useNavigation();
@@ -63,7 +63,7 @@ const Drawer = () => {
           <NeoButton width={wp('16')} height={wp('16')} borderRadius={wp('8')} backgroundColor={AppColor.whiteShade} lightShadowColor={AppColor.primary}>  
           <Image
             style={DrawerStyle.imageStyle}
-            source={require('../../assets/images/profile.jpg')}></Image>
+            source={require('../assets/images/profile.jpg')}></Image>
           </NeoButton>
         </TouchableOpacity>
         <Text style={DrawerStyle.nameText}>Dara Amanda</Text>

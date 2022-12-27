@@ -14,11 +14,11 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import CalendarPicker from 'react-native-calendar-picker';
-import {ScheduleStyle} from '../../assets/styles/DashboardStyle/ScheduleStyle';
-import BackButton from '../../components/ScrennHeader/BackButton';
-import {AppColor} from '../../assets/colors/AppColor';
+import {ScheduleStyle} from '../assets/styles/DashboardStyle/ScheduleStyle';
+import BackButton from '../components/ScrennHeader/BackButton';
+import {AppColor} from '../assets/colors/AppColor';
 import Icon from 'react-native-vector-icons/AntDesign';
-import NeoButton from '../../components/NeoMorphButton/NeoButton';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
 
 const Schedule = props => {
   const [showModal, setShowModal] = useState(false);
@@ -134,7 +134,7 @@ const Schedule = props => {
               <View style={ScheduleStyle.modal}>
                 <Neomorph style={ScheduleStyle.lottyView}>
                   <Neomorph inner style={ScheduleStyle.lottyViewInner}>
-                    <Lottie source={require('../../assets/animations/schedule.json')}
+                    <Lottie source={require('../assets/animations/schedule.json')}
                       style={{ width: wp(60), height: wp(60),}}
                       autoPlay/>
                    </Neomorph>

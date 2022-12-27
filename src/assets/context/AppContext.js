@@ -3,10 +3,11 @@ import React, {useState} from 'react';
 const AppContext = React.createContext();
 
 export const AppProvider = ({children}) => {
-  const [idOfSelectedCategoryDot, setIdOfSelectedCategoryDot] = useState(3);
+  const [idOfSelectedCategoryDot, setIdOfSelectedCategoryDot] = useState(1);
   const [categoriesModalOpen, setCategoriesModal] = useState(false);
   const [openCam, setOpenCam] = useState(false);
   const [callStatus, setCallStatus] = useState('');
+  const [selectedCategoryResult, setSelectedCategoryResult] = useState('cardiology');
 
   const storeIdOfSelectedCategoryDot = val => {
     setIdOfSelectedCategoryDot(val);
@@ -24,6 +25,10 @@ export const AppProvider = ({children}) => {
     setCallStatus(val);
   };
 
+  const storeSelectedCategoryResult = val => {
+    setSelectedCategoryResult(val);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -32,11 +37,13 @@ export const AppProvider = ({children}) => {
         categoriesModalOpen,
         openCam,
         callStatus,
+        selectedCategoryResult,
         //function
         storeIdOfSelectedCategoryDot,
         storeCategoriesModalOpen,
         storeOpenCam,
         storeCallStatus,
+        storeSelectedCategoryResult,
       }}>
       {children}
     </AppContext.Provider>

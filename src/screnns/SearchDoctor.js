@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {DashboardStyle} from '../../assets/styles/DashboardStyle/DashboardStyle';
+import {DashboardStyle} from '../assets/styles/DashboardStyle/DashboardStyle';
 import Feather from 'react-native-vector-icons/Feather';
 import Modal from 'react-native-modal';
-import DoctorsFlatList from '../../components/DcotorsFlatlist/DoctorsFlatList';
+import DoctorsFlatList from '../components/DcotorsFlatlist/DoctorsFlatList';
 import {StyleSheet} from 'react-native';
 import {SelectList} from 'react-native-dropdown-select-list';
 import {
@@ -19,11 +19,11 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import RadioButtonRN from 'radio-buttons-react-native';
-import {AppColor} from '../../assets/colors/AppColor';
+import {AppColor} from '../assets/colors/AppColor';
 import {ScrollView} from 'react-native-virtualized-view';
-import BackButton from '../../components/ScrennHeader/BackButton';
+import BackButton from '../components/ScrennHeader/BackButton';
 import {Neomorph} from 'react-native-neomorph-shadows';
-import {SearchDoctorStyle} from '../../assets/styles/DashboardStyle/SearchDoctorStyle';
+import {SearchDoctorStyle} from '../assets/styles/DashboardStyle/SearchDoctorStyle';
 
 const SearchDoctor = props => {
   const data = [

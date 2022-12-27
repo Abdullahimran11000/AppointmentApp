@@ -12,16 +12,16 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {ChatStyle} from '../../assets/styles/DashboardStyle/ChatStyle';
+import {ChatStyle} from '../assets/styles/DashboardStyle/ChatStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {AppColor} from '../../assets/colors/AppColor';
+import {AppColor} from '../assets/colors/AppColor';
 import {Neomorph} from 'react-native-neomorph-shadows';
-import RightChatCard from '../../components/Chats/RightChatCard';
-import LeftChatCard from '../../components/Chats/LeftChatCard';
+import RightChatCard from '../components/Chats/RightChatCard';
+import LeftChatCard from '../components/Chats/LeftChatCard';
 import {ScrollView} from 'react-native-virtualized-view';
 import {useNavigation} from '@react-navigation/native';
-import AppContext from '../../assets/context/AppContext';
+import AppContext from '../assets/context/AppContext';
 
 const Chat = () => {
   const navigation = useNavigation();
@@ -58,7 +58,7 @@ const Chat = () => {
           <View style={ChatStyle.headerView}>
             <Image
               style={ChatStyle.image}
-              source={require('../../assets/images/profile.jpg')}
+              source={require('../assets/images/profile.jpg')}
             />
             <Text style={ChatStyle.nameText}>Dr.Adam Jordan</Text>
             <Text style={ChatStyle.status}>Online</Text>

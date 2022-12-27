@@ -12,12 +12,12 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {ForgotPasswordStyle} from '../../assets/styles/AuthStyle/ForgotPasswordStyle';
-import BackButton from '../../components/ScrennHeader/BackButton';
-import {AppColor} from '../../assets/colors/AppColor';
+import {ForgotPasswordStyle} from '../assets/styles/AuthStyle/ForgotPasswordStyle';
+import BackButton from '../components/ScrennHeader/BackButton';
+import {AppColor} from '../assets/colors/AppColor';
 import {useNavigation} from '@react-navigation/native';
-import NeoButton from '../../components/NeoMorphButton/NeoButton';
-import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
+import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 
 const ForgotPassword = () => {
   const navigation = useNavigation();
@@ -31,7 +31,7 @@ const ForgotPassword = () => {
           <View style={ForgotPasswordStyle.animationView}>
             <Lottie
               style={ForgotPasswordStyle.animationStyle}
-              source={require('../../assets/animations/appIntroForgot.json')}
+              source={require('../assets/animations/appIntroForgot.json')}
               autoPlay
             />
           </View>

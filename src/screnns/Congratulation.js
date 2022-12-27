@@ -11,9 +11,9 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
-import {CongratulationStyle} from '../../assets/styles/AuthStyle/CongratulationStyle';
-import {AppColor} from '../../assets/colors/AppColor';
-import NeoButton from '../../components/NeoMorphButton/NeoButton';
+import {CongratulationStyle} from '../assets/styles/AuthStyle/CongratulationStyle';
+import {AppColor} from '../assets/colors/AppColor';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
 import {useNavigation} from '@react-navigation/native';
 
 const Congratulation = () => {
@@ -25,7 +25,7 @@ const Congratulation = () => {
           <View style={CongratulationStyle.animationView}>
             <Lottie
               style={CongratulationStyle.animationStyle}
-              source={require('../../assets/animations/appIntroCongrats.json')}
+              source={require('../assets/animations/appIntroCongrats.json')}
               autoPlay
             />
           </View>

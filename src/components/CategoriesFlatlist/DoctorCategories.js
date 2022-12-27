@@ -28,11 +28,12 @@ const DoctorCategories = ({
   textWidth,
   marginRight,
   marginBottom,
-  onPress,
 }) => {
   const {idOfSelectedCategoryDot, storeIdOfSelectedCategoryDot} =
     useContext(AppContext);
-  const {categoriesModalOpen, storeCategoriesModalOpen} =
+  // const {categoriesModalOpen, storeCategoriesModalOpen} =
+  //   useContext(AppContext);
+  const {selectedCategoryResult, storeSelectedCategoryResult} =
     useContext(AppContext);
   const navigation = useNavigation();
   return (
@@ -48,16 +49,20 @@ const DoctorCategories = ({
         justifyContent: justifyContent,
       }}
       onPress={() => {
-        if (innerWidth === wp('21')) {
-          storeIdOfSelectedCategoryDot(item.id);
-          storeCategoriesModalOpen(true);
-        } else if (innerWidth === wp('24')) {
-          storeIdOfSelectedCategoryDot(item.id);
-          navigation.navigate('DoctorSpecialist');
-        } else {
-          storeIdOfSelectedCategoryDot(item.id);
-          storeCategoriesModalOpen(false);
-        }
+        storeIdOfSelectedCategoryDot(item.id);
+        storeSelectedCategoryResult(item.deptName)
+        // if (innerWidth === wp('21')) {
+        //   storeIdOfSelectedCategoryDot(item.id);
+        //   // storeCategoriesModalOpen(true);
+        // } else if (innerWidth === wp('24')) {
+        //   storeIdOfSelectedCategoryDot(item.id);
+        //   navigation.navigate('DoctorSpecialist');
+        //   storeSelectedCategoryResult(item.deptName)
+        // } else {
+        //   storeIdOfSelectedCategoryDot(item.id);
+        //   // storeCategoriesModalOpen(false);
+        //   storeSelectedCategoryResult(item.deptName)
+        // }
       }}>
       {/* {idOfSelectedCategoryDot == item.id ? (
         <Octicons name="dot-fill" size={wp('5')} color={AppColor.primary} />

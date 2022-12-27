@@ -1,65 +1,72 @@
 import React, {useState} from 'react';
 import {SafeAreaView, View, FlatList} from 'react-native';
-import BackButton from '../../components/ScrennHeader/BackButton';
-import {MessageStyle} from '../../assets/styles/AnimatedDrawerStyle/MessageStyle';
+import BackButton from '../components/ScrennHeader/BackButton';
+import {MessageStyle} from '../assets/styles/AnimatedDrawerStyle/MessageStyle';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
-import MessageList from '../../components/Message/MessageList';
+import MessageList from '../components/Message/MessageList';
 
 const Message = () => {
   const navigation = useNavigation();
   const [messageData, setMessageData] = useState([
     {
       id: 1,
-      source: require('../../assets/images/selfieOne.jpg'),
+      source: require('../assets/images/selfieOne.jpg'),
       from: 'Dr. Amanda',
       message: 'Hello doc! i want to consult',
       time: '5m ago',
     },
     {
       id: 2,
-      source: require('../../assets/images/selfieOne.jpg'),
+      source: require('../assets/images/selfieOne.jpg'),
       from: 'Dr. Khawar',
       message: 'Hello doc! i want to consult',
       time: '10m ago',
     },
     {
       id: 3,
-      source: require('../../assets/images/selfieOne.jpg'),
+      source: require('../assets/images/selfieOne.jpg'),
       from: 'Dr. Aletta',
       message: 'Hello doc! i want to consult',
       time: '10m ago',
     },
     {
       id: 4,
-      source: require('../../assets/images/selfieOne.jpg'),
+      source: require('../assets/images/selfieOne.jpg'),
       from: 'Dr. Miranda',
       message: 'Hello doc! i want to consult',
       time: '15m ago',
     },
     {
       id: 5,
-      source: require('../../assets/images/selfieOne.jpg'),
+      source: require('../assets/images/selfieOne.jpg'),
       from: 'Dr. Pasha',
       message: 'Hello doc! i want to consult',
       time: '25m ago',
     },
     {
       id: 6,
-      source: require('../../assets/images/selfieOne.jpg'),
+      source: require('../assets/images/selfieOne.jpg'),
       from: 'Dr. Pasha',
       message: 'Hello doc! i want to consult',
       time: '25m ago',
     },
   ]);
 
-  const delHandler = (id) =>{
+  const delHandler = id => {
     const filteredMessages = messageData.filter(item => item.id !== id);
-    setMessageData(filteredMessages)
-  }
+    setMessageData(filteredMessages);
+  };
 
   const renderItem = ({item}) => {
-    return <MessageList item={item} onPress={()=>{delHandler(item.id)}}/>;
+    return (
+      <MessageList
+        item={item}
+        onPress={() => {
+          delHandler(item.id);
+        }}
+      />
+    );
   };
   return (
     <SafeAreaView style={MessageStyle.mainView}>

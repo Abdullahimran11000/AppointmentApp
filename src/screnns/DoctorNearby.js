@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import BackButton from '../../components/ScrennHeader/BackButton';
-import DoctorCard from '../../components/DcotorsFlatlist/DoctorCard';
+import BackButton from '../components/ScrennHeader/BackButton';
+import DoctorCard from '../components/DcotorsFlatlist/DoctorCard';
 
 const DoctorNearby = props => {
   return (
@@ -11,7 +11,7 @@ const DoctorNearby = props => {
       </BackButton>
       <DoctorCard
         color={'rgba(247, 106, 106, 0.4)'}
-        source={require('../../assets/images/drOmer.png')}
+        source={require('../assets/images/drOmer.png')}
         name={'Dr. Omer'}
         dept={'Urology'}
         star={'4.0'}

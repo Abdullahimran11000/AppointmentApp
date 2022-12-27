@@ -12,10 +12,10 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
-import {VerificationStyle} from '../../assets/styles/AuthStyle/VerificationStyle';
-import BackButton from '../../components/ScrennHeader/BackButton';
-import NeoButton from '../../components/NeoMorphButton/NeoButton';
-import {AppColor} from '../../assets/colors/AppColor';
+import {VerificationStyle} from '../assets/styles/AuthStyle/VerificationStyle';
+import BackButton from '../components/ScrennHeader/BackButton';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
+import {AppColor} from '../assets/colors/AppColor';
 
 const Verification = props => {
   return (
@@ -29,7 +29,7 @@ const Verification = props => {
           <View style={VerificationStyle.animationView}>
             <Lottie
               style={VerificationStyle.animationStyle}
-              source={require('../../assets/animations/appIntroVerification.json')}
+              source={require('../assets/animations/appIntroVerification.json')}
               autoPlay
             />
           </View>

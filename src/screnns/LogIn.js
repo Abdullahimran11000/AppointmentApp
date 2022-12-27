@@ -2,7 +2,6 @@ import {
   SafeAreaView,
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   Image,
   ScrollView,
@@ -12,12 +11,12 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {AppColor} from '../../assets/colors/AppColor';
-import BackButton from '../../components/ScrennHeader/BackButton';
-import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
+import {AppColor} from '../assets/colors/AppColor';
+import BackButton from '../components/ScrennHeader/BackButton';
+import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 
-import NeoButton from '../../components/NeoMorphButton/NeoButton';
-import {LoginStyle} from '../../assets/styles/AuthStyle/LoginStyle';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
+import {LoginStyle} from '../assets/styles/AuthStyle/LoginStyle';
 
 const LogIn = props => {
   return (
@@ -88,7 +87,7 @@ const LogIn = props => {
               <TouchableOpacity style={LoginStyle.TouchableGoogle}>
                 <Image
                   style={LoginStyle.GoogleImage}
-                  source={require('../../assets/images/monoGoogle.jpg')}
+                  source={require('../assets/images/monoGoogle.jpg')}
                 />
                 <Text style={LoginStyle.GoogleText}>Login With Google</Text>
               </TouchableOpacity>

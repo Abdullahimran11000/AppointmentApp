@@ -1,21 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {SafeAreaView, View, Text, ScrollView} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {AppIntroStyle} from '../../assets/styles/AuthStyle/AppIntroStyle';
+import {AppIntroStyle} from '../assets/styles/AuthStyle/AppIntroStyle';
 import Lottie from 'lottie-react-native';
 import SwipeButton from './SwipeButton';
-import AppContext from '../../assets/context/AppContext';
 
 const AppIntro = (props) => {
   const slides = [
     {
       key: 1,
-      image: require('../../assets/animations/appIntroSearch.json'),
+      image: require('../assets/animations/appIntroSearch.json'),
       heading: 'Find a doctor near you',
     },
     {
       key: 2,
-      image: require('../../assets/animations/appIntroLogin.json'),
+      image: require('../assets/animations/appIntroLogin.json'),
       heading: 'Get yourself register',
     },
   ];

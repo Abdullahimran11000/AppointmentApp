@@ -3,7 +3,8 @@ import {SafeAreaView, View, FlatList} from 'react-native';
 import DoctorCategories from './DoctorCategories';
 import {AppColor} from '../../assets/colors/AppColor';
 
-const CategoriesFlatList = ({outerWidth,
+const CategoriesFlatList = ({
+  outerWidth,
   outerHeight,
   outerRadius,
   outerMargin,
@@ -19,8 +20,9 @@ const CategoriesFlatList = ({outerWidth,
   marginBottom,
   textWidth,
   numColumns,
-  horizontal}) => {
-  const [allCategories,setAllCategories] = useState([
+  horizontal,
+}) => {
+  const [allCategories, setAllCategories] = useState([
     {
       id: 1,
       deptName: 'Radiology',

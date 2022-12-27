@@ -8,12 +8,7 @@ import {
 } from 'react-native';
 import ii from 'react-native-vector-icons/Ionicons';
 import ad from 'react-native-vector-icons/AntDesign';
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
-import {AppColor} from '../../assets/colors/AppColor';
-import {NotificationStyle} from '../../assets/styles/AnimatedDrawerStyle/NotificationStyle';
+import {NotificationStyle} from '../assets/styles/AnimatedDrawerStyle/NotificationStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Neomorph } from 'react-native-neomorph-shadows';
 
@@ -23,7 +18,6 @@ const Notifications = props => {
   const TodayData = [
     {
       id: 1,
-      //   source: require('../assets/images/selfieOne.jpg'),
       title: 'Yoh have an appointment with Dr.Manskurt Slauddin at 10pm today',
       message: 'Hello doc! i want to consult',
       time: '5m ago',
@@ -32,7 +26,6 @@ const Notifications = props => {
     },
     {
       id: 2,
-      //   source: require('../assets/images/selfieOne.jpg'),
       title: 'Yoh have an private message from Dr.Adam Jordan',
       message: 'Hello doc! i want to consult',
       time: '10m ago',
@@ -41,7 +34,6 @@ const Notifications = props => {
     },
     {
       id: 3,
-      //   source: require('../assets/images/selfieOne.jpg'),
       title: 'you have completed the video call with Dr.David Backham',
       message: 'Hello doc! i want to consult',
       time: '10m ago',
@@ -50,7 +42,6 @@ const Notifications = props => {
     },
     {
       id: 4,
-      //   source: require('../assets/images/selfieOne.jpg'),
       title: 'you have completed the video call with Dr.David Backham',
       message: 'Hello doc! i want to consult',
       time: '10m ago',
