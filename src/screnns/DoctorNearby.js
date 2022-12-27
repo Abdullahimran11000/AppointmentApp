@@ -2,11 +2,13 @@ import React from 'react';
 import {SafeAreaView} from 'react-native';
 import BackButton from '../components/ScrennHeader/BackButton';
 import DoctorCard from '../components/DcotorsFlatlist/DoctorCard';
+import { useNavigation } from '@react-navigation/native';
 
-const DoctorNearby = props => {
+const DoctorNearby = () => {
+  const navigation = useNavigation()
   return (
     <SafeAreaView>
-      <BackButton onPress={() => {props.navigation.goBack()}}>
+      <BackButton onPress={() => {navigation.goBack()}}>
         {'Nearby Doctor'}
       </BackButton>
       <DoctorCard

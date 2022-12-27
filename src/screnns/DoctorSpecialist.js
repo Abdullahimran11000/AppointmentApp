@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -10,11 +10,9 @@ import {useNavigation} from '@react-navigation/core';
 import {CongratulationStyle} from '../assets/styles/AuthStyle/CongratulationStyle';
 import DoctorsFlatList from '../components/DcotorsFlatlist/DoctorsFlatList';
 import {ScrollView} from 'react-native-virtualized-view';
-import AppContext from '../assets/context/AppContext';
 
 const DoctorSpecialist = () => {
   const navigation = useNavigation();
-
   return (
     <ScrollView>
       <SafeAreaView style={CongratulationStyle.mainView}>
@@ -40,7 +38,7 @@ const DoctorSpecialist = () => {
           textWidth={wp('25')}
           horizontal={true}
         />
-        <View style={{width: wp('90'), alignSelf: 'center'}}>
+        <View style={CongratulationStyle.flatListView}>
           <DoctorsFlatList
             horizontal={false}
             numColumns={2}

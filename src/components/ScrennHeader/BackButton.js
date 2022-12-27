@@ -14,7 +14,7 @@ import {
 } from 'react-native-responsive-screen';
 import {AppColor} from '../../assets/colors/AppColor';
 
-const BackButton = props => {
+const BackButton = ({onPress, children}) => {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -26,13 +26,13 @@ const BackButton = props => {
               borderRadius={wp('5')}
               backgroundColor={AppColor.whiteShade}
               marginTop={wp("-1")}>  
-              <TouchableOpacity onPress={props.onPress}>
-                <Ionicons name="chevron-back-sharp" size={25} color="black" />
+              <TouchableOpacity onPress={onPress}>
+                <Ionicons name="chevron-back-sharp" size={wp('7.5')} color="black" />
               </TouchableOpacity>
             </NeoButton>
           </View>
           <View>
-            <Text style={BackButtonStyle.headingText}>{props.children}</Text>
+            <Text style={BackButtonStyle.headingText}>{children}</Text>
           </View>
         </View>
       </ScrollView>

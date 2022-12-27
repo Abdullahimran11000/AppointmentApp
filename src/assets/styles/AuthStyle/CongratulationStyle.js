@@ -15,7 +15,8 @@ const CongratulationStyle = StyleSheet.create({
   paraView: {alignItems: 'center', width: wp('80'), alignSelf: 'center', marginTop: wp('5')},
   paraText: {color: AppColor.black, fontFamily: 'Poppins-Light',fontSize: wp('3.8'),textAlign: 'center'},
   touchableStyle: {width: wp("90") , height: hp('7'), borderRadius: wp('10') , backgroundColor: AppColor.primary , alignItems: 'center', justifyContent: 'center' },
-  touchableText: {color: AppColor.white , fontFamily: "Poppins-Bold" , fontSize: wp('4')}
+  touchableText: {color: AppColor.white , fontFamily: "Poppins-Bold" , fontSize: wp('4')},
+  flatListView: {width: wp('90'), alignSelf: 'center'},
 });
 
 export {CongratulationStyle};

@@ -4,6 +4,8 @@ import { AppColor } from '../../colors/AppColor';
 
 const DashboardStyle = StyleSheet.create({
 
+    scrollViewStyle: { height: hp('100')},
+
     headCont: {width: wp('90'), height: hp('10'), marginTop: wp('4.5'), marginLeft:  wp('4.5'), marginRight:  wp('4.5'), alignSelf: 'center'},
     headContInnerCont: {display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'},
     headContImageCont: {width: wp('13'), height: wp('13'), borderRadius: wp('13'), position: 'absolute', left:0},
