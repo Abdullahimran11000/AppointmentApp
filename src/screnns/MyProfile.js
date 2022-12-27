@@ -7,6 +7,7 @@ import {
   ScrollView,
   ImageBackground,
 } from 'react-native';
+import {SelectList} from 'react-native-dropdown-select-list';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   widthPercentageToDP as wp,
@@ -17,21 +18,18 @@ import BackButton from '../components/ScrennHeader/BackButton';
 import {AppColor} from '../assets/colors/AppColor';
 import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 import {useNavigation} from '@react-navigation/native';
+import {MyProfileStyle} from '../assets/styles/DashboardStyle/MyProfileStyle';
 
 const MyProfile = () => {
   const navigation = useNavigation();
-  const data = [
-    {
-      label: 'Male',
-    },
-    {
-      label: 'Female',
-    },
+  const gender = [
+    {key: '1', value: 'Male'},
+    {key: '2', value: 'FeMale'},
   ];
 
   return (
     <ScrollView>
-      <SafeAreaView style={styles.mainView}>
+      <SafeAreaView style={MyProfileStyle.mainView}>
         <View>
           <BackButton
             onPress={() => {
@@ -39,35 +37,20 @@ const MyProfile = () => {
             }}>
             My Profile
           </BackButton>
-          <View
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              margin: 20,
-            }}>
+          <View style={MyProfileStyle.ProfileView}>
             <ImageBackground
-              imageStyle={{borderRadius: 50}}
-              style={styles.image}
+              imageStyle={{borderRadius: wp('15')}}
+              style={MyProfileStyle.imageStyle}
               resizeMode="cover"
               source={require('../assets/images/profile.jpg')}>
-              <TouchableOpacity
-                style={{
-                  width: 30,
-                  height: 30,
-                  borderRadius: 50,
-                  backgroundColor: 'white',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginHorizontal: 60,
-                  marginVertical: 60,
-                }}>
-                <Icon size={15} name="camera"></Icon>
+              <TouchableOpacity style={MyProfileStyle.IconButtonStyle}>
+                <Icon size={wp('5')} name="camera"></Icon>
               </TouchableOpacity>
             </ImageBackground>
           </View>
 
-          <View style={styles.inputViews}>
-            <Text style={styles.nameText}>Full Name</Text>
+          <View style={MyProfileStyle.inputFeildsView}>
+            <Text style={MyProfileStyle.TextStyle}>Full Name</Text>
 
             <NeoTextInput
               width={wp('90')}
@@ -76,8 +59,8 @@ const MyProfile = () => {
               keyboardType={'default'}
             />
           </View>
-          <View style={styles.inputViews}>
-            <Text style={styles.nameText}>Date of Birth</Text>
+          <View style={MyProfileStyle.inputFeildsView}>
+            <Text style={MyProfileStyle.TextStyle}>Date of Birth</Text>
 
             <NeoTextInput
               width={wp('90')}
@@ -87,38 +70,19 @@ const MyProfile = () => {
             />
           </View>
 
-          <View style={{marginLeft: 30, marginTop: 15}}>
-            <Text style={styles.textGendr}>Gendre</Text>
+          <View style={MyProfileStyle.GenderView}>
+            <Text style={MyProfileStyle.TextStyle}>Gendre</Text>
           </View>
-          <View
-            style={{
-              width: wp('83'),
-              alignSelf: 'center',
-              marginBottom: hp('2'),
-            }}>
-            <RadioButtonRN
-              deactiveColor="rgba(0,0,0,0.6)"
-              boxActiveBgColor="white"
-              activeColor="#c38cde"
-              boxStyle={{
-                borderRadius: 15,
-                width: wp('35'),
-                height: hp('8'),
-                borderColor: 'white',
-              }}
-              circleSize={12}
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}
-              textStyle={{marginLeft: 20, fontFamily: 'Poppins-Medium'}}
-              data={data}
-            />
-          </View>
+          <SelectList
+            fontFamily="Poppins-Medium"
+            boxStyles={MyProfileStyle.SelectPriceListBoxStyle}
+            dropdownStyles={{borderColor: AppColor.whiteShade}}
+            placeholder="gender"
+            data={gender}
+          />
 
-          <View style={styles.inputViews}>
-            <Text style={styles.nameText}>Email</Text>
+          <View style={MyProfileStyle.inputFeildsView}>
+            <Text style={MyProfileStyle.TextStyle}>Email</Text>
 
             <NeoTextInput
               marginBottom={wp('3')}
@@ -128,8 +92,8 @@ const MyProfile = () => {
             />
           </View>
 
-          <View style={styles.inputViews}>
-            <Text style={styles.nameText}>Mobile Number</Text>
+          <View style={MyProfileStyle.inputFeildsView}>
+            <Text style={MyProfileStyle.TextStyle}>Mobile Number</Text>
 
             <NeoTextInput
               width={wp('90')}
@@ -145,44 +109,3 @@ const MyProfile = () => {
   );
 };
 export default MyProfile;
-
-const styles = StyleSheet.create({
-  profileText: {fontFamily: 'Poppins-Bold', color: 'black'},
-
-  image: {
-    width: 90,
-    height: 90,
-    borderRadius: 20,
-  },
-  camera: {
-    position: 'absolute',
-    marginLeft: 20,
-    marginVertical: -20,
-  },
-
-  nameText: {
-    fontFamily: 'Poppins-Bold',
-    color: 'black',
-  },
-  textFields: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    marginRight: 30,
-    fontFamily: 'Poppins-Light',
-    color: 'black',
-  },
-  textGendr: {
-    fontFamily: 'Poppins-Bold',
-    color: 'black',
-  },
-
-  inputViews: {
-    width: wp('90'),
-    alignSelf: 'center',
-  },
-
-  mainView: {
-    backgroundColor: AppColor.whiteShade,
-    height: hp('100'),
-  },
-});
