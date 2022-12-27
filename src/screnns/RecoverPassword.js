@@ -3,7 +3,6 @@ import {
   SafeAreaView,
   View,
   Text,
-  TextInput,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
@@ -12,12 +11,12 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
-import {RecoverPasswordStyle} from '../../assets/styles/AuthStyle/RecoverPasswordStyle';
+import {RecoverPasswordStyle} from '../assets/styles/AuthStyle/RecoverPasswordStyle';
 import Entypo from 'react-native-vector-icons/Entypo';
-import BackButton from '../../components/ScrennHeader/BackButton';
-import NeoButton from '../../components/NeoMorphButton/NeoButton';
-import {AppColor} from '../../assets/colors/AppColor';
-import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
+import BackButton from '../components/ScrennHeader/BackButton';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
+import {AppColor} from '../assets/colors/AppColor';
+import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 
 const RecoverPassword = props => {
   const [eye, setEye] = useState(false);
@@ -32,7 +31,7 @@ const RecoverPassword = props => {
             <View style={RecoverPasswordStyle.animationView}>
               <Lottie
                 style={RecoverPasswordStyle.animationStyle}
-                source={require('../../assets/animations/appIntroRecover.json')}
+                source={require('../assets/animations/appIntroRecover.json')}
                 autoPlay
               />
             </View>

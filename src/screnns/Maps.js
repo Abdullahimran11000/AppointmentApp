@@ -14,13 +14,13 @@ import {TextInput} from 'react-native';
 import {Card, Paragraph} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {MapsStyle} from '../../assets/styles/DashboardStyle/MapsStyle';
+import {MapsStyle} from '../assets/styles/DashboardStyle/MapsStyle';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import {AppColor} from '../../assets/colors/AppColor';
+import {AppColor} from '../assets/colors/AppColor';
 
 const Maps = props => {
   return (
@@ -71,7 +71,7 @@ const Maps = props => {
               <Card mode="contained" style={MapsStyle.cardMainView}>
                 <View style={MapsStyle.cardView}>
                   <Card.Cover
-                    source={require('../../assets/images/gujranwala.jpg')}
+                    source={require('../assets/images/gujranwala.jpg')}
                     style={MapsStyle.cardcover}
                   />
                   <Card.Title

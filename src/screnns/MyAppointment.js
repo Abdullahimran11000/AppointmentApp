@@ -7,16 +7,16 @@ import {
   FlatList,
 } from 'react-native';
 
-import {AppointmentStyle} from '../../assets/styles/AnimatedDrawerStyle/AppointmentStyle';
-import CompleteAppointmentCard from '../../components/Appointments/CompleteAppointmentCard';
-import UpcomingAppointmentCard from '../../components/Appointments/UpcomingAppointment';
-import CancelledAppointmentCard from '../../components/Appointments/Cancelled';
-import BackButton from '../../components/ScrennHeader/BackButton';
+import {AppointmentStyle} from '../assets/styles/AnimatedDrawerStyle/AppointmentStyle';
+import CompleteAppointmentCard from '../components/Appointments/CompleteAppointmentCard';
+import UpcomingAppointmentCard from '../components/Appointments/UpcomingAppointment';
+import CancelledAppointmentCard from '../components/Appointments/Cancelled';
+import BackButton from '../components/ScrennHeader/BackButton';
 import {ScrollView} from 'react-native-virtualized-view';
 import {useNavigation} from '@react-navigation/native';
-import {AppColor} from '../../assets/colors/AppColor';
+import {AppColor} from '../assets/colors/AppColor';
 import {Neomorph} from 'react-native-neomorph-shadows';
-import AppContext from '../../assets/context/AppContext';
+import AppContext from '../assets/context/AppContext';
 
 const MyAppointment = () => {
   const navigation = useNavigation();

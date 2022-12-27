@@ -4,8 +4,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Image,
-  TextInput,
   ScrollView,
   ImageBackground,
 } from 'react-native';
@@ -15,9 +13,9 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import RadioButtonRN from 'radio-buttons-react-native';
-import BackButton from '../../components/ScrennHeader/BackButton';
-import {AppColor} from '../../assets/colors/AppColor';
-import NeoTextInput from '../../components/NeoMorphTextInput/NeoTextInput';
+import BackButton from '../components/ScrennHeader/BackButton';
+import {AppColor} from '../assets/colors/AppColor';
+import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 import {useNavigation} from '@react-navigation/native';
 
 const MyProfile = () => {
@@ -51,7 +49,7 @@ const MyProfile = () => {
               imageStyle={{borderRadius: 50}}
               style={styles.image}
               resizeMode="cover"
-              source={require('../../assets/images/profile.jpg')}>
+              source={require('../assets/images/profile.jpg')}>
               <TouchableOpacity
                 style={{
                   width: 30,

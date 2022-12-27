@@ -11,14 +11,14 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {DoctorInfoStyle} from '../../assets/styles/DashboardStyle/DoctorInfoStyle';
+import {DoctorInfoStyle} from '../assets/styles/DashboardStyle/DoctorInfoStyle';
 import {StyleSheet} from 'react-native';
-import DoctorHeader from '../../components/DoctorCardHeader/DoctorHeader';
+import DoctorHeader from '../components/DoctorCardHeader/DoctorHeader';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MapView from 'react-native-maps';
 import {useNavigation} from '@react-navigation/native';
-import NeoButton from '../../components/NeoMorphButton/NeoButton';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
 
 const DoctorInfo = props => {
   const navigation = useNavigation();

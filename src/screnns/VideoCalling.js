@@ -57,10 +57,10 @@ const VideoCalling = () => {
       </View>
 
       <View style={VideoCallingStyle.footerView}>
-        <View style={VideoCallingStyle.buttonView}>
+        
           <NeoButton
             width={wp('17')}
-            height={hp('9')}
+            height={wp('17')}
             backgroundColor={AppColor.whiteShade}
             borderRadius={wp('25')}>
             <TouchableOpacity
@@ -82,12 +82,12 @@ const VideoCalling = () => {
               )}
             </TouchableOpacity>
           </NeoButton>
-        </View>
+       
 
-        <View style={[VideoCallingStyle.buttonView]}>
+        
           <NeoButton
             width={wp('17')}
-            height={hp('9')}
+            height={wp('17')}
             backgroundColor={AppColor.whiteShade}
             borderRadius={wp('25')}>
             <TouchableOpacity
@@ -101,14 +101,14 @@ const VideoCalling = () => {
               />
             </TouchableOpacity>
           </NeoButton>
-        </View>
+        
 
-        <View style={[VideoCallingStyle.buttonView, {display: display}]}>
+        <View style={{display: display}}>
           <NeoButton
             width={wp('17')}
-            height={hp('9')}
+            height={wp('17')}
             backgroundColor={AppColor.whiteShade}
-            borderRadius={wp('25')}>
+            borderRadius={wp('10')}>
             <TouchableOpacity
               onPress={() => {
                 storeOpenCam(!openCam);
