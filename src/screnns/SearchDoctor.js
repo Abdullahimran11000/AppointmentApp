@@ -24,6 +24,7 @@ import {ScrollView} from 'react-native-virtualized-view';
 import BackButton from '../components/ScrennHeader/BackButton';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import {SearchDoctorStyle} from '../assets/styles/DashboardStyle/SearchDoctorStyle';
+import NeoButton from '../components/NeoMorphButton/NeoButton';
 
 const SearchDoctor = props => {
   const data = [
@@ -39,15 +40,10 @@ const SearchDoctor = props => {
     {key: '3', value: '160-210 years'},
     {key: '4', value: '210-260 years'},
   ];
-  const gendre = [
-    {
-      label: 'Male',
-    },
-    {
-      label: 'Female',
-    },
+  const gender = [
+    {key: '1', value: 'Male'},
+    {key: '2', value: 'FeMale'},
   ];
-
   const [modalVisible, setModalVisible] = useState(false);
 
   const toggleModal = () => {
@@ -78,7 +74,7 @@ const SearchDoctor = props => {
                 <View style={DashboardStyle.searchTextInputCont}>
                   <TextInput
                     placeholder="Search Doctor"
-                    maxLength={20}
+                    maxLength={wp('20')}
                     style={SearchDoctorStyle.searchTextInput}
                   />
                 </View>
@@ -97,18 +93,8 @@ const SearchDoctor = props => {
                 <View>
                   <Modal
                     isVisible={modalVisible}
-                    style={{
-                      borderRadius: 30,
-                      overflow: 'hidden',
-                      backgroundColor: 'white',
-                      width: wp('90'),
-                    }}>
-                    <View
-                      style={{
-                        width: wp('80'),
-                        marginHorizontal: 15,
-                        marginTop: -50,
-                      }}>
+                    style={SearchDoctorStyle.ModalStyle}>
+                    <View style={SearchDoctorStyle.ModalViewStyle}>
                       <TouchableOpacity
                         style={{alignSelf: 'flex-end'}}
                         onPress={() => {
@@ -116,89 +102,79 @@ const SearchDoctor = props => {
                         }}>
                         <FontAwesome
                           name="close"
-                          size={24}
+                          size={wp('8')}
                           color={AppColor.primary}
                         />
                       </TouchableOpacity>
-                      <Text style={[styles.Text, {marginTop: 30}]}>
+                      <Text style={SearchDoctorStyle.ModalText}>
                         Experience
                       </Text>
                       <SelectList
-                        fontFamily="Poppins-Regular"
-                        boxStyles={{
-                          borderRadius: 15,
-                          borderColor: 'white',
-                          backgroundColor: 'white',
-                        }}
-                        dropdownStyles={{borderColor: 'white'}}
+                        fontFamily="Poppins-Medium"
+                        boxStyles={SearchDoctorStyle.SelectListBoxStyle}
+                        dropdownStyles={{borderColor: AppColor.white}}
                         placeholder="experience"
                         data={data}
                       />
                     </View>
-
-                    <View style={{marginLeft: 15}}>
-                      <TouchableOpacity style={styles.opacity}>
-                        <View
-                          style={{
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                          }}>
-                          <Text style={{marginVertical: 15}}>Done</Text>
-                        </View>
-                      </TouchableOpacity>
+                    <View style={SearchDoctorStyle.DoneButtonView}>
+                      <NeoButton
+                        width={wp('79')}
+                        height={hp('7.7')}
+                        backgroundColor={AppColor.primary}
+                        borderRadius={wp('5')}>
+                        <TouchableOpacity
+                          style={SearchDoctorStyle.DoneButtonStyle}>
+                          <View style={SearchDoctorStyle.DoneButtonTextView}>
+                            <Text style={SearchDoctorStyle.DoneButtonTextStyle}>
+                              Done
+                            </Text>
+                          </View>
+                        </TouchableOpacity>
+                      </NeoButton>
                     </View>
 
-                    <View
-                      style={{width: 290, marginHorizontal: 15, marginTop: 15}}>
-                      <Text style={styles.Text}>Concultation Price</Text>
-                      <SelectList
-                        fontFamily="Poppins-Regular"
-                        boxStyles={{
-                          borderRadius: 15,
-                          borderColor: 'white',
-                          backgroundColor: 'white',
-                        }}
-                        dropdownStyles={{borderColor: 'white'}}
-                        placeholder="price"
-                        data={price}
-                      />
+                    <Text style={SearchDoctorStyle.ConsultationText}>
+                      Concultation Price
+                    </Text>
+
+                    <SelectList
+                      fontFamily="Poppins-Medium"
+                      boxStyles={SearchDoctorStyle.SelectPriceListBoxStyle}
+                      dropdownStyles={{borderColor: AppColor.white}}
+                      placeholder="price"
+                      data={price}
+                    />
+
+                    <View>
+                      <Text style={SearchDoctorStyle.ConsultationText}>
+                        Gendre
+                      </Text>
                     </View>
 
-                    <View style={{marginLeft: 15, marginTop: 15}}>
-                      <Text style={styles.Text}>Gendre</Text>
-                    </View>
-                    <View style={{width: wp('80'), alignSelf: 'center'}}>
-                      <RadioButtonRN
-                        deactiveColor="rgba(0,0,0,0.6)"
-                        boxActiveBgColor="white"
-                        activeColor="#c38cde"
-                        boxStyle={{
-                          borderRadius: 15,
-                          width: wp('35'),
-                          height: hp('8'),
-                          borderColor: 'white',
-                        }}
-                        circleSize={12}
-                        style={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'space-between',
-                        }}
-                        textStyle={{marginLeft: 20}}
-                        data={gendre}
-                      />
-                    </View>
+                    <SelectList
+                      fontFamily="Poppins-Medium"
+                      boxStyles={SearchDoctorStyle.SelectPriceListBoxStyle}
+                      dropdownStyles={{borderColor: AppColor.white}}
+                      placeholder="gender"
+                      data={gender}
+                    />
 
-                    <View style={{marginLeft: 15}}>
-                      <TouchableOpacity style={styles.applyOpacity}>
-                        <View
-                          style={{
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                          }}>
-                          <Text style={{marginVertical: 15}}>Apply</Text>
-                        </View>
-                      </TouchableOpacity>
+                    <View style={SearchDoctorStyle.DoneButtonView}>
+                      <NeoButton
+                        width={wp('79')}
+                        height={hp('7.7')}
+                        backgroundColor={AppColor.primary}
+                        borderRadius={wp('5')}>
+                        <TouchableOpacity
+                          style={SearchDoctorStyle.ApplyButtonStyle}>
+                          <View style={SearchDoctorStyle.DoneButtonTextView}>
+                            <Text style={SearchDoctorStyle.DoneButtonTextStyle}>
+                              Apply
+                            </Text>
+                          </View>
+                        </TouchableOpacity>
+                      </NeoButton>
                     </View>
                   </Modal>
                 </View>
@@ -206,7 +182,7 @@ const SearchDoctor = props => {
             </View>
           </View>
         </View>
-        <View style={{width: wp('90'), alignSelf: 'center'}}>
+        <View style={SearchDoctorStyle.DoctorFlatListView}>
           <DoctorsFlatList
             horizontal={false}
             numColumns={2}
@@ -219,36 +195,3 @@ const SearchDoctor = props => {
 };
 
 export default SearchDoctor;
-
-const styles = StyleSheet.create({
-  Text: {
-    marginLeft: 4,
-    marginBottom: 5,
-  },
-  experienceScroll: {
-    marginTop: 5,
-    width: 300,
-    height: 240,
-    backgroundColor: 'orange',
-    marginHorizontal: 20,
-    borderRadius: 20,
-  },
-  experienceView: {
-    marginLeft: 20,
-    marginTop: 10,
-  },
-  opacity: {
-    width: 290,
-    height: 50,
-    backgroundColor: 'rgba(240, 122, 199,0.7)',
-    borderRadius: 15,
-    marginTop: 30,
-  },
-  applyOpacity: {
-    width: 290,
-    height: 50,
-    backgroundColor: '#c38cde',
-    borderRadius: 15,
-    marginTop: 20,
-  },
-});
