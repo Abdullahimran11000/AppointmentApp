@@ -3,7 +3,7 @@ import { widthPercentageToDP as wp  , heightPercentageToDP as hp} from 'react-na
 import { AppColor } from '../../colors/AppColor';
 
 const DrawerStyle = StyleSheet.create({
-
+    mainView: {flex: 1, backgroundColor: AppColor.primary},
     baseViewProfilePic: {width: wp('16'), height: wp('16'), borderRadius: wp('8'), marginLeft: wp('5'), marginTop: wp('15')},
     imageStyle: {width: wp('16'), height: wp('16'), borderRadius: wp('8')},
     nameText: {marginLeft: wp('5'), marginTop: wp('2'), fontFamily: 'Poppins-Bold', fontSize: wp('5'), color: AppColor.white},

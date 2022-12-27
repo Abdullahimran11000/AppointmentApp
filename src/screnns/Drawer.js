@@ -55,8 +55,8 @@ const Drawer = () => {
   };
 
   return (
-    <Animated.View style={{flex: 1, backgroundColor: AppColor.primary}}>
-      <Animated.View style={{flex: 1, backgroundColor: AppColor.primary}}>
+    <Animated.View style={DrawerStyle.mainView}>
+      <Animated.View style={DrawerStyle.mainView}>
         <TouchableOpacity
           style={DrawerStyle.baseViewProfilePic}
           onPress={pressHandler}>
@@ -164,7 +164,7 @@ const Drawer = () => {
           {borderRadius: showMenu ? wp('10') : 0},
           largeView,
         ]}>
-        <Dashboard onPress={pressHandler}></Dashboard>
+        <Dashboard pressHandler={pressHandler}></Dashboard>
       </Animated.View>
     </Animated.View>
   );

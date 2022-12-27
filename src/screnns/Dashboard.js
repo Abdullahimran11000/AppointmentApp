@@ -27,24 +27,24 @@ import {ScrollView} from 'react-native-virtualized-view';
 import {DoctorDepartmentStyle} from '../assets/styles/DashboardStyle/DoctorDepartmentStyle';
 import AppContext from '../assets/context/AppContext';
 import BackButton from '../components/ScrennHeader/BackButton';
-const Dashboard = props => {
+const Dashboard = ({pressHandler}) => {
   const navigation = useNavigation();
   // const {categoriesModalOpen, storeCategoriesModalOpen} =
   //   useContext(AppContext);
 
   return (
-    <ScrollView  style={{ height: hp('100')}}>
+    <ScrollView  style={DashboardStyle.scrollViewStyle}>
       <SafeAreaView>
         <ScrollView>
           <View style={DashboardStyle.headCont}>
             <View style={DashboardStyle.headContInnerCont}>
               <TouchableOpacity
                 style={DashboardStyle.headContImageCont}
-                onPress={props.onPress}>
+                onPress={pressHandler}>
                 <Image
                   style={DashboardStyle.headContImageStyle}
                   source={require('../assets/images/selfieOne.jpg')}
-                  resizeMode="cover"></Image>
+                  resizeMode="cover"/>
               </TouchableOpacity>
               <View style={DashboardStyle.headContMiddleCont}>
                 <View style={DashboardStyle.middleInnerFirstCont}>
@@ -66,7 +66,7 @@ const Dashboard = props => {
                     <Ionicons
                       name="notifications-outline"
                       color="black"
-                      size={wp('6')}></Ionicons>
+                      size={wp('6')}/>
                   </Neomorph>
                 </TouchableOpacity>
               </View>
@@ -83,13 +83,13 @@ const Dashboard = props => {
                   <Feather
                     name="search"
                     size={wp('6')}
-                    color={AppColor.blackOpacity4}></Feather>
+                    color={AppColor.blackOpacity4}/>
                 </View>
                 <View style={DashboardStyle.searchTextInputCont}>
                   <TextInput
                     placeholder="Search Doctor"
                     maxLength={20}
-                    style={DashboardStyle.searchTextInput}></TextInput>
+                    style={DashboardStyle.searchTextInput}/>
                 </View>
               </Neomorph>
               <View style={DashboardStyle.searchIconTwoCont}>
@@ -100,7 +100,7 @@ const Dashboard = props => {
                     <SimpleLineIcons
                       name="equalizer"
                       color={AppColor.black}
-                      size={wp('4')}></SimpleLineIcons>
+                      size={wp('4')}/>
                   </Neomorph>
                 </TouchableOpacity>
               </View>

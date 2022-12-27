@@ -17,15 +17,17 @@ import BackButton from '../components/ScrennHeader/BackButton';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 import {AppColor} from '../assets/colors/AppColor';
 import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
+import { useNavigation } from '@react-navigation/native';
 
-const RecoverPassword = props => {
+const RecoverPassword = () => {
   const [eye, setEye] = useState(false);
+  const navigation = useNavigation()
   return (
     <ScrollView>
       <SafeAreaView style={RecoverPasswordStyle.mainView}>
         <ScrollView>
           <View>
-            <BackButton onPress={() => props.navigation.goBack()}>
+            <BackButton onPress={() => {navigation.goBack()}}>
               {'Recovery Password'}
             </BackButton>
             <View style={RecoverPasswordStyle.animationView}>
@@ -106,7 +108,7 @@ const RecoverPassword = props => {
             </View>
             <View style={RecoverPasswordStyle.buttonView}>
               <TouchableOpacity
-                onPress={() => props.navigation.navigate('Congratulation')}>
+                onPress={() => {navigation.navigate('Congratulation')}}>
                 <NeoButton
                   darkShadowColor={AppColor.black}
                   width={wp('90')}

@@ -33,6 +33,9 @@ const DoctorInfoStyle = StyleSheet.create({
   buttonView: {alignSelf: 'center', marginBottom: wp('10')},
   buttonText: {fontFamily: "Poppins-Bold", fontSize: wp('4.3'), color: AppColor.white},
 
+  container: {...StyleSheet.absoluteFillObject, height: 400, width: 400, justifyContent: 'flex-end', alignItems: 'center'},
+  map: {...StyleSheet.absoluteFillObject},
+
 });
 
 export {DoctorInfoStyle};

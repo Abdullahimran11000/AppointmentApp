@@ -76,7 +76,7 @@ const Message = () => {
         }}>
         Messages
       </BackButton>
-      <View style={{marginTop: wp('5')}}>
+      <View style={MessageStyle.flatListView}>
         <FlatList
           data={messageData}
           renderItem={renderItem}

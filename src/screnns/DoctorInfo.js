@@ -147,7 +147,7 @@ const DoctorInfo = props => {
 
               <View style={DoctorInfoStyle.mapView}>
                 <MapView
-                  style={styles.map}
+                  style={DoctorInfoStyle.map}
                   customMapStyle={mapStyle}
                   initialRegion={{
                     latitude: 32.163611,
@@ -182,16 +182,3 @@ const DoctorInfo = props => {
 };
 
 export default DoctorInfo;
-
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});

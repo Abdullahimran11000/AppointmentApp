@@ -18,7 +18,8 @@ const MessageStyle = StyleSheet.create({
     headContLastCont: {position: 'absolute', right: wp('4'), top: wp("4.5")},
     headContLastContText: {fontFamily: "Poppins-Light", fontSize: wp('3'), color: 'grey'},
     rightButtonsViews: {width: wp('15'), height: hp('10'), borderRadius: wp('4'), backgroundColor: AppColor.whiteShade, marginTop: wp('4'), marginBottom: wp('1'), justifyContent: 'center', shadowRadius: 4},
-    rightButtonIcons: {alignSelf: 'center', color: "rgba(247, 25, 25,0.4)"}
+    rightButtonIcons: {alignSelf: 'center', color: "rgba(247, 25, 25,0.4)"},
+    flatListView: {marginTop: wp('5')},
 })
 
 export {MessageStyle}
