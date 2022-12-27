@@ -9,6 +9,8 @@ import {AppColor} from '../../colors/AppColor';
 const LoginStyle = StyleSheet.create({
   MainView: {flex: 1},
 
+  headerView: {alignSelf:'center' , color:AppColor.black , fontFamily:'Poppins-Bold' , marginTop:hp(3)  ,fontSize:wp('5')},
+  
   inputFieldsView: {
     marginTop: wp('15'),
     justifyContent: 'center',

@@ -14,24 +14,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {AppColor} from '../assets/colors/AppColor';
 import BackButton from '../components/ScrennHeader/BackButton';
 import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
-
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 import {LoginStyle} from '../assets/styles/AuthStyle/LoginStyle';
 
 const LogIn = props => {
   return (
-    <SafeAreaView
-      style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
+    <SafeAreaView style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
       <ScrollView>
         <View styles={LoginStyle.MainView}>
-          <BackButton onPress={() => props.navigation.goBack()}>
-            {'Log in'}
-          </BackButton>
-
+          <Text style={LoginStyle.headerView}> Log in </Text>
           <View style={LoginStyle.inputFieldsView}>
             <View>
               <Text style={LoginStyle.TextStyle}>Email address </Text>
-
               <NeoTextInput
                 width={wp('90')}
                 marginBottom={wp('5')}
@@ -39,7 +33,6 @@ const LogIn = props => {
                 keyboardType={'email-address'}
               />
             </View>
-
             <View>
               <Text style={LoginStyle.TextStyle}>Password</Text>
               <NeoTextInput
@@ -57,7 +50,6 @@ const LogIn = props => {
             onPress={() => props.navigation.navigate('ForgotPassword')}>
             <Text style={LoginStyle.ForgotText}>Forgot Password?</Text>
           </TouchableOpacity>
-
           <View style={LoginStyle.MainLoginButtonView}>
             <NeoButton
               width={wp('87 ')}
@@ -74,10 +66,8 @@ const LogIn = props => {
                 </View>
               </TouchableOpacity>
             </NeoButton>
-
             <Text style={LoginStyle.orText}>or</Text>
           </View>
-
           <View style={{justifyContent: 'center', alignSelf: 'center'}}>
             <NeoButton
               width={wp('86 ')}
@@ -93,7 +83,6 @@ const LogIn = props => {
               </TouchableOpacity>
             </NeoButton>
           </View>
-
           <View style={LoginStyle.LastView}>
             <Text>Don't have an account? </Text>
             <TouchableOpacity
