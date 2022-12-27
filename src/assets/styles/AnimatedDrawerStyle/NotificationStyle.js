@@ -3,15 +3,15 @@ import { widthPercentageToDP as wp  , heightPercentageToDP as hp} from 'react-na
 import { AppColor } from '../../colors/AppColor';
 
 const NotificationStyle = StyleSheet.create({
-
+    headerMainView: {alignSelf: 'center'},
     notificationsBar: {display: 'flex',flexDirection: 'row',backgroundColor: AppColor.whiteShade,width: wp(90),height: hp(7),margin: hp(2.5),alignItems: 'center',borderRadius: 30,},
-
     headCont: {width: wp('90'), height: hp('9'), marginTop: wp('4'), marginLeft: wp('4'), marginRight: wp('4'), marginBottom: wp('0'), alignSelf: 'center', backgroundColor: 'rgba(195, 140, 222, 0.4)', borderRadius: wp('4'), justifyContent:"center"},
     headContInnerCont: {display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'},
     headContImageCont: {width: wp('13'), height: wp('13'), borderRadius: wp('13'), backgroundColor:'rgba(255, 255, 255, 0.8)', position: 'absolute', left: wp('2')},
     headContMiddleCont: {width: wp('60'), position: 'absolute', left: wp('20')},
-    renderItemheaderfontfirst: {fontFamily:'Poppins-SemiBold',color:'black',top:7,},
-    renderItemheaderfontsecond: {fontFamily:'Poppins-Regular',color:'rgba(0,0,0,0.4)',top:7,},
+    renderItemHeaderFontFirst: {fontFamily:'Poppins-SemiBold',color:'black',top:7,},
+    renderItemHeaderFontSecond: {position: 'absolute', right: 0},
+    renderItemHeaderFontSecondTextStyle: {fontFamily:'Poppins-Regular',color:'rgba(0,0,0,0.4)',top:7,},
     iconstyle:{alignSelf:'center',top: hp(2)},
     middleInnerContFirstHeading: {fontFamily: 'Poppins-Bold', fontSize: wp('3'), color: 'black'},
     middleInnerSecondCont: {marginTop: wp(-0.8)},
