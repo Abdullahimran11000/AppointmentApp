@@ -51,9 +51,12 @@ const DoctorCategories = ({
         if (innerWidth === wp('21')) {
           storeIdOfSelectedCategoryDot(item.id);
           storeCategoriesModalOpen(true);
-        } else {
+        } else if (innerWidth === wp('24')) {
           storeIdOfSelectedCategoryDot(item.id);
           navigation.navigate('DoctorSpecialist');
+        } else {
+          storeIdOfSelectedCategoryDot(item.id);
+          storeCategoriesModalOpen(false);
         }
       }}>
       {/* {idOfSelectedCategoryDot == item.id ? (

@@ -132,16 +132,18 @@ const Dashboard = props => {
                     Protect your family from virus before it's too late
                   </Text>
                 </View>
-                {/* <TouchableOpacity onPress={() => navigation.navigate('Maps')}>
-                  <Neomorph
-                    lightShadowColor={AppColor.whiteShade}
-                    darkShadowColor={AppColor.blackOpacity4}
-                    style={DashboardStyle.neoDiscoverButton}>
-                    <Text style={DashboardStyle.discoverButtonText}>
-                      Discover
-                    </Text>
-                  </Neomorph>
-                </TouchableOpacity> */}
+                <View style={DashboardStyle.touchableView}>
+                  <TouchableOpacity onPress={() => navigation.navigate('Maps')}>
+                    <Neomorph
+                      lightShadowColor={AppColor.whiteShade}
+                      darkShadowColor={AppColor.blackOpacity4}
+                      style={DashboardStyle.neoDiscoverButton}>
+                      <Text style={DashboardStyle.discoverButtonText}>
+                        Discover
+                      </Text>
+                    </Neomorph>
+                  </TouchableOpacity>
+                </View>
               </View>
               <View>
                 <Image
