@@ -47,55 +47,32 @@ const Chat = () => {
   return (
     <SafeAreaView style={{backgroundColor: AppColor.whiteShade}}>
       <ScrollView>
-        <View style={{width: wp(100), height: hp(100), alignSelf: 'center'}}>
+        <View style={ChatStyle.mainView}>
           <View style={ChatStyle.SearchBar}>
-            <TouchableOpacity
-              onPress={() => navigation.goBack()}
-              style={ChatStyle.backbutton}>
-              <Ionicons name="chevron-back-sharp" size={20} />
+            <TouchableOpacity  onPress={() => navigation.goBack()} style={ChatStyle.backbutton}>
+              <Ionicons name="chevron-back-sharp" size={wp('6')} />
             </TouchableOpacity>
           </View>
           <View style={ChatStyle.headerView}>
-            <Image
-              style={ChatStyle.image}
-              source={require('../assets/images/profile.jpg')}
-            />
+            <Image style={ChatStyle.image} source={require('../assets/images/profile.jpg')} />
             <Text style={ChatStyle.nameText}>Dr.Adam Jordan</Text>
             <Text style={ChatStyle.status}>Online</Text>
             <View style={ChatStyle.headerInnerViewIcons}>
-              <Neomorph
-                lightShadowColor="rgba(255,255,255,0.2)"
-                style={ChatStyle.videoCamButtonStyle}>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('VideoCalling');
-                    storeOpenCam(true);
-                    storeCallStatus('Video')
-                  }}>
-                  <Ionicons
-                    size={18}
-                    name="videocam"
-                    color={AppColor.primary}
-                  />
+              <Neomorph lightShadowColor="rgba(255,255,255,0.2)" style={ChatStyle.videoCamButtonStyle}>
+                <TouchableOpacity onPress={() => { navigation.navigate('VideoCalling'); storeOpenCam(true); storeCallStatus('Video') }}>
+                  <Ionicons size={wp('5.5')} name="videocam" color={AppColor.primary} />
                 </TouchableOpacity>
               </Neomorph>
-              <Neomorph
-                lightShadowColor="rgba(255,255,255,0.1)"
-                style={ChatStyle.callButtonStyle}>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('VideoCalling');
-                    storeOpenCam(false);
-                    storeCallStatus('Audio')
-                  }}>
-                  <Ionicons size={18} name="call" color={AppColor.primary} />
+              <Neomorph lightShadowColor="rgba(255,255,255,0.1)" style={ChatStyle.callButtonStyle}>
+                <TouchableOpacity onPress={() => { navigation.navigate('VideoCalling'); storeOpenCam(false); storeCallStatus('Audio') }}>
+                  <Ionicons size={wp('5.5')} name="call" color={AppColor.primary} />
                 </TouchableOpacity>
               </Neomorph>
             </View>
           </View>
           <View style={ChatStyle.messageContainerView}>
-            <View style={{alignSelf: 'center', top: hp(1)}}>
-              <Text style={{fontFamily: 'Poppins-SemiBold'}}>Today</Text>
+            <View style={ChatStyle.sendMessageContainerHeaderTextView}>
+              <Text style={ChatStyle.sendMessageContainerHeaderTextStyle}>Today</Text>
             </View>
             <FlatList
               data={allChats}
@@ -109,29 +86,12 @@ const Chat = () => {
             />
           </View>
           <View style={ChatStyle.sendMessageContainerView}>
-            <Neomorph
-              inner
-              style={{
-                width: wp(90),
-                backgroundColor: AppColor.white,
-                alignSelf: 'center',
-                borderRadius: 50,
-                shadowRadius: 4,
-              }}>
-              <TextInput
-                textAlign="center"
-                fontFamily={'Poppins-Regular'}
-                placeholder="Write your Message"
-              />
+            <Neomorph inner style={ChatStyle.sendMessageContainerStyle}>
+              <TextInput style={ChatStyle.sendMessageContainerTextStyle}  placeholder="Write your Message"/>
             </Neomorph>
             <TouchableOpacity style={ChatStyle.sendMessageTouchableOpacityView}>
               <View style={ChatStyle.sendMessageIconView}>
-                <Icon
-                  name="location-arrow"
-                  color={AppColor.white}
-                  size={23}
-                  style={ChatStyle.Icon}
-                />
+                <Icon name="location-arrow" color={AppColor.white} size={wp('6')} style={ChatStyle.Icon}/>
               </View>
             </TouchableOpacity>
           </View>

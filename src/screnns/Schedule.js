@@ -38,9 +38,7 @@ const Schedule = props => {
     <SafeAreaView style={{flex: 1, backgroundColor: 'black', height: hp('100')}}>
       <ScrollView>
         <View style={{backgroundColor: AppColor.whiteShade}}>
-          <BackButton onPress={() => props.navigation.goBack()}>
-            Schedule
-          </BackButton>
+          <BackButton onPress={() => props.navigation.goBack()}>Schedule</BackButton>
           <View style={ScheduleStyle.calenderView}>
             <CalendarPicker dayShape="circle" selectedDayTextColor="white"
               textStyle={{fontFamily: 'Poppins-Light',}}
@@ -50,13 +48,13 @@ const Schedule = props => {
               scrollable={true}
               monthTitleStyle={{ fontFamily: 'Poppins-SemiBold', fontSize: 17,}}
               yearTitleStyle={{fontFamily: 'Poppins-SemiBold',}}
-              nextTitle={<Icon name="forward" size={20} />}
+              nextTitle={<Icon name="forward" size={wp('6')} />}
               nextTitleStyle={{color: AppColor.railBorderColor,}}
-              previousTitle={<Icon name="banckward" size={20} />}
-              previousTitleStyle={{color: AppColor.railBorderColor,}}
+              previousTitle={<Icon name="banckward" size={wp('6')} />}
+              previousTitleStyle={{color: AppColor.railBorderColor}}
             />
           </View>
-          <View style={{width: wp(100), alignSelf: 'center'}}>
+          <View style={ScheduleStyle.firstHeading}>
             <Text style={ScheduleStyle.headingFirst}>Available Time</Text>
           </View>
           <View style={ScheduleStyle.viewFirst}>
@@ -87,7 +85,7 @@ const Schedule = props => {
                 <Text style={ScheduleStyle.buttonsTextRow2}>18:00 pm</Text>
               </NeoButton>
             </TouchableOpacity>
-            <TouchableOpacity style={{marginRight: wp(8)}}>
+            <TouchableOpacity style={{marginRight: wp('8')}}>
               <NeoButton  width={wp('27.5')}  height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'} marginLeft={wp(9)}>
                 <Text style={ScheduleStyle.buttonsTextRow2}>20:00 pm</Text>
               </NeoButton>
@@ -96,7 +94,7 @@ const Schedule = props => {
           <View>
             <Text style={ScheduleStyle.headingsecond}>Appointment Details</Text>
           </View>
-          <View style={{  flexDirection: 'row',justifyContent: 'space-evenly', top: hp(2), width: wp(100), alignSelf: 'center', }}>
+          <View style={ScheduleStyle.rowTwoView}>
             <TouchableOpacity>
               <NeoButton width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'}  marginLeft={wp(8.5)}>
                 <Text style={ScheduleStyle.buttonsTextRow3}>Hospital</Text>
@@ -113,14 +111,14 @@ const Schedule = props => {
               </NeoButton>
             </TouchableOpacity>
           </View>
-          <View style={{width: wp(100), alignSelf: 'center', marginTop: hp(4.5)}}>
-            <TouchableOpacity onPress={colorHandler} style={{marginRight: wp(8)}}>
+          <View style={ScheduleStyle.buttonsTextRow3LastButton}>
+            <TouchableOpacity onPress={colorHandler} style={{marginRight: wp('8')}}>
               <NeoButton width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'}  marginLeft={wp(4.5)}>
-                <Text style={ScheduleStyle.buttonsTextRow3}>Call</Text>
+                <Text style={ScheduleStyle.buttonsTextRow3}> Vedio Call</Text>
               </NeoButton>
             </TouchableOpacity>
           </View>
-          <View style={{alignItems: 'center', top: hp(5), height: hp(15)}}>
+          <View style={ScheduleStyle.bookAppointmentButtonStyle}>
             <TouchableOpacity onPress={() => {setShowModal(true); }}>
               <NeoButton width={wp('90')} height={hp('7')} borderRadius={wp('10')} backgroundColor={AppColor.primary}>
                 <Text style={ScheduleStyle.bookAppointmentButton}> Book Appointment</Text>
@@ -148,7 +146,7 @@ const Schedule = props => {
                 <View style={ScheduleStyle.modalButtonView}>
                   <TouchableOpacity onPress={() => setShowModal(false)}>
                     <NeoButton width={wp(70)} height={hp(6.5)} backgroundColor={'#c28cde'} borderRadius={30} justifyContent={'center'} alignItems={'center'}>
-                      <Text style={{ textAlign: 'center', color: 'white', fontFamily: 'Poppins-SemiBold', }}>Done</Text>
+                      <Text style={ScheduleStyle.modalDoneButton}>Done</Text>
                     </NeoButton>
                   </TouchableOpacity>
                 </View>

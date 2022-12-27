@@ -11,7 +11,7 @@ import ad from 'react-native-vector-icons/AntDesign';
 import {NotificationStyle} from '../assets/styles/AnimatedDrawerStyle/NotificationStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Neomorph } from 'react-native-neomorph-shadows';
-
+import { widthPercentageToDP as wp , heightPercentageToDP as hp } from 'react-native-responsive-screen';
 const Notifications = props => {
   const [show, setShow] = useState(true);
 
@@ -54,7 +54,7 @@ const Notifications = props => {
     return (
         <Neomorph style={NotificationStyle.innerItems}>
           <TouchableOpacity style={NotificationStyle.headContImageCont} onPress={props.onPress}>
-            <item.iconprovider style={NotificationStyle.iconstyle} name={item.iconname} size={22} />
+            <item.iconprovider style={NotificationStyle.iconstyle} name={item.iconname} size={wp('6')} />
             <View style={NotificationStyle.headContMiddleCont}>
               <View style={NotificationStyle.middleInnerFirstCont}>
                 <Text style={NotificationStyle.middleInnerContFirstHeading}>
@@ -62,7 +62,7 @@ const Notifications = props => {
                 </Text>
               </View>
               <View style={NotificationStyle.middleInnerSecondCont}>
-                <Text style={NotificationStyle.middleInnerContSecondHeading} numberOfLines={1} ellipsizeMode="tail">
+                <Text style={NotificationStyle.middleInnerContSecondHeading} >
                   {item.time}
                 </Text>
               </View>
@@ -75,14 +75,12 @@ const Notifications = props => {
   return (
     <SafeAreaView>
       <View style={NotificationStyle.mainView}>
-        <View style={{alignSelf: 'center'}}>
+        <View style={NotificationStyle.headerMainView}>
           <Neomorph style={NotificationStyle.header}>
               <TouchableOpacity onPress={() => props.navigation.goBack()} style={NotificationStyle.headerbackButton}>
-                <Ionicons name="chevron-back-sharp" size={20} />
+                <Ionicons name="chevron-back-sharp" size={wp('6')} />
               </TouchableOpacity>
-              <Text style={NotificationStyle.headerText}>
-                Notifications
-              </Text>
+              <Text style={NotificationStyle.headerText}>Notifications</Text>
           </Neomorph>
         </View>
 
@@ -90,13 +88,9 @@ const Notifications = props => {
 
         <View style={NotificationStyle.firstContainerOfMainView}>
           <View style={NotificationStyle.innerViewOfFirstContainer}>
-            <Text style={NotificationStyle.renderItemheaderfontfirst}>
-              Today
-            </Text>
-            <TouchableOpacity style={{position: 'absolute', right: 0}} onPress={() => setShow(!show)}>
-              <Text style={NotificationStyle.renderItemheaderfontsecond}>
-                Mark all as read
-              </Text>
+            <Text style={NotificationStyle.renderItemHeaderFontFirst}> Today </Text>
+            <TouchableOpacity style={NotificationStyle.renderItemHeaderFontSecond} onPress={() => setShow(!show)}>
+              <Text style={NotificationStyle.renderItemHeaderFontSecondTextStyle}>  Mark all as read </Text>
             </TouchableOpacity>
           </View>
           {show ? (
@@ -111,13 +105,9 @@ const Notifications = props => {
 
         <View style={NotificationStyle.secondContainerOfMainView}>
           <View style={NotificationStyle.innerViewOfSecondContainer}>
-            <Text style={NotificationStyle.renderItemheaderfontfirst}>
-                Yesterday
-            </Text>
-            <TouchableOpacity style={{position: 'absolute', right: 0}}>
-              <Text style={NotificationStyle.renderItemheaderfontsecond}>
-                Mark all as read
-              </Text>
+            <Text style={NotificationStyle.renderItemHeaderFontFirst}> Yesterday </Text>
+            <TouchableOpacity style={NotificationStyle.renderItemHeaderFontSecond}>
+              <Text style={NotificationStyle.renderItemHeaderFontSecondTextStyle}> Mark all as read </Text>
             </TouchableOpacity>
           </View>
           <FlatList data={TodayData} renderItem={renderItem} keyExtractor={item => item.id}>
