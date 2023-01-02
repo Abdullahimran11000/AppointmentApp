@@ -27,13 +27,99 @@ import {ScrollView} from 'react-native-virtualized-view';
 import {DoctorDepartmentStyle} from '../assets/styles/DashboardStyle/DoctorDepartmentStyle';
 import AppContext from '../assets/context/AppContext';
 import BackButton from '../components/ScrennHeader/BackButton';
+import RNFetchBlob from 'rn-fetch-blob';
+import SearchBar from '../components/SearchBar/SerachBar';
 const Dashboard = ({pressHandler}) => {
   const navigation = useNavigation();
-  // const {categoriesModalOpen, storeCategoriesModalOpen} =
-  //   useContext(AppContext);
+  const {storeAllCategoriesFromContext} = useContext(AppContext);
+
+  const loadAllCategories = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos', {
+      'Content-type': 'application/json',
+    })
+      .then(resp => resp.json())
+      .then(response => {
+        let responsee = [
+          {
+            id: 1,
+            deptName: 'Radiology',
+            source: require('../assets/images/radiology.png'),
+            color: 'rgba(195, 140, 222, 0.1)',
+          },
+          {
+            id: 2,
+            deptName: 'radiology',
+            source: require('../assets/images/radiology.png'),
+            color: 'rgba(195, 140, 222, 0.2)',
+          },
+          {
+            id: 3,
+            deptName: 'Cardiology',
+            source: require('../assets/images/radiology.png'),
+            color: 'rgba(195, 140, 222, 0.3)',
+          },
+          {
+            id: 4,
+            deptName: 'Dentist',
+            source: require('../assets/images/radiology.png'),
+            color: 'rgba(195, 140, 222, 0.4)',
+          },
+          {
+            id: 5,
+            deptName: 'Psychology',
+            source: require('../assets/images/radiology.png'),
+            color: 'rgba(195, 140, 222, 0.5)',
+          },
+          {
+            id: 6,
+            deptName: 'Neradiology',
+            source: require('../assets/images/radiology.png'),
+            color: 'rgba(195, 140, 222, 0.6)',
+          },
+          {
+            id: 7,
+            deptName: 'Gynacology',
+            source: require('../assets/images/radiology.png'),
+            color: 'rgba(195, 140, 222, 0.7)',
+          },
+          {
+            id: 8,
+            deptName: 'Radiology',
+            source: require('../assets/images/radiology.png'),
+            color: 'rgba(195, 140, 222, 0.8)',
+          },
+        ];
+
+        storeAllCategoriesFromContext(responsee);
+      });
+  };
+
+  const loadDoctorsByFilters = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos', {
+      'Content-type': 'application/json',
+    })
+      .then(resp => resp.json())
+      .then(response => {
+        storeAllCategoriesFromContext(response.allCategories);
+      });
+  };
+
+  const loadSingleCategoryDoctors = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos', {
+      'Content-type': 'application/json',
+    })
+      .then(resp => resp.json())
+      .then(response => {
+        storeAllCategoriesFromContext(response.allCategories);
+      });
+  };
+
+  useEffect(() => {
+    loadAllCategories();
+  }, []);
 
   return (
-    <ScrollView  style={DashboardStyle.scrollViewStyle}>
+    <ScrollView style={DashboardStyle.scrollViewStyle}>
       <SafeAreaView>
         <ScrollView>
           <View style={DashboardStyle.headCont}>
@@ -44,7 +130,8 @@ const Dashboard = ({pressHandler}) => {
                 <Image
                   style={DashboardStyle.headContImageStyle}
                   source={require('../assets/images/selfieOne.jpg')}
-                  resizeMode="cover"/>
+                  resizeMode="cover"
+                />
               </TouchableOpacity>
               <View style={DashboardStyle.headContMiddleCont}>
                 <View style={DashboardStyle.middleInnerFirstCont}>
@@ -59,53 +146,22 @@ const Dashboard = ({pressHandler}) => {
                 </View>
               </View>
               <View style={DashboardStyle.headContLastCont}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>{navigation.navigate('Notifications')}}>
                   <Neomorph
                     lightShadowColor={AppColor.white}
                     style={DashboardStyle.notificationButton}>
                     <Ionicons
                       name="notifications-outline"
                       color="black"
-                      size={wp('6')}/>
+                      size={wp('6')}
+                    />
                   </Neomorph>
                 </TouchableOpacity>
               </View>
             </View>
           </View>
 
-          <View style={DashboardStyle.searchCont}>
-            <View style={DashboardStyle.searchInnerCont}>
-              <Neomorph
-                inner
-                lightShadowColor={AppColor.white}
-                style={DashboardStyle.searchNeoView}>
-                <View style={DashboardStyle.seacrhIconOneInnerCont}>
-                  <Feather
-                    name="search"
-                    size={wp('6')}
-                    color={AppColor.blackOpacity4}/>
-                </View>
-                <View style={DashboardStyle.searchTextInputCont}>
-                  <TextInput
-                    placeholder="Search Doctor"
-                    maxLength={20}
-                    style={DashboardStyle.searchTextInput}/>
-                </View>
-              </Neomorph>
-              <View style={DashboardStyle.searchIconTwoCont}>
-                <TouchableOpacity>
-                  <Neomorph
-                    lightShadowColor={AppColor.white}
-                    style={DashboardStyle.filterButton}>
-                    <SimpleLineIcons
-                      name="equalizer"
-                      color={AppColor.black}
-                      size={wp('4')}/>
-                  </Neomorph>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
+          <SearchBar />
 
           <Neomorph
             darkShadowColor={AppColor.black}

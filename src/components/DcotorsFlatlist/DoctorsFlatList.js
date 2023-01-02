@@ -3,7 +3,9 @@ import React, { useContext, useState } from 'react';
 import {SafeAreaView,FlatList} from 'react-native';
 import AppContext from '../../assets/context/AppContext';
 import DoctorCard from './DoctorCard';
-const DoctorsFlatList = ({horizontal, numColumns, marginRight, filterFuction}) => {
+import RNFetchBlob from 'rn-fetch-blob';
+
+const DoctorsFlatList = ({horizontal, numColumns, marginRight}) => {
   const navigation = useNavigation()  
   const {selectedCategoryResult} = useContext(AppContext)
   const [doctorInfo, setDoctorInfo]= useState([
@@ -16,6 +18,8 @@ const DoctorsFlatList = ({horizontal, numColumns, marginRight, filterFuction}) =
     {name: 'Dr. Saqib', dept: 'Radiology', star: "4.5", experience: '2 years', color: 'rgba(195, 140, 222, 0.5)', source: require('../../assets/images/doctorsInfo.png')},
     {name: 'Dr. Umair', dept: 'Gynacology', star: "4.5", experience: '2 years', color: 'rgba(195, 140, 222, 0.1)', source: require('../../assets/images/doctorsInfo.png')},
   ])
+
+  
 
   const filteredArray = doctorInfo.filter(item => item.dept === selectedCategoryResult);
 
