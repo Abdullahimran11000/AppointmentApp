@@ -25,41 +25,52 @@ const SearchDoctorStyle = StyleSheet.create({
   ModalStyle: {
     borderRadius: wp('10'),
     overflow: 'hidden',
-    backgroundColor: AppColor.white,
+    backgroundColor: AppColor.whiteShade,
     width: wp('90'),
   },
 
   ModalViewStyle: {
     width: wp('80'),
     marginHorizontal: wp('5'),
+    marginTop: wp('8'),
   },
 
   ModalText: {
-    marginLeft: wp('6'),
-    marginTop: wp('5'),
+    margin: wp('5'),
+    marginBottom: wp('3'),
     fontFamily: 'Poppins-SemiBold',
     color: AppColor.black,
   },
 
   SelectListBoxStyle: {
+    marginLeft: wp('3'),
+    marginBottom: wp('4'),
     borderRadius: wp('4'),
-    borderColor: AppColor.white,
+    borderColor: AppColor.whiteShade,
     backgroundColor: AppColor.white,
     fontFamily: 'Poppin-Bold',
+    width: wp('75'),
+    height: hp('7'),
   },
-  DoneButtonView: {marginLeft: wp('5')},
+  DoneButtonView: {
+    width: wp('80'),
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginBottom: wp('3')
+  },
   DoneButtonStyle: {
-    width: wp('79'),
+    width: wp('60'),
     height: hp('7.7'),
-    backgroundColor: 'rgba(240, 122, 199,0.7)',
     borderRadius: wp('4'),
   },
   DoneButtonTextView: {justifyContent: 'center', alignSelf: 'center'},
-  DoneButtonTextStyle: {marginVertical: wp('4'), fontFamily: 'Poppins-Medium'},
+  DoneButtonTextStyle: {marginVertical: wp('4'), fontFamily: 'Poppins-Medium', color: AppColor.white},
 
   ConsultationText: {
+    margin: wp('5'),
     marginLeft: wp('10'),
-    marginTop: wp('5'),
+    marginBottom: wp('3'),
     fontFamily: 'Poppins-SemiBold',
     color: AppColor.black,
   },

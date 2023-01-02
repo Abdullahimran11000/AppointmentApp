@@ -34,7 +34,7 @@ const MyAppointment = () => {
   const [showCancelledAppointments, setShowCancelledAppointments] =
     useState(false);
 
-  const CompeletdAppointmentsInfo = [
+  const [CompeletdAppointmentsInfo, setCompletedAppointmentInfo] = useState([
     {
       id: 1,
       name: 'Dr.Amanda Johnson',
@@ -59,9 +59,15 @@ const MyAppointment = () => {
       time: '10;30 pm',
       appDestination: 'Video',
     },
-  ];
+  ]);
 
-  const UpcomingAppointmentsInfo = [
+  const loadAllCompletedAppointmentInfo = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos').then(
+      resp => setCompletedAppointmentInfo(resp.json()),
+    );
+  };
+
+  const [UpcomingAppointmentsInfo, setUpcomingAppointmentInfo] = useState([
     {
       id: 1,
       name: 'Dr.jhonson',
@@ -86,9 +92,15 @@ const MyAppointment = () => {
       time: '10;30 pm',
       appDestination: 'Video',
     },
-  ];
+  ]);
 
-  const CancelledAppointmentsInfo = [
+  const loadAllUpcomingAppointmentInfo = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos').then(
+      resp => setUpcomingAppointmentInfo(resp.json()),
+    );
+  };
+
+  const [CancelledAppointmentsInfo, setCancelledAppointmentInfo] = useState([
     {
       id: 1,
       name: 'Dr.Richie',
@@ -113,7 +125,13 @@ const MyAppointment = () => {
       time: '10;30 pm',
       appDestination: 'Video',
     },
-  ];
+  ]);
+
+  const loadAllCancelledAppointmentInfo = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos').then(
+      resp => setCancelledAppointmentInfo(resp.json()),
+    );
+  };
 
   const renderItemCompeletedAppointments = ({item}) => (
     <CompleteAppointmentCard

@@ -44,6 +44,12 @@ const Chat = () => {
     },
   ]);
 
+  const loadAllChats = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos').then(
+      resp => setAllChats(resp.json()),
+    );
+  };
+
   return (
     <SafeAreaView style={{backgroundColor: AppColor.whiteShade}}>
       <ScrollView>

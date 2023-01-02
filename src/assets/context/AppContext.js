@@ -7,7 +7,16 @@ export const AppProvider = ({children}) => {
   const [categoriesModalOpen, setCategoriesModal] = useState(false);
   const [openCam, setOpenCam] = useState(false);
   const [callStatus, setCallStatus] = useState('');
-  const [selectedCategoryResult, setSelectedCategoryResult] = useState('cardiology');
+  const [selectedCategoryResult, setSelectedCategoryResult] =
+    useState('Radiology');
+
+  //DYNAMIC DATA STATES
+
+  const [allCategoriesFromContext, setAllCategoriesFromContext] = useState([]);
+
+  const storeAllCategoriesFromContext = allCategories => {
+    setAllCategoriesFromContext(allCategories);
+  };
 
   const storeIdOfSelectedCategoryDot = val => {
     setIdOfSelectedCategoryDot(val);
@@ -38,7 +47,9 @@ export const AppProvider = ({children}) => {
         openCam,
         callStatus,
         selectedCategoryResult,
+        allCategoriesFromContext,
         //function
+        storeAllCategoriesFromContext,
         storeIdOfSelectedCategoryDot,
         storeCategoriesModalOpen,
         storeOpenCam,

@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {SafeAreaView, View, FlatList} from 'react-native';
 import BackButton from '../components/ScrennHeader/BackButton';
 import {MessageStyle} from '../assets/styles/AnimatedDrawerStyle/MessageStyle';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
 import MessageList from '../components/Message/MessageList';
+import RNFetchBlob from 'rn-fetch-blob';
 
 const Message = () => {
   const navigation = useNavigation();
@@ -52,6 +52,12 @@ const Message = () => {
       time: '25m ago',
     },
   ]);
+
+  const loadAllMessage = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos').then(
+      resp => setMessageData(resp.json()),
+    );
+  };
 
   const delHandler = id => {
     const filteredMessages = messageData.filter(item => item.id !== id);

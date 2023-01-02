@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Splash from './src/screnns/Splash';
 import AppIntro from './src/screnns/AppIntro';
 import LogIn from './src/screnns/LogIn';
 import SignUp from './src/screnns/SignUp';

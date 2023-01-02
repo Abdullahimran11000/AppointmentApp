@@ -21,13 +21,13 @@ const BackButton = ({onPress, children}) => {
         <View style={BackButtonStyle.headerView}>
           <View style={BackButtonStyle.iconView}>
             <NeoButton
-              width={wp('10')}
-              height={wp('10')}
+              width={wp('8')}
+              height={wp('8')}
               borderRadius={wp('5')}
               backgroundColor={AppColor.whiteShade}
               marginTop={wp("-1")}>  
               <TouchableOpacity onPress={onPress}>
-                <Ionicons name="chevron-back-sharp" size={wp('7.5')} color="black" />
+                <Ionicons name="chevron-back-sharp" size={wp('6')} color="black" />
               </TouchableOpacity>
             </NeoButton>
           </View>

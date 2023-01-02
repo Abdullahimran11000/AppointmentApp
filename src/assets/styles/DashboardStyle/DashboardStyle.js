@@ -22,7 +22,7 @@ const DashboardStyle = StyleSheet.create({
     searchInnerCont: {display: 'flex', flex: 1, flexDirection: 'row',alignItems: 'center', justifyContent: 'center'},
     seacrhIconOneInnerCont: {width: wp('8'), height: hp('6'), position: 'absolute', marginLeft: wp('3.5'), justifyContent: 'center'},
     searchTextInputCont: {width: wp('50'), height: hp('6'), justifyContent: 'center', alignItems: 'center', marginLeft: wp('12')},
-    searchIconTwoCont: {position: 'absolute' , right: wp('2.5')},
+    searchIconTwoCont: {position: 'absolute' , right: wp('2.5'),},
     searchIconTwoTouchable: {width: wp('9'), height: wp('9'), borderRadius: wp('9'), backgroundColor: AppColor.white, alignItems: 'center', justifyContent: 'center'},
     searchNeoView: {marginLeft: wp("-25"), width:wp('65') , height:hp('6'), borderRadius: wp('6'), shadowRadius: 4, backgroundColor: AppColor.whiteShade},
     searchTextInput: {width: wp('50') , fontFamily: 'Poppins-Medium', fontSize: wp('4'), color: AppColor.blackOpacity4, marginBottom: wp('-1.5')},
