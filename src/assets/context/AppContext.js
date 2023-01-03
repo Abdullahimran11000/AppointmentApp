@@ -11,11 +11,20 @@ export const AppProvider = ({children}) => {
     useState('Radiology');
 
   //DYNAMIC DATA STATES
-
   const [allCategoriesFromContext, setAllCategoriesFromContext] = useState([]);
+  const [yearsOfExperienceFromContext, setYearsOfExperienceFromContext] = useState([]);
+  const [consultationPriceFromContext, setConsultationPriceFromContext] = useState([]);
 
   const storeAllCategoriesFromContext = allCategories => {
     setAllCategoriesFromContext(allCategories);
+  };
+
+  const storeYearsOfExperienceFromContext = yearsOfExperience => {
+    setYearsOfExperienceFromContext(yearsOfExperience);
+  };
+
+  const storeConsultationPriceFromContext = consultationPrice => {
+    setConsultationPriceFromContext(consultationPrice);
   };
 
   const storeIdOfSelectedCategoryDot = val => {
@@ -48,8 +57,12 @@ export const AppProvider = ({children}) => {
         callStatus,
         selectedCategoryResult,
         allCategoriesFromContext,
+        yearsOfExperienceFromContext,
+        consultationPriceFromContext,
         //function
         storeAllCategoriesFromContext,
+        storeYearsOfExperienceFromContext,
+        storeConsultationPriceFromContext,
         storeIdOfSelectedCategoryDot,
         storeCategoriesModalOpen,
         storeOpenCam,

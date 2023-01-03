@@ -32,6 +32,8 @@ import SearchBar from '../components/SearchBar/SerachBar';
 const Dashboard = ({pressHandler}) => {
   const navigation = useNavigation();
   const {storeAllCategoriesFromContext} = useContext(AppContext);
+  const {storeYearsOfExperienceFromContext} = useContext(AppContext);
+  const {storeConsultationPriceFromContext} = useContext(AppContext);
 
   const loadAllCategories = () => {
     RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos', {
@@ -114,8 +116,42 @@ const Dashboard = ({pressHandler}) => {
       });
   };
 
+  const loadYearsOfExperience = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos', {
+      'Content-type': 'application/json',
+    })
+      .then(resp => resp.json())
+      .then(response => {
+        let data = [
+          {key: '1', value: '5-10 years'},
+          {key: '2', value: '10-15 years'},
+          {key: '3', value: '15-20 years'},
+          {key: '4', value: '20-25 years'},
+        ];
+        storeYearsOfExperienceFromContext(data);
+      });
+  };
+
+  const loadConsultationPrice = () => {
+    RNFetchBlob.fetch('GET', 'https://jsonplaceholder.typicode.com/todos', {
+      'Content-type': 'application/json',
+    })
+      .then(resp => resp.json())
+      .then(response => {
+        let price = [
+          {key: '1', value: '5-100 Dollars'},
+          {key: '2', value: '100-1160 Dollars'},
+          {key: '3', value: '160-210 years'},
+          {key: '4', value: '210-260 years'},
+        ];
+        storeConsultationPriceFromContext(price);
+      });
+  };
+
   useEffect(() => {
     loadAllCategories();
+    loadYearsOfExperience();
+    loadConsultationPrice();
   }, []);
 
   return (
@@ -146,7 +182,10 @@ const Dashboard = ({pressHandler}) => {
                 </View>
               </View>
               <View style={DashboardStyle.headContLastCont}>
-                <TouchableOpacity onPress={()=>{navigation.navigate('Notifications')}}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('Notifications');
+                  }}>
                   <Neomorph
                     lightShadowColor={AppColor.white}
                     style={DashboardStyle.notificationButton}>
