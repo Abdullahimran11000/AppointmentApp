@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   View,
   TextInput,
@@ -21,21 +21,12 @@ import {AppColor} from '../../assets/colors/AppColor';
 import {DashboardStyle} from '../../assets/styles/DashboardStyle/DashboardStyle';
 import {SearchDoctorStyle} from '../../assets/styles/DashboardStyle/SearchDoctorStyle';
 import {SelectList} from 'react-native-dropdown-select-list';
+import AppContext from '../../assets/context/AppContext';
 
 const SearchBar = () => {
-  const data = [
-    {key: '1', value: '5-10 years'},
-    {key: '2', value: '10-15 years'},
-    {key: '3', value: '15-20 years'},
-    {key: '4', value: '20-25 years'},
-  ];
+  const {yearsOfExperienceFromContext} = useContext(AppContext);
+  const {consultationPriceFromContext} = useContext(AppContext);
 
-  const price = [
-    {key: '1', value: '5-100 Dollars'},
-    {key: '2', value: '100-1160 Dollars'},
-    {key: '3', value: '160-210 years'},
-    {key: '4', value: '210-260 years'},
-  ];
   const gender = [
     {key: '1', value: 'Male'},
     {key: '2', value: 'FeMale'},
@@ -108,9 +99,13 @@ const SearchBar = () => {
                   marginBottom: wp('2'),
                 }}
                 placeholder="Experience"
+
                 setSelected={val => setSelected(val)}
                 save="value"
                 data={data}
+
+                data={yearsOfExperienceFromContext}
+
               />
             </View>
             <View style={SearchDoctorStyle.DoneButtonView}>
@@ -145,8 +140,12 @@ const SearchBar = () => {
                 marginLeft: wp('5'),
               }}
               placeholder="Price"
+
               setSelected={val => setSelected(val)}
               data={price}
+
+              data={consultationPriceFromContext}
+
             />
             <View style={{marginHorizontal: wp('5')}}>
               <Text style={SearchDoctorStyle.ModalText}>Gender</Text>
