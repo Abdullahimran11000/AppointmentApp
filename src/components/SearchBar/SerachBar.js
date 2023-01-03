@@ -41,6 +41,7 @@ const SearchBar = () => {
     {key: '2', value: 'FeMale'},
   ];
   const [modalVisible, setModalVisible] = useState(false);
+  const [selected, setSelected] = useState('');
 
   return (
     <View style={DashboardStyle.searchCont}>
@@ -101,8 +102,14 @@ const SearchBar = () => {
               <SelectList
                 fontFamily="Poppins-Medium"
                 boxStyles={SearchDoctorStyle.SelectListBoxStyle}
-                dropdownStyles={{borderColor: AppColor.whiteShade, width: wp('75'), marginBottom: wp('2')}}
+                dropdownStyles={{
+                  borderColor: AppColor.whiteShade,
+                  width: wp('75'),
+                  marginBottom: wp('2'),
+                }}
                 placeholder="Experience"
+                setSelected={val => setSelected(val)}
+                save="value"
                 data={data}
               />
             </View>
@@ -132,8 +139,13 @@ const SearchBar = () => {
                 SearchDoctorStyle.SelectListBoxStyle,
                 {marginLeft: wp('8')},
               ]}
-              dropdownStyles={{borderColor: AppColor.whiteShade, width: wp('75'), marginLeft: wp('5')}}
+              dropdownStyles={{
+                borderColor: AppColor.whiteShade,
+                width: wp('75'),
+                marginLeft: wp('5'),
+              }}
               placeholder="Price"
+              setSelected={val => setSelected(val)}
               data={price}
             />
             <View style={{marginHorizontal: wp('5')}}>
@@ -145,8 +157,14 @@ const SearchBar = () => {
                 SearchDoctorStyle.SelectListBoxStyle,
                 {marginLeft: wp('8')},
               ]}
-              dropdownStyles={{borderColor: AppColor.whiteShade, width: wp('75'), marginLeft: wp('5'), marginBottom: wp('2')}}
+              dropdownStyles={{
+                borderColor: AppColor.whiteShade,
+                width: wp('75'),
+                marginLeft: wp('5'),
+                marginBottom: wp('2'),
+              }}
               placeholder="Gender"
+              setSelected={val => setSelected(val)}
               data={gender}
             />
             <View style={SearchDoctorStyle.DoneButtonView}>
