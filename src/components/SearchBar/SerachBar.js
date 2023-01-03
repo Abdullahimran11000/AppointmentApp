@@ -99,13 +99,9 @@ const SearchBar = () => {
                   marginBottom: wp('2'),
                 }}
                 placeholder="Experience"
-
                 setSelected={val => setSelected(val)}
                 save="value"
-                data={data}
-
                 data={yearsOfExperienceFromContext}
-
               />
             </View>
             <View style={SearchDoctorStyle.DoneButtonView}>
@@ -140,12 +136,8 @@ const SearchBar = () => {
                 marginLeft: wp('5'),
               }}
               placeholder="Price"
-
               setSelected={val => setSelected(val)}
-              data={price}
-
               data={consultationPriceFromContext}
-
             />
             <View style={{marginHorizontal: wp('5')}}>
               <Text style={SearchDoctorStyle.ModalText}>Gender</Text>
@@ -172,7 +164,11 @@ const SearchBar = () => {
                 height={hp('7.7')}
                 backgroundColor={AppColor.primary}
                 borderRadius={wp('5')}>
-                <TouchableOpacity style={SearchDoctorStyle.DoneButtonStyle}>
+                <TouchableOpacity
+                  style={SearchDoctorStyle.DoneButtonStyle}
+                  onPress={() => {
+                    setModalVisible(false);
+                  }}>
                   <View style={SearchDoctorStyle.DoneButtonTextView}>
                     <Text style={SearchDoctorStyle.DoneButtonTextStyle}>
                       Apply

@@ -5,7 +5,6 @@ import {
   View,
   Image,
   TouchableOpacity,
-  TextInput,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {DashboardStyle} from '../assets/styles/DashboardStyle/DashboardStyle';
@@ -160,9 +159,13 @@ const Dashboard = ({pressHandler}) => {
         <ScrollView>
           <View style={DashboardStyle.headCont}>
             <View style={DashboardStyle.headContInnerCont}>
-              <TouchableOpacity
-                style={DashboardStyle.headContImageCont}
+            <TouchableOpacity
+                style={DashboardStyle.headContMenuCont}
                 onPress={pressHandler}>
+               <Ionicons name='menu' color={AppColor.black} size={wp("7")} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={DashboardStyle.headContImageCont}>
                 <Image
                   style={DashboardStyle.headContImageStyle}
                   source={require('../assets/images/selfieOne.jpg')}
