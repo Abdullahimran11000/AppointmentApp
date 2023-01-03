@@ -8,9 +8,10 @@ const DashboardStyle = StyleSheet.create({
 
     headCont: {width: wp('90'), height: hp('10'), marginTop: wp('4.5'), marginLeft:  wp('4.5'), marginRight:  wp('4.5'), alignSelf: 'center'},
     headContInnerCont: {display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'},
-    headContImageCont: {width: wp('13'), height: wp('13'), borderRadius: wp('13'), position: 'absolute', left:0},
-    headContImageStyle: {width: wp('13'), height: wp('13'), borderRadius: wp('13')},
-    headContMiddleCont: {width: wp('60'), position: 'absolute', left: wp('18')},
+    headContMenuCont: {width: wp('11.5'), height: wp('11.5'), borderRadius: wp('14'), position: 'absolute', left:wp('0'), justifyContent: 'center'},
+    headContImageCont: {width: wp('11.5'), height: wp('11.5'), borderRadius: wp('14'), position: 'absolute', left:wp('10')},
+    headContImageStyle: {width: wp('11.5'), height: wp('11.5'), borderRadius: wp('14')},
+    headContMiddleCont: {width: wp('60'), position: 'absolute', left: wp('25')},
     middleInnerFirstCont: {marginTop: wp('1.3')},
     middleInnerContFirstHeading: {fontFamily: 'Poppins-Bold', fontSize:wp('4.5'), color: AppColor.black},
     middleInnerSecondCont: {marginTop:wp('-1.4')},
