@@ -32,6 +32,7 @@ const SearchBar = () => {
     {key: '2', value: 'FeMale'},
   ];
   const [modalVisible, setModalVisible] = useState(false);
+  const [selected, setSelected] = useState('');
 
   return (
     <View style={DashboardStyle.searchCont}>
@@ -98,7 +99,13 @@ const SearchBar = () => {
                   marginBottom: wp('2'),
                 }}
                 placeholder="Experience"
+
+                setSelected={val => setSelected(val)}
+                save="value"
+                data={data}
+
                 data={yearsOfExperienceFromContext}
+
               />
             </View>
             <View style={SearchDoctorStyle.DoneButtonView}>
@@ -133,7 +140,12 @@ const SearchBar = () => {
                 marginLeft: wp('5'),
               }}
               placeholder="Price"
+
+              setSelected={val => setSelected(val)}
+              data={price}
+
               data={consultationPriceFromContext}
+
             />
             <View style={{marginHorizontal: wp('5')}}>
               <Text style={SearchDoctorStyle.ModalText}>Gender</Text>
@@ -151,6 +163,7 @@ const SearchBar = () => {
                 marginBottom: wp('2'),
               }}
               placeholder="Gender"
+              setSelected={val => setSelected(val)}
               data={gender}
             />
             <View style={SearchDoctorStyle.DoneButtonView}>
