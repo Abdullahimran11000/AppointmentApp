@@ -180,7 +180,7 @@ const Dashboard = ({pressHandler}) => {
                 </View>
                 <View style={DashboardStyle.middleInnerSecondCont}>
                   <Text style={DashboardStyle.middleInnerContSecondHeading}>
-                    How can you today?
+                    How are you today?
                   </Text>
                 </View>
               </View>

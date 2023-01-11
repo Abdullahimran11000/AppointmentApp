@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import {SafeAreaView, View} from 'react-native';
 import DoctorsFlatList from '../components/DcotorsFlatlist/DoctorsFlatList';
 import {
@@ -10,17 +10,20 @@ import {ScrollView} from 'react-native-virtualized-view';
 import BackButton from '../components/ScrennHeader/BackButton';
 import {SearchDoctorStyle} from '../assets/styles/DashboardStyle/SearchDoctorStyle';
 import SearchBar from '../components/SearchBar/SerachBar';
+import { useNavigation } from '@react-navigation/native';
+import AppContext from '../assets/context/AppContext';
 
-const SearchDoctor = props => {
+const SearchDoctor = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{backgroundColor: AppColor.whiteShade, flex: 1}}>
       <ScrollView>
         <View>
           <BackButton
             onPress={() => {
-              props.navigation.goBack();
+              navigation.goBack();
             }}>{'Search Doctor'}</BackButton>
-          <SearchBar />
+          <SearchBar/>
         </View>
         <View style={SearchDoctorStyle.DoctorFlatListView}>
           <DoctorsFlatList

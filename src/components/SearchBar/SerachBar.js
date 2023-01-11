@@ -24,8 +24,11 @@ import {SelectList} from 'react-native-dropdown-select-list';
 import AppContext from '../../assets/context/AppContext';
 
 const SearchBar = () => {
+  const [onChangeTextInput, setOnChangeTextInput] = useState("");
+
   const {yearsOfExperienceFromContext} = useContext(AppContext);
   const {consultationPriceFromContext} = useContext(AppContext);
+  const {storeSelectedCategoryResult} = useContext(AppContext);
 
   const gender = [
     {key: '1', value: 'Male'},
@@ -53,6 +56,9 @@ const SearchBar = () => {
               placeholder="Search Doctor"
               maxLength={20}
               style={DashboardStyle.searchTextInput}
+              onChangeText={value => {
+                storeSelectedCategoryResult(value);
+              }}
             />
           </View>
         </Neomorph>
