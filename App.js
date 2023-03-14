@@ -6,7 +6,6 @@ import LogIn from './src/screnns/LogIn';
 import SignUp from './src/screnns/SignUp';
 import Schedule from './src/screnns/Schedule';
 import Maps from './src/screnns/Maps';
-import RecoverPassword from './src/screnns/RecoverPassword';
 import ForgotPassword from './src/screnns/ForgotPassword';
 import Verification from './src/screnns/Verification';
 import Congratulation from './src/screnns/Congratulation';
@@ -25,6 +24,8 @@ import Chat from './src/screnns/Chat';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {AppProvider} from './src/assets/context/AppContext';
+import TryAnotherWay from './src/screnns/TryAnotherWay';
+import RecoverPassword from './src/screnns/RecoverPassword';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -32,7 +33,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <AppProvider>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Navigator initialRouteName='Congratulation' screenOptions={{headerShown: false}}>
           <Stack.Screen name="AppIntro" component={AppIntro} />
           <Stack.Screen name="LogIn" component={LogIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
@@ -53,7 +54,7 @@ const App = () => {
           <Stack.Screen name="Message" component={Message} />
           <Stack.Screen name="Chat" component={Chat}/>
           <Stack.Screen name="VideoCalling" component={VideoCalling} />
-
+          <Stack.Screen name="TryAnotherWay" component={TryAnotherWay} />
         </Stack.Navigator>
       </AppProvider>
     </NavigationContainer>
