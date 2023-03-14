@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -15,17 +15,63 @@ import Lottie from 'lottie-react-native';
 import {VerificationStyle} from '../assets/styles/AuthStyle/VerificationStyle';
 import BackButton from '../components/ScrennHeader/BackButton';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
-import {AppColor} from '../assets/colors/AppColor';
+import { AppColor } from '../assets/colors/AppColor';
+import CustomModal from '../components/Modal/CustomModal';
+const Verification = ({navigation}) => {
+  const firstTextInputRef = useRef(null);
+  const secondTextInputRef = useRef(null);
+  const thirdTextInputRef = useRef(null);
+  const fourthTextInputRef = useRef(null);
+  const [showVerificationMessage, setShowVerificationMessage] = useState(false);
 
-const Verification = props => {
+  const [firstTextInput, setFirstTextInput] = useState('');
+  const [secondTextInput, setSecondTextInput] = useState('');
+  const [thirdTextInput, setThirdTextInput] = useState('');
+  const [fourthTextInput, setFourthTextInput] = useState('');
+
+  const [firstTextInputValidator, setFirstTextInputValidator] = useState(false);
+  const [secondTextInputValidator, setSecondTextInputValidator] =
+    useState(false);
+  const [thirdTextInputValidator, setThirdTextInputValidator] = useState(false);
+  const [fourthTextInputValidator, setFourthTextInputValidator] =
+    useState(false);
+
+  const [textInputLabel, setTextInputLabel] = useState();
+
+  const submitHandler = () => {
+    if (
+      firstTextInput === '' ||
+      secondTextInput === '' ||
+      thirdTextInput === '' ||
+      fourthTextInput === ''
+    ) {
+      setTextInputLabel('please enter your verification code');
+      setFirstTextInputValidator(true);
+      setSecondTextInputValidator(true);
+      setThirdTextInputValidator(true);
+      setFourthTextInputValidator(true);
+    } else {
+      setFirstTextInputValidator(false);
+      setSecondTextInputValidator(false);
+      setThirdTextInputValidator(false);
+      setFourthTextInputValidator(false);
+      setShowVerificationMessage(true);
+    }
+  };
+
+  useEffect(() => {
+    firstTextInputRef.current.focus()
+    navigation.addListener('focus', () => {
+      console.log('Verification screen is focusing right now!');
+    });
+  }, [navigation]);
   return (
     <SafeAreaView style={VerificationStyle.mainView}>
+      <BackButton onPress={() => navigation.goBack()}>
+        {'Verification'}
+      </BackButton>
       <ScrollView>
         <View>
-          <BackButton onPress={() => props.navigation.goBack()}>
-            {'Verification'}
-          </BackButton>
-
           <View style={VerificationStyle.animationView}>
             <Lottie
               style={VerificationStyle.animationStyle}
@@ -34,35 +80,93 @@ const Verification = props => {
             />
           </View>
           <View style={VerificationStyle.tagView}>
-            <Text style={VerificationStyle.tagText}>Verify your email</Text>
+            <Text style={VerificationStyle.tagText}>OTP</Text>
           </View>
           <View style={VerificationStyle.paraView}>
             <Text style={VerificationStyle.paraText}>
-              Please enter the 4 verification code that we have sent to your
-              email
+              Please enter the 4 verification code that we have sent
             </Text>
           </View>
           <View style={VerificationStyle.textView}>
             <View>
               <TextInput
+                value={firstTextInput}
+                ref={firstTextInputRef}
+                style={VerificationStyle.newInputs}
+                autoFocus={true}
+                maxLength={1}
+                keyboardType={'numeric'}
+                returnKeyType={'next'}
+                onChangeText={value => {
+                  if (value) {
+                    secondTextInputRef.current.focus();
+                  }
+                  setFirstTextInput(value);
+                }}
+                blurOnSubmit={false}
+              />
+            </View>
+            <View>
+              <TextInput
+                value={secondTextInput}
                 style={VerificationStyle.newInputs}
                 maxLength={1}
                 keyboardType={'numeric'}
+                ref={secondTextInputRef}
+                returnKeyType={'next'}
+                onChangeText={value => {
+                  if (value.length == 0) {
+                    firstTextInputRef.current.focus();
+                  } else {
+                    thirdTextInputRef.current.focus();
+                  }
+                  setSecondTextInput(value);
+                }}
+                blurOnSubmit={false}
               />
             </View>
-            <TextInput
-              style={VerificationStyle.newInputs}
-              maxLength={1}
-              keyboardType={'numeric'}></TextInput>
-            <TextInput
-              style={VerificationStyle.newInputs}
-              maxLength={1}
-              keyboardType={'numeric'}></TextInput>
-            <TextInput
-              style={VerificationStyle.newInputs}
-              maxLength={1}
-              keyboardType={'numeric'}></TextInput>
+            <View>
+              <TextInput
+                value={thirdTextInput}
+                style={VerificationStyle.newInputs}
+                maxLength={1}
+                keyboardType={'numeric'}
+                ref={thirdTextInputRef}
+                returnKeyType={'next'}
+                onChangeText={value => {
+                  if (value.length == 0) {
+                    secondTextInputRef.current.focus();
+                  } else {
+                    fourthTextInputRef.current.focus();
+                  }
+                  setThirdTextInput(value);
+                }}
+                blurOnSubmit={false}
+              />
+            </View>
+            <View>
+              <TextInput
+                value={fourthTextInput}
+                style={VerificationStyle.newInputs}
+                maxLength={1}
+                keyboardType={'numeric'}
+                ref={fourthTextInputRef}
+                returnKeyType="go"
+                onChangeText={value => {
+                  if (value.length == 0) {
+                    thirdTextInputRef.current.focus();
+                  }
+                  setFourthTextInput(value);
+                }}
+                onEndEditing={submitHandler}
+              />
+            </View>
           </View>
+          {firstTextInputValidator ? (
+            <View style={VerificationStyle.viewOne}>
+              <Text style={VerificationStyle.textOne}>{textInputLabel}</Text>
+            </View>
+          ) : null}
           <View style={VerificationStyle.touchableView}>
             <Text style={VerificationStyle.textStyle}>Don't recieve code?</Text>
             <TouchableOpacity>
@@ -70,12 +174,11 @@ const Verification = props => {
             </TouchableOpacity>
           </View>
           <View style={VerificationStyle.buttonView}>
-            <TouchableOpacity
-              onPress={() => props.navigation.navigate('RecoverPassword')}>
+            <TouchableOpacity onPress={submitHandler}>
               <NeoButton
-                width={wp('90')}
+                width={wp('55')}
                 backgroundColor={AppColor.primary}
-                height={hp('7')}
+                height={hp('6')}
                 borderRadius={wp('10')}
                 marginBottom={wp('5')}>
                 <Text style={VerificationStyle.touchableText}>Verify</Text>
@@ -83,6 +186,21 @@ const Verification = props => {
             </TouchableOpacity>
           </View>
         </View>
+        <CustomModal
+          isVisible={showVerificationMessage}
+          onBackdropPress={() => {
+            setShowVerificationMessage(false);
+          }}
+          lottieStyle={{width: wp('50'), height: wp('50')}}
+          modalButtonPress={() => {
+            navigation.navigate('RecoverPassword');
+          }}
+          buttonBackgroundColor={AppColor.primary}
+          source={require('../assets/animations/email.json')}
+          text={'OTP has been verified successfully!'}
+          style={{marginTop: wp('12')}}
+          buttonText={'Next'}
+        />
       </ScrollView>
     </SafeAreaView>
   );

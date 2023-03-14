@@ -1,3 +1,4 @@
+import React, {useState , useEffect} from 'react';
 import {
   SafeAreaView,
   View,
@@ -17,9 +18,45 @@ import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 import {LoginStyle} from '../assets/styles/AuthStyle/LoginStyle';
 
-const LogIn = props => {
+const LogIn = ({navigation}) => {
+  const [eye, setEye] = useState(false);
+  const [emailText, setEmailText] = useState('');
+  const [emailLabelText, setEmailLabelText] = useState('');
+  const [checkEmailTextValid, setCheckEmailTextValid] = useState(false);
+  const [passwordText, setPasswordText] = useState('');
+  const [passwordLabelText, setPasswordLabelText] = useState('');
+  const [passwordValidator, setPasswordValidator] = useState(false);
+
+  const submitHandler = () => {
+    if (emailText === '') {
+      setEmailLabelText('Enter Your Email');
+      setCheckEmailTextValid(true);
+    } else if (!emailText.includes('@') || !emailText.includes('.com')) {
+      setEmailLabelText('Enter your correct Email Address.');
+      setCheckEmailTextValid(true);
+    } else if (passwordText == '') {
+      setPasswordLabelText('Enter your password');
+      setPasswordValidator(true);
+      setEmailLabelText('');
+      setCheckEmailTextValid(false);
+    } else {
+      //CODE TO HANDLE LOGIN REQUEST
+      setEmailLabelText('');
+      setCheckEmailTextValid(false);
+      setPasswordLabelText('');
+      setPasswordValidator(false);
+      navigation.replace('Drawer');
+    }
+  };
+
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      console.log('LogIn screen is focusing right now!');
+    });
+  }, []);
   return (
-    <SafeAreaView style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
+    <SafeAreaView
+      style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
       <ScrollView>
         <View styles={LoginStyle.MainView}>
           <Text style={LoginStyle.headerView}> Log in </Text>
@@ -31,8 +68,23 @@ const LogIn = props => {
                 marginBottom={wp('5')}
                 placeholder={'Enter your email'}
                 keyboardType={'email-address'}
+                onChangeText={text => {
+                  setEmailText(text);
+                }}
               />
             </View>
+            {checkEmailTextValid ? (
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Light',
+                  fontSize: wp('3'),
+                  color: AppColor.red,
+                  width: wp('90'),
+                  alignSelf: 'center',
+                }}>
+                {emailLabelText}
+              </Text>
+            ) : null}
             <View>
               <Text style={LoginStyle.TextStyle}>Password</Text>
               <NeoTextInput
@@ -40,14 +92,29 @@ const LogIn = props => {
                 marginBottom={wp('5')}
                 placeholder={'Enter your password'}
                 secureTextEntry={true}
+                onChangeText={text => {
+                  setPasswordText(text);
+                }}
               />
               <TouchableOpacity style={LoginStyle.iconOpacity}>
                 <Icon name="eye-slash" size={15} />
               </TouchableOpacity>
             </View>
+            {passwordValidator ? (
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Light',
+                  fontSize: wp('3'),
+                  color: AppColor.red,
+                  width: wp('90'),
+                  alignSelf: 'center',
+                }}>
+                {passwordLabelText}
+              </Text>
+            ) : null}
           </View>
           <TouchableOpacity
-            onPress={() => props.navigation.navigate('ForgotPassword')}>
+            onPress={() => navigation.navigate('ForgotPassword')}>
             <Text style={LoginStyle.ForgotText}>Forgot Password?</Text>
           </TouchableOpacity>
           <View style={LoginStyle.MainLoginButtonView}>
@@ -58,9 +125,7 @@ const LogIn = props => {
               borderRadius={wp('10')}>
               <TouchableOpacity
                 style={LoginStyle.TouchableLogin}
-                onPress={() => {
-                  props.navigation.navigate('Drawer');
-                }}>
+                onPress={submitHandler}>
                 <View style={LoginStyle.LogInButtonView}>
                   <Text style={LoginStyle.LoginText}>Log In</Text>
                 </View>
@@ -86,7 +151,7 @@ const LogIn = props => {
           <View style={LoginStyle.LastView}>
             <Text>Don't have an account? </Text>
             <TouchableOpacity
-              onPress={() => props.navigation.navigate('SignUp')}>
+              onPress={() => navigation.navigate('SignUp')}>
               <Text style={LoginStyle.SignUpText}>Sign Up</Text>
             </TouchableOpacity>
           </View>

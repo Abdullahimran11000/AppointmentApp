@@ -9,45 +9,49 @@ import {
 } from 'react-native-responsive-screen';
 
 const NeoTextInput = ({
-  width,
   placeholder,
   keyboardType,
   secureTextEntry,
   styles,
-  marginBottom,
   value,
   onChangeText,
-  children
+  children,
+  returnKeyType,
+  onSubmitEditing,
+  reference,
+  autoFocus,
+  placeholderTextColor
 }) => {
   return (
-    <View
-      style={{
-        width: wp('90'),
-        height: hp('7'),
-        alignSelf: 'center',
-        borderRadius: wp('3'),
-        marginBottom: marginBottom,
-      }}>
+    
       <Neomorph
         style={{
-          width: width,
-          height: hp('7'),
+          width: wp('90'),
+          height: hp('7.5'),
           borderRadius: wp('3'),
-          marginTop: wp('2'),
-          shadowRadius: 4,
+          marginVertical: wp('3'),
+          shadowRadius: 3,
+          flexDirection: 'row',
           backgroundColor: AppColor.whiteShade,
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          paddingHorizontal: wp('3'),
         }}>
         <TextInput
           value={value}
+          autoFocus={autoFocus}
+          ref={reference}
           style={[TextInputStyle.inputStyle, styles]}
           placeholder={placeholder}
           keyboardType={keyboardType}
           secureTextEntry={secureTextEntry}
           onChangeText={onChangeText}
+          returnKeyType={returnKeyType}
+          onSubmitEditing={onSubmitEditing}
+          placeholderTextColor={placeholderTextColor}
         />
         {children}
       </Neomorph>
-    </View>
   );
 };
 

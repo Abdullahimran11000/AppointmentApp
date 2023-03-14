@@ -12,15 +12,19 @@ import {
 } from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
 import {CongratulationStyle} from '../assets/styles/AuthStyle/CongratulationStyle';
-import {AppColor} from '../assets/colors/AppColor';
+import { AppColor } from '../assets/colors/AppColor';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 import {useNavigation} from '@react-navigation/native';
+import { useEffect } from 'react';
 
-const Congratulation = () => {
-  const navigation = useNavigation();
+const Congratulation = ({navigation}) => {
+  // const navigation = useNavigation();
+
+  useEffect(() => {navigation.addListener('focus' , () => {
+    console.log('Congratulation screen is focusing right now!')
+  })} , []);
   return (
     <SafeAreaView style={CongratulationStyle.mainView}>
-      <ScrollView>
         <View>
           <View style={CongratulationStyle.animationView}>
             <Lottie
@@ -39,7 +43,7 @@ const Congratulation = () => {
             </Text>
           </View>
           <View style={CongratulationStyle.headingView}>
-            <TouchableOpacity onPress={() => {navigation.navigate('LogIn')}}>
+            <TouchableOpacity onPress={() => {navigation.replace('LogIn')}}>
               <NeoButton
                 darkShadowColor={AppColor.black}
                 width={wp('90')}
@@ -52,7 +56,6 @@ const Congratulation = () => {
             </TouchableOpacity>
           </View>
         </View>
-      </ScrollView>
     </SafeAreaView>
   );
 };
