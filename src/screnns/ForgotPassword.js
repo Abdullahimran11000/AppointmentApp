@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   View,
@@ -19,8 +19,26 @@ import {useNavigation} from '@react-navigation/native';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 
-const ForgotPassword = () => {
-  const navigation = useNavigation();
+const ForgotPassword = ({navigation}) => {
+
+  const [emailText , setEmailText] = useState('Gandu@gmail.com')
+  const [emailLabelText , setEmailLabelText] = useState('')
+  const [checkEmailTextValid , setCheckEmailTextValid] = useState(false)
+
+  const signUpHandler = () => {
+    if(emailText === ''){
+      setEmailLabelText('Enter your email')
+      setCheckEmailTextValid(true)
+    }
+    else if(emailText.includes('@gmail.com')){
+      setCheckEmailTextValid(false)
+      navigation.navigate('Verification')
+    }
+    else{
+      setEmailLabelText('Enter correct email')
+      setCheckEmailTextValid(true)
+    }
+  }
   return (
     <ScrollView>
       <SafeAreaView style={ForgotPasswordStyle.safeView}>
@@ -48,13 +66,28 @@ const ForgotPassword = () => {
               <Text style={ForgotPasswordStyle.labelText}>Email Address</Text>
             </View>
             <NeoTextInput
+              value={emailText}
               width={wp('90')}
               keyboardType={'email-address'}
               placeholder={'Example@gmail.com'}
+              onChangeText={text => setEmailText(text)}
             />
           </View>
+          {checkEmailTextValid ? (
+            <Text
+              style={{
+                fontFamily: 'Poppins-Light',
+                fontSize: wp('4'),
+                color: AppColor.red,
+                width: wp('90'),
+                alignSelf: 'flex-start',
+                padding:wp(5)
+              }}>
+            {emailLabelText}
+          </Text>
+          ) : null}
           <View style={ForgotPasswordStyle.touchableView}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {navigation.navigate('TryAnotherWay')}}>
               <Text style={ForgotPasswordStyle.touchableText1}>
                 Try another way
               </Text>
@@ -62,7 +95,7 @@ const ForgotPassword = () => {
           </View>
           <View style={ForgotPasswordStyle.headingView}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Verification')}>
+              onPress={signUpHandler}>
               <NeoButton
                 darkShadowColor={AppColor.black}
                 marginTop={wp('10')}
