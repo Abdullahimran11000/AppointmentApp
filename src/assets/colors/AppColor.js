@@ -13,6 +13,7 @@ const AppColor = {
   whiteOpacity4: 'rgba(255,255,255,0.4)',
   whiteOpacity5: 'rgba(255, 255, 255, 0.5)',
   whiteOpacity7: 'rgba(255,255,255,0.7)',
+  whiteOpacity8: 'rgba(255,255,255,0.8)',
   whiteDark: '#E8E4E4',
   whiteDark1: '#EEEEEE',
   whiteCream: '#F6ECF4',
@@ -36,6 +37,7 @@ const AppColor = {
   blackOpacity1: 'rgba(0, 0, 0, 0.1)',
   grey:'#808080',
   purpleOpacity:'rgba(195, 140, 222, 0.4)',
+  purpleOpacity1:'rgba(195, 140, 222, 0.8)',
   lightPink: '#f7c6d9'
 };
 export {AppColor};

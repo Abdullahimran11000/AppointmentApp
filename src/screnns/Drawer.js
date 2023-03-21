@@ -116,6 +116,21 @@ const Drawer = () => {
 
         <View style={DrawerStyle.menuView2}>
           <View style={DrawerStyle.menuItemView}>
+            <Ionicons
+              name={'key-outline'}
+              size={wp('5')}
+              color={AppColor.white}
+            />
+            <TouchableOpacity
+              style={DrawerStyle.touchableView}
+              onPress={() => navigation.navigate('PasswordManagement')}>
+              <Text style={DrawerStyle.menuItemText}>Security</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={DrawerStyle.menuView2}>
+          <View style={DrawerStyle.menuItemView}>
             <MaterialIcons
               name={'message'}
               size={wp('5')}

@@ -39,78 +39,78 @@ const ForgotPassword = ({navigation}) => {
       setCheckEmailTextValid(true)
     }
   }
+
+  const ast = {
+    asterik:<Text style={{color:'red'}}>{'*'}</Text>
+  }
+
+
   return (
     <ScrollView>
       <SafeAreaView style={ForgotPasswordStyle.safeView}>
-        <View style={ForgotPasswordStyle.mainView}>
+        <View style={{flex:1}}>
           <BackButton onPress={() => navigation.goBack()}>
             {'Forgot Password'}
           </BackButton>
-          <View style={ForgotPasswordStyle.animationView}>
-            <Lottie
-              style={ForgotPasswordStyle.animationStyle}
-              source={require('../assets/animations/appIntroForgot.json')}
-              autoPlay
-            />
           </View>
-          <View style={ForgotPasswordStyle.headingView}>
-            <Text style={ForgotPasswordStyle.tagText}>Find your account</Text>
-          </View>
-          <View style={ForgotPasswordStyle.paraView}>
-            <Text style={ForgotPasswordStyle.paraText}>
-              Please enter your email address to recover your forgoton password
-            </Text>
-          </View>
-          <View style={ForgotPasswordStyle.inputView}>
-            <View style={ForgotPasswordStyle.labelView}>
-              <Text style={ForgotPasswordStyle.labelText}>Email Address</Text>
+          <View style={{flex:9}}>
+            <View style={ForgotPasswordStyle.animationView}>
+              <Lottie
+                style={ForgotPasswordStyle.animationStyle}
+                source={require('../assets/animations/appIntroForgot.json')}
+                autoPlay
+              />
             </View>
-            <NeoTextInput
-              value={emailText}
-              width={wp('90')}
-              keyboardType={'email-address'}
-              placeholder={'Example@gmail.com'}
-              onChangeText={text => setEmailText(text)}
-            />
-          </View>
-          {checkEmailTextValid ? (
-            <Text
-              style={{
-                fontFamily: 'Poppins-Light',
-                fontSize: wp('4'),
-                color: AppColor.red,
-                width: wp('90'),
-                alignSelf: 'flex-start',
-                padding:wp(5)
-              }}>
-            {emailLabelText}
-          </Text>
-          ) : null}
-          <View style={ForgotPasswordStyle.touchableView}>
-            <TouchableOpacity onPress={() => {navigation.navigate('TryAnotherWay')}}>
-              <Text style={ForgotPasswordStyle.touchableText1}>
-                Try another way
+            <View style={ForgotPasswordStyle.headingView}>
+              <Text style={ForgotPasswordStyle.tagText}>Find your account</Text>
+            </View>
+            <View style={ForgotPasswordStyle.paraView}>
+              <Text style={ForgotPasswordStyle.paraText}>
+                Please enter your email address to recover your forgoton password
               </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={ForgotPasswordStyle.headingView}>
-            <TouchableOpacity
-              onPress={signUpHandler}>
-              <NeoButton
-                darkShadowColor={AppColor.black}
-                marginTop={wp('10')}
+            </View>
+            <View style={ForgotPasswordStyle.inputView}>
+              <View style={ForgotPasswordStyle.labelView}>
+                <Text style={ForgotPasswordStyle.labelText}>Email Address {ast.asterik}</Text>
+              </View>
+              <NeoTextInput
+                value={emailText}
                 width={wp('90')}
-                backgroundColor={AppColor.primary}
-                height={hp('7')}
-                borderRadius={wp('10')}
-                marginBottom={wp('10')}>
-                <Text style={ForgotPasswordStyle.touchableText}>Send</Text>
-              </NeoButton>
-            </TouchableOpacity>
-          </View>
-        </View>  
-     </SafeAreaView>
-    </ScrollView>
+                keyboardType={'email-address'}
+                placeholder={'Example@gmail.com'}
+                onChangeText={text => setEmailText(text)}
+              />
+            </View>
+            {checkEmailTextValid ? (
+              <Text style={ForgotPasswordStyle.checkEmailTextValidStyle}>
+                  {emailLabelText}
+            </Text>
+            ) : null}
+            <View style={ForgotPasswordStyle.touchableView}>
+              <TouchableOpacity onPress={() => {navigation.navigate('TryAnotherWay')}}>
+                <Text style={ForgotPasswordStyle.touchableText1}>
+                  Try another way
+                </Text>
+              </TouchableOpacity>
+            </View>
+              <View style={ForgotPasswordStyle.headingView}>
+                <TouchableOpacity
+                  onPress={signUpHandler}>
+                  <NeoButton
+                    darkShadowColor={AppColor.black}
+                    marginTop={wp('8')}
+                    width={wp('90')}
+                    backgroundColor={AppColor.primary}
+                    height={hp('7')}
+                    borderRadius={wp('10')}
+                    marginBottom={wp('10')}>
+                    <Text style={ForgotPasswordStyle.touchableText}>Send</Text>
+                  </NeoButton>
+                </TouchableOpacity>
+              </View>
+          </View>  
+        </SafeAreaView>
+     </ScrollView>
   );
 };
 

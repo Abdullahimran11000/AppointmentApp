@@ -13,7 +13,7 @@ const LeftChatCard = ({item}) => {
     <View style={{height: hp(14)}}>
       <Neomorph
         style={{
-          left: wp(13),
+          left: wp(16),
           top: hp(4.5),
           width: wp(55),
           height: hp(6),

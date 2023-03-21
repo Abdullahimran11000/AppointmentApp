@@ -23,8 +23,8 @@ import {ScrollView} from 'react-native-virtualized-view';
 import {useNavigation} from '@react-navigation/native';
 import AppContext from '../assets/context/AppContext';
 
-const Chat = () => {
-  const navigation = useNavigation();
+const Chat = ({navigation}) => {
+  // const navigation = useNavigation();
   const {storeOpenCam} = useContext(AppContext);
   const {storeCallStatus} = useContext(AppContext)
   const [allChats, setAllChats] = useState([
@@ -51,46 +51,56 @@ const Chat = () => {
   };
 
   return (
-    <SafeAreaView style={{backgroundColor: AppColor.whiteShade}}>
+    <SafeAreaView style={{backgroundColor: AppColor.whiteShade,flex:14,alignSelf:'center'}}>
       <ScrollView>
-        <View style={ChatStyle.mainView}>
-          <View style={ChatStyle.SearchBar}>
-            <TouchableOpacity  onPress={() => navigation.goBack()} style={ChatStyle.backbutton}>
-              <Ionicons name="chevron-back-sharp" size={wp('6')} />
-            </TouchableOpacity>
-          </View>
-          <View style={ChatStyle.headerView}>
-            <Image style={ChatStyle.image} source={require('../assets/images/profile.jpg')} />
-            <Text style={ChatStyle.nameText}>Dr.Adam Jordan</Text>
-            <Text style={ChatStyle.status}>Online</Text>
-            <View style={ChatStyle.headerInnerViewIcons}>
-              <Neomorph lightShadowColor="rgba(255,255,255,0.2)" style={ChatStyle.videoCamButtonStyle}>
-                <TouchableOpacity onPress={() => { navigation.navigate('VideoCalling'); storeOpenCam(true); storeCallStatus('Video') }}>
-                  <Ionicons size={wp('5.5')} name="videocam" color={AppColor.primary} />
+        <Neomorph style={ChatStyle.firstMainView} >
+            <View style={ChatStyle.mainViewInnerView}>
+              <View style={ChatStyle.mainViewInnerViewOne}>
+                <TouchableOpacity  onPress={() => navigation.navigate('Dashboard')} style={ChatStyle.backbutton}>
+                  <Ionicons name="chevron-back-sharp" size={wp('6')} color={AppColor.primary} />
                 </TouchableOpacity>
-              </Neomorph>
-              <Neomorph lightShadowColor="rgba(255,255,255,0.1)" style={ChatStyle.callButtonStyle}>
-                <TouchableOpacity onPress={() => { navigation.navigate('VideoCalling'); storeOpenCam(false); storeCallStatus('Audio') }}>
-                  <Ionicons size={wp('5.5')} name="call" color={AppColor.primary} />
-                </TouchableOpacity>
-              </Neomorph>
+              </View>
             </View>
-          </View>
+            <View style={ChatStyle.mainViewInnerViewTwo}>
+              <View style={ChatStyle.mainViewInnerViewTwoInnerView}>
+                <Image style={ChatStyle.image} source={require('../assets/images/profile.jpg')} />
+                  <View style={ChatStyle.mainViewInnerViewTwoInnerViewOne}>
+                    <Text style={[ChatStyle.nameText,{color:'black'}]}>Dr.Adam Jordan</Text>
+                    <Text style={[ChatStyle.status,{color:'black'}]}>Online</Text>
+                  </View>
+                <View style={ChatStyle.headerInnerViewIcons}>
+                  <Neomorph darkShadowColor={AppColor.black} style={ChatStyle.videoCamButtonStyle}>
+                    <TouchableOpacity onPress={() => { navigation.navigate('VideoCalling'); storeOpenCam(true); storeCallStatus('Video') }}>
+                      <Ionicons size={wp('5.5')} name="videocam" color={AppColor.primary} />
+                    </TouchableOpacity>
+                  </Neomorph>
+                  <Neomorph darkShadowColor={AppColor.black} style={ChatStyle.callButtonStyle}>
+                    <TouchableOpacity onPress={() => { navigation.navigate('VideoCalling'); storeOpenCam(false); storeCallStatus('Audio') }}>
+                      <Ionicons size={wp('5.5')} name="call" color={AppColor.primary} />
+                    </TouchableOpacity>
+                  </Neomorph>
+                </View>
+              </View>
+            </View>
+          </Neomorph>
+          <Neomorph style={ChatStyle.secondMainView}>
           <View style={ChatStyle.messageContainerView}>
             <View style={ChatStyle.sendMessageContainerHeaderTextView}>
               <Text style={ChatStyle.sendMessageContainerHeaderTextStyle}>Today</Text>
+              </View>
+                  <ScrollView>
+                    <FlatList
+                      data={allChats}
+                      renderItem={({item}) => {
+                        if (item.sender_id == 1) {
+                          return <RightChatCard item={item} />;
+                        } else {
+                          return <LeftChatCard item={item} />;
+                        }
+                      }}
+                    />
+                </ScrollView>
             </View>
-            <FlatList
-              data={allChats}
-              renderItem={({item}) => {
-                if (item.sender_id == 1) {
-                  return <RightChatCard item={item} />;
-                } else {
-                  return <LeftChatCard item={item} />;
-                }
-              }}
-            />
-          </View>
           <View style={ChatStyle.sendMessageContainerView}>
             <Neomorph inner style={ChatStyle.sendMessageContainerStyle}>
               <TextInput style={ChatStyle.sendMessageContainerTextStyle}  placeholder="Write your Message"/>
@@ -101,7 +111,8 @@ const Chat = () => {
               </View>
             </TouchableOpacity>
           </View>
-        </View>
+        {/* </View> */}
+        </Neomorph>
       </ScrollView>
     </SafeAreaView>
   );

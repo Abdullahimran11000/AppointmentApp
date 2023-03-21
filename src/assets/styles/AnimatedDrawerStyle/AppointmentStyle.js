@@ -19,7 +19,8 @@ const AppointmentStyle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 10,
-    marginVertical: wp('10')
+    marginVertical: wp('10'),
+    flex:9
   },
 
   opacityButton: {

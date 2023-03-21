@@ -1,4 +1,4 @@
-import React, {useState , useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
@@ -17,6 +17,7 @@ import BackButton from '../components/ScrennHeader/BackButton';
 import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 import {LoginStyle} from '../assets/styles/AuthStyle/LoginStyle';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const LogIn = ({navigation}) => {
   const [eye, setEye] = useState(false);
@@ -49,20 +50,25 @@ const LogIn = ({navigation}) => {
     }
   };
 
+  const ast = {
+    asterik:<Text style={{color:'red'}}>{'*'}</Text>
+  }
+
   useEffect(() => {
     navigation.addListener('focus', () => {
       console.log('LogIn screen is focusing right now!');
     });
   }, []);
   return (
-    <SafeAreaView
-      style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
-      <ScrollView>
+    <SafeAreaView style={{backgroundColor: AppColor.whiteShade, height: hp('100'),flex:10}}>
+      <View style={{flex:0.1}}></View>
+          <View style={{flex:0.6}}>
+            <Text style={LoginStyle.headerView}> Log in </Text>
+          </View>
         <View styles={LoginStyle.MainView}>
-          <Text style={LoginStyle.headerView}> Log in </Text>
           <View style={LoginStyle.inputFieldsView}>
             <View>
-              <Text style={LoginStyle.TextStyle}>Email address </Text>
+              <Text style={LoginStyle.TextStyle}>Email address {ast.asterik}</Text>
               <NeoTextInput
                 width={wp('90')}
                 marginBottom={wp('5')}
@@ -86,37 +92,49 @@ const LogIn = ({navigation}) => {
               </Text>
             ) : null}
             <View>
-              <Text style={LoginStyle.TextStyle}>Password</Text>
+              <Text style={LoginStyle.TextStyle}>Password {ast.asterik}</Text>
               <NeoTextInput
                 width={wp('90')}
                 marginBottom={wp('5')}
                 placeholder={'Enter your password'}
-                secureTextEntry={true}
+                secureTextEntry={eye}
                 onChangeText={text => {
                   setPasswordText(text);
                 }}
               />
-              <TouchableOpacity style={LoginStyle.iconOpacity}>
-                <Icon name="eye-slash" size={15} />
+              <TouchableOpacity
+            style={LoginStyle.iconOpacity}
+            onPress={() => {
+              if (eye === true) {
+                setEye(false);
+              } else {
+                setEye(true);
+              }
+            }}>
+            {!eye ? (
+              <Icon name="eye-slash" size={wp('4.5')} color={AppColor.black}/>
+            ) : (
+              <Entypo name="eye" size={wp('4.5')} color={AppColor.black} />
+            )}
               </TouchableOpacity>
             </View>
             {passwordValidator ? (
               <Text
-                style={{
-                  fontFamily: 'Poppins-Light',
-                  fontSize: wp('3'),
-                  color: AppColor.red,
-                  width: wp('90'),
-                  alignSelf: 'center',
-                }}>
-                {passwordLabelText}
-              </Text>
-            ) : null}
+                    style={{
+                      fontFamily: 'Poppins-Light',
+                      fontSize: wp('3'),
+                      color: AppColor.red,
+                      width: wp('90'),
+                      alignSelf: 'center',
+                    }}>
+                    {passwordLabelText}
+                  </Text>
+                ) : null}
           </View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('ForgotPassword')}>
-            <Text style={LoginStyle.ForgotText}>Forgot Password?</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ForgotPassword')}>
+              <Text style={LoginStyle.ForgotText}>Forgot Password?</Text>
+            </TouchableOpacity>
           <View style={LoginStyle.MainLoginButtonView}>
             <NeoButton
               width={wp('87 ')}
@@ -150,13 +168,11 @@ const LogIn = ({navigation}) => {
           </View>
           <View style={LoginStyle.LastView}>
             <Text>Don't have an account? </Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SignUp')}>
+            <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
               <Text style={LoginStyle.SignUpText}>Sign Up</Text>
             </TouchableOpacity>
           </View>
         </View>
-      </ScrollView>
     </SafeAreaView>
   );
 };

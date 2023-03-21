@@ -22,6 +22,7 @@ import CustomModal1 from '../components/Modal/CustomModal';
 import {AppColor} from '../assets/colors/AppColor';
 
 const RecoverPassword = ({navigation}) => {
+  
   const [eye, setEye] = useState(false);
   // const navigation = useNavigation();
   const [showInstructionModal, setShowInstructionModal] = useState(false);
@@ -44,7 +45,6 @@ const RecoverPassword = ({navigation}) => {
     if (newPasswordInputText === '') 
     {
       setPasswordLabel(AppColor.red);
-      // setConfirmPasswordLabel(AppColor.red);
     } 
     else if (confirmPasswordInputText === '') 
     {
@@ -81,6 +81,13 @@ const RecoverPassword = ({navigation}) => {
     }
   };
 
+  // For Asterik
+
+  const ast = {
+    asterik:<Text style={{color:'red'}}>{'*'}</Text>
+  }
+
+
   useEffect(() => {
     navigation.addListener('focus', () => {
       console.log('Recover Password screen is focusing right now!');
@@ -88,23 +95,26 @@ const RecoverPassword = ({navigation}) => {
   }, []);
   return (
     <SafeAreaView style={RecoverPasswordStyle.mainView}>
-      <ScrollView>
+      <View style={{flex:1}}>
         <BackButton
           onPress={() => {
             navigation.goBack();
           }}>
           {'Recovery Password'}
         </BackButton>
+      </View>  
+      <ScrollView style={{height:hp('90')}}>
+        <View style={{flex:9}}>
         <Lottie
           style={RecoverPasswordStyle.animationStyle}
           source={require('../assets/animations/appIntroRecover.json')}
-          autoPlay
+          loop autoPlay
         />
-        <Text style={RecoverPasswordStyle.tagText}>Create new password</Text>
+        <Text style={RecoverPasswordStyle.tagText}>Create new password </Text>
         <Text style={RecoverPasswordStyle.paraText}>
           Please enter your email address to recover your forgoton password
         </Text>
-        <Text style={RecoverPasswordStyle.labelText1}>New Password</Text>
+        <Text style={RecoverPasswordStyle.labelText1}>New Password {ast.asterik}</Text>
         <NeoTextInput
           value={newPasswordInputText}
           reference={passwordRef}
@@ -134,13 +144,12 @@ const RecoverPassword = ({navigation}) => {
             )}
           </TouchableOpacity>
         </NeoTextInput>
-        <Text style={RecoverPasswordStyle.labelText1}>Confirm Password</Text>
+        <Text style={RecoverPasswordStyle.labelText1}>Confirm Password {ast.asterik}</Text>
         <NeoTextInput
           value={confirmPasswordInputText}
           reference={confirmRef}
           placeholder={'Confirm your password'}
           placeholderTextColor={confirmPasswordLabel}
-          secureTextEntry={!eye}
           keyboardType={'ascii-capable'}
           onChangeText={text => {
             setConfirmPasswordInputText(text);
@@ -161,6 +170,10 @@ const RecoverPassword = ({navigation}) => {
             <Text style={RecoverPasswordStyle.touchableText}>Save</Text>
           </NeoButton>
         </TouchableOpacity>
+        </View>
+
+        {/* Modal */}
+
         <CustomModal
           isVisible={showPasswordMessageInModal}
           onBackdropPress={() => {
@@ -185,6 +198,7 @@ const RecoverPassword = ({navigation}) => {
           }
           buttonText={passwordLength ? 'Close' : 'Login'}
         />
+        
         <CustomModal1
           isVisible={showInstructionModal}
           onBackdropPress={() => {

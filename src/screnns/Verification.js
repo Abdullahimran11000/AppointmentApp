@@ -15,7 +15,7 @@ import Lottie from 'lottie-react-native';
 import {VerificationStyle} from '../assets/styles/AuthStyle/VerificationStyle';
 import BackButton from '../components/ScrennHeader/BackButton';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
-import { AppColor } from '../assets/colors/AppColor';
+import {AppColor} from '../assets/colors/AppColor';
 import CustomModal from '../components/Modal/CustomModal';
 const Verification = ({navigation}) => {
   const firstTextInputRef = useRef(null);
@@ -59,19 +59,25 @@ const Verification = ({navigation}) => {
     }
   };
 
+  const ast = {
+    asterik:<Text style={{color:'red'}}>{'*'}</Text>
+  }
+
   useEffect(() => {
-    firstTextInputRef.current.focus()
+    firstTextInputRef.current.focus();
     navigation.addListener('focus', () => {
       console.log('Verification screen is focusing right now!');
     });
   }, [navigation]);
   return (
     <SafeAreaView style={VerificationStyle.mainView}>
-      <BackButton onPress={() => navigation.goBack()}>
-        {'Verification'}
-      </BackButton>
-      <ScrollView>
-        <View>
+      <View style={{flex: 1}}>
+        <BackButton onPress={() => navigation.goBack()}>
+          {'Verification'}
+        </BackButton>
+      </View>
+      <ScrollView style={{height: hp('80')}}>
+        <View style={{flex: 9}}>
           <View style={VerificationStyle.animationView}>
             <Lottie
               style={VerificationStyle.animationStyle}
@@ -80,7 +86,7 @@ const Verification = ({navigation}) => {
             />
           </View>
           <View style={VerificationStyle.tagView}>
-            <Text style={VerificationStyle.tagText}>OTP</Text>
+            <Text style={VerificationStyle.tagText}>OTP {ast.asterik}</Text>
           </View>
           <View style={VerificationStyle.paraView}>
             <Text style={VerificationStyle.paraText}>
@@ -88,79 +94,74 @@ const Verification = ({navigation}) => {
             </Text>
           </View>
           <View style={VerificationStyle.textView}>
-            <View>
-              <TextInput
-                value={firstTextInput}
-                ref={firstTextInputRef}
-                style={VerificationStyle.newInputs}
-                autoFocus={true}
-                maxLength={1}
-                keyboardType={'numeric'}
-                returnKeyType={'next'}
-                onChangeText={value => {
-                  if (value) {
-                    secondTextInputRef.current.focus();
-                  }
-                  setFirstTextInput(value);
-                }}
-                blurOnSubmit={false}
-              />
-            </View>
-            <View>
-              <TextInput
-                value={secondTextInput}
-                style={VerificationStyle.newInputs}
-                maxLength={1}
-                keyboardType={'numeric'}
-                ref={secondTextInputRef}
-                returnKeyType={'next'}
-                onChangeText={value => {
-                  if (value.length == 0) {
-                    firstTextInputRef.current.focus();
-                  } else {
-                    thirdTextInputRef.current.focus();
-                  }
-                  setSecondTextInput(value);
-                }}
-                blurOnSubmit={false}
-              />
-            </View>
-            <View>
-              <TextInput
-                value={thirdTextInput}
-                style={VerificationStyle.newInputs}
-                maxLength={1}
-                keyboardType={'numeric'}
-                ref={thirdTextInputRef}
-                returnKeyType={'next'}
-                onChangeText={value => {
-                  if (value.length == 0) {
-                    secondTextInputRef.current.focus();
-                  } else {
-                    fourthTextInputRef.current.focus();
-                  }
-                  setThirdTextInput(value);
-                }}
-                blurOnSubmit={false}
-              />
-            </View>
-            <View>
-              <TextInput
-                value={fourthTextInput}
-                style={VerificationStyle.newInputs}
-                maxLength={1}
-                keyboardType={'numeric'}
-                ref={fourthTextInputRef}
-                returnKeyType="go"
-                onChangeText={value => {
-                  if (value.length == 0) {
-                    thirdTextInputRef.current.focus();
-                  }
-                  setFourthTextInput(value);
-                }}
-                onEndEditing={submitHandler}
-              />
-            </View>
+            <TextInput
+              value={firstTextInput}
+              ref={firstTextInputRef}
+              style={VerificationStyle.newInputs}
+              autoFocus={true}
+              maxLength={1}
+              keyboardType={'numeric'}
+              returnKeyType={'next'}
+              onChangeText={value => {
+                if (value) {
+                  secondTextInputRef.current.focus();
+                }
+                setFirstTextInput(value);
+              }}
+              blurOnSubmit={false}
+            />
+
+            <TextInput
+              value={secondTextInput}
+              style={VerificationStyle.newInputs}
+              maxLength={1}
+              keyboardType={'numeric'}
+              ref={secondTextInputRef}
+              returnKeyType={'next'}
+              onChangeText={value => {
+                if (value.length == 0) {
+                  firstTextInputRef.current.focus();
+                } else {
+                  thirdTextInputRef.current.focus();
+                }
+                setSecondTextInput(value);
+              }}
+              blurOnSubmit={false}
+            />
+
+            <TextInput
+              value={thirdTextInput}
+              style={VerificationStyle.newInputs}
+              maxLength={1}
+              keyboardType={'numeric'}
+              ref={thirdTextInputRef}
+              returnKeyType={'next'}
+              onChangeText={value => {
+                if (value.length == 0) {
+                  secondTextInputRef.current.focus();
+                } else {
+                  fourthTextInputRef.current.focus();
+                }
+                setThirdTextInput(value);
+              }}
+              blurOnSubmit={false}
+            />
+
+            <TextInput
+              value={fourthTextInput}
+              style={VerificationStyle.newInputs}
+              maxLength={1}
+              keyboardType={'numeric'}
+              ref={fourthTextInputRef}
+              returnKeyType="go"
+              onChangeText={value => {
+                if (value.length == 0) {
+                  thirdTextInputRef.current.focus();
+                }
+                setFourthTextInput(value);
+              }}
+              onEndEditing={submitHandler}
+            />
           </View>
           {firstTextInputValidator ? (
             <View style={VerificationStyle.viewOne}>

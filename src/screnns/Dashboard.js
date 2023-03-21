@@ -154,8 +154,7 @@ const Dashboard = ({pressHandler}) => {
   }, []);
 
   return (
-    <ScrollView style={DashboardStyle.scrollViewStyle}>
-      <SafeAreaView>
+      <SafeAreaView style={{flex:10}}>
         <ScrollView>
           <View style={DashboardStyle.headCont}>
             <View style={DashboardStyle.headContInnerCont}>
@@ -203,6 +202,7 @@ const Dashboard = ({pressHandler}) => {
             </View>
           </View>
 
+          <View style={{flex:9}}>
           <SearchBar />
 
           <Neomorph
@@ -293,7 +293,7 @@ const Dashboard = ({pressHandler}) => {
           <View style={DashboardStyle.doctorsView}>
             <DoctorsFlatList horizontal={true} marginRight={wp('5')} />
           </View>
-
+          </View>
           {/* <Modal isVisible={categoriesModalOpen}>
             <SafeAreaView style={DoctorDepartmentStyle.mainView}>
               <View>
@@ -327,7 +327,7 @@ const Dashboard = ({pressHandler}) => {
           </Modal> */}
         </ScrollView>
       </SafeAreaView>
-    </ScrollView>
+    
   );
 };
 

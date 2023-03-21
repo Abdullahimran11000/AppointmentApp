@@ -12,6 +12,7 @@ import {NotificationStyle} from '../assets/styles/AnimatedDrawerStyle/Notificati
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Neomorph } from 'react-native-neomorph-shadows';
 import { widthPercentageToDP as wp , heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import allNotifications from '../components/Notifications/Notifications' 
 const Notifications = props => {
   const [show, setShow] = useState(true);
 
@@ -50,31 +51,10 @@ const Notifications = props => {
     },
   ];
 
-  const renderItem = ({item}) => {
-    return (
-        <Neomorph style={NotificationStyle.innerItems}>
-          <TouchableOpacity style={NotificationStyle.headContImageCont} onPress={props.onPress}>
-            <item.iconprovider style={NotificationStyle.iconstyle} name={item.iconname} size={wp('6')} />
-            <View style={NotificationStyle.headContMiddleCont}>
-              <View style={NotificationStyle.middleInnerFirstCont}>
-                <Text style={NotificationStyle.middleInnerContFirstHeading}>
-                  {item.title}
-                </Text>
-              </View>
-              <View style={NotificationStyle.middleInnerSecondCont}>
-                <Text style={NotificationStyle.middleInnerContSecondHeading} >
-                  {item.time}
-                </Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-        </Neomorph>
-    );
-  };
-
   return (
-    <SafeAreaView>
-      <View style={NotificationStyle.mainView}>
+    <SafeAreaView style={{flex:10}}>
+      <View style={{flex:0.1}}></View>
+      <View style={[NotificationStyle.mainView,{flex:9.9}]}>
         <View style={NotificationStyle.headerMainView}>
           <Neomorph style={NotificationStyle.header}>
               <TouchableOpacity onPress={() => props.navigation.goBack()} style={NotificationStyle.headerbackButton}>
@@ -94,7 +74,7 @@ const Notifications = props => {
             </TouchableOpacity>
           </View>
           {show ? (
-            <FlatList data={TodayData} renderItem={renderItem} keyExtractor={item => item.id}> 
+            <FlatList data={TodayData} renderItem={allNotifications} keyExtractor={item => item.id}> 
             </FlatList>
           ) : (
             ''
@@ -110,7 +90,7 @@ const Notifications = props => {
               <Text style={NotificationStyle.renderItemHeaderFontSecondTextStyle}> Mark all as read </Text>
             </TouchableOpacity>
           </View>
-          <FlatList data={TodayData} renderItem={renderItem} keyExtractor={item => item.id}>
+          <FlatList data={TodayData} renderItem={allNotifications} keyExtractor={item => item.id}>
           </FlatList>
         </View>
       </View>
