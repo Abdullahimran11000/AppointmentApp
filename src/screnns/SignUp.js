@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState , useEffect} from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Checkbox} from 'react-native-paper';
 import {SafeAreaView,View,Text,Image,ScrollView,TouchableOpacity,} from 'react-native';
 import BackButton from '../components/ScrennHeader/BackButton';
@@ -82,55 +81,54 @@ const SignUp = ({navigation}) => {
     }
     
   }
+
+  const ast = {
+    asterik:<Text style={{color:'red'}}>{'*'}</Text>
+  }
+
+  const policy = {
+    terms:<Text style={{fontFamily:'Poppins-SemiBold'}}>terms</Text>,
+    privacy:<Text style={{fontFamily:'Poppins-SemiBold'}}>Privacy</Text>,
+    LogIn:  <TouchableOpacity style={{backgroundColor:'red',flexDirection:'row'}} onPress={() => navigation.goBack()}>
+                <Text style={SignUpStyle.loginText}>Log in</Text>
+            </TouchableOpacity> 
+           
+  }
+
+
   useEffect(() => {
     navigation.addListener('focus', () => {
       console.log('SignUp screen is focusing right now!');
     });
   }, []);
   return (
-    <ScrollView>
-      <SafeAreaView style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
+        <SafeAreaView style={{backgroundColor: AppColor.whiteShade,flex:10}}>
+        <ScrollView>
+        <View style={{flex:1}}>
+          <BackButton onPress={() => props.navigation.goBack()}>{'Sign Up'}</BackButton>
+        </View>
         <View style={SignUpStyle.mainView}>
-          <BackButton onPress={() => props.navigation.goBack()}>
-            {'Sign Up'}
-          </BackButton>
-          <View style={[SignUpStyle.views,{marginTop:hp(5)}]}>
-            <Text style={SignUpStyle.text}>Fullname</Text>
-            <NeoTextInput width={wp('90')} keyboardType={'default'} placeholder={'Enter Your Name'} 
-                          onChangeText={text => {setNameText(text)}}/>
-                          </View>
+          <View style={SignUpStyle.views}>
+            <Text style={SignUpStyle.text}>Fullname {ast.asterik}</Text>
+            <NeoTextInput width={wp('90')} keyboardType={'default'} placeholder={'Enter Your Name'} onChangeText={text => {setNameText(text)}}/>
+          </View>
           {nameValidator ? 
-           <Text
-           style={{
-             fontFamily: 'Poppins-Light',
-             fontSize: wp('3'),
-             color: AppColor.red,
-             width: wp('90'),
-             alignSelf: 'center',
-           }}>
-           {nameLabel}
-         </Text> : null}
+           <Text style={SignUpStyle.ValidatorStyle}>
+              {nameLabel}
+           </Text> : null}
           
           <View style={SignUpStyle.views}>
-            <Text style={SignUpStyle.text}>Email</Text>
-            <NeoTextInput width={wp('90')} keyboardType={'email-address'} placeholder={'Enter your Email'}
-            onChangeText={text => {setEmailText(text)}}/>
+            <Text style={SignUpStyle.text}>Email {ast.asterik}</Text>
+            <NeoTextInput width={wp('90')} keyboardType={'email-address'} placeholder={'Enter your Email'} onChangeText={text => {setEmailText(text)}}/>
           </View>
           {emailValidator ? 
             <Text
-              style={{
-                fontFamily: 'Poppins-Light',
-                fontSize: wp('3'),
-                color: AppColor.red,
-                width: wp('90'),
-                alignSelf: 'center',
-              }}>
+              style={SignUpStyle.ValidatorStyle}>
             {emailLabel}
           </Text> : null}
           <View style={SignUpStyle.views}>
-            <Text style={SignUpStyle.text}>Password</Text>
-            <NeoTextInput width={wp('90')} keyboardType={'default'} secureTextEntry={true} placeholder={'Enter your Password'} 
-                           onChangeText={text => {setPasswordText(text)}}/>
+            <Text style={SignUpStyle.text}>Password {ast.asterik}</Text>
+            <NeoTextInput width={wp('90')} keyboardType={'default'} secureTextEntry={true} placeholder={'Enter your Password'} onChangeText={text => {setPasswordText(text)}}/>
             <TouchableOpacity style={SignUpStyle.icon}  onPress={() => {
               if (eye === true) {
                 setEye(false);
@@ -142,26 +140,19 @@ const SignUp = ({navigation}) => {
               <Entypo
                 name="eye-with-line"
                 size={wp('4.5')}
-                color="black"
+                color={AppColor.black}
               />
             ) : (
-              <Entypo name="eye" size={wp('4.5')} color="black" />
+              <Entypo name="eye" size={wp('4.5')} color={AppColor.black} />
             )}
             </TouchableOpacity>
           </View>
           {passwordValidator ? 
-            <Text
-              style={{
-                fontFamily: 'Poppins-Light',
-                fontSize: wp('3'),
-                color: AppColor.red,
-                width: wp('90'),
-                alignSelf: 'center',
-              }}>
-            {passwordLabel}
-          </Text> : null}
+            <Text style={SignUpStyle.ValidatorStyle}>
+              {passwordLabel}
+            </Text> : null}
           
-          <View style={{marginLeft: wp(6), marginTop: hp(3)}}>
+          <View style={{width:wp(95),alignSelf:'center',marginTop:hp(2)}}>
             <TouchableOpacity onPress={() => {
               if(checkbox == true){
                 setCheckBox(false)
@@ -171,15 +162,11 @@ const SignUp = ({navigation}) => {
               }  }}>
             {!checkbox ? (
               <Checkbox status="unchecked"/>
-
             ) : (
-              <Checkbox status="checked" color="#c28cde" />
+              <Checkbox status="checked" color={AppColor.primary} />
               )}
             </TouchableOpacity>
-              <Text style={SignUpStyle.termsAndPrivacyStyle1}>I agree with</Text>
-              <Text style={SignUpStyle.termsAndPrivacyStyle2}>terms</Text>
-              <Text style={SignUpStyle.termsAndPrivacyStyle3}>and</Text>
-              <Text style={SignUpStyle.termsAndPrivacyStyle4}>privacy</Text>
+              <Text style={SignUpStyle.termsAndPrivacyStyle}>I agree with {policy.terms} & {policy.privacy}</Text>
           </View>
           {/* {checkboxValidator ?  
           <Text
@@ -212,10 +199,7 @@ const SignUp = ({navigation}) => {
             </TouchableOpacity>
           </View>
           <View style={SignUpStyle.footerView}>
-            <Text style={SignUpStyle.footerText}>Already have an Account?</Text>
-            <TouchableOpacity style={SignUpStyle.loginButton} onPress={() => navigation.goBack()}>
-              <Text style={SignUpStyle.loginText}>Log in</Text>
-            </TouchableOpacity>
+            <Text style={SignUpStyle.footerText}>Already have an Account? {policy.LogIn}</Text>
           </View>
         </View>
         <CustomModal
@@ -229,8 +213,8 @@ const SignUp = ({navigation}) => {
           style={{marginTop: wp(10)}}
           buttonText={'Go to LogIn'}
         />
-      </SafeAreaView>
     </ScrollView>
+      </SafeAreaView>
   );
 };
 

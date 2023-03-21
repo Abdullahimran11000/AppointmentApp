@@ -4,7 +4,7 @@ import { AppColor } from '../../colors/AppColor';
 
 const MessageStyle = StyleSheet.create({
 
-    mainView: {backgroundColor: AppColor.whiteShade, height: hp('100')},
+    mainView: {backgroundColor: AppColor.whiteShade, height: hp('100'),flex:10},
     cardView: {height: hp('14')},
     headCont: {width: wp('90'), height: hp('10'), marginTop: wp('4'), marginLeft: wp('4'), marginRight: wp('4'), alignSelf: 'center', backgroundColor: AppColor.whiteShade, borderRadius: wp('4'), shadowRadius: 4},
     headContInnerCont: {display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'},
@@ -19,7 +19,7 @@ const MessageStyle = StyleSheet.create({
     headContLastContText: {fontFamily: "Poppins-Light", fontSize: wp('3'), color: 'grey'},
     rightButtonsViews: {width: wp('15'), height: hp('10'), borderRadius: wp('4'), backgroundColor: AppColor.whiteShade, marginTop: wp('4'), marginBottom: wp('1'), justifyContent: 'center', shadowRadius: 4},
     rightButtonIcons: {alignSelf: 'center', color: "rgba(247, 25, 25,0.4)"},
-    flatListView: {marginTop: wp('5')},
+    flatListView: {marginTop: wp('5'),flex:9.5},
 })
 
 export {MessageStyle}

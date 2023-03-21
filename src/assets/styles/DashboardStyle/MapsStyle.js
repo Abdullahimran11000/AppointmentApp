@@ -3,7 +3,7 @@ import { widthPercentageToDP as wp  , heightPercentageToDP as hp} from 'react-na
 import { AppColor } from '../../colors/AppColor';
 
 const MapsStyle = StyleSheet.create({
-    mainView:{width: wp('100'), height: hp('100'), alignSelf: 'center'},
+    mainView:{width: wp('100'), height: hp('100'), alignSelf: 'center',flex:14},
     firstView: {flex: 2, alignSelf: 'center'},
     innerFirstView: {display: 'flex',flexDirection: 'row',backgroundColor: AppColor.whiteShade,width: wp(80),height: hp(7),margin: hp(2.5),alignItems: 'center',borderRadius: wp('10'), shadowRadius:4},
     middleView: {flex: 8,width: wp(100),height: hp(100),alignSelf: 'center',},

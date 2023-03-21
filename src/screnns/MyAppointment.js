@@ -176,11 +176,13 @@ const MyAppointment = () => {
   );
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: AppColor.whiteShade}}>
+    <SafeAreaView style={{flex: 10, backgroundColor: AppColor.whiteShade}}>
       <ScrollView>
-        <BackButton onPress={() => navigation.goBack()}>
-          My Appointment
-        </BackButton>
+        <View style={{flex:1}}>
+          <BackButton onPress={() => navigation.goBack()}>
+            My Appointment
+          </BackButton>
+        </View>
         <View style={AppointmentStyle.opcaityView}>
           <Neomorph
             inner={completeButton}

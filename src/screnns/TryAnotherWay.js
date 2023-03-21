@@ -18,6 +18,7 @@ import NeoButton from '../components/NeoMorphButton/NeoButton';
 import CustomModal from '../components/Modal/CustomModal';
 import {useNavigation} from '@react-navigation/native';
 import {TryAnotherWayStyle} from '../assets/styles/TryAnotherWayStyle';
+import BackButton from '../components/ScrennHeader/BackButton';
 const TryAnotherWay = () => {
   const navigation = useNavigation();
   const [showMessage, setShowMessage] = useState(false);
@@ -42,8 +43,19 @@ const TryAnotherWay = () => {
         setShowMessage(true);
       }
   };
+
+  const ast = {
+    asterik:<Text style={{color:'red'}}>{'*'}</Text>
+  }
+
   return (
-    <SafeAreaView style={{backgroundColor: AppColor.whiteShade, flex: 1}}>
+    <SafeAreaView style={{backgroundColor: AppColor.whiteShade, flex: 10}}>
+      <View style={{flex:1}}>
+      <BackButton onPress={() => navigation.goBack()}>
+            {'Try Another Way'}
+          </BackButton>
+      </View>
+      <View style={{flex:9}}>
       <View style={TryAnotherWayStyle.viewOne}>
         <Neomorph inner style={TryAnotherWayStyle.neomorphOne}>
           <Neomorph style={TryAnotherWayStyle.neomorphThree}>
@@ -58,7 +70,7 @@ const TryAnotherWay = () => {
         </Neomorph>
       </View>
       <View style={TryAnotherWayStyle.viewTwo}>
-        <Text style={TryAnotherWayStyle.text}> Enter Your Phone Number </Text>
+        <Text style={TryAnotherWayStyle.text}> Enter Your Phone Number {ast.asterik}</Text>
       </View>
       <View style={TryAnotherWayStyle.viewThree}>
         <Neomorph style={TryAnotherWayStyle.neomorphTwo}>
@@ -86,6 +98,7 @@ const TryAnotherWay = () => {
             <Text style={TryAnotherWayStyle.textTwo}> Send </Text>
           </NeoButton>
         </TouchableOpacity>
+      </View>
       </View>
       <CustomModal
         isVisible={showMessage}

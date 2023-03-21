@@ -20,7 +20,7 @@ import {AppColor} from '../assets/colors/AppColor';
 import Icon from 'react-native-vector-icons/AntDesign';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
 
-const Schedule = props => {
+const Schedule = ({navigation}) => {
   const [showModal, setShowModal] = useState(false);
   const [color, setColor] = useState('black');
   const [backColor, setBackColor] = useState('#E8E4E4');
@@ -35,7 +35,7 @@ const Schedule = props => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'black', height: hp('100')}}>
+    <SafeAreaView style={{flex: 1, height: hp('100')}}>
       <ScrollView>
         <View style={{backgroundColor: AppColor.whiteShade}}>
           <BackButton onPress={() => props.navigation.goBack()}>Schedule</BackButton>
@@ -144,7 +144,7 @@ const Schedule = props => {
                   <Text style={ScheduleStyle.modalMiddleView2}>Your appointment with Dr. Mazhar Salahudiin moak was made on wednesday,March 22 at 16:02 pm</Text>
                 </View>
                 <View style={ScheduleStyle.modalButtonView}>
-                  <TouchableOpacity onPress={() => setShowModal(false)}>
+                  <TouchableOpacity onPress={() => navigation.navigate('Drawer')} onBackdropPress={() => setShowModal(false)}>
                     <NeoButton width={wp(70)} height={hp(6.5)} backgroundColor={'#c28cde'} borderRadius={30} justifyContent={'center'} alignItems={'center'}>
                       <Text style={ScheduleStyle.modalDoneButton}>Done</Text>
                     </NeoButton>

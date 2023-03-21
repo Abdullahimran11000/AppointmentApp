@@ -14,7 +14,7 @@ const RightChatCard = ({item}) => {
     <View>
       <Neomorph
         style={{
-          left: wp(20),
+          left: wp(21),
           top: hp(4.5),
           backgroundColor: AppColor.whiteShade,
           width: wp(55),

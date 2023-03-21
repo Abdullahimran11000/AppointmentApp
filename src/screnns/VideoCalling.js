@@ -21,8 +21,8 @@ import {useNavigation} from '@react-navigation/native';
 import AppContext from '../assets/context/AppContext';
 import Lottie from 'lottie-react-native';
 
-const VideoCalling = () => {
-  const navigation = useNavigation();
+const VideoCalling = ({navigation}) => {
+  // const navigation = useNavigation();
   const [openMic, setOpenMic] = useState(false);
   const {openCam, storeOpenCam} = useContext(AppContext);
   const {callStatus} = useContext(AppContext);
@@ -33,8 +33,7 @@ const VideoCalling = () => {
     display = 'flex';
   }
   return (
-    <SafeAreaView
-      style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
+    <SafeAreaView style={{backgroundColor: AppColor.whiteShade, height: hp('100')}}>
       <BackButton onPress={() => navigation.goBack()}></BackButton>
 
       <View style={VideoCallingStyle.nameTimeView}>
@@ -92,7 +91,7 @@ const VideoCalling = () => {
             borderRadius={wp('25')}>
             <TouchableOpacity
               onPress={() => {
-                navigation.goBack();
+                navigation.navigate('Chat');
               }}>
               <MaterialIcon
                 style={{color: AppColor.red}}

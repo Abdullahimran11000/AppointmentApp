@@ -76,12 +76,14 @@ const Message = () => {
   };
   return (
     <SafeAreaView style={MessageStyle.mainView}>
+      <View style={{flex:0.5}}>
       <BackButton
         onPress={() => {
           navigation.goBack();
         }}>
         Messages
       </BackButton>
+      </View>
       <View style={MessageStyle.flatListView}>
         <FlatList
           data={messageData}

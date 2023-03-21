@@ -11,12 +11,11 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Lottie from 'lottie-react-native';
-import {PasswordManagementStyle} from '../../assets/styles/AuthStyle/PasswordManagementStyle';
+import {PasswordManagementStyle} from '../assets/styles/AuthStyle/PasswordManagementStyle'
 import Entypo from 'react-native-vector-icons/Entypo';
 import BackButton from '../components/ScrennHeader/BackButton';
-import Icon from 'react-native-vector-icons/Ionicons';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
-import {AppColor} from '../assets/colors/AppColors';
+import { AppColor } from '../assets/colors/AppColor';
 import NeoTextInput from '../components/NeoMorphTextInput/NeoTextInput';
 import CustomModal from '../components/Modal/CustomModal';
 import CustomModal1 from '../components/Modal/CustomModal';
@@ -122,7 +121,7 @@ const PasswordManagement = ({navigation}) => {
             <View style={PasswordManagementStyle.animationView}>
               <Lottie
                 style={PasswordManagementStyle.animationStyle}
-                source={require('../../assets/animations/appIntroRecover.json')}
+                source={require('../assets/animations/appIntroRecover.json')}
                 autoPlay
               />
             </View>
@@ -172,14 +171,6 @@ const PasswordManagement = ({navigation}) => {
               <Text style={PasswordManagementStyle.textViewOne}>
                 New Password
               </Text>
-              {/* <View style={{flex: 5, marginTop: hp(0.3)}}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      setShowInstructionModal(true);
-                    }}>
-                    <Icon name="alert-circle" size={wp('4.5')} color="black" />
-                  </TouchableOpacity>
-                </View> */}
               <NeoTextInput
                 width={wp('90')}
                 value={newPassword}
@@ -286,7 +277,7 @@ const PasswordManagement = ({navigation}) => {
               navigation.goBack('Dashboard');
             }}
             buttonBackgroundColor={AppColor.primary}
-            source={require('../../assets/animations/success.json')}
+            source={require('../assets/animations/success.json')}
             text={'your password has been set'}
             style={{marginTop: wp(10)}}
             buttonText={'Dashboard'}
@@ -300,7 +291,7 @@ const PasswordManagement = ({navigation}) => {
               setShowInstructionModal(false);
             }}
             buttonBackgroundColor={AppColor.primary}
-            source={require('../../assets/animations/Alert.json')}
+            source={require('../assets/animations/Alert.json')}
             text={
               'Your password must have one of the following special character (@ , / , .)'
             }

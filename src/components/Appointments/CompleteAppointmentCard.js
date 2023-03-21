@@ -28,19 +28,17 @@ const CompleteAppointmentCard = ({item, onPress}) => {
       style={{
         width: wp(95),
         height: showButton ? hp(33) : hp(25),
-        margin: 10,
-        marginTop: 2,
+        margin: wp(2.5),
         borderRadius: 30,
-        backgroundColor: 'rgba(0,0,0,0.02)',
+        backgroundColor: AppColor.white,
       }}>
       <View
         style={{
           borderRadius: wp('10'),
-
           width: wp('20'),
           height: wp('20'),
-          marginLeft: 20,
-          marginTop: 20,
+          marginLeft: wp(5),
+          marginTop: hp(3),
           alignItems: 'center',
           justifyContent: 'center',
         }}>
@@ -77,13 +75,13 @@ const CompleteAppointmentCard = ({item, onPress}) => {
       </View>
 
       <View style={AppointmentStyle.secondFooterView}>
-        <Icon size={12} name="calendar"></Icon>
+        <Icon size={wp(3.5)} name="calendar"></Icon>
         <Text style={AppointmentStyle.secondDoctorText}>{item.date}</Text>
 
-        <Icon size={12} name="clock-o"></Icon>
+        <Icon size={wp(3.6)} name="clock-o"></Icon>
         <Text style={AppointmentStyle.secondDoctorText}>{item.time}</Text>
 
-        <Icon size={12} name="wechat"></Icon>
+        <Icon size={wp(3.5)} name="wechat"></Icon>
         <TouchableOpacity onPress={onPress}>
           <Text style={AppointmentStyle.secondDoctorText}>
             {item.appDestination}

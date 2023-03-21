@@ -7,7 +7,7 @@ import { AppColor } from '../../colors/AppColor';
 
 
 const RecoverPasswordStyle = StyleSheet.create({
-  mainView: {backgroundColor: AppColor.whiteShade, flex: 1, alignItems: 'center', justifyContent: 'center'},
+  mainView: {backgroundColor: AppColor.whiteShade, flex: 10, alignItems: 'center', justifyContent: 'center'},
   animationView: {alignItems: 'center'},
   animationStyle: {width: wp('90'), height: hp('35'), alignSelf: 'center'},
   tagText: {fontFamily: 'Poppins-SemiBold', fontSize: wp('4.5'), color: AppColor.black , textAlign:'center'},

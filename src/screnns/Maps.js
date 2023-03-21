@@ -19,7 +19,7 @@ import {AppColor} from '../assets/colors/AppColor';
 const Maps = props => {
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView >
         <MapView style={styles.map}
           initialRegion={{
             latitude: 32.166351,
