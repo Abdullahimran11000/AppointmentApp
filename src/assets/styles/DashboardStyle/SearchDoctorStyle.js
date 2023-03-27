@@ -19,7 +19,6 @@ const SearchDoctorStyle = StyleSheet.create({
     fontFamily: 'Poppins-Medium',
     fontSize: wp('4'),
     color: AppColor.blackOpacity4,
-    marginBottom: wp('-1.5'),
   },
 
   ModalStyle: {
@@ -37,7 +36,6 @@ const SearchDoctorStyle = StyleSheet.create({
 
   ModalText: {
     margin: wp('5'),
-    marginBottom: wp('3'),
     fontFamily: 'Poppins-SemiBold',
     color: AppColor.black,
   },
@@ -69,7 +67,6 @@ const SearchDoctorStyle = StyleSheet.create({
 
   ConsultationText: {
     margin: wp('5'),
-    marginLeft: wp('10'),
     marginBottom: wp('3'),
     fontFamily: 'Poppins-SemiBold',
     color: AppColor.black,
@@ -78,7 +75,6 @@ const SearchDoctorStyle = StyleSheet.create({
   SelectPriceListBoxStyle: {
     borderRadius: wp('4'),
     width: wp('81.5'),
-    marginLeft: wp('4'),
     borderColor: AppColor.white,
     backgroundColor: AppColor.white,
   },
