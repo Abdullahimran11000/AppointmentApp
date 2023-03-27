@@ -21,10 +21,10 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 const LogIn = ({navigation}) => {
   const [eye, setEye] = useState(false);
-  const [emailText, setEmailText] = useState('');
+  const [emailText, setEmailText] = useState('asnan123@gmail.com');
   const [emailLabelText, setEmailLabelText] = useState('');
   const [checkEmailTextValid, setCheckEmailTextValid] = useState(false);
-  const [passwordText, setPasswordText] = useState('');
+  const [passwordText, setPasswordText] = useState('abdullah@');
   const [passwordLabelText, setPasswordLabelText] = useState('');
   const [passwordValidator, setPasswordValidator] = useState(false);
 

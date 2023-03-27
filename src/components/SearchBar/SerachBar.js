@@ -110,21 +110,6 @@ const SearchBar = () => {
                 data={yearsOfExperienceFromContext}
               />
             </View>
-            <View style={SearchDoctorStyle.DoneButtonView}>
-              <NeoButton
-                width={wp('60')}
-                height={hp('7.7')}
-                backgroundColor={'rgba(240, 122, 199,0.7)'}
-                borderRadius={wp('5')}>
-                <TouchableOpacity style={SearchDoctorStyle.DoneButtonStyle}>
-                  <View style={SearchDoctorStyle.DoneButtonTextView}>
-                    <Text style={SearchDoctorStyle.DoneButtonTextStyle}>
-                      Done
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              </NeoButton>
-            </View>
             <View style={{marginHorizontal: wp('5')}}>
               <Text style={SearchDoctorStyle.ModalText}>
                 Consultation Price

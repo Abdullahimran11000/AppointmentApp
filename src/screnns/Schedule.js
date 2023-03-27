@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from 'react-native';
 import {
   heightPercentageToDP as hp,
@@ -19,107 +20,81 @@ import BackButton from '../components/ScrennHeader/BackButton';
 import {AppColor} from '../assets/colors/AppColor';
 import Icon from 'react-native-vector-icons/AntDesign';
 import NeoButton from '../components/NeoMorphButton/NeoButton';
+import TimingFlatList from '../components/TimingFlatList/TimingFlatList';
+import moment from 'moment';
 
 const Schedule = ({navigation}) => {
-  const [showModal, setShowModal] = useState(false);
-  const [color, setColor] = useState('black');
-  const [backColor, setBackColor] = useState('#E8E4E4');
-  const colorHandler = () => {
-    if (color === 'black' && backColor === '#E8E4E4') {
-      setColor('white');
-      setBackColor('#F9947F');
-    } else {
-      setColor('black');
-      setBackColor('#E8E4E4');
-    }
-  };
+  const timingData = [
+    { id: 1, start_time:'8:00 am', end_time:'8:20 am'},
+    { id: 2, start_time:'8:00 am', end_time:'8:20 am'},
+    { id: 3, start_time:'8:00 am', end_time:'8:20 am'},
+    { id: 4, start_time:'8:00 am', end_time:'8:20 am'},
+    { id: 5, start_time:'8:00 am', end_time:'8:20 am'},
+    { id: 5, start_time:'8:00 am', end_time:'8:20 am'},
+    { id: 5, start_time:'8:00 am', end_time:'8:20 am'},
+]
 
+  // const appointmentDetailData = [
+  //   { id: 1, appointmentData:'Hospital'},
+  //   { id: 2, appointmentData:'Chat'},
+  //   { id: 3, appointmentData:'Call'},
+  //   { id: 4, appointmentData:'Video Call'},
+  // ]
+  const [showModal, setShowModal] = useState(false);
+  // const [selectedDate, setSelectedDate] = useState();
+
+  // const selectedCalenderDate = (date) => {
+  //    setSelectedDate(moment(date).format('DD MMMM YYYY'))
+  // }
   return (
-    <SafeAreaView style={{flex: 1, height: hp('100')}}>
+    <SafeAreaView style={{flex: 1, height: hp('100'),backgroundColor: AppColor.whiteShade,flex:10}}>
       <ScrollView>
-        <View style={{backgroundColor: AppColor.whiteShade}}>
-          <BackButton onPress={() => props.navigation.goBack()}>Schedule</BackButton>
+        <View style={{flex:1}}>
+          <BackButton onPress={() => navigation.goBack()}>Schedule</BackButton>
+        </View>
+        <View style={{flex:9}}>
           <View style={ScheduleStyle.calenderView}>
             <CalendarPicker dayShape="circle" selectedDayTextColor="white"
               textStyle={{fontFamily: 'Poppins-Light',}}
-              customDatesStyles={{fontFamily: 'Poppins-Medium',}}
+              customDatesStyles={{fontFamily: 'Poppins-Medium'}}
               selectedDayColor={'#c8a7f2'}
               showDayStragglers={true}
               scrollable={true}
-              monthTitleStyle={{ fontFamily: 'Poppins-SemiBold', fontSize: 17,}}
+              monthTitleStyle={{ fontFamily: 'Poppins-SemiBold', fontSize: wp(5),}}
               yearTitleStyle={{fontFamily: 'Poppins-SemiBold',}}
               nextTitle={<Icon name="forward" size={wp('6')} />}
-              nextTitleStyle={{color: AppColor.railBorderColor,}}
+              nextTitleStyle={{color: AppColor.primary,}}
               previousTitle={<Icon name="banckward" size={wp('6')} />}
-              previousTitleStyle={{color: AppColor.railBorderColor}}
+              previousTitleStyle={{color: AppColor.primary}}
+              // onDateChange={(date) => {setSelectedDate(moment(date).format('DD MMMM YYYY'))}}
             />
           </View>
           <View style={ScheduleStyle.firstHeading}>
             <Text style={ScheduleStyle.headingFirst}>Available Time</Text>
           </View>
-          <View style={ScheduleStyle.viewFirst}>
-            <TouchableOpacity onPress={colorHandler}>
-              <NeoButton width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={20} justifyContent={'center'} marginLeft={wp('8')}>
-                <Text style={ScheduleStyle.buttonsTextRow1}>08:00 am</Text>
-              </NeoButton>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <NeoButton  width={wp('27.5')}  height={hp('4')}backgroundColor={'#E8E4E4'} borderRadius={20} justifyContent={'center'} marginLeft={wp('8')}>
-                <Text style={ScheduleStyle.buttonsTextRow1}>10:00 am</Text>
-              </NeoButton>
-            </TouchableOpacity>
-            <TouchableOpacity style={{marginRight: wp(8)}}>
-              <NeoButton width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={20} justifyContent={'center'} marginLeft={wp('8')}>
-                <Text style={ScheduleStyle.buttonsTextRow1}>14:00 pm</Text>
-              </NeoButton>
-            </TouchableOpacity>
+          <View style={{height:hp(20),top:hp(1)}}>
+            <FlatList 
+                data={timingData} 
+                renderItem={TimingFlatList}  
+                keyExtractor={item => item.id}
+                numColumns={2}
+                />
           </View>
-          <View style={ScheduleStyle.row2MainView}>
-            <TouchableOpacity>
-              <NeoButton  width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'} marginLeft={wp(8.5)}>
-                <Text style={ScheduleStyle.buttonsTextRow2}>16:00 pm</Text>
-              </NeoButton>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <NeoButton width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'}  borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'}  marginLeft={wp(8.5)}>
-                <Text style={ScheduleStyle.buttonsTextRow2}>18:00 pm</Text>
-              </NeoButton>
-            </TouchableOpacity>
-            <TouchableOpacity style={{marginRight: wp('8')}}>
-              <NeoButton  width={wp('27.5')}  height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'} marginLeft={wp(9)}>
-                <Text style={ScheduleStyle.buttonsTextRow2}>20:00 pm</Text>
-              </NeoButton>
-            </TouchableOpacity>
-          </View>
-          <View>
+          {/* <View>
             <Text style={ScheduleStyle.headingsecond}>Appointment Details</Text>
           </View>
-          <View style={ScheduleStyle.rowTwoView}>
-            <TouchableOpacity>
-              <NeoButton width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'}  marginLeft={wp(8.5)}>
-                <Text style={ScheduleStyle.buttonsTextRow3}>Hospital</Text>
-              </NeoButton>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <NeoButton width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'} marginLeft={wp(8.5)}>
-                <Text style={ScheduleStyle.buttonsTextRow3}>Chat</Text>
-              </NeoButton>
-            </TouchableOpacity>
-            <TouchableOpacity style={{marginRight: wp(8)}}>
-              <NeoButton width={wp('27.5')} height={hp('4')}backgroundColor={'#E8E4E4'}borderRadius={wp(20)}justifyContent={'center'}alignItems={'center'} marginLeft={wp(8.5)}>
-                <Text style={ScheduleStyle.buttonsTextRow3}>Call</Text>
-              </NeoButton>
-            </TouchableOpacity>
-          </View>
-          <View style={ScheduleStyle.buttonsTextRow3LastButton}>
-            <TouchableOpacity onPress={colorHandler} style={{marginRight: wp('8')}}>
-              <NeoButton width={wp('27.5')} height={hp('4')} backgroundColor={'#E8E4E4'} borderRadius={wp(20)} justifyContent={'center'} alignItems={'center'}  marginLeft={wp(4.5)}>
-                <Text style={ScheduleStyle.buttonsTextRow3}> Vedio Call</Text>
-              </NeoButton>
-            </TouchableOpacity>
-          </View>
+          <View style={{height:hp(12),alignSelf:'center'}}>
+            <FlatList 
+                // style={{marginLeft:wp(3)}}
+                data={appointmentDetailData} 
+                renderItem={AppointmentDetailsFlatList}  
+                keyExtractor={item => item.id}
+                // numColumns={4}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}/>
+          </View> */}
           <View style={ScheduleStyle.bookAppointmentButtonStyle}>
-            <TouchableOpacity onPress={() => {setShowModal(true); }}>
+            <TouchableOpacity onPress={() => {setShowModal(true)}}>
               <NeoButton width={wp('90')} height={hp('7')} borderRadius={wp('10')} backgroundColor={AppColor.primary}>
                 <Text style={ScheduleStyle.bookAppointmentButton}> Book Appointment</Text>
               </NeoButton>
@@ -133,7 +108,7 @@ const Schedule = ({navigation}) => {
                 <Neomorph style={ScheduleStyle.lottyView}>
                   <Neomorph inner style={ScheduleStyle.lottyViewInner}>
                     <Lottie source={require('../assets/animations/schedule.json')}
-                      style={{ width: wp(60), height: wp(60),}}
+                      style={{ width: wp(50), height: wp(50),}}
                       autoPlay/>
                    </Neomorph>
                 </Neomorph>
@@ -145,7 +120,7 @@ const Schedule = ({navigation}) => {
                 </View>
                 <View style={ScheduleStyle.modalButtonView}>
                   <TouchableOpacity onPress={() => navigation.navigate('Drawer')} onBackdropPress={() => setShowModal(false)}>
-                    <NeoButton width={wp(70)} height={hp(6.5)} backgroundColor={'#c28cde'} borderRadius={30} justifyContent={'center'} alignItems={'center'}>
+                    <NeoButton width={wp(70)} height={hp(6.5)} backgroundColor={AppColor.primary} borderRadius={30} justifyContent={'center'} alignItems={'center'}>
                       <Text style={ScheduleStyle.modalDoneButton}>Done</Text>
                     </NeoButton>
                   </TouchableOpacity>
@@ -162,3 +137,6 @@ const Schedule = ({navigation}) => {
 };
 
 export default Schedule;
+
+
+// add two numbers in python
