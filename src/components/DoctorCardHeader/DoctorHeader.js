@@ -3,6 +3,7 @@ import {SafeAreaView, View, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {DoctorHeaderStyle} from '../../assets/styles/DashboardStyle/DoctorHeaderStyle';
+import { widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const DoctorHeader = props => {
   const [fill, setFill] = useState('hearto');
