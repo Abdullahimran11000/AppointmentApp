@@ -44,7 +44,7 @@ const Maps = props => {
               <Card mode="contained" style={MapsStyle.cardMainView}>
                 <View style={MapsStyle.cardView}>
                   <Card.Cover source={require('../assets/images/selfie.jpg')} style={MapsStyle.cardcover}/>
-                  <Card.Title style={MapsStyle.cardTitleStyle} title="Dr. Rana Hamad" titleStyle={{fontFamily: 'Poppins-SemiBold', fontSize: 15}}/>
+                  <Card.Title style={MapsStyle.cardTitleStyle} title="Dr. Rana Hamad" titleStyle={{fontFamily: 'Poppins-SemiBold', fontSize: wp(4)}}/>
                   <Card.Content style={MapsStyle.cardContent}>
                     <Paragraph style={MapsStyle.cardParagraph}>
                       <AntDesign name="star" size={wp('4')} color="#FFD700" />

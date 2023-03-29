@@ -15,7 +15,7 @@ const BackButton = ({onPress, children}) => {
         backgroundColor={AppColor.whiteShade}
         darkShadowColor={AppColor.blackOpacity3}>
         <TouchableOpacity onPress={onPress}>
-          <Ionicons name="chevron-back-sharp" size={wp('6')} color="black" />
+          <Ionicons name="chevron-back-sharp" size={wp('6')} color={AppColor.black} />
         </TouchableOpacity>
       </NeoButton>
       <Text style={BackButtonStyle.headingText}>{children}</Text>

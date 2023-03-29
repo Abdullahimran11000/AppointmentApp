@@ -24,23 +24,18 @@ import { AppointmentStyle } from '../../assets/styles/AnimatedDrawerStyle/Appoin
 const CompleteAppointmentCard = ({item, onPress}) => {
   const [showButton, setShowButton] = useState(false);
   return (
-    <View
-      style={{
-        width: wp(95),
-        height: showButton ? hp(33) : hp(25),
-        margin: wp(2.5),
-        borderRadius: 30,
-        backgroundColor: AppColor.white,
-      }}>
+    <Neomorph style={{width: wp(95),
+      height: showButton ? hp(33) : hp(23),
+      margin: wp(2.5),
+      borderRadius: 30,
+      backgroundColor: AppColor.whiteShade,
+      shadowRadius:3}}>
       <View
         style={{
-          borderRadius: wp('10'),
-          width: wp('20'),
+          width: wp('18'),
           height: wp('20'),
-          marginLeft: wp(5),
+          marginLeft: wp(7),
           marginTop: hp(3),
-          alignItems: 'center',
-          justifyContent: 'center',
         }}>
         <Image
           style={AppointmentStyle.doctorImage}
@@ -49,11 +44,14 @@ const CompleteAppointmentCard = ({item, onPress}) => {
 
       <View
         style={{
-          marginHorizontal: wp(28),
-          marginVertical: wp(-17),
-          marginLeft: wp(30),
+          position:'absolute',
+          alignSelf:'center',
+          // alignItems:'stretch',
+          // justifyContent:'center',
+          marginTop:hp(4),
+          width:wp(38)
         }}>
-        <View style={{position: 'absolute', right: wp('-20')}}>
+        <View style={{position: 'absolute',width:wp(55),alignItems:'flex-end'}}>
           <TouchableOpacity
             style={{
               justifyContent: 'center',
@@ -61,27 +59,25 @@ const CompleteAppointmentCard = ({item, onPress}) => {
               width: wp('6'),
               height: wp('6'),
               borderRadius: wp('6'),
-              backgroundColor: 'rgba(0,0,0,0.1)',
+              backgroundColor: AppColor.blackOpacity1,
+              top:hp(1)
             }}
             onPress={() => setShowButton(!showButton)}>
-            <Icon name="angle-down" size={15}></Icon>
+            <Icon name="angle-down" size={wp(4)} color={AppColor.black}></Icon>
           </TouchableOpacity>
         </View>
         <Text style={AppointmentStyle.doctorText}>{item.name}</Text>
-
-        <View>
-          <Text>{item.deptName}</Text>
-        </View>
+          <Text style={AppointmentStyle.doctorCategory}>{item.deptName}</Text>
       </View>
 
       <View style={AppointmentStyle.secondFooterView}>
-        <Icon size={wp(3.5)} name="calendar"></Icon>
+        <Icon size={wp(3.5)} name="calendar" color={AppColor.primary}></Icon>
         <Text style={AppointmentStyle.secondDoctorText}>{item.date}</Text>
 
-        <Icon size={wp(3.6)} name="clock-o"></Icon>
+        <Icon size={wp(3.6)} name="clock-o" color={AppColor.primary}></Icon>
         <Text style={AppointmentStyle.secondDoctorText}>{item.time}</Text>
 
-        <Icon size={wp(3.5)} name="wechat"></Icon>
+        <Icon size={wp(3.5)} name="wechat" color={AppColor.primary}></Icon>
         <TouchableOpacity onPress={onPress}>
           <Text style={AppointmentStyle.secondDoctorText}>
             {item.appDestination}
@@ -95,13 +91,14 @@ const CompleteAppointmentCard = ({item, onPress}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={AppointmentStyle.footerOpacityButton}>
-            <Text style={AppointmentStyle.footerButtonText}>Reshcedule</Text>
+            <Text style={AppointmentStyle.footerButtonText}>Reschedule</Text>
           </TouchableOpacity>
         </View>
       ) : (
         ''
       )}
-    </View>
+    {/* </View> */}
+    </Neomorph>
   );
 };
 

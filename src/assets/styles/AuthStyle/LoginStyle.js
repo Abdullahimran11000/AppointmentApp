@@ -21,7 +21,8 @@ const LoginStyle = StyleSheet.create({
   GoogleImage: {width: wp('5'),height: hp(3),marginLeft: wp(20),position: 'absolute',backgroundColor:AppColor.white},
   GoogleText: {color: AppColor.black,textAlign: 'center',fontFamily: 'Poppins-Light',marginLeft:wp('3')},
   LastView:{flexDirection: 'row',justifyContent: 'center',alignItems: 'center',marginTop:wp('3')},
-  SignUpText:{fontFamily: 'Poppins-SemiBold', color: AppColor.black}
+  SignUpText:{fontFamily: 'Poppins-SemiBold', color: AppColor.black},
+  validatorStyle:{fontFamily: 'Poppins-Light',fontSize: wp('3'),color: AppColor.red,width: wp('90'),alignSelf: 'center',}
 });
 
 export {LoginStyle};

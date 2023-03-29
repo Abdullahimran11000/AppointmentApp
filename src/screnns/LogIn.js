@@ -81,13 +81,7 @@ const LogIn = ({navigation}) => {
             </View>
             {checkEmailTextValid ? (
               <Text
-                style={{
-                  fontFamily: 'Poppins-Light',
-                  fontSize: wp('3'),
-                  color: AppColor.red,
-                  width: wp('90'),
-                  alignSelf: 'center',
-                }}>
+                style={LogIn.validatorStyle}>
                 {emailLabelText}
               </Text>
             ) : null}
@@ -120,13 +114,7 @@ const LogIn = ({navigation}) => {
             </View>
             {passwordValidator ? (
               <Text
-                    style={{
-                      fontFamily: 'Poppins-Light',
-                      fontSize: wp('3'),
-                      color: AppColor.red,
-                      width: wp('90'),
-                      alignSelf: 'center',
-                    }}>
+                    style={LogIn.validatorStyle}>
                     {passwordLabelText}
                   </Text>
                 ) : null}
