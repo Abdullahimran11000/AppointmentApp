@@ -18,8 +18,7 @@ import {AppColor} from '../assets/colors/AppColor';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import AppContext from '../assets/context/AppContext';
 
-const MyAppointment = () => {
-  const navigation = useNavigation();
+const MyAppointment = ({navigation}) => {
   const {storeCallStatus} = useContext(AppContext);
   const [completeButton, setCompeletButton] = useState(true);
   const [upcomingButton, setUpcomingButton] = useState(false);
@@ -40,7 +39,7 @@ const MyAppointment = () => {
       name: 'Dr.Amanda Johnson',
       deptName: 'Dentist Specialist',
       date: '22 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
       appDestination: 'Hospital',
     },
     {
@@ -48,7 +47,7 @@ const MyAppointment = () => {
       name: 'Dr. Sharina james',
       deptName: 'Urology Specialist',
       date: '24 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
       appDestination: 'Chat',
     },
     {
@@ -56,7 +55,7 @@ const MyAppointment = () => {
       name: 'Dr.Elizbeth',
       deptName: 'Cardiology Specialist',
       date: '22 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
       appDestination: 'Video',
     },
   ]);
@@ -73,7 +72,7 @@ const MyAppointment = () => {
       name: 'Dr.jhonson',
       deptName: 'Dentist Specialist',
       date: '22 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
       appDestination: 'Hospital',
     },
     {
@@ -81,7 +80,7 @@ const MyAppointment = () => {
       name: 'Dr.james',
       deptName: 'Urology Specialist',
       date: '24 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
       appDestination: 'Chat',
     },
     {
@@ -89,7 +88,7 @@ const MyAppointment = () => {
       name: 'Dr.Alex',
       deptName: 'Cardiology Specialist',
       date: '22 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
       appDestination: 'Video',
     },
   ]);
@@ -106,7 +105,7 @@ const MyAppointment = () => {
       name: 'Dr.Richie',
       deptName: 'Dentist Specialist',
       date: '22 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
       appDestination: 'Hospital',
     },
     {
@@ -114,7 +113,7 @@ const MyAppointment = () => {
       name: 'Dr.Clark',
       deptName: 'Urology Specialist',
       date: '24 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
       appDestination: 'Chat',
     },
     {
@@ -122,7 +121,15 @@ const MyAppointment = () => {
       name: 'Dr.James Bhatti',
       deptName: 'Cardiology Specialist',
       date: '22 March 2022',
-      time: '10;30 pm',
+      time: '10:30 pm',
+      appDestination: 'Video',
+    },
+    {
+      id: 4,
+      name: 'Dr.James Bhatti',
+      deptName: 'Cardiology Specialist',
+      date: '22 March 2022',
+      time: '10:30 pm',
       appDestination: 'Video',
     },
   ]);
@@ -185,13 +192,13 @@ const MyAppointment = () => {
         </View>
         <View style={AppointmentStyle.opcaityView}>
           <Neomorph
-            inner={completeButton}
+            // inner={completeButton}
             style={[
               AppointmentStyle.opacityButton,
               {
                 backgroundColor: completeButton
-                  ? 'rgba(207, 66, 195, 0.2)'
-                  : AppColor.whiteShade,
+                  ? AppColor.primary
+                  : AppColor.whiteShade
               },
             ]}>
             <TouchableOpacity
@@ -209,12 +216,12 @@ const MyAppointment = () => {
           </Neomorph>
 
           <Neomorph
-            inner={upcomingButton}
+            // inner={upcomingButton}
             style={[
               AppointmentStyle.opacityButton,
               {
                 backgroundColor: upcomingButton
-                  ? 'rgba(207, 66, 195,0.2)'
+                  ? AppColor.primary
                   : AppColor.whiteShade,
               },
             ]}>
@@ -233,13 +240,14 @@ const MyAppointment = () => {
           </Neomorph>
 
           <Neomorph
-            inner={cancellButton}
+            // inner={cancellButton}
             style={[
               AppointmentStyle.opacityButton,
-              {
+              { 
                 backgroundColor: cancellButton
-                  ? 'rgba(207, 66, 195,0.2)'
+                  ? AppColor.primary
                   : AppColor.whiteShade,
+                  // 'rgba(207, 66, 195,0.2)'
               },
             ]}>
             <TouchableOpacity

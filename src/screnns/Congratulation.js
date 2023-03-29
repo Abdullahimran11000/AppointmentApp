@@ -18,7 +18,6 @@ import {useNavigation} from '@react-navigation/native';
 import { useEffect } from 'react';
 
 const Congratulation = ({navigation}) => {
-  // const navigation = useNavigation();
 
   useEffect(() => {navigation.addListener('focus' , () => {
     console.log('Congratulation screen is focusing right now!')

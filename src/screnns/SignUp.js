@@ -24,9 +24,6 @@ const SignUp = ({navigation}) => {
   const [passwordText , setPasswordText] = useState()
   const [passwordLabel , setPasswordLabel] = useState('')
   const [passwordValidator , setPasswordValidator] = useState(false)
-  // const [checkboxText , setCheckBoxText] = useState('')
-  // const [checkboxLabel , setCheckBoxLabel] = useState('')
-  // const [checkboxValidator , setCheckBoxValidator] = useState(false)
 
   const signUpHandler = () => {
     if(nameText === '')
@@ -58,17 +55,6 @@ const SignUp = ({navigation}) => {
       setEmailValidator(false)
 
     }
-    // else if(checkboxText === '')
-    // {
-    //   setCheckBoxLabel('Are you agree on Terms and Privacy')
-    //   setCheckBoxValidator(true)
-    //   setNameLabel('')
-    //   setNameValidator(false)
-    //   setEmailLabel('')
-    //   setEmailValidator(false)
-    //   setPasswordLabel('')
-    //   setPasswordValidator(false)
-    // }
     else
     {
       setEmailLabel('')
@@ -89,13 +75,9 @@ const SignUp = ({navigation}) => {
   const policy = {
     terms:<Text style={{fontFamily:'Poppins-SemiBold'}}>terms</Text>,
     privacy:<Text style={{fontFamily:'Poppins-SemiBold'}}>Privacy</Text>,
-    LogIn:  <TouchableOpacity style={{backgroundColor:'red',flexDirection:'row'}} onPress={() => navigation.goBack()}>
-                <Text style={SignUpStyle.loginText}>Log in</Text>
-            </TouchableOpacity> 
+    LogIn:  <Text style={SignUpStyle.loginText}>Log in</Text>
            
   }
-
-
   useEffect(() => {
     navigation.addListener('focus', () => {
       console.log('SignUp screen is focusing right now!');
@@ -151,7 +133,6 @@ const SignUp = ({navigation}) => {
             <Text style={SignUpStyle.ValidatorStyle}>
               {passwordLabel}
             </Text> : null}
-          
           <View style={{width:wp(95),alignSelf:'center',marginTop:hp(2)}}>
             <TouchableOpacity onPress={() => {
               if(checkbox == true){
@@ -168,18 +149,6 @@ const SignUp = ({navigation}) => {
             </TouchableOpacity>
               <Text style={SignUpStyle.termsAndPrivacyStyle}>I agree with {policy.terms} & {policy.privacy}</Text>
           </View>
-          {/* {checkboxValidator ?  
-          <Text
-              style={{
-                fontFamily: 'Poppins-Light',
-                fontSize: wp('3'),
-                color: AppColor.red,
-                width: wp('83'),
-                alignSelf: 'center',
-              }}>
-            {checkboxLabel}
-          </Text> : null} */}
-
           <View style={SignUpStyle.viewSignUpbutton}>
             <TouchableOpacity onPress={signUpHandler}>
               <NeoButton lightShadowColor={AppColor.white} width={wp('83')} height={hp('6')} borderRadius={wp('15')} backgroundColor={AppColor.primary}>
@@ -198,8 +167,15 @@ const SignUp = ({navigation}) => {
               </NeoButton>
             </TouchableOpacity>
           </View>
-          <View style={SignUpStyle.footerView}>
-            <Text style={SignUpStyle.footerText}>Already have an Account? {policy.LogIn}</Text>
+          <View style={{display:'flex' , flexDirection:'row',alignSelf:'center',width:wp(65)}}>
+            <View style={SignUpStyle.footerView}>
+              <Text style={SignUpStyle.footerText}>Already have an Account? </Text>
+            </View>
+            <View style={{top:hp(2)}}>
+              <TouchableOpacity onPress={() => navigation.navigate('LogIn')}>
+                {policy.LogIn}
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
         <CustomModal
@@ -213,7 +189,7 @@ const SignUp = ({navigation}) => {
           style={{marginTop: wp(10)}}
           buttonText={'Go to LogIn'}
         />
-    </ScrollView>
+        </ScrollView>
       </SafeAreaView>
   );
 };

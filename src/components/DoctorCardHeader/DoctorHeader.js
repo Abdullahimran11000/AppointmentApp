@@ -15,7 +15,7 @@ const DoctorHeader = props => {
           <TouchableOpacity
             style={DoctorHeaderStyle.touchableView}
             onPress={props.onPress}>
-            <Ionicons name="chevron-back-sharp" size={18} color="#3d3b3b" />
+            <Ionicons name="chevron-back-sharp" size={wp(4.5)} color="#3d3b3b" />
           </TouchableOpacity>
         </View>
         <View style={DoctorHeaderStyle.iconViews}>
@@ -30,7 +30,7 @@ const DoctorHeader = props => {
                 setColor('#f56262');
               }
             }}>
-            <AntDesign name={fill} size={13} color={color} />
+            <AntDesign name={fill} size={wp(3.1)} color={color} />
           </TouchableOpacity>
         </View>
       </View>
