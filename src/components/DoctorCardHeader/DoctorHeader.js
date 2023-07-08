@@ -5,7 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {DoctorHeaderStyle} from '../../assets/styles/DashboardStyle/DoctorHeaderStyle';
 import { widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-const DoctorHeader = props => {
+const DoctorHeader = () => {
   const [fill, setFill] = useState('hearto');
   const [color, setColor] = useState('white');
 
@@ -15,7 +15,7 @@ const DoctorHeader = props => {
         <View style={DoctorHeaderStyle.iconView}>
           <TouchableOpacity
             style={DoctorHeaderStyle.touchableView}
-            onPress={props.onPress}>
+            onPress={onPress}>
             <Ionicons name="chevron-back-sharp" size={wp(4.5)} color="#3d3b3b" />
           </TouchableOpacity>
         </View>
